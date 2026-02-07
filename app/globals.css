@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Fondos base - tonos oscuros neutros */
+    --background: 200 20% 10%;      /* hsl(200, 20%, 10%) - Fondo principal oscuro */
+    --foreground: 150 10% 95%;      /* hsl(150, 10%, 95%) - Texto principal claro */
+    
+    /* Cards y popovers */
+    --card: 200 18% 13%;            /* hsl(200, 18%, 13%) - Cards ligeramente más claras */
+    --card-foreground: 150 10% 95%; /* hsl(150, 10%, 95%) */
+    --popover: 200 18% 13%;         /* hsl(200, 18%, 13%) */
+    --popover-foreground: 150 10% 95%; /* hsl(150, 10%, 95%) */
+    
+    /* 3 TONOS DE VERDE PRINCIPALES */
+    
+    /* 1. Verde Principal - Botones y acciones primarias */
+    --primary: 145 70% 45%;         /* hsl(145, 70%, 45%) - Verde jade vibrante */
+    --primary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - Blanco puro */
+    
+    /* 2. Verde Secundario - Badges y elementos secundarios */
+    --secondary: 145 50% 35%;       /* hsl(145, 50%, 35%) - Verde oscuro elegante */
+    --secondary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - Blanco para contraste */
+    
+    /* 3. Verde Accent/Outline - Bordes y elementos sutiles */
+    --accent: 145 30% 50%;          /* hsl(145, 30%, 50%) - Verde suave para outlines */
+    --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    
+    /* Muted - tonos apagados con tinte verde sutil */
+    --muted: 200 15% 17%;           /* hsl(200, 15%, 17%) - Gris oscuro */
+    --muted-foreground: 145 10% 60%; /* hsl(145, 10%, 60%) - Texto apagado con tinte verde */
+    
+    /* Destructive - rojo para errores */
+    --destructive: 0 72% 55%;       /* hsl(0, 72%, 55%) - Rojo balanceado */
+    --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    
+    /* Bordes e inputs - usando verde accent sutil */
+    --border: 145 15% 22%;          /* hsl(145, 15%, 22%) - Bordes con tinte verde */
+    --input: 145 15% 22%;           /* hsl(145, 15%, 22%) */
+    --ring: 145 70% 45%;            /* hsl(145, 70%, 45%) - Focus ring = primary */
+    
+    /* Charts - usando los 3 tonos principales + variaciones */
+    --chart-1: 145 70% 45%;         /* hsl(145, 70%, 45%) - Primary */
+    --chart-2: 145 50% 35%;         /* hsl(145, 50%, 35%) - Secondary */
+    --chart-3: 145 30% 50%;         /* hsl(145, 30%, 50%) - Accent */
+    --chart-4: 145 60% 40%;         /* hsl(145, 60%, 40%) - Tono intermedio */
+    --chart-5: 145 40% 42%;         /* hsl(145, 40%, 42%) - Tono intermedio */
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
