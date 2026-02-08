@@ -14,49 +14,49 @@ body {
 
 @layer base {
   :root {
-    /* Fondos base - tonos oscuros neutros */
-    --background: 200 20% 10%;      /* hsl(200, 20%, 10%) - Fondo principal oscuro */
-    --foreground: 150 10% 95%;      /* hsl(150, 10%, 95%) - Texto principal claro */
+    /* Fondos base - tonos azul oscuro */
+    --background: 210 50% 8%;       /* hsl(210, 50%, 8%) - Azul muy oscuro (fondo principal) */
+    --foreground: 200 10% 95%;      /* hsl(200, 10%, 95%) - Texto principal claro */
     
     /* Cards y popovers */
-    --card: 200 18% 13%;            /* hsl(200, 18%, 13%) - Cards ligeramente más claras */
-    --card-foreground: 150 10% 95%; /* hsl(150, 10%, 95%) */
-    --popover: 200 18% 13%;         /* hsl(200, 18%, 13%) */
-    --popover-foreground: 150 10% 95%; /* hsl(150, 10%, 95%) */
+    --card: 210 45% 12%;            /* hsl(210, 45%, 12%) - Cards con azul oscuro */
+    --card-foreground: 200 10% 95%; /* hsl(200, 10%, 95%) */
+    --popover: 210 45% 12%;         /* hsl(210, 45%, 12%) */
+    --popover-foreground: 200 10% 95%; /* hsl(200, 10%, 95%) */
     
-    /* 3 TONOS DE VERDE PRINCIPALES */
+    /* 3 COLORES PRINCIPALES - AZUL CYAN Y DORADO */
     
-    /* 1. Verde Principal - Botones y acciones primarias */
-    --primary: 145 70% 45%;         /* hsl(145, 70%, 45%) - Verde jade vibrante */
-    --primary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - Blanco puro */
+    /* 1. Azul Cyan - Botones y acciones primarias */
+    --primary: 190 85% 55%;         /* hsl(190, 85%, 55%) - Azul cyan brillante */
+    --primary-foreground: 210 50% 8%; /* hsl(210, 50%, 8%) - Azul oscuro para contraste */
     
-    /* 2. Verde Secundario - Badges y elementos secundarios */
-    --secondary: 145 50% 35%;       /* hsl(145, 50%, 35%) - Verde oscuro elegante */
-    --secondary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - Blanco para contraste */
+    /* 2. Dorado/Naranja - Badges y elementos destacados */
+    --secondary: 35 90% 60%;        /* hsl(35, 90%, 60%) - Dorado vibrante */
+    --secondary-foreground: 210 50% 8%; /* hsl(210, 50%, 8%) - Azul oscuro para contraste */
     
-    /* 3. Verde Accent/Outline - Bordes y elementos sutiles */
-    --accent: 145 30% 50%;          /* hsl(145, 30%, 50%) - Verde suave para outlines */
+    /* 3. Azul Suave - Bordes y elementos sutiles */
+    --accent: 200 60% 45%;          /* hsl(200, 60%, 45%) - Azul medio para outlines */
     --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
     
-    /* Muted - tonos apagados con tinte verde sutil */
-    --muted: 200 15% 17%;           /* hsl(200, 15%, 17%) - Gris oscuro */
-    --muted-foreground: 145 10% 60%; /* hsl(145, 10%, 60%) - Texto apagado con tinte verde */
+    /* Muted - tonos apagados con tinte azul */
+    --muted: 210 30% 18%;           /* hsl(210, 30%, 18%) - Azul grisáceo oscuro */
+    --muted-foreground: 200 15% 60%; /* hsl(200, 15%, 60%) - Texto apagado con tinte azul */
     
     /* Destructive - rojo para errores */
     --destructive: 0 72% 55%;       /* hsl(0, 72%, 55%) - Rojo balanceado */
     --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
     
-    /* Bordes e inputs - usando verde accent sutil */
-    --border: 145 15% 22%;          /* hsl(145, 15%, 22%) - Bordes con tinte verde */
-    --input: 145 15% 22%;           /* hsl(145, 15%, 22%) */
-    --ring: 145 70% 45%;            /* hsl(145, 70%, 45%) - Focus ring = primary */
+    /* Bordes e inputs - usando azul sutil */
+    --border: 210 35% 22%;          /* hsl(210, 35%, 22%) - Bordes con tinte azul */
+    --input: 210 35% 22%;           /* hsl(210, 35%, 22%) */
+    --ring: 190 85% 55%;            /* hsl(190, 85%, 55%) - Focus ring = primary cyan */
     
-    /* Charts - usando los 3 tonos principales + variaciones */
-    --chart-1: 145 70% 45%;         /* hsl(145, 70%, 45%) - Primary */
-    --chart-2: 145 50% 35%;         /* hsl(145, 50%, 35%) - Secondary */
-    --chart-3: 145 30% 50%;         /* hsl(145, 30%, 50%) - Accent */
-    --chart-4: 145 60% 40%;         /* hsl(145, 60%, 40%) - Tono intermedio */
-    --chart-5: 145 40% 42%;         /* hsl(145, 40%, 42%) - Tono intermedio */
+    /* Charts - usando azul cyan, dorado y variaciones */
+    --chart-1: 190 85% 55%;         /* hsl(190, 85%, 55%) - Cyan brillante */
+    --chart-2: 35 90% 60%;          /* hsl(35, 90%, 60%) - Dorado */
+    --chart-3: 200 60% 45%;         /* hsl(200, 60%, 45%) - Azul medio */
+    --chart-4: 195 70% 50%;         /* hsl(195, 70%, 50%) - Cyan intermedio */
+    --chart-5: 30 85% 55%;          /* hsl(30, 85%, 55%) - Naranja suave */
     
     --radius: 0.75rem;
   }
