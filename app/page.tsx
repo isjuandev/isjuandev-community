@@ -24,7 +24,7 @@ export default function HomePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button size="lg" className="gap-2" asChild>
-                <a href="https://kick.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://kick.com/isjuandev" target="_blank" rel="noopener noreferrer">
                   <Video className="h-5 w-5" />
                   Ver Streams
                 </a>

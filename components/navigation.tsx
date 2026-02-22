@@ -49,7 +49,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/isjuandev" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
