@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
+import { SocialButton } from '@/components/social-button'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -12,7 +14,8 @@ import {
   Users,
   FileText,
   Code2,
-  Target
+  Target,
+  Github
 } from 'lucide-react'
 
 export default function AboutPage() {
@@ -30,7 +33,7 @@ export default function AboutPage() {
   // Animate stats counting up
   useEffect(() => {
     if (!statsVisible) return
-    
+
     const animateStat = (target: number, setter: (val: number) => void) => {
       let current = 0
       const increment = target / 50
@@ -45,37 +48,42 @@ export default function AboutPage() {
       }, 30)
       return timer
     }
-    
+
     const timers = [
       animateStat(8, setYearsExperience),
       animateStat(50, setProjectsBuilt),
       animateStat(20, setTechnologiesUsed),
       animateStat(3, setCompaniesWorked)
     ]
-    
+
     return () => timers.forEach(clearInterval)
   }, [statsVisible])
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
+
       <section className="relative py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
-        
+
         <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Profile Image */}
             <div className="flex justify-center md:justify-start">
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 animate-gradient" />
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-                  <Code2 className="w-32 h-32 text-primary/60" />
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Juan Diego García Castaño"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -89,7 +97,7 @@ export default function AboutPage() {
                 <p className="text-xl text-primary mb-4">Desarrollador FullStack | React & .NET</p>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Ingeniero de software especializado en desarrollo full-stack con experiencia en la creación de soluciones web modernas y escalables. 
+                    Ingeniero de software especializado en desarrollo full-stack con experiencia en la creación de soluciones web modernas y escalables.
                   </p>
                   <p>
                     Me apasiona construir aplicaciones que combinan interfaces elegantes con arquitecturas robustas, utilizando React, .NET y servicios cloud (AWS). Experiencia en microservicios, APIs REST y optimización de rendimiento.
@@ -100,12 +108,11 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <Button size="lg" className="gap-2" asChild>
-                <a href="https://kick.com" target="_blank" rel="noopener noreferrer">
-                  <Video className="h-5 w-5" />
-                  Sígueme en Kick
-                </a>
-              </Button>
+              <div className="flex flex-wrap gap-3">
+                <SocialButton platform="kick" href="https://kick.com/isjuandev" />
+                <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
+                <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
+              </div>
             </div>
           </div>
 
@@ -155,7 +162,7 @@ export default function AboutPage() {
           {/* Tech Stack */}
           <div className="mt-16">
             <h3 className="text-2xl font-bold mb-6 text-center">Stack Tecnológico</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {/* Frontend */}
               <Card className="border-primary/30 bg-card/50 backdrop-blur">
@@ -219,7 +226,7 @@ export default function AboutPage() {
           <div className="mt-16">
             <h3 className="text-2xl font-bold mb-8 text-center">Experiencia Profesional</h3>
             <div className="max-w-4xl mx-auto space-y-6">
-              
+
               {/* CODERLAND */}
               <Card className="border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all">
                 <CardContent className="pt-6">
@@ -231,7 +238,7 @@ export default function AboutPage() {
                     <Badge variant="secondary">2025-2026</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desarrollo de aplicaciones empresariales con .NET y React. Implementación de APIs REST, marketplaces, 
+                    Desarrollo de aplicaciones empresariales con .NET y React. Implementación de APIs REST, marketplaces,
                     integración de pasarelas de pago. Contenedorización con Docker y automatización CI/CD con Azure DevOps.
                   </p>
                 </CardContent>
@@ -248,7 +255,7 @@ export default function AboutPage() {
                     <Badge variant="secondary">2022-2025</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    Desarrollo de aplicaciones web con React y .NET Core. Arquitecturas escalables basadas en microservicios, 
+                    Desarrollo de aplicaciones web con React y .NET Core. Arquitecturas escalables basadas en microservicios,
                     optimización de consultas SQL Server, reducción de tiempos de carga en 30%. Integración AWS.
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -272,7 +279,7 @@ export default function AboutPage() {
                     <Badge variant="secondary">2016-Presente</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core. 
+                    Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core.
                     Desarrollo móvil con Flutter. Optimización con code-splitting y lazy loading.
                   </p>
                 </CardContent>
@@ -284,7 +291,7 @@ export default function AboutPage() {
           <div className="mt-16">
             <h3 className="text-2xl font-bold mb-8 text-center">Mi Trayectoria</h3>
             <div className="max-w-3xl mx-auto space-y-6">
-              
+
               <div className="flex gap-4">
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
@@ -293,7 +300,7 @@ export default function AboutPage() {
                   <div className="flex-1 w-px bg-gradient-to-b from-primary to-secondary mt-2" style={{ minHeight: '60px' }} />
                 </div>
                 <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2016 - Inicios en Desarrollo</h4>
+                  <h4 className="text-xl font-semibold mb-2">2016 - Primeros pasos como desarrollador</h4>
                   <p className="text-muted-foreground leading-relaxed">
                     Comencé como desarrollador freelance, construyendo sitios web y aprendiendo las bases del desarrollo full-stack.
                   </p>
@@ -308,9 +315,9 @@ export default function AboutPage() {
                   <div className="flex-1 w-px bg-gradient-to-b from-secondary to-primary mt-2" style={{ minHeight: '60px' }} />
                 </div>
                 <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2022 - Experiencia Empresarial</h4>
+                  <h4 className="text-xl font-semibold mb-2">2022 - Primeros pasos en una empresa de desarrollo</h4>
                   <p className="text-muted-foreground leading-relaxed">
-                    Me uní a IMAGINAMOS como desarrollador .NET, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.
+                    Me uní a IMAGINAMOS como desarrollador .NET <span className="font-bold">JR</span> durante 6 meses, después de eso me ascendieron a desarrollador .NET <span className="font-bold">SENIOR</span>, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.
                   </p>
                 </div>
               </div>
@@ -323,9 +330,9 @@ export default function AboutPage() {
                   <div className="flex-1 w-px bg-gradient-to-b from-primary to-secondary mt-2" style={{ minHeight: '60px' }} />
                 </div>
                 <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2025 - Nivel Senior</h4>
+                  <h4 className="text-xl font-semibold mb-2">2025 - Desarrollador Senior</h4>
                   <p className="text-muted-foreground leading-relaxed">
-                    Ascendí a desarrollador senior en CODERLAND, liderando proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.
+                    Ahora como desarrollador senior en CODERLAND, <span className="font-bold">LIDERÉ</span> y participé en proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.
                   </p>
                 </div>
               </div>

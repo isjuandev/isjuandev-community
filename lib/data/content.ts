@@ -12,6 +12,7 @@ export interface Project {
 
 export interface BlogPost {
   id: number
+  slug: string
   title: string
   excerpt: string
   image: string
@@ -20,6 +21,7 @@ export interface BlogPost {
   readTime: number
   date: string
   featured: boolean
+  body: string
 }
 
 export interface Tip {
@@ -34,17 +36,6 @@ export interface Tip {
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Plataforma de Chat con IA',
-    description: 'Aplicación de chat en tiempo real con respuestas impulsadas por IA y análisis de sentimientos',
-    image: '/placeholder.svg',
-    category: 'Aplicaciones Web',
-    tags: ['React', 'Next.js', 'IA', 'WebSocket'],
-    demo: '#',
-    code: '#',
-    stream: true
-  },
-  {
-    id: 2,
     title: 'CLI de Herramientas Dev',
     description: 'Herramienta de línea de comandos para automatizar flujos de trabajo comunes de desarrollo',
     image: '/placeholder.svg',
@@ -55,7 +46,7 @@ export const projects: Project[] = [
     stream: true
   },
   {
-    id: 3,
+    id: 2,
     title: 'Gestor de Fragmentos de Código',
     description: 'Interfaz hermosa para organizar y compartir fragmentos de código con resaltado de sintaxis',
     image: '/placeholder.svg',
@@ -66,29 +57,7 @@ export const projects: Project[] = [
     stream: false
   },
   {
-    id: 4,
-    title: 'Plantilla de Portafolio 3D',
-    description: 'Portafolio interactivo en 3D construido con Three.js y React Three Fiber',
-    image: '/placeholder.svg',
-    category: 'Experimentos',
-    tags: ['Three.js', 'React', 'WebGL'],
-    demo: '#',
-    code: '#',
-    stream: false
-  },
-  {
-    id: 5,
-    title: 'Dashboard de Stream',
-    description: 'Panel de analíticas en tiempo real para rastrear métricas de stream y actividad del chat',
-    image: '/placeholder.svg',
-    category: 'Aplicaciones Web',
-    tags: ['React', 'Charts', 'WebSocket'],
-    demo: '#',
-    code: '#',
-    stream: false
-  },
-  {
-    id: 6,
+    id: 3,
     title: 'Limitador de Tasa de API',
     description: 'Middleware para limitar peticiones de API con caché Redis',
     image: '/placeholder.svg',
@@ -103,91 +72,68 @@ export const projects: Project[] = [
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: 'Construyendo una App de Chat en Tiempo Real con WebSockets',
-    excerpt: 'Aprende cómo implementar comunicación en tiempo real en tus aplicaciones web usando tecnología WebSocket y manejar estados de conexión elegantemente.',
-    image: '/placeholder.svg',
-    category: 'Tutoriales',
-    tags: ['WebSocket', 'React', 'Node.js'],
-    readTime: 8,
-    date: '2024-01-15',
-    featured: true
+    slug: 'por-que-empece-a-hacer-stream',
+    title: '¿Por qué empecé a hacer stream?',
+    excerpt: 'Tenía miedo y muchas preguntas, no tenía equipo caro y tampoco sabía si alguien me iba a ver. Aun así le di al botón de "empezar directo". Esto es lo que pasó.',
+    image: 'https://images.unsplash.com/photo-1613160717888-faa82cdb8a94?q=80&w=1740&auto=format&fit=crop',
+    category: 'Trayectoria Dev',
+    tags: ['Comunidad', 'Streaming', 'Inicio'],
+    readTime: 4,
+    date: '2025-02-10',
+    featured: true,
+    body: `Al principio hacía streams porque me generaba mucho temor: la idea de crear contenido, ponerme frente a una cámara y hablar en público me daba nervios. Sabía que si quería crecer como creador y como desarrollador tenía que enfrentar eso, así que tomé la decisión de dejar el miedo atrás y comenzar.
+
+  En vez de forzarme a hacer algo que no disfrutaba, la mejor idea fue empezar por lo que más me gustaba: combinar dos pasiones sencillas —jugar videojuegos y construir pequeñas aplicaciones— y hacerlo en público. Eso me permitió mantener la motivación, pasar un buen rato y, al mismo tiempo, hablar sobre lo que hacía sin sentir que estaba actuando.
+
+  Hacer streaming de partidas y sesiones de código me dio un espacio seguro para practicar hablar en voz alta, explicar decisiones técnicas y recibir feedback inmediato. Poco a poco el miedo se volvió menos grande: empecé a ver el stream como un lugar para aprender, experimentar y conectar con personas que compartían intereses similares.
+
+  Si te da miedo empezar, mi recomendación es similar: empieza pequeño, con lo que te hace feliz, y usa esa energía como combustible para aprender a comunicar. No necesitas un set perfecto —necesitas constancia y algo que realmente disfrutes mostrar.`
   },
   {
     id: 2,
-    title: 'Mi Trayectoria desde Bootcamp hasta Desarrollador Senior',
-    excerpt: 'Una historia personal sobre aprender a programar, construir proyectos y crecer en la industria tech durante los últimos 5 años.',
-    image: '/placeholder.svg',
+    slug: 'de-junior-a-senior-lo-que-nadie-te-dice',
+    title: 'De junior a senior: lo que nadie te dice',
+    excerpt: 'Todos hablan de cuántos años de experiencia necesitas. Pero nadie habla de lo que realmente cambia cuando cruzas esa línea.',
+    image: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?w=1200&q=80&auto=format&fit=crop',
     category: 'Trayectoria Dev',
-    tags: ['Carrera', 'Aprendizaje'],
-    readTime: 12,
-    date: '2024-01-10',
-    featured: false
+    tags: ['Carrera', 'Aprendizaje', 'Crecimiento'],
+    readTime: 5,
+    date: '2025-01-28',
+    featured: false,
+    body: `Cuando me contrataron como junior tenía mucho miedo de equivocarme. Revisaba el código tres veces antes de hacer un commit. Pedía permiso a mis compañeros para tomar decisiones pequeñas.
+
+Eso es normal. Pero lo que nadie te dice es que el salto a senior no es solo técnico.
+
+El mayor cambio fue aprender a tomar decisiones sin tener toda la información. Como senior nadie te explica cada contexto, nadie te dice exactamente qué hacer. Tienes que leer la situación, proponer algo y hacerte responsable del resultado.
+
+También cambió mucho cómo me comunico. Antes explicaba el código. Ahora explico el impacto. ¿Por qué hacemos esto? ¿Qué pasa si no lo hacemos? ¿Cuánto nos va a costar mantenerlo?
+
+Y una cosa más que me tomó tiempo aceptar: ser senior no significa saber todo. Significa saber cómo encontrar lo que no sabes y cuándo pedirle ayuda a alguien más.
+
+Si estás en ese camino, no te afanes por el título. Afánate por entender el problema antes de escribir la solución.`
   },
   {
     id: 3,
-    title: 'Top 10 Extensiones de VS Code para 2024',
-    excerpt: 'Aumenta tu productividad con estas extensiones esenciales de VS Code que todo desarrollador debería tener instaladas.',
-    image: '/placeholder.svg',
+    slug: 'por-que-react-sigue-siendo-mi-opcion',
+    title: '¿Por qué React sigue siendo mi opción?',
+    excerpt: 'Cada semana aparece un nuevo framework que "va a reemplazar a React". Llevo años escuchando eso. Y sigo usando React. Te cuento por qué.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80&auto=format&fit=crop',
     category: 'Reseñas Tech',
-    tags: ['Herramientas', 'Productividad'],
-    readTime: 5,
-    date: '2024-01-05',
-    featured: false
-  },
-  {
-    id: 4,
-    title: 'Destacados de la Comunidad: Proyectos Increíbles de Nuestro Discord',
-    excerpt: 'Destacando proyectos increíbles construidos por miembros de nuestra comunidad y celebrando sus logros.',
-    image: '/placeholder.svg',
-    category: 'Actualizaciones',
-    tags: ['Comunidad', 'Showcase'],
-    readTime: 6,
-    date: '2024-01-01',
-    featured: false
-  },
-  {
-    id: 5,
-    title: 'Entendiendo React Server Components',
-    excerpt: 'Inmersión profunda en React Server Components, cómo funcionan y cuándo usarlos en tus aplicaciones Next.js.',
-    image: '/placeholder.svg',
-    category: 'Tutoriales',
-    tags: ['React', 'Next.js', 'Server Components'],
-    readTime: 10,
-    date: '2023-12-28',
-    featured: false
-  },
-  {
-    id: 6,
-    title: 'Por Qué Cambié a Neovim',
-    excerpt: 'Mi experiencia de transición de VS Code a Neovim y las ganancias de productividad que descubrí en el camino.',
-    image: '/placeholder.svg',
-    category: 'Reseñas Tech',
-    tags: ['Editor', 'Vim', 'Productividad'],
-    readTime: 7,
-    date: '2023-12-20',
-    featured: false
-  },
-  {
-    id: 7,
-    title: 'Construyendo en Público: Lecciones Aprendidas',
-    excerpt: 'Lo que aprendí construyendo proyectos públicamente, interactuando con la comunidad y haciendo streaming de mi proceso de desarrollo.',
-    image: '/placeholder.svg',
-    category: 'Trayectoria Dev',
-    tags: ['Comunidad', 'Aprendizaje', 'Streaming'],
-    readTime: 9,
-    date: '2023-12-15',
-    featured: false
-  },
-  {
-    id: 8,
-    title: 'Consejos de TypeScript para Mejor Código',
-    excerpt: 'Técnicas avanzadas de TypeScript para escribir código más mantenible y type-safe en tus proyectos.',
-    image: '/placeholder.svg',
-    category: 'Tutoriales',
-    tags: ['TypeScript', 'Buenas Prácticas'],
-    readTime: 11,
-    date: '2023-12-10',
-    featured: false
+    tags: ['React', 'Frontend', 'Opinión'],
+    readTime: 4,
+    date: '2025-01-15',
+    featured: false,
+    body: `No es que React sea perfecto. Tiene sus cosas raras, su curva de aprendizaje inicial y sus debates eternos sobre cuándo usar useEffect.
+
+Pero hay algo que React tiene que pocos frameworks logran: un ecosistema brutal y una comunidad enorme.
+
+Cuando me atasco con algo en React, en diez minutos encuentro la respuesta. Hay ejemplos, hay librerías para todo lo que puedas imaginar y hay miles de personas que ya tuvieron el mismo problema que yo.
+
+También valoro mucho que React no te impone una sola forma de hacer las cosas. Puedes usarlo para una app pequeña o para una plataforma gigante. Puedes combinarlo con Next.js si necesitas SSR, o dejarlo como SPA si con eso te alcanza.
+
+¿Voy a cambiar algún día? Probablemente. La industria cambia y uno tiene que moverse con ella. Pero mientras React siga siendo la tecnología más demandada en el mercado y la que más proyectos reales mueve, no hay razón para abandonarlo solo porque algo nuevo está de moda.
+
+Aprende React bien. Luego aprende lo que necesites.`
   }
 ]
 

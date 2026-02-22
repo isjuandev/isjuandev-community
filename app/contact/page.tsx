@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Mail, MessageSquare, Users, Video, Github } from 'lucide-react'
+import { SocialButton } from '@/components/social-button'
 
 export default function ContactPage() {
   return (
@@ -18,7 +19,7 @@ export default function ContactPage() {
             <h2 className="text-4xl font-bold">Contacto</h2>
           </div>
           <p className="text-muted-foreground mb-12 text-lg">
-            ¿Tienes una pregunta o quieres colaborar? ¡Contáctame!
+            ¿Tienes una pregunta o quieres colaborar? ¡Contácteme!
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -78,33 +79,10 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle>Redes Sociales</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="https://kick.com" target="_blank" rel="noopener noreferrer">
-                      <Video className="h-5 w-5" />
-                      Sígueme en Kick
-                    </a>
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                      <Github className="h-5 w-5" />
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>
-                      Twitter / X
-                    </a>
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-                      <Users className="h-5 w-5" />
-                      Comunidad Discord
-                    </a>
-                  </Button>
+                <CardContent className="space-y-3 flex flex-col">
+                  <SocialButton platform="kick" href="https://kick.com/isjuandev" />
+                  <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
+                  <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
                 </CardContent>
               </Card>
             </div>
