@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { projects } from '@/lib/data/content'
+import { platformIcons } from '@/components/platform-icons'
 import { Reveal } from '@/components/motion/reveal'
 import { cn } from '@/lib/utils'
 
@@ -15,18 +16,12 @@ export default function HomePage() {
       {/* HERO */}
       <section className="section" id="top" data-line="hero">
         <div className="container mx-auto">
-          <Reveal>
-            <span className="hero-status">
-              <span className="dot-status" />
-              offline — próximo stream sin confirmar
-            </span>
-          </Reveal>
 
           <Reveal delay={80}>
             <h1 className="hero-title">
-              <span className="block">Construyo</span>
+              <span className="block">Código,</span>
               <span className="block">
-                en <span className="text-primary">público</span>
+                proyectos y <span className="text-primary">comunidad</span>
                 <span className="animate-blink text-primary">▌</span>
               </span>
             </h1>
@@ -34,8 +29,8 @@ export default function HomePage() {
 
           <Reveal delay={160}>
             <p className="hero-sub">
-              Portafolio editorial de un dev <strong>FullStack (React &amp; .NET)</strong> que construye
-              proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria. Sin humo.
+              Portafolio de un dev <strong>FullStack (React &amp; .NET)</strong> que construye
+              proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.
             </p>
           </Reveal>
 
@@ -134,13 +129,14 @@ export default function HomePage() {
 
           <div className="platforms">
             {[
-              { icon: 'K', name: 'Kick', num: '—', label: 'seguidores', href: 'https://kick.com/isjuandev' },
-              { icon: 'D', name: 'Discord', num: '—', label: 'miembros', href: '/contact' },
-              { icon: 'IG', name: 'Instagram', num: '—', label: 'seguidores', href: 'https://instagram.com/isjuandev' },
+              { key: 'kick', name: 'Kick', num: '—', label: 'seguidores', href: 'https://kick.com/isjuandev' },
+              { key: 'discord', name: 'Discord', num: '—', label: 'miembros', href: '/contact' },
+              { key: 'tiktok', name: 'TikTok', num: '—', label: 'seguidores', href: 'https://tiktok.com/@isjuandev' },
+              { key: 'instagram', name: 'Instagram', num: '—', label: 'seguidores', href: 'https://instagram.com/isjuandev' },
             ].map((p) => (
-              <Reveal key={p.name} delay={80}>
+              <Reveal key={p.key} delay={80}>
                 <Link href={p.href} className="platform block hover:border-primary/50 transition-colors">
-                  <span className="icon">{p.icon}</span>
+                  <span className="icon">{platformIcons[p.key]}</span>
                   <h3>{p.name}</h3>
                   <div className="num">{p.num}</div>
                   <div className="num-label">{p.label}</div>
