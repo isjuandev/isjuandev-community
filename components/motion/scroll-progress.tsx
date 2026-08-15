@@ -29,7 +29,7 @@ export function ScrollProgress() {
   const offset = c - progress * c
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 hidden md:block" aria-hidden="true">
+    <div className="fixed bottom-6 right-6 z-50 hidden md:block motion-reduce:hidden" aria-hidden="true">
       <svg width="48" height="48" viewBox="0 0 48 48" className="-rotate-90">
         <circle
           cx="24"
