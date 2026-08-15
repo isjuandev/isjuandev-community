@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Github, Menu, X } from 'lucide-react'
+import { Wordmark } from '@/components/wordmark'
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -28,8 +29,8 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            {'<IsJuanDev />'}
+          <Link href="/" className="inline-flex items-center">
+            <Wordmark size="sm" />
           </Link>
           
           {/* Desktop Nav */}
