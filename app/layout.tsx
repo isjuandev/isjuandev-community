@@ -1,7 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk, Spline_Sans_Mono } from 'next/font/google'
-import { Gutter } from '@/components/motion/gutter'
 import { Footer } from '@/components/footer'
 
 import './globals.css'
@@ -122,8 +121,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Gutter />
-        <div className="md:pl-16">
+        <div>
           {children}
           <Footer />
         </div>

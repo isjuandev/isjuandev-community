@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Reveal } from '@/components/motion/reveal'
 import { blogPosts } from '@/lib/data/content'
 import { commitHash, timeAgo } from '@/lib/utils'
 import { Search } from 'lucide-react'
@@ -39,81 +40,95 @@ export default function BlogPage() {
 
       <section className="section" id="aprendizajes" data-line="aprendizajes">
         <div className="container mx-auto">
-          <div className="flex items-center gap-3">
-            <span className="section-label">aprendizajes.log</span>
-          </div>
-          <h2 className="section-title">
-            Aprendizajes<span className="dot">.</span>
-          </h2>
-          <p className="section-lead mb-10">
-            Notas técnicas y de proceso sobre proyectos, arquitectura, errores y decisiones reales.
-          </p>
-          <Link href="/tips" className="inline-flex text-primary font-mono text-[0.82rem] hover:underline underline-offset-4 mb-10">
-            ¿Buscas algo rápido? Ver consejos →
-          </Link>
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <span className="section-label">aprendizajes.log</span>
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Aprendizajes<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="section-lead mb-10">
+              Notas técnicas y de proceso sobre proyectos, arquitectura, errores y decisiones reales.
+            </p>
+          </Reveal>
+          <Reveal delay={160}>
+            <Link href="/tips" className="inline-flex text-primary font-mono text-[0.82rem] hover:underline underline-offset-4 mb-10">
+              ¿Buscas algo rápido? Ver consejos →
+            </Link>
+          </Reveal>
 
           {/* Filters */}
-          <div className="space-y-4 mb-8">
-            <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                placeholder="Buscar artículos..."
-                value={blogSearch}
-                onChange={(e) => setBlogSearch(e.target.value)}
-                className="pl-10"
-              />
-            </div>
+          <Reveal delay={200}>
+            <div className="space-y-4 mb-8">
+              <div className="relative max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  placeholder="Buscar artículos..."
+                  value={blogSearch}
+                  onChange={(e) => setBlogSearch(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
 
-            <div className="flex flex-wrap gap-2">
-              {['Todos', 'Trayectoria Dev', 'Reseñas Tech'].map((cat) => (
-                <Button
-                  key={cat}
-                  variant={blogCategory === cat ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setBlogCategory(cat)}
-                >
-                  {cat}
-                </Button>
-              ))}
-            </div>
+              <div className="flex flex-wrap gap-2">
+                {['Todos', 'Trayectoria Dev', 'Reseñas Tech'].map((cat) => (
+                  <Button
+                    key={cat}
+                    variant={blogCategory === cat ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setBlogCategory(cat)}
+                  >
+                    {cat}
+                  </Button>
+                ))}
+              </div>
 
-            <div className="flex gap-2 items-center">
-              <span className="text-sm text-muted-foreground">Ordenar por:</span>
-              {['Latest', 'Most Popular', 'Oldest'].map((sort) => (
-                <Button
-                  key={sort}
-                  variant={blogSort === sort ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => setBlogSort(sort)}
-                >
-                  {sort === 'Latest' ? 'Más recientes' : sort === 'Most Popular' ? 'Populares' : 'Más antiguos'}
-                </Button>
-              ))}
+              <div className="flex gap-2 items-center">
+                <span className="text-sm text-muted-foreground">Ordenar por:</span>
+                {['Latest', 'Most Popular', 'Oldest'].map((sort) => (
+                  <Button
+                    key={sort}
+                    variant={blogSort === sort ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => setBlogSort(sort)}
+                  >
+                    {sort === 'Latest' ? 'Más recientes' : sort === 'Most Popular' ? 'Populares' : 'Más antiguos'}
+                  </Button>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Commit log */}
           <div className="commit-log">
-            {filteredBlogPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`} className="commit group">
-                <span className="hash">#{commitHash(post.slug)}</span>
-                <div>
-                  <h3 className="group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p>{post.excerpt}</p>
-                </div>
-                <span className="meta">
-                  {timeAgo(post.date)} · {post.readTime} min
-                </span>
-              </Link>
+            {filteredBlogPosts.map((post, i) => (
+              <Reveal key={post.id} delay={i * 60}>
+                <Link href={`/blog/${post.slug}`} className="commit group">
+                  <span className="hash">#{commitHash(post.slug)}</span>
+                  <div>
+                    <h3 className="group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h3>
+                    <p>{post.excerpt}</p>
+                  </div>
+                  <span className="meta">
+                    {timeAgo(post.date)} · {post.readTime} min
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
 
           {filteredBlogPosts.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground">No se encontraron artículos que coincidan con tus criterios.</p>
-            </div>
+            <Reveal>
+              <div className="text-center py-16">
+                <p className="text-muted-foreground">No se encontraron artículos que coincidan con tus criterios.</p>
+              </div>
+            </Reveal>
           )}
         </div>
       </section>

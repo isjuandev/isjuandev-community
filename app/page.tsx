@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowUpRight } from 'lucide-react'
@@ -403,31 +402,14 @@ export default function HomePage() {
           <Reveal>
             <div className="section-label">about.me</div>
           </Reveal>
-          <div className="about-home">
-            <Reveal>
-              <div className="about-home-image">
-                <Image
-                  src="/profile.jpg"
-                  alt="Juan Diego García Castaño"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 320px"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
+          <div className="about-home about-home-teaser">
             <Reveal delay={80}>
               <div className="about-home-copy">
                 <h2 className="section-title">
                   Más que código<span className="dot">.</span>
                 </h2>
                 <p>
-                  Soy Juan Diego, desarrollador FullStack y constructor de productos digitales.
-                </p>
-                <p>
-                  Llevo más de 8 años creando software para empresas y proyectos propios, trabajando principalmente con React, .NET y tecnologías cloud.
-                </p>
-                <p>
-                  Me interesa convertir ideas en productos reales: desde la arquitectura y el backend hasta la interfaz, infraestructura y despliegue. Y cuando encuentro algo interesante, lo construyo en público.
+                  Desarrollador FullStack enfocado en convertir problemas reales en productos digitales con React, .NET y cloud.
                 </p>
                 <Link href="/about" className="inline-flex items-center gap-2 text-primary font-mono text-[0.85rem] hover:underline underline-offset-4">
                   Conoce mi trayectoria <ArrowUpRight />
