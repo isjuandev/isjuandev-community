@@ -13,8 +13,8 @@ export function Navigation() {
 
   const navLinks = [
     { href: '/', label: 'Proyectos' },
-    { href: '/about', label: 'Skills' },
-    { href: '/blog', label: 'Writing' },
+    { href: '/about', label: 'Sobre mí' },
+    { href: '/blog', label: 'Blog' },
     { href: '/tips', label: 'Consejos' },
     { href: '/contact', label: 'Contacto' },
   ]

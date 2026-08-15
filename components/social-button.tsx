@@ -35,7 +35,7 @@ export function SocialButton({ platform, href, label }: SocialButtonProps) {
         transition-colors
       "
         >
-            <span className="text-secondary">{icon}</span>
+            <span className="text-primary">{icon}</span>
             {label ?? defaultLabel}
         </a>
     )

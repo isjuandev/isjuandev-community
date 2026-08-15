@@ -437,17 +437,6 @@ button:focus-visible {
     font-size: 0.98rem;
     margin-bottom: 40px;
   }
-
-  .visits {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: hsl(var(--muted-foreground) / 0.7);
-  }
-
-  .visits b {
-    color: hsl(var(--foreground));
-    font-weight: 600;
-  }
 }
 
 @media (max-width: 900px) {

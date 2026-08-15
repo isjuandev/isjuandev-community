@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Wordmark } from '@/components/wordmark'
-import { VisitCounter } from '@/components/motion/visit-counter'
 
 const footerLinks = [
   { href: 'https://github.com/isjuandev', label: 'GitHub' },
@@ -18,14 +17,13 @@ export function Footer() {
         <p className="text-muted-foreground text-[0.98rem] mt-[18px] mb-10">
           Código, proyectos y comunidad.
         </p>
-        <div className="flex justify-center gap-[26px] flex-wrap font-mono text-[0.82rem] text-muted-foreground mb-11">
+        <div className="flex justify-center gap-[26px] flex-wrap font-mono text-[0.82rem] text-muted-foreground">
           {footerLinks.map((link) => (
             <Link key={link.label} href={link.href} className="hover:text-primary transition-colors">
               {link.label}
             </Link>
           ))}
         </div>
-        <VisitCounter />
       </div>
     </footer>
   )
