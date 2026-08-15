@@ -13,7 +13,7 @@ export function Footer() {
     <footer data-line="footer" className="px-4">
       <div className="container mx-auto flex flex-col items-center text-center">
         <p className="text-muted-foreground text-[0.98rem] mt-[18px] mb-10">
-          Código, proyectos y comunidad.
+          Código, proyectos y comunidad. Construyo en público.
         </p>
         <div className="flex justify-center gap-[26px] flex-wrap font-mono text-[0.82rem] text-muted-foreground">
           {footerLinks.map((link) => (

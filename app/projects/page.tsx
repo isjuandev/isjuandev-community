@@ -38,13 +38,13 @@ export default function ProjectsPage() {
       <section className="section" id="proyectos" data-line="proyectos">
         <div className="container mx-auto">
           <div className="flex items-center gap-3">
-            <span className="section-label">proyectos.github</span>
+            <span className="section-label">projects.archive</span>
           </div>
           <h2 className="section-title">
             Proyectos<span className="dot">.</span>
           </h2>
           <p className="section-lead mb-12">
-            Proyectos públicos de mi GitHub, organizados por categoría
+            Proyectos públicos de mi GitHub, organizados por categoría y contexto técnico.
           </p>
 
           {/* Filters */}
@@ -103,18 +103,27 @@ export default function ProjectsPage() {
                   <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
+                  {project.subtitle && (
+                    <p className="project-subtitle">{project.subtitle}</p>
+                  )}
                   <p className="text-muted-foreground text-[0.92rem] leading-relaxed">
                     {project.description}
                   </p>
+                  {(project.role || project.status) && (
+                    <div className="project-meta">
+                      {project.role && <span><b>Rol</b>{project.role}</span>}
+                      {project.status && <span><b>Estado</b>{project.status}</span>}
+                    </div>
+                  )}
                 </div>
                 <div className="mt-6 flex items-center justify-between gap-4">
                   <div className="card-stack">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.slice(0, 4).map((tag) => (
                       <span key={tag}>{tag}</span>
                     ))}
                   </div>
                   <span className="text-primary font-mono text-[0.82rem] whitespace-nowrap group-hover:translate-x-1 transition-transform">
-                    {project.demo !== '#' ? 'demo →' : 'código →'}
+                    {project.demo !== '#' ? 'ver proyecto →' : 'ver código →'}
                   </span>
                 </div>
               </a>

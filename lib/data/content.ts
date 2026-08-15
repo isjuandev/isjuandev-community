@@ -1,6 +1,7 @@
 export interface Project {
   id: number
   title: string
+  subtitle?: string
   description: string
   image: string
   category: string
@@ -8,6 +9,8 @@ export interface Project {
   demo: string
   code: string
   stream: boolean
+  role?: string
+  status?: string
 }
 
 export interface BlogPost {
@@ -37,57 +40,72 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'NexoBite',
-    description: 'Sitio web corporativo de NexoBite con widget de chat y captura de leads a través de webhooks de n8n',
+    subtitle: 'Plataforma web + automatización comercial',
+    description: 'Sitio corporativo conectado a un widget de chat y automatizaciones para captura y gestión de leads.',
     image: '/placeholder.svg',
     category: 'Aplicaciones Web',
-    tags: ['Next.js', 'n8n', 'TypeScript'],
+    tags: ['Next.js', 'TypeScript', 'n8n', 'Webhooks'],
     demo: 'https://nexobite.com',
     code: 'https://github.com/isjuandev/nexobite',
-    stream: false
+    stream: false,
+    role: 'FullStack',
+    status: 'Producción'
   },
   {
     id: 2,
     title: 'EA-RIF',
-    description: 'Aplicación web para la gestión de RIF y documentos electrónicos',
+    subtitle: 'Gestión de RIF y documentos electrónicos',
+    description: 'Aplicación web para centralizar trámites, información fiscal y documentos electrónicos.',
     image: '/placeholder.svg',
     category: 'Aplicaciones Web',
-    tags: ['Next.js', 'TypeScript'],
+    tags: ['Next.js', 'TypeScript', 'Documentos'],
     demo: 'https://ea-rif.vercel.app',
     code: 'https://github.com/isjuandev/ea-rif',
-    stream: false
+    stream: false,
+    role: 'FullStack',
+    status: 'Producción'
   },
   {
     id: 3,
     title: 'ViralyShop',
-    description: 'E-commerce moderno y escalable construido con el stack de Next.js',
+    subtitle: 'E-commerce moderno y escalable',
+    description: 'Experiencia de compra construida para validar un catálogo digital y crecer sobre Next.js.',
     image: '/placeholder.svg',
     category: 'Aplicaciones Web',
     tags: ['Next.js', 'TypeScript', 'E-commerce'],
     demo: 'https://viralyshop.vercel.app',
     code: 'https://github.com/isjuandev/viralyshop',
-    stream: false
+    stream: false,
+    role: 'FullStack',
+    status: 'Producción'
   },
   {
     id: 4,
     title: 'Residente',
-    description: 'Web app para gestión de comunidades y condominios',
+    subtitle: 'Gestión para comunidades y condominios',
+    description: 'Web app para organizar la operación diaria, comunicación y administración de comunidades.',
     image: '/placeholder.svg',
     category: 'Aplicaciones Web',
-    tags: ['Next.js', 'TypeScript'],
+    tags: ['Next.js', 'TypeScript', 'SaaS'],
     demo: 'https://residente-web.vercel.app',
     code: 'https://github.com/isjuandev/residente',
-    stream: false
+    stream: false,
+    role: 'FullStack',
+    status: 'En evolución'
   },
   {
     id: 5,
     title: 'CRM NexoBite (Frontend)',
-    description: 'Frontend del sistema CRM de NexoBite para gestión de clientes y ventas',
+    subtitle: 'CRM para gestión comercial',
+    description: 'Interfaz del sistema CRM de NexoBite para gestionar clientes, oportunidades y ventas.',
     image: '/placeholder.svg',
     category: 'Aplicaciones Web',
-    tags: ['Next.js', 'CRM', 'TypeScript'],
+    tags: ['Next.js', 'TypeScript', 'CRM'],
     demo: 'https://crm-front-nexobite.vercel.app',
     code: 'https://github.com/isjuandev/crm-front-nexobite',
-    stream: false
+    stream: false,
+    role: 'Frontend',
+    status: 'Producción'
   },
   {
     id: 6,

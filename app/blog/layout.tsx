@@ -1,17 +1,17 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Notas técnicas y de proceso de IsJuanDev, en formato de bitácora: trayectoria dev y reseñas tech.',
+  title: 'Aprendizajes',
+  description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura, errores y decisiones reales.',
   openGraph: {
     type: 'website',
-    title: 'Blog | IsJuanDev',
-    description: 'Notas técnicas y de proceso de IsJuanDev: trayectoria dev y reseñas tech.',
+    title: 'Aprendizajes | IsJuanDev',
+    description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura y decisiones reales.',
     url: '/blog',
   },
   twitter: {
-    title: 'Blog | IsJuanDev',
-    description: 'Notas técnicas y de proceso de IsJuanDev: trayectoria dev y reseñas tech.',
+    title: 'Aprendizajes | IsJuanDev',
+    description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura y decisiones reales.',
   },
   alternates: {
     canonical: '/blog',

@@ -12,15 +12,15 @@ export function Navigation() {
   const pathname = usePathname()
 
   const navLinks = [
-    { href: '/', label: 'Proyectos' },
+    { href: '/projects', label: 'Proyectos' },
     { href: '/about', label: 'Sobre mí' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/tips', label: 'Consejos' },
+    { href: '/blog', label: 'Aprendizajes' },
+    { href: '/#comunidad', label: 'Comunidad' },
     { href: '/contact', label: 'Contacto' },
   ]
 
   const isActive = (href: string) => {
-    if (href === '/') return pathname === '/'
+    if (href === '/#comunidad') return pathname === '/'
     return pathname.startsWith(href)
   }
 
@@ -55,7 +55,7 @@ export function Navigation() {
               </a>
             </Button>
             <Button asChild>
-              <Link href="/contact">Únete</Link>
+              <a href="/CV_JuanDiegoGarcia.pdf" download>Descargar CV</a>
             </Button>
           </div>
 
@@ -87,9 +87,16 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Button className="w-full" asChild>
-              <Link href="/contact">Únete a la comunidad</Link>
-            </Button>
+            <div className="flex gap-2">
+              <Button variant="outline" className="flex-1" asChild>
+                <a href="https://github.com/isjuandev" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              </Button>
+              <Button className="flex-1" asChild>
+                <a href="/CV_JuanDiegoGarcia.pdf" download>Descargar CV</a>
+              </Button>
+            </div>
           </div>
         </div>
       )}

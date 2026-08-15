@@ -37,10 +37,10 @@ export default function TipsPage() {
       <section className="section" id="tips" data-line="tips">
         <div className="container mx-auto">
           <div className="flex items-center gap-3">
-            <span className="section-label">tips.quick</span>
+            <span className="section-label">consejos.quick</span>
           </div>
           <h2 className="section-title">
-            Skills<span className="dot">.</span>
+            Consejos<span className="dot">.</span>
           </h2>
           <p className="section-lead mb-12">
             Consejos rápidos y accionables para mejorar tus habilidades de desarrollo

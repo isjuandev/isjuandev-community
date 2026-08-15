@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <Button asChild variant="ghost" className="mb-8 gap-2 -ml-3">
                         <Link href="/blog">
                             <ArrowLeft className="h-4 w-4" />
-                            Volver al blog
+                            Volver a aprendizajes
                         </Link>
                     </Button>
 
@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
                         <Button asChild variant="outline" className="gap-2">
                             <Link href="/blog">
                                 <ArrowLeft className="h-4 w-4" />
-                                Ver todos los artículos
+                                Ver todos los aprendizajes
                             </Link>
                         </Button>
                     </div>

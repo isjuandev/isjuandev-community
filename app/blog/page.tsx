@@ -37,17 +37,20 @@ export default function BlogPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      <section className="section" id="writing" data-line="writing">
+      <section className="section" id="aprendizajes" data-line="aprendizajes">
         <div className="container mx-auto">
           <div className="flex items-center gap-3">
-            <span className="section-label">blog.log</span>
+            <span className="section-label">aprendizajes.log</span>
           </div>
           <h2 className="section-title">
-            Writing<span className="dot">.</span>
+            Aprendizajes<span className="dot">.</span>
           </h2>
           <p className="section-lead mb-10">
-            Notas técnicas y de proceso, en formato de bitácora.
+            Notas técnicas y de proceso sobre proyectos, arquitectura, errores y decisiones reales.
           </p>
+          <Link href="/tips" className="inline-flex text-primary font-mono text-[0.82rem] hover:underline underline-offset-4 mb-10">
+            ¿Buscas algo rápido? Ver consejos →
+          </Link>
 
           {/* Filters */}
           <div className="space-y-4 mb-8">

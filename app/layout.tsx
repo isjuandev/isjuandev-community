@@ -24,10 +24,10 @@ const SITE_URL = 'https://isjuandev.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+    default: 'Juan Diego — Desarrollador FullStack | React & .NET',
     template: '%s | IsJuanDev',
   },
-  description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.',
+  description: 'Desarrollador FullStack que construye aplicaciones web, APIs y productos digitales que llegan a producción. React, .NET y cloud.',
   keywords: [
     'IsJuanDev', 'Desarrollador FullStack', 'React', '.NET', 'TypeScript', 'Next.js',
     'AWS', 'Docker', 'desarrollo web', 'portafolio', 'build in public', 'streaming',
@@ -52,21 +52,21 @@ export const metadata: Metadata = {
     siteName: 'IsJuanDev',
     locale: 'es_ES',
     url: '/',
-    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
-    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.',
+    title: 'Juan Diego — Desarrollador FullStack | React & .NET',
+    description: 'Construyo productos digitales que llegan a producción y comparto el proceso en público.',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'IsJuanDev — Código, proyectos y comunidad.',
+        alt: 'IsJuanDev — Construyo productos digitales en público.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
-    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo.',
+    title: 'Juan Diego — Desarrollador FullStack | React & .NET',
+    description: 'Construyo productos digitales que llegan a producción y comparto el proceso en público.',
     images: ['/opengraph-image.png'],
   },
   alternates: {
@@ -88,7 +88,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: 'IsJuanDev',
-      description: 'Portafolio de un desarrollador FullStack (React & .NET).',
+      description: 'Portafolio de Juan Diego, desarrollador FullStack que construye productos digitales en público.',
       inLanguage: 'es',
     },
     {
@@ -98,7 +98,7 @@ const jsonLd = {
       name: 'Juan Diego García Castaño',
       alternateName: 'IsJuanDev',
       jobTitle: 'Desarrollador FullStack',
-      description: 'Ingeniero de software full-stack especializado en React, .NET y cloud (AWS), que construye proyectos en vivo y comparte conocimiento con su comunidad.',
+      description: 'Desarrollador FullStack especializado en React, .NET y cloud (AWS), que construye productos reales y comparte el proceso con su comunidad.',
       knowsAbout: ['React', 'TypeScript', 'Next.js', '.NET Core', 'AWS', 'Docker', 'PostgreSQL', 'Flutter'],
       sameAs: [
         'https://github.com/isjuandev',

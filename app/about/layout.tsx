@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Sobre mí',
-  description: 'Juan Diego García Castaño (IsJuanDev): ingeniero de software full-stack especializado en React, .NET y cloud (AWS). Stack, experiencia y trayectoria.',
+  description: 'Juan Diego García Castaño (IsJuanDev): desarrollador FullStack que convierte ideas en productos reales con React, .NET y cloud.',
   openGraph: {
     type: 'website',
     title: 'Sobre mí | IsJuanDev',

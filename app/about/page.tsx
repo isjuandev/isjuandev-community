@@ -42,7 +42,7 @@ export default function AboutPage() {
       animateStat(8, setYearsExperience),
       animateStat(50, setProjectsBuilt),
       animateStat(20, setTechnologiesUsed),
-      animateStat(3, setCompaniesWorked)
+      animateStat(2, setCompaniesWorked)
     ]
 
     return () => timers.forEach(clearInterval)
@@ -135,13 +135,13 @@ export default function AboutPage() {
                 </p>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Ingeniero de software especializado en desarrollo full-stack con experiencia en la creación de soluciones web modernas y escalables.
+                    Soy Juan Diego, desarrollador FullStack y constructor de productos digitales.
                   </p>
                   <p>
-                    Me apasiona construir aplicaciones que combinan interfaces elegantes con arquitecturas robustas, utilizando React, .NET y servicios cloud (AWS). Experiencia en microservicios, APIs REST y optimización de rendimiento.
+                    Llevo más de 8 años creando software para empresas y proyectos propios, trabajando principalmente con React, .NET y tecnologías cloud.
                   </p>
                   <p>
-                    Actualmente trabajo en proyectos empresariales mientras comparto conocimiento con la comunidad de desarrolladores a través de streaming y contenido educativo.
+                    Me interesa especialmente convertir ideas en productos reales: desde la arquitectura y el backend hasta la interfaz, infraestructura y despliegue. Y cuando encuentro algo interesante, lo construyo en público.
                   </p>
                 </div>
 
@@ -158,8 +158,8 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="hero-meta justify-center md:justify-start mt-16">
               <div><b>{yearsExperience}+</b>años de experiencia</div>
-              <div><b>{projectsBuilt}+</b>proyectos completados</div>
-              <div><b>{technologiesUsed}+</b>tecnologías dominadas</div>
+              <div><b>{projectsBuilt}+</b>proyectos en producción</div>
+              <div><b>{technologiesUsed}+</b>tecnologías utilizadas</div>
               <div><b>{companiesWorked}</b>empresas</div>
             </div>
           </Reveal>

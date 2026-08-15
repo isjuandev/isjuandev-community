@@ -59,15 +59,17 @@ export default function ContactPage() {
               <div className="card-editorial border-primary/50">
                 <div className="flex items-center gap-3 mb-4">
                   <Users className="h-6 w-6 text-primary" />
-                  <h3 className="font-display font-bold text-[1.25rem]">Únete a la Comunidad</h3>
+                  <h3 className="font-display font-bold text-[1.25rem]">Conoce la Comunidad</h3>
                 </div>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Conéctate con otros desarrolladores y recibe actualizaciones sobre nuevos proyectos
+                  Mira el proceso de construcción, recibe actualizaciones y conecta con otros desarrolladores
                 </p>
                 <div className="space-y-4">
-                  <Button className="w-full gap-2" size="lg">
-                    <Users className="h-5 w-5" />
-                    Únete al Servidor de Discord
+                  <Button className="w-full gap-2" size="lg" asChild>
+                    <a href="/#comunidad">
+                      <Users className="h-5 w-5" />
+                      Ver la comunidad en público
+                    </a>
                   </Button>
                   <div className="space-y-2">
                     <Label htmlFor="newsletter" className="font-mono text-[0.82rem]">Newsletter</Label>

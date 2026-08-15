@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'IsJuanDev — Código, proyectos y comunidad.'
+export const alt = 'IsJuanDev — Desarrollador FullStack que construye en público.'
 export const size = {
   width: 1200,
   height: 630,
@@ -55,7 +55,7 @@ export default function OpengraphImage() {
             <span style={{ color: 'rgba(255,255,255,0.5)' }}>&nbsp;/&gt;</span>
           </div>
           <div style={{ fontSize: 40, color: 'rgba(255,255,255,0.92)', marginTop: 16 }}>
-            Código, proyectos y comunidad.
+             Desarrollador FullStack · React & .NET
           </div>
         </div>
 
