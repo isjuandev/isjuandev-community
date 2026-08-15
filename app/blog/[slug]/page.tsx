@@ -17,9 +17,38 @@ export async function generateMetadata({ params }: Props) {
     const { slug } = await params
     const post = blogPosts.find((p) => p.slug === slug)
     if (!post) return {}
+    const url = `https://isjuandev.com/blog/${post.slug}`
     return {
-        title: `${post.title} | IsJuanDev`,
+        title: post.title,
         description: post.excerpt,
+        alternates: {
+            canonical: `/blog/${post.slug}`,
+        },
+        openGraph: {
+            type: 'article',
+            title: post.title,
+            description: post.excerpt,
+            url,
+            siteName: 'IsJuanDev',
+            locale: 'es_ES',
+            publishedTime: post.date,
+            authors: ['IsJuanDev'],
+            tags: post.tags,
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
     }
 }
 

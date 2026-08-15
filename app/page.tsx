@@ -5,6 +5,25 @@ import { projects } from '@/lib/data/content'
 import { platformIcons } from '@/components/platform-icons'
 import { Reveal } from '@/components/motion/reveal'
 import { cn } from '@/lib/utils'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+  description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.',
+  openGraph: {
+    type: 'website',
+    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo.',
+    url: '/',
+  },
+  twitter: {
+    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo.',
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
 
 const featured = projects.slice(0, 5)
 
