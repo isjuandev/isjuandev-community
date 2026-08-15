@@ -113,7 +113,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-[auto_1fr] gap-12 items-center">
             <Reveal>
               <div className="relative">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden ring-2 ring-primary/60">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden ring-2 ring-primary/60">
                   <Image
                     src="/profile.jpg"
                     alt="Juan Diego García Castaño"
