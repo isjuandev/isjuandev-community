@@ -16,7 +16,7 @@ export function Footer() {
       <div className="container mx-auto flex flex-col items-center text-center">
         <Wordmark size="lg" />
         <p className="text-muted-foreground text-[0.98rem] mt-[18px] mb-10">
-          Construyendo en público, un stream a la vez.
+          Código, proyectos y comunidad.
         </p>
         <div className="flex justify-center gap-[26px] flex-wrap font-mono text-[0.82rem] text-muted-foreground mb-11">
           {footerLinks.map((link) => (

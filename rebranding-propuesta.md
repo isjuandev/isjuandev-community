@@ -60,7 +60,7 @@ El sitio actual es un "Dev Community Hub" genérico con paleta oscura cyan/dorad
 |---|---|
 | Hero | "Construyo en público" |
 | Descripción | "Senior FullStack · React & .NET · Streams en vivo" |
-| Footer | "Construyendo en público, un stream a la vez." (mantener) |
+| Footer | "Código, proyectos y comunidad" (mantener) |
 
 ### 3.3 Posicionamiento
 
