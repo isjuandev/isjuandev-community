@@ -3,13 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 
 const LOG_LINES = [
-  'pnpm isjuandev@skills init',
-  '✔ Cargando perfil de Juan Diego…',
-  '✔ 8+ años de experiencia FullStack',
-  '✔ 20+ tecnologías dominadas',
-  '✔ React & .NET · microservicios · AWS',
-  '✔ Streams en vivo: construyo en público',
-  '✨ Pkg ready in 0ms — sin humo, con código.',
+  { text: '$ pnpm isjuandev@skills init', cls: 'prompt' },
+  { text: '✓ cargando .NET Core / C#', cls: 'ok' },
+  { text: '✓ cargando React / TypeScript', cls: 'ok' },
+  { text: '✓ cargando AWS / Azure DevOps', cls: 'ok' },
+  { text: '✓ cargando Astro / Tailwind', cls: 'ok' },
+  { text: 'stack listo.', cls: 'prompt' },
 ]
 
 export function SkillsTerminal() {
@@ -21,12 +20,12 @@ export function SkillsTerminal() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     reducedRef.current = reduced
     if (reduced) {
-      setTypedCount(LOG_LINES.length)
+      setTypedCount(LOG_LINES.reduce((acc, l) => acc + l.text.length, 0))
       setDone(true)
       return
     }
 
-    const total = LOG_LINES.reduce((acc, line) => acc + line.length, 0)
+    const total = LOG_LINES.reduce((acc, line) => acc + line.text.length, 0)
     let current = 0
     const timer = setInterval(() => {
       current++
@@ -35,7 +34,7 @@ export function SkillsTerminal() {
         clearInterval(timer)
         setDone(true)
       }
-    }, 14)
+    }, 22)
 
     return () => clearInterval(timer)
   }, [])
@@ -43,31 +42,30 @@ export function SkillsTerminal() {
   let cursor = 0
   const visibleLines = LOG_LINES.map((line) => {
     const start = cursor
-    cursor += line.length
-    return { line, chars: Math.max(0, Math.min(line.length, typedCount - start)) }
+    cursor += line.text.length
+    return { ...line, chars: Math.max(0, Math.min(line.text.length, typedCount - start)) }
   })
 
   return (
-    <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card/50 backdrop-blur overflow-hidden shadow-xl shadow-black/40">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
-        <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-        <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-        <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <span className="ml-3 text-sm font-mono text-muted-foreground">skills — zsh</span>
+    <div className="terminal mx-auto">
+      <div className="terminal-bar">
+        <span className="dot" />
+        <span className="dot" />
+        <span className="dot" />
+        <span className="fname">isjuandev@skills — zsh</span>
       </div>
-      <div className="p-6 font-mono text-sm leading-relaxed space-y-2">
-        {visibleLines.map(({ line, chars }, i) => (
-          <div key={i}>
-            {i === 0 && <span className="text-primary">$ </span>}
-            {line.slice(0, chars)}
-            {!done && i === visibleLines.length - 1 && chars === line.length && (
-              <span className="animate-blink text-primary">▌</span>
+      <div className="terminal-body">
+        {visibleLines.map((line, i) => (
+          <div key={i} className={line.cls}>
+            {line.text.slice(0, line.chars)}
+            {!done && i === visibleLines.length - 1 && line.chars === line.text.length && (
+              <span className="terminal-cursor" />
             )}
           </div>
         ))}
         {!done && (
-          <div>
-            {typedCount === 0 && <span className="animate-blink text-primary">▌</span>}
+          <div className="prompt">
+            {typedCount === 0 && <span className="terminal-cursor" />}
           </div>
         )}
       </div>

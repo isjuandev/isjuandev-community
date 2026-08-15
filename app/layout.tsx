@@ -1,7 +1,8 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk, Spline_Sans_Mono } from 'next/font/google'
-import { ScrollProgress } from '@/components/motion/scroll-progress'
+import { Gutter } from '@/components/motion/gutter'
+import { Footer } from '@/components/footer'
 
 import './globals.css'
 
@@ -19,8 +20,8 @@ const splineSansMono = Spline_Sans_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'IsJuanDev | Dev Community Hub',
-  description: 'Join me as I build projects live on stream, share dev tips, and grow our coding community'
+  title: 'IsJuanDev — Propuesta de identidad',
+  description: 'Portafolio editorial de un dev FullStack (React & .NET) que construye en público.',
 }
 
 export default function RootLayout({
@@ -29,10 +30,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${splineSansMono.variable}`}>
+    <html lang="es" className={`${inter.variable} ${spaceGrotesk.variable} ${splineSansMono.variable}`}>
       <body className="font-sans antialiased">
-        {children}
-        <ScrollProgress />
+        <Gutter />
+        <div className="md:pl-16">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   )

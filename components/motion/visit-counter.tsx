@@ -20,8 +20,8 @@ export function VisitCounter() {
   if (visits === null) return null
 
   return (
-    <span className="font-mono text-sm text-muted-foreground">
-      {visits} visitas
-    </span>
+    <p className="visits">
+      visitante número <b>{visits}</b>
+    </p>
   )
 }
