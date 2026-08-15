@@ -22,7 +22,6 @@ export default function HomePage() {
               <span className="block">Código,</span>
               <span className="block">
                 proyectos y <span className="text-primary">comunidad</span>
-                <span aria-hidden="true" className="hero-cursor" />
               </span>
             </h1>
           </Reveal>

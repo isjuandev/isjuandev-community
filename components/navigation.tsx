@@ -29,7 +29,7 @@ export function Navigation() {
       <div className="container mx-auto px-7">
         <div className="flex items-center justify-between h-[64px]">
           <Link href="/" className="inline-flex items-center">
-            <Wordmark size="sm" cursor />
+            <Wordmark size="sm" />
           </Link>
 
           {/* Desktop Nav */}

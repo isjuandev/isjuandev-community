@@ -2,11 +2,10 @@ import { cn } from '@/lib/utils'
 
 interface WordmarkProps {
   size?: 'sm' | 'lg'
-  cursor?: boolean
   className?: string
 }
 
-export function Wordmark({ size = 'sm', cursor = false, className }: WordmarkProps) {
+export function Wordmark({ size = 'sm', className }: WordmarkProps) {
   return (
     <span
       className={cn(
@@ -20,7 +19,6 @@ export function Wordmark({ size = 'sm', cursor = false, className }: WordmarkPro
       <span className="text-primary">Juan</span>
       <span>Dev</span>
       <span className="text-muted-foreground">&nbsp;/&gt;</span>
-      {cursor && <span className="animate-blink text-primary">▌</span>}
     </span>
   )
 }
