@@ -45,7 +45,9 @@ export default function BlogPage() {
         <div className="container mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="h-8 w-8 text-primary" />
-            <h2 className="text-4xl font-bold">Blog</h2>
+            <h2 className="font-display text-5xl sm:text-6xl font-bold text-balance">
+              Writing<span className="text-primary">.</span>
+            </h2>
           </div>
           <p className="text-muted-foreground mb-8 text-lg">
             Cosas que pienso, cosas que aprendo y cosas que me pasan programando
@@ -110,13 +112,13 @@ export default function BlogPage() {
                   <p className="text-muted-foreground mb-5 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
+                  <div className="flex items-center gap-5 text-sm font-mono text-muted-foreground mb-6">
+                    <span className="flex items-center gap-2">
+                      <Clock className="h-5 w-5" />
                       {featuredPost.readTime} min de lectura
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
+                    <span className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5" />
                       {formatDate(featuredPost.date)}
                     </span>
                   </div>
@@ -163,7 +165,7 @@ export default function BlogPage() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sm font-mono text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-4 w-4" />
                       {post.readTime} min
