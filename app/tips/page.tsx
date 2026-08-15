@@ -4,10 +4,8 @@ import { useState, useMemo } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { tips } from '@/lib/data/content'
-import { Search, Lightbulb, Copy, Check } from 'lucide-react'
+import { Search, Copy, Check } from 'lucide-react'
 
 export default function TipsPage() {
   const [tipsSearch, setTipsSearch] = useState('')
@@ -15,7 +13,6 @@ export default function TipsPage() {
   const [copiedTip, setCopiedTip] = useState<number | null>(null)
   const [expandedTip, setExpandedTip] = useState<number | null>(null)
 
-  // Filtered tips
   const filteredTips = useMemo(() => {
     return tips.filter(tip => {
       const matchesSearch = tip.title.toLowerCase().includes(tipsSearch.toLowerCase()) ||
@@ -31,23 +28,27 @@ export default function TipsPage() {
     setTimeout(() => setCopiedTip(null), 2000)
   }
 
+  const cats = ['Todos', 'Fragmentos', 'Herramientas', 'Recursos', 'Buenas Prácticas', 'Productividad']
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <section className="py-32 px-4">
+
+      <section className="section" id="tips" data-line="tips">
         <div className="container mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <Lightbulb className="h-8 w-8 text-primary" />
-            <h2 className="text-4xl font-bold">Consejos Dev</h2>
+          <div className="flex items-center gap-3">
+            <span className="section-label">tips.quick</span>
           </div>
-          <p className="text-muted-foreground mb-8 text-lg">
+          <h2 className="section-title">
+            Skills<span className="dot">.</span>
+          </h2>
+          <p className="section-lead mb-12">
             Consejos rápidos y accionables para mejorar tus habilidades de desarrollo
           </p>
 
-          {/* Tips Filters */}
-          <div className="space-y-4 mb-8">
-            <div className="relative">
+          {/* Filters */}
+          <div className="space-y-4 mb-12">
+            <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Buscar consejos..."
@@ -58,7 +59,7 @@ export default function TipsPage() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {['Todos', 'Fragmentos', 'Herramientas', 'Recursos', 'Buenas Prácticas', 'Productividad'].map((cat) => (
+              {cats.map((cat) => (
                 <Button
                   key={cat}
                   variant={tipsCategory === cat ? 'default' : 'outline'}
@@ -72,63 +73,69 @@ export default function TipsPage() {
           </div>
 
           {/* Tips Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px]">
             {filteredTips.map((tip) => (
-              <Card 
-                key={tip.id} 
-                className="border-border bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-              >
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="text-3xl">{tip.icon}</div>
-                    <Badge variant="secondary" className="text-xs">
-                      {tip.category}
-                    </Badge>
+              <div key={tip.id} className="card-editorial flex flex-col">
+                <div className="terminal-bar -mx-[26px] -mt-[26px] px-4 py-3 mb-4 rounded-t-[10px]">
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="fname">{tip.title.toLowerCase().replace(/\s+/g, '-')}.sh</span>
+                </div>
+
+                <div className="flex items-start justify-between gap-2 mb-4">
+                  <span className="card-tag" style={{ marginBottom: 0 }}>{tip.category}</span>
+                </div>
+
+                {/* Log line */}
+                <div className="font-mono text-sm leading-relaxed space-y-1 mb-3">
+                  <div className="flex gap-2">
+                    <span className="text-primary">$</span>
+                    <span className="text-muted-foreground">tip --get {tip.title.toLowerCase().replace(/\s+/g, '-')}</span>
                   </div>
-                  <CardTitle className="text-xl">{tip.title}</CardTitle>
-                  <CardDescription className="leading-relaxed">
-                    {tip.description}
-                  </CardDescription>
-                </CardHeader>
+                  <div className="text-foreground font-semibold">{tip.title}</div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  {tip.description}
+                </p>
+
                 {tip.code && (
-                  <CardContent>
-                    <div className="relative">
-                      <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                        <code>{expandedTip === tip.id ? tip.code : tip.code.slice(0, 100) + (tip.code.length > 100 ? '...' : '')}</code>
-                      </pre>
-                      <div className="flex gap-2 mt-2">
+                  <div className="mt-auto">
+                    <pre className="bg-card border border-border p-4 rounded-lg text-xs overflow-x-auto font-mono">
+                      <code>{expandedTip === tip.id ? tip.code : tip.code.slice(0, 100) + (tip.code.length > 100 ? '...' : '')}</code>
+                    </pre>
+                    <div className="flex gap-2 mt-3">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => copyToClipboard(tip.code!, tip.id)}
+                        className="gap-2"
+                      >
+                        {copiedTip === tip.id ? (
+                          <>
+                            <Check className="h-4 w-4" />
+                            ¡Copiado!
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="h-4 w-4" />
+                            Copiar
+                          </>
+                        )}
+                      </Button>
+                      {tip.code.length > 100 && (
                         <Button
                           size="sm"
                           variant="ghost"
-                          onClick={() => copyToClipboard(tip.code!, tip.id)}
-                          className="gap-2"
+                          onClick={() => setExpandedTip(expandedTip === tip.id ? null : tip.id)}
                         >
-                          {copiedTip === tip.id ? (
-                            <>
-                              <Check className="h-4 w-4" />
-                              ¡Copiado!
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="h-4 w-4" />
-                              Copiar
-                            </>
-                          )}
+                          {expandedTip === tip.id ? 'Mostrar Menos' : 'Mostrar Más'}
                         </Button>
-                        {tip.code.length > 100 && (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => setExpandedTip(expandedTip === tip.id ? null : tip.id)}
-                          >
-                            {expandedTip === tip.id ? 'Mostrar Menos' : 'Mostrar Más'}
-                          </Button>
-                        )}
-                      </div>
+                      )}
                     </div>
-                  </CardContent>
+                  </div>
                 )}
-              </Card>
+              </div>
             ))}
           </div>
 

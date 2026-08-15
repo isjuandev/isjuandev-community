@@ -4,16 +4,16 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Github, Menu, X } from 'lucide-react'
+import { Wordmark } from '@/components/wordmark'
+import { cn } from '@/lib/utils'
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
   const navLinks = [
-    { href: '/', label: 'Inicio' },
-    { href: '/about', label: 'Sobre Mí' },
-    { href: '/projects', label: 'Proyectos' },
+    { href: '/', label: 'Proyectos' },
+    { href: '/about', label: 'Sobre mí' },
     { href: '/blog', label: 'Blog' },
     { href: '/tips', label: 'Consejos' },
     { href: '/contact', label: 'Contacto' },
@@ -25,71 +25,74 @@ export function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            {'<IsJuanDev />'}
+    <header className="sticky top-0 z-30 bg-background border-b border-border">
+      <div className="container mx-auto px-7">
+        <div className="flex items-center justify-between h-[64px]">
+          <Link href="/" className="inline-flex items-center">
+            <Wordmark size="sm" />
           </Link>
-          
+
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`hover:text-primary transition-colors ${
-                  isActive(link.href) ? 'text-primary font-medium' : ''
-                }`}
+                className={cn(
+                  'text-[0.92rem] text-muted-foreground hover:text-foreground transition-colors',
+                  isActive(link.href) && 'text-primary font-medium'
+                )}
               >
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild>
+          <div className="hidden md:flex items-center gap-[14px]">
+            <Button variant="ghost" asChild className="border border-input">
               <a href="https://github.com/isjuandev" target="_blank" rel="noopener noreferrer">
-                <Github className="h-5 w-5" />
+                GitHub
               </a>
             </Button>
             <Button asChild>
-              <Link href="/contact">Únete a la Comunidad</Link>
+              <Link href="/contact">Únete</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
+            className="md:hidden font-mono text-[0.85rem] text-foreground"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            [ {mobileMenuOpen ? 'cerrar' : 'menu'} ]
           </button>
         </div>
       </div>
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-card/95 backdrop-blur-xl">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="container mx-auto px-7 py-5 flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`hover:text-primary transition-colors ${
-                  isActive(link.href) ? 'text-primary font-medium' : ''
-                }`}
+                className={cn(
+                  'text-[0.92rem] text-muted-foreground hover:text-foreground transition-colors',
+                  isActive(link.href) && 'text-primary font-medium'
+                )}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <Button className="w-full" asChild>
-              <Link href="/contact">Únete a la Comunidad</Link>
+              <Link href="/contact">Únete a la comunidad</Link>
             </Button>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

@@ -1,109 +1,96 @@
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { Mail, MessageSquare, Users, Video, Github } from 'lucide-react'
+import { Mail, MessageSquare, Users } from 'lucide-react'
 import { SocialButton } from '@/components/social-button'
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <section className="py-32 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-8">
-            <Mail className="h-8 w-8 text-primary" />
-            <h2 className="text-4xl font-bold">Contacto</h2>
+
+      <section className="section" id="contacto" data-line="contacto">
+        <div className="container mx-auto">
+          <div className="flex items-center gap-3">
+            <span className="section-label">contacto.form</span>
           </div>
-          <p className="text-muted-foreground mb-12 text-lg">
+          <h2 className="section-title">
+            Contacto<span className="dot">.</span>
+          </h2>
+          <p className="section-lead mb-12">
             ¿Tienes una pregunta o quieres colaborar? ¡Contácteme!
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-[18px]">
             {/* Contact Form */}
-            <Card className="border-border bg-card/50 backdrop-blur">
-              <CardHeader>
-                <CardTitle>Enviar Mensaje</CardTitle>
-                <CardDescription>Te responderé lo antes posible</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+            <div className="card-editorial">
+              <div className="flex items-center gap-3 mb-6">
+                <Mail className="h-6 w-6 text-primary" />
+                <h3 className="font-display font-bold text-[1.25rem]">Enviar Mensaje</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-6">Te responderé lo antes posible</p>
+
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nombre</Label>
+                  <Label htmlFor="name" className="font-mono text-[0.82rem]">Nombre</Label>
                   <Input id="name" placeholder="Tu nombre" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="font-mono text-[0.82rem]">Email</Label>
                   <Input id="email" type="email" placeholder="tu@email.com" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Mensaje</Label>
+                  <Label htmlFor="message" className="font-mono text-[0.82rem]">Mensaje</Label>
                   <Textarea id="message" placeholder="Tu mensaje..." rows={5} />
                 </div>
-              </CardContent>
-              <CardFooter>
+              </div>
+              <div className="mt-6">
                 <Button className="w-full gap-2">
                   <MessageSquare className="h-4 w-4" />
                   Enviar Mensaje
                 </Button>
-              </CardFooter>
-            </Card>
+              </div>
+            </div>
 
-            {/* Social Links & Newsletter */}
-            <div className="space-y-6">
-              <Card className="border-primary/50 bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur">
-                <CardHeader>
-                  <CardTitle>Únete a la Comunidad</CardTitle>
-                  <CardDescription>
-                    Conéctate con otros desarrolladores y recibe actualizaciones sobre nuevos proyectos
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button className="w-full gap-2 bg-primary text-primary-foreground" size="lg">
+            {/* Community & Social */}
+            <div className="space-y-[18px]">
+              <div className="card-editorial border-primary/50">
+                <div className="flex items-center gap-3 mb-4">
+                  <Users className="h-6 w-6 text-primary" />
+                  <h3 className="font-display font-bold text-[1.25rem]">Únete a la Comunidad</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Conéctate con otros desarrolladores y recibe actualizaciones sobre nuevos proyectos
+                </p>
+                <div className="space-y-4">
+                  <Button className="w-full gap-2" size="lg">
                     <Users className="h-5 w-5" />
                     Únete al Servidor de Discord
                   </Button>
                   <div className="space-y-2">
-                    <Label htmlFor="newsletter">Newsletter</Label>
+                    <Label htmlFor="newsletter" className="font-mono text-[0.82rem]">Newsletter</Label>
                     <div className="flex gap-2">
                       <Input id="newsletter" type="email" placeholder="tu@email.com" />
                       <Button>Suscribirse</Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="border-border bg-card/50 backdrop-blur">
-                <CardHeader>
-                  <CardTitle>Redes Sociales</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 flex flex-col">
+              <div className="card-editorial">
+                <h3 className="font-display font-bold text-[1.25rem] mb-4">Redes Sociales</h3>
+                <div className="space-y-3 flex flex-col">
                   <SocialButton platform="kick" href="https://kick.com/isjuandev" />
                   <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
                   <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 border-t border-border">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <div className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
-            {'<IsJuanDev />'}
-          </div>
-          <p className="text-sm">
-            Construido con Next.js, Tailwind CSS y shadcn/ui
-          </p>
-          <p className="text-sm mt-2">
-            © 2024 IsJuanDev. Construyendo en público, un stream a la vez.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

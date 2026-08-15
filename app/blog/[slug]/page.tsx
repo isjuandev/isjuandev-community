@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { blogPosts, formatDate } from '@/lib/data/content'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 
@@ -18,9 +17,38 @@ export async function generateMetadata({ params }: Props) {
     const { slug } = await params
     const post = blogPosts.find((p) => p.slug === slug)
     if (!post) return {}
+    const url = `https://isjuandev.com/blog/${post.slug}`
     return {
-        title: `${post.title} | IsJuanDev`,
+        title: post.title,
         description: post.excerpt,
+        alternates: {
+            canonical: `/blog/${post.slug}`,
+        },
+        openGraph: {
+            type: 'article',
+            title: post.title,
+            description: post.excerpt,
+            url,
+            siteName: 'IsJuanDev',
+            locale: 'es_ES',
+            publishedTime: post.date,
+            authors: ['IsJuanDev'],
+            tags: post.tags,
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
     }
 }
 
@@ -37,18 +65,8 @@ export default async function BlogPostPage({ params }: Props) {
             <Navigation />
 
             {/* Hero */}
-            <section className="relative py-24 px-4 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-                <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" />
-                    <div
-                        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl animate-pulse"
-                        style={{ animationDelay: '1s' }}
-                    />
-                </div>
-
-                <div className="container mx-auto relative z-10 max-w-3xl">
-                    {/* Back button */}
+            <section className="section" data-line="post">
+                <div className="container mx-auto max-w-3xl">
                     <Button asChild variant="ghost" className="mb-8 gap-2 -ml-3">
                         <Link href="/blog">
                             <ArrowLeft className="h-4 w-4" />
@@ -56,25 +74,16 @@ export default async function BlogPostPage({ params }: Props) {
                         </Link>
                     </Button>
 
-                    {/* Category + tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                        <Badge variant="default">{post.category}</Badge>
-                        {post.tags.map((tag) => (
-                            <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-                        ))}
-                    </div>
+                    <div className="section-label">{post.category.toLowerCase().replace(/\s+/g, '.')}.nota</div>
 
-                    {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                        {post.title}
+                    <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.4rem)] leading-tight mb-6">
+                        {post.title}<span className="text-primary">.</span>
                     </h1>
 
-                    {/* Excerpt */}
                     <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                         {post.excerpt}
                     </p>
 
-                    {/* Meta */}
                     <div className="flex items-center gap-6 text-sm text-muted-foreground pb-8 border-b border-border">
                         <span className="flex items-center gap-1.5">
                             <Clock className="h-4 w-4" />
@@ -87,19 +96,6 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-
-            {/* Cover image placeholder */}
-            <div className="px-4">
-                <div className="container mx-auto max-w-3xl">
-                    {post.image ? (
-                        <div className="aspect-video rounded-xl overflow-hidden mb-12">
-                            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                        </div>
-                    ) : (
-                        <div className="aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-12" />
-                    )}
-                </div>
-            </div>
 
             {/* Article body */}
             <article className="px-4 pb-24">

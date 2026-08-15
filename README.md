@@ -7,7 +7,7 @@
 
 Sitio web personal de **IsJuanDev** (Juan García): un hub de comunidad para desarrolladores donde se comparten **proyectos construidos en vivo (streaming)**, **artículos de blog** sobre la trayectoria dev y **consejos rápidos** de desarrollo.
 
-> "Construyendo en público, un stream a la vez."
+> "Código, proyectos y comunidad"
 
 ---
 

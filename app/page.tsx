@@ -1,68 +1,166 @@
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Video, Users, ChevronDown, Code2, Rocket, Heart } from 'lucide-react'
+import { projects } from '@/lib/data/content'
+import { platformIcons } from '@/components/platform-icons'
+import { Reveal } from '@/components/motion/reveal'
+import { cn } from '@/lib/utils'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+  description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.',
+  openGraph: {
+    type: 'website',
+    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo.',
+    url: '/',
+  },
+  twitter: {
+    title: 'IsJuanDev — Desarrollador FullStack | React & .NET',
+    description: 'Portafolio de un desarrollador FullStack (React & .NET) que construye proyectos reales en vivo.',
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
+
+const featured = projects.slice(0, 5)
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20 animate-gradient" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-        
-        <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient text-balance">
-              Construyendo en Público
+
+      {/* HERO */}
+      <section className="section" id="top" data-line="hero">
+        <div className="container mx-auto">
+
+          <Reveal delay={80}>
+            <h1 className="hero-title">
+              <span className="block">Código,</span>
+              <span className="block">
+                proyectos y <span className="text-primary">comunidad</span>
+              </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground text-balance">
-              Únete mientras construimos proyectos en vivo, compartimos consejos de desarrollo y hacemos crecer nuestra comunidad
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="hero-sub">
+              Portafolio de un dev <strong>FullStack (React &amp; .NET)</strong> que construye
+              proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="gap-2" asChild>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="flex gap-[14px] mt-10 flex-wrap">
+              <Button size="lg" asChild>
                 <a href="https://kick.com/isjuandev" target="_blank" rel="noopener noreferrer">
-                  <Video className="h-5 w-5" />
-                  Ver Streams
+                  Ver streams →
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="gap-2 bg-transparent" asChild>
-                <Link href="/contact">
-                  <Users className="h-5 w-5" />
-                  Únete a la Comunidad
-                </Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/contact">Únete a la comunidad</Link>
               </Button>
             </div>
+          </Reveal>
 
-            {/* Quick Links */}
-            <div className="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              <Link href="/projects" className="group p-6 rounded-lg border border-border bg-card/50 backdrop-blur hover:border-primary transition-all">
-                <Code2 className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold mb-2">Proyectos</h3>
-                <p className="text-sm text-muted-foreground">Explora mis últimas creaciones y experimentos</p>
-              </Link>
-              
-              <Link href="/blog" className="group p-6 rounded-lg border border-border bg-card/50 backdrop-blur hover:border-primary transition-all">
-                <Rocket className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold mb-2">Blog</h3>
-                <p className="text-sm text-muted-foreground">Lee tutoriales y artículos sobre desarrollo</p>
-              </Link>
-              
-              <Link href="/tips" className="group p-6 rounded-lg border border-border bg-card/50 backdrop-blur hover:border-primary transition-all">
-                <Heart className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold mb-2">Consejos</h3>
-                <p className="text-sm text-muted-foreground">Consejos rápidos y fragmentos de código</p>
-              </Link>
+          <Reveal delay={320}>
+            <div className="hero-meta">
+              <div><b>8+</b>años construyendo software</div>
+              <div><b>50+</b>proyectos en producción</div>
+              <div><b>20+</b>tecnologías del stack</div>
             </div>
+          </Reveal>
+        </div>
+      </section>
 
-            <div className="flex justify-center pt-8">
-              <Link href="/about" className="animate-bounce">
-                <ChevronDown className="h-8 w-8 text-primary" />
-              </Link>
-            </div>
+      {/* PROYECTOS — bento */}
+      <section className="section" id="proyectos" data-line="proyectos">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="section-label">proyectos.destacados</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Cosas que he construido<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="section-lead">Selección de proyectos reales — de stream a producción.</p>
+          </Reveal>
+
+          <div className="bento">
+            {featured.map((project, i) => (
+              <Reveal
+                key={project.id}
+                delay={i * 60}
+                className={cn(
+                  i === 0 && 'c-a',
+                  i === 1 && 'c-b',
+                  i === 2 && 'c-c',
+                  i === 3 && 'c-d',
+                  i === 4 && 'c-e'
+                )}
+              >
+                <Link
+                  href={project.demo !== '#' ? project.demo : project.code}
+                  target={project.demo !== '#' ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="card-editorial flex flex-col justify-between h-full group"
+                >
+                  <div>
+                    {project.stream && <span className="card-tag">Hecho en Stream</span>}
+                    <div className="card-mock" style={i !== 0 ? { height: '80px' } : undefined}>
+                      preview / captura del proyecto
+                    </div>
+                    <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-[0.92rem] leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div className="card-stack">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMUNIDAD — plataformas */}
+      <section className="section" id="comunidad" data-line="comunidad">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="section-label">comunidad.status</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Construimos esto juntos<span className="dot">.</span>
+            </h2>
+          </Reveal>
+
+          <div className="platforms">
+            {[
+              { key: 'kick', name: 'Kick', num: '—', label: 'seguidores', href: 'https://kick.com/isjuandev' },
+              { key: 'discord', name: 'Discord', num: '—', label: 'miembros', href: '/contact' },
+              { key: 'tiktok', name: 'TikTok', num: '—', label: 'seguidores', href: 'https://tiktok.com/@isjuandev' },
+              { key: 'instagram', name: 'Instagram', num: '—', label: 'seguidores', href: 'https://instagram.com/isjuandev' },
+            ].map((p) => (
+              <Reveal key={p.key} delay={80}>
+                <Link href={p.href} className="platform block hover:border-primary/50 transition-colors">
+                  <span className="icon">{platformIcons[p.key]}</span>
+                  <h3>{p.name}</h3>
+                  <div className="num">{p.num}</div>
+                  <div className="num-label">{p.label}</div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

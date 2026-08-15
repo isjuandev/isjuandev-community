@@ -4,17 +4,14 @@ import { useState, useMemo } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { projects } from '@/lib/data/content'
-import { Search, Github, ExternalLink, BookOpen } from 'lucide-react'
+import { Search } from 'lucide-react'
 
 export default function ProjectsPage() {
   const [projectSearch, setProjectSearch] = useState('')
   const [projectCategory, setProjectCategory] = useState('Todos')
   const [projectSort, setProjectSort] = useState('Recent')
 
-  // Filtered projects
   const filteredProjects = useMemo(() => {
     let filtered = projects.filter(project => {
       const matchesSearch = project.title.toLowerCase().includes(projectSearch.toLowerCase()) ||
@@ -32,23 +29,27 @@ export default function ProjectsPage() {
     return filtered
   }, [projectSearch, projectCategory, projectSort])
 
+  const cats = ['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto']
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <section className="py-32 px-4">
+
+      <section className="section" id="proyectos" data-line="proyectos">
         <div className="container mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <BookOpen className="h-8 w-8 text-primary" />
-            <h2 className="text-4xl font-bold">Proyectos</h2>
+          <div className="flex items-center gap-3">
+            <span className="section-label">proyectos.github</span>
           </div>
-          <p className="text-muted-foreground mb-8 text-lg">
+          <h2 className="section-title">
+            Proyectos<span className="dot">.</span>
+          </h2>
+          <p className="section-lead mb-12">
             Proyectos públicos de mi GitHub, organizados por categoría
           </p>
 
-          {/* Project Filters */}
-          <div className="space-y-4 mb-8">
-            <div className="relative">
+          {/* Filters */}
+          <div className="space-y-4 mb-14">
+            <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Buscar proyectos..."
@@ -59,7 +60,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto'].map((cat) => (
+              {cats.map((cat) => (
                 <Button
                   key={cat}
                   variant={projectCategory === cat ? 'default' : 'outline'}
@@ -86,53 +87,37 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Project grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
             {filteredProjects.map((project) => (
-              <Card 
-                key={project.id} 
-                className="group overflow-hidden border-border bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1"
+              <a
+                key={project.id}
+                href={project.demo !== '#' ? project.demo : project.code}
+                target={project.demo !== '#' ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="card-editorial flex flex-col justify-between group"
               >
-                <div className="aspect-video bg-muted relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-                  {project.stream && (
-                    <Badge variant="secondary" className="absolute top-2 right-2">
-                      Hecho en Stream
-                    </Badge>
-                  )}
-                </div>
-                <CardHeader>
-                  <CardTitle className="group-hover:text-primary transition-colors">
+                <div>
+                  {project.stream && <span className="card-tag">Hecho en Stream</span>}
+                  <div className="card-mock">preview / captura del proyecto</div>
+                  <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
                     {project.title}
-                  </CardTitle>
-                  <CardDescription className="leading-relaxed">
+                  </h3>
+                  <p className="text-muted-foreground text-[0.92rem] leading-relaxed">
                     {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
+                  </p>
+                </div>
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <div className="card-stack">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
                     ))}
                   </div>
-                </CardContent>
-                <CardFooter className="gap-2">
-                  <Button size="sm" variant="default" className="flex-1 gap-2" asChild>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4" />
-                      Demo
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="outline" className="flex-1 gap-2 bg-transparent" asChild>
-                    <a href={project.code} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4" />
-                      Code
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <span className="text-primary font-mono text-[0.82rem] whitespace-nowrap group-hover:translate-x-1 transition-transform">
+                    {project.demo !== '#' ? 'demo →' : 'código →'}
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
 
