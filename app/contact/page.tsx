@@ -6,6 +6,8 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Mail, MessageSquare, Users, Video, Github } from 'lucide-react'
 import { SocialButton } from '@/components/social-button'
+import { Wordmark } from '@/components/wordmark'
+import { VisitCounter } from '@/components/motion/visit-counter'
 
 export default function ContactPage() {
   return (
@@ -91,15 +93,19 @@ export default function ContactPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-border">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <div className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
-            {'<IsJuanDev />'}
+      <footer className="py-16 px-4 border-t border-border">
+        <div className="container mx-auto text-center">
+          <Wordmark size="lg" />
+          <p className="text-lg text-muted-foreground mt-6 mb-8">
+            Construyendo en público, un stream a la vez.
+          </p>
+          <div className="flex justify-center mb-8">
+            <VisitCounter />
           </div>
-          <p className="text-sm">
+          <p className="text-sm text-muted-foreground">
             Construido con Next.js, Tailwind CSS y shadcn/ui
           </p>
-          <p className="text-sm mt-2">
+          <p className="text-sm text-muted-foreground mt-2">
             © 2024 IsJuanDev. Construyendo en público, un stream a la vez.
           </p>
         </div>

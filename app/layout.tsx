@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk, Spline_Sans_Mono } from 'next/font/google'
+import { ScrollProgress } from '@/components/motion/scroll-progress'
 
 import './globals.css'
 
@@ -29,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${splineSansMono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <ScrollProgress />
+      </body>
     </html>
   )
 }

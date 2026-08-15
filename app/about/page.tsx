@@ -7,6 +7,8 @@ import { SocialButton } from '@/components/social-button'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/motion/reveal'
+import { SkillsTerminal } from '@/components/motion/skills-terminal'
 import {
   Video,
   Rocket,
@@ -117,7 +119,8 @@ export default function AboutPage() {
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+          <Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
             <Card className="text-center border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <CardContent className="pt-6">
                 <Video className="h-8 w-8 text-primary mx-auto mb-3" />
@@ -158,6 +161,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </div>
+          </Reveal>
 
           {/* Tech Stack */}
           <div className="mt-16">
@@ -227,29 +231,13 @@ export default function AboutPage() {
             <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
               Skills<span className="text-primary">.</span>
             </h3>
-            <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card/50 backdrop-blur overflow-hidden shadow-xl shadow-black/40">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
-                <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-                <span className="ml-3 text-sm font-mono text-muted-foreground">skills — zsh</span>
-              </div>
-              <div className="p-6 font-mono text-sm leading-relaxed space-y-2">
-                <div className="flex gap-2">
-                  <span className="text-primary">$</span>
-                  <span>pnpm isjuandev@skills init</span>
-                </div>
-                <div className="text-muted-foreground">✔ Cargando perfil de Juan Diego…</div>
-                <div className="text-muted-foreground">✔ 8+ años de experiencia FullStack</div>
-                <div className="text-muted-foreground">✔ 20+ tecnologías dominadas</div>
-                <div className="text-muted-foreground">✔ React &amp; .NET · microservicios · AWS</div>
-                <div className="text-muted-foreground">✔ Streams en vivo: construyo en público</div>
-                <div className="text-primary font-bold">✨ Pkg ready in 0ms — sin humo, con código.</div>
-              </div>
-            </div>
+            <Reveal>
+              <SkillsTerminal />
+            </Reveal>
           </div>
 
           {/* Experiencia Profesional */}
+          <Reveal>
           <div className="mt-16">
             <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
               Experiencia<span className="text-primary">.</span>
@@ -315,8 +303,10 @@ export default function AboutPage() {
               </Card>
             </div>
           </div>
+          </Reveal>
 
           {/* Mi Trayectoria - Timeline */}
+          <Reveal>
           <div className="mt-16">
             <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
               Trayectoria<span className="text-primary">.</span>
@@ -383,6 +373,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
     </div>

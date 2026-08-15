@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { Video, Users, ChevronDown, Radio, Github, ExternalLink } from 'lucide-react'
 import { projects } from '@/lib/data/content'
+import { Reveal } from '@/components/motion/reveal'
 
 const featured = projects.filter((p) => p.demo !== '#').slice(0, 4)
 
@@ -57,9 +58,12 @@ export default function HomePage() {
       {/* Featured Projects - Bento */}
       <section id="proyectos" className="relative py-24 px-4">
         <div className="container mx-auto">
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-12 text-balance">
-            Proyectos<span className="text-primary">.</span>
-          </h2>
+          <Reveal>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-12 text-balance">
+              Proyectos<span className="text-primary">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-6">
             {featured.map((project, i) => (
               <Link
@@ -95,11 +99,14 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          </Reveal>
+          <Reveal delay={200}>
           <div className="mt-12 text-center">
             <Button variant="outline" className="gap-2 bg-transparent" asChild>
               <Link href="/projects">Ver todos los proyectos</Link>
             </Button>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -107,6 +114,7 @@ export default function HomePage() {
       <section className="relative py-24 px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
+          <Reveal>
           <div className="inline-flex items-center gap-2 bg-card/50 border border-border rounded-full px-4 py-2 mb-6">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -134,6 +142,7 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
+          </Reveal>
         </div>
       </section>
     </div>
