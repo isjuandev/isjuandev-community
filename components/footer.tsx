@@ -12,7 +12,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer id="contacto" data-line="footer" className="px-4">
+    <footer data-line="footer" className="px-4">
       <div className="container mx-auto flex flex-col items-center text-center">
         <Wordmark size="lg" />
         <p className="text-muted-foreground text-[0.98rem] mt-[18px] mb-10">

@@ -79,19 +79,22 @@ export default function HomePage() {
 
           <div className="bento">
             {featured.map((project, i) => (
-              <Reveal key={project.id} delay={i * 60}>
+              <Reveal
+                key={project.id}
+                delay={i * 60}
+                className={cn(
+                  i === 0 && 'c-a',
+                  i === 1 && 'c-b',
+                  i === 2 && 'c-c',
+                  i === 3 && 'c-d',
+                  i === 4 && 'c-e'
+                )}
+              >
                 <Link
                   href={project.demo !== '#' ? project.demo : project.code}
                   target={project.demo !== '#' ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className={cn(
-                    'card-editorial flex flex-col justify-between group',
-                    i === 0 && 'c-a',
-                    i === 1 && 'c-b',
-                    i === 2 && 'c-c',
-                    i === 3 && 'c-d',
-                    i === 4 && 'c-e'
-                  )}
+                  className="card-editorial flex flex-col justify-between h-full group"
                 >
                   <div>
                     {project.stream && <span className="card-tag">Hecho en Stream</span>}

@@ -218,20 +218,20 @@ button:focus-visible {
     transform: translateY(-2px);
   }
 
-  .card-editorial.c-a {
+  .c-a {
     grid-column: span 4;
     grid-row: span 2;
     min-height: 300px;
   }
 
-  .card-editorial.c-b,
-  .card-editorial.c-c {
+  .c-b,
+  .c-c {
     grid-column: span 2;
     grid-row: span 1;
   }
 
-  .card-editorial.c-d,
-  .card-editorial.c-e {
+  .c-d,
+  .c-e {
     grid-column: span 3;
     grid-row: span 1;
   }
@@ -470,6 +470,15 @@ button:focus-visible {
   .card-editorial.c-c,
   .card-editorial.c-d,
   .card-editorial.c-e {
+    grid-column: span 1;
+    min-height: auto;
+  }
+
+  .c-a,
+  .c-b,
+  .c-c,
+  .c-d,
+  .c-e {
     grid-column: span 1;
     min-height: auto;
   }
