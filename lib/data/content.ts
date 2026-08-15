@@ -34,37 +34,246 @@ export interface Tip {
 }
 
 export const projects: Project[] = [
+  // ── Aplicaciones Web ─────────────────────────────────────────────────────
   {
     id: 1,
-    title: 'CLI de Herramientas Dev',
-    description: 'Herramienta de línea de comandos para automatizar flujos de trabajo comunes de desarrollo',
+    title: 'NexoBite',
+    description: 'Sitio web corporativo de NexoBite con widget de chat y captura de leads a través de webhooks de n8n',
     image: '/placeholder.svg',
-    category: 'Herramientas',
-    tags: ['Node.js', 'CLI', 'TypeScript'],
-    demo: '#',
-    code: '#',
-    stream: true
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'n8n', 'TypeScript'],
+    demo: 'https://nexobite.com',
+    code: 'https://github.com/isjuandev/nexobite',
+    stream: false
   },
   {
     id: 2,
-    title: 'Gestor de Fragmentos de Código',
-    description: 'Interfaz hermosa para organizar y compartir fragmentos de código con resaltado de sintaxis',
+    title: 'EA-RIF',
+    description: 'Aplicación web para la gestión de RIF y documentos electrónicos',
     image: '/placeholder.svg',
-    category: 'Código Abierto',
-    tags: ['React', 'Firebase', 'Monaco Editor'],
-    demo: '#',
-    code: '#',
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'TypeScript'],
+    demo: 'https://ea-rif.vercel.app',
+    code: 'https://github.com/isjuandev/ea-rif',
     stream: false
   },
   {
     id: 3,
-    title: 'Limitador de Tasa de API',
-    description: 'Middleware para limitar peticiones de API con caché Redis',
+    title: 'ViralyShop',
+    description: 'E-commerce moderno y escalable construido con el stack de Next.js',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'TypeScript', 'E-commerce'],
+    demo: 'https://viralyshop.vercel.app',
+    code: 'https://github.com/isjuandev/viralyshop',
+    stream: false
+  },
+  {
+    id: 4,
+    title: 'Residente',
+    description: 'Web app para gestión de comunidades y condominios',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'TypeScript'],
+    demo: 'https://residente-web.vercel.app',
+    code: 'https://github.com/isjuandev/residente',
+    stream: false
+  },
+  {
+    id: 5,
+    title: 'CRM NexoBite (Frontend)',
+    description: 'Frontend del sistema CRM de NexoBite para gestión de clientes y ventas',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'CRM', 'TypeScript'],
+    demo: 'https://crm-front-nexobite.vercel.app',
+    code: 'https://github.com/isjuandev/crm-front-nexobite',
+    stream: false
+  },
+  {
+    id: 6,
+    title: 'IEJMO',
+    description: 'Aplicación web institucional',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Web',
+    tags: ['Next.js', 'TypeScript'],
+    demo: 'https://iejmo.vercel.app',
+    code: 'https://github.com/isjuandev/iejmo',
+    stream: false
+  },
+  {
+    id: 7,
+    title: 'isjuandev-portafolio',
+    description: 'Portafolio personal desarrollado con React y Vite',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Web',
+    tags: ['React', 'Vite', 'TypeScript'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/isjuandev-portafolio',
+    stream: false
+  },
+
+  // ── Backend / APIs ───────────────────────────────────────────────────────
+  {
+    id: 8,
+    title: 'NexoBite · Menu Digital',
+    description: 'Backend multi-tenant para pedidos de restaurantes con resolución de tenant por host HTTP y generación de QRs por mesa (NestJS + TypeORM + PostgreSQL)',
+    image: '/placeholder.svg',
+    category: 'Backend / APIs',
+    tags: ['NestJS', 'TypeORM', 'PostgreSQL', 'Multi-tenant'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/menu-digital',
+    stream: false
+  },
+  {
+    id: 9,
+    title: 'NanoBank Ledger',
+    description: 'Gestión de billeteras y transacciones personales con backend Spring Boot + JWT, frontend Angular y PostgreSQL',
+    image: '/placeholder.svg',
+    category: 'Backend / APIs',
+    tags: ['Spring Boot', 'Angular', 'PostgreSQL', 'JWT'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/nanobank-ledger',
+    stream: false
+  },
+  {
+    id: 10,
+    title: 'CRM NexoBite (Backend)',
+    description: 'API del sistema CRM de NexoBite',
+    image: '/placeholder.svg',
+    category: 'Backend / APIs',
+    tags: ['Node.js', 'API', 'JavaScript'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/crm-back-nexobite',
+    stream: false
+  },
+  {
+    id: 11,
+    title: 'Coderland · MarcasAutos',
+    description: 'API REST .NET Core 8 con arquitectura hexagonal, Entity Framework Core, PostgreSQL y Docker',
+    image: '/placeholder.svg',
+    category: 'Backend / APIs',
+    tags: ['.NET Core', 'EF Core', 'PostgreSQL', 'Docker'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Coderland-MarcasAutos',
+    stream: false
+  },
+  {
+    id: 12,
+    title: 'MW2019',
+    description: 'Proyecto de bajo nivel desarrollado en C++',
+    image: '/placeholder.svg',
+    category: 'Backend / APIs',
+    tags: ['C++'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/MW2019',
+    stream: false
+  },
+
+  // ── Aplicaciones Móviles ─────────────────────────────────────────────────
+  {
+    id: 13,
+    title: 'Amazon Tracker',
+    description: 'App móvil Flutter para rastrear precios de productos de Amazon con diseño iOS, sincronización con Supabase y notificaciones push (FCM)',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Móviles',
+    tags: ['Flutter', 'Supabase', 'Firebase', 'Dart'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Amazon-Tracker',
+    stream: false
+  },
+  {
+    id: 14,
+    title: 'ToDo BLoC',
+    description: 'App de gestión de tareas en Flutter con patrón BLoC, CRUD completo, temas claro/oscuro y persistencia en Firestore',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Móviles',
+    tags: ['Flutter', 'BLoC', 'Firestore', 'Dart'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/ToDo-BLoC',
+    stream: false
+  },
+  {
+    id: 15,
+    title: 'WhatsApp UI Flutter',
+    description: 'Clon de la interfaz de WhatsApp construido en Flutter',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Móviles',
+    tags: ['Flutter', 'UI', 'Dart'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/WhatsApp-IU-Flutter',
+    stream: false
+  },
+  {
+    id: 16,
+    title: 'Coderland Tasks App',
+    description: 'App de gestión de tareas en React Native con Expo Router, Redux y tests unitarios',
+    image: '/placeholder.svg',
+    category: 'Aplicaciones Móviles',
+    tags: ['React Native', 'Expo', 'TypeScript'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Coderland-ReactNative',
+    stream: false
+  },
+
+  // ── Experimentos ─────────────────────────────────────────────────────────
+  {
+    id: 17,
+    title: 'FocusMind Landing',
+    description: 'Landing de validación (smoke test) con métricas en tiempo real usando Vercel KV (Redis) y Edge Runtime',
+    image: '/placeholder.svg',
+    category: 'Experimentos',
+    tags: ['Next.js', 'Redis', 'Edge', 'Experimento'],
+    demo: 'https://focusmind-eight.vercel.app',
+    code: 'https://github.com/isjuandev/focusmind',
+    stream: false
+  },
+
+  // ── Pruebas Técnicas ─────────────────────────────────────────────────────
+  {
+    id: 18,
+    title: 'Loto-Back',
+    description: 'Prueba de desarrollo para la vacante Senior Full Stack — backend en C#',
+    image: '/placeholder.svg',
+    category: 'Pruebas Técnicas',
+    tags: ['C#', '.NET', 'Prueba Técnica'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Loto-Back',
+    stream: false
+  },
+  {
+    id: 19,
+    title: 'Loto-Front',
+    description: 'Prueba de desarrollo para la vacante Senior Full Stack — frontend en JavaScript',
+    image: '/placeholder.svg',
+    category: 'Pruebas Técnicas',
+    tags: ['JavaScript', 'Frontend', 'Prueba Técnica'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Loto-Front',
+    stream: false
+  },
+
+  // ── Código Abierto ───────────────────────────────────────────────────────
+  {
+    id: 20,
+    title: 'Programacion3-MarketPlace',
+    description: 'Red de vendedores: marketplace académico desarrollado en Java',
     image: '/placeholder.svg',
     category: 'Código Abierto',
-    tags: ['Node.js', 'Redis', 'Express'],
+    tags: ['Java', 'Marketplace', 'Académico'],
     demo: '#',
-    code: '#',
+    code: 'https://github.com/isjuandev/Programacion3-MarketPlace',
+    stream: false
+  },
+  {
+    id: 21,
+    title: 'Portafolio',
+    description: 'Portafolio de trabajos y proyectos en HTML',
+    image: '/placeholder.svg',
+    category: 'Código Abierto',
+    tags: ['HTML', 'CSS', 'Portafolio'],
+    demo: '#',
+    code: 'https://github.com/isjuandev/Portafolio',
     stream: false
   }
 ]

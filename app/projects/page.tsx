@@ -43,7 +43,7 @@ export default function ProjectsPage() {
             <h2 className="text-4xl font-bold">Proyectos</h2>
           </div>
           <p className="text-muted-foreground mb-8 text-lg">
-            Proyectos construidos en vivo en Kick
+            Proyectos públicos de mi GitHub, organizados por categoría
           </p>
 
           {/* Project Filters */}
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {['Todos', 'Aplicaciones Web', 'Herramientas', 'Experimentos', 'Código Abierto'].map((cat) => (
+              {['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto'].map((cat) => (
                 <Button
                   key={cat}
                   variant={projectCategory === cat ? 'default' : 'outline'}
