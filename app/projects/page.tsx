@@ -4,16 +4,14 @@ import { useState, useMemo } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Badge } from '@/components/ui/badge'
 import { projects } from '@/lib/data/content'
-import { Search, Github, ExternalLink, FolderGit2 } from 'lucide-react'
+import { Search } from 'lucide-react'
 
 export default function ProjectsPage() {
   const [projectSearch, setProjectSearch] = useState('')
   const [projectCategory, setProjectCategory] = useState('Todos')
   const [projectSort, setProjectSort] = useState('Recent')
 
-  // Filtered projects
   const filteredProjects = useMemo(() => {
     let filtered = projects.filter(project => {
       const matchesSearch = project.title.toLowerCase().includes(projectSearch.toLowerCase()) ||
@@ -31,25 +29,27 @@ export default function ProjectsPage() {
     return filtered
   }, [projectSearch, projectCategory, projectSort])
 
+  const cats = ['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto']
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      <section className="py-32 px-4">
+
+      <section className="section" id="proyectos" data-line="proyectos">
         <div className="container mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <FolderGit2 className="h-8 w-8 text-primary" />
-            <h2 className="font-display text-5xl sm:text-6xl font-bold text-balance">
-              Proyectos<span className="text-primary">.</span>
-            </h2>
+          <div className="flex items-center gap-3">
+            <span className="section-label">proyectos.github</span>
           </div>
-          <p className="text-muted-foreground mb-10 text-lg">
+          <h2 className="section-title">
+            Proyectos<span className="dot">.</span>
+          </h2>
+          <p className="section-lead mb-12">
             Proyectos públicos de mi GitHub, organizados por categoría
           </p>
 
-          {/* Project Filters */}
-          <div className="space-y-4 mb-12">
-            <div className="relative">
+          {/* Filters */}
+          <div className="space-y-4 mb-14">
+            <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Buscar proyectos..."
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto'].map((cat) => (
+              {cats.map((cat) => (
                 <Button
                   key={cat}
                   variant={projectCategory === cat ? 'default' : 'outline'}
@@ -87,67 +87,37 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Project Bento Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, i) => (
-              <div
+          {/* Project grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            {filteredProjects.map((project) => (
+              <a
                 key={project.id}
-                className={`group flex flex-col border border-border bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden rounded-lg ${
-                  i % 4 === 0 ? 'lg:col-span-2 lg:row-span-2' : ''
-                }`}
+                href={project.demo !== '#' ? project.demo : project.code}
+                target={project.demo !== '#' ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="card-editorial flex flex-col justify-between group"
               >
-                {/* Terminal mockup */}
-                <div className="border-b border-border bg-muted/50">
-                  <div className="flex items-center gap-2 px-4 py-2.5">
-                    <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                    <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                    <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-                    <span className="ml-3 text-xs font-mono text-muted-foreground truncate">
-                      {project.title.toLowerCase().replace(/\s+/g, '-')} — bash
-                    </span>
-                  </div>
-                  <div className="px-4 pb-3 font-mono text-xs leading-relaxed space-y-1">
-                    <div className="flex gap-2">
-                      <span className="text-primary">$</span>
-                      <span>git clone {project.code.replace('https://github.com/', '')}</span>
-                    </div>
-                    <div className="text-muted-foreground truncate">✔ {project.tags.join(' · ')}</div>
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {project.stream && <Badge variant="secondary" className="text-xs">Hecho en Stream</Badge>}
-                    <Badge variant="outline" className="text-xs">{project.category}</Badge>
-                  </div>
-                  <h3 className={`font-display font-bold group-hover:text-primary transition-colors ${i % 4 === 0 ? 'text-3xl' : 'text-2xl'}`}>
+                <div>
+                  {project.stream && <span className="card-tag">Hecho en Stream</span>}
+                  <div className="card-mock">preview / captura del proyecto</div>
+                  <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-2">{project.description}</p>
-
-                  <div className="mt-auto pt-6">
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-                      ))}
-                    </div>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="default" className="flex-1 gap-2" asChild>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                          Demo
-                        </a>
-                      </Button>
-                      <Button size="sm" variant="outline" className="flex-1 gap-2 bg-transparent" asChild>
-                        <a href={project.code} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4" />
-                          Code
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
+                  <p className="text-muted-foreground text-[0.92rem] leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
-              </div>
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <div className="card-stack">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                  <span className="text-primary font-mono text-[0.82rem] whitespace-nowrap group-hover:translate-x-1 transition-transform">
+                    {project.demo !== '#' ? 'demo →' : 'código →'}
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
 

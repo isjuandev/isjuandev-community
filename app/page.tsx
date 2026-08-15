@@ -1,148 +1,150 @@
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
-import { Video, Users, ChevronDown, Radio, Github, ExternalLink } from 'lucide-react'
 import { projects } from '@/lib/data/content'
 import { Reveal } from '@/components/motion/reveal'
+import { cn } from '@/lib/utils'
 
-const featured = projects.filter((p) => p.demo !== '#').slice(0, 4)
+const featured = projects.slice(0, 5)
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20 animate-gradient" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-        
-        <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <h1 className="font-display font-bold leading-none text-balance text-[clamp(3.25rem,12vw,4.5rem)] sm:text-8xl md:text-9xl">
+
+      {/* HERO */}
+      <section className="section" id="top" data-line="hero">
+        <div className="container mx-auto">
+          <Reveal>
+            <span className="hero-status">
+              <span className="dot-status" />
+              offline — próximo stream sin confirmar
+            </span>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h1 className="hero-title">
               <span className="block">Construyo</span>
-              <span className="block text-primary">en público</span>
-              <span className="block text-muted-foreground">
+              <span className="block">
+                en <span className="text-primary">público</span>
                 <span className="animate-blink text-primary">▌</span>
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground text-balance font-mono">
-              Senior FullStack · React &amp; .NET · Streams en vivo
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="hero-sub">
+              Portafolio editorial de un dev <strong>FullStack (React &amp; .NET)</strong> que construye
+              proyectos reales en vivo, comparte lo que aprende y documenta su trayectoria. Sin humo.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="gap-2" asChild>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="flex gap-[14px] mt-10 flex-wrap">
+              <Button size="lg" asChild>
                 <a href="https://kick.com/isjuandev" target="_blank" rel="noopener noreferrer">
-                  <Video className="h-5 w-5" />
-                  Ver Streams
+                  Ver streams →
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="gap-2 bg-transparent" asChild>
-                <Link href="/contact">
-                  <Users className="h-5 w-5" />
-                  Únete a la Comunidad
-                </Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/contact">Únete a la comunidad</Link>
               </Button>
             </div>
+          </Reveal>
 
-            <div className="flex justify-center pt-8">
-              <Link href="#proyectos" className="animate-bounce" aria-label="Ir a proyectos">
-                <ChevronDown className="h-8 w-8 text-primary" />
-              </Link>
+          <Reveal delay={320}>
+            <div className="hero-meta">
+              <div><b>8+</b>años construyendo software</div>
+              <div><b>50+</b>proyectos en producción</div>
+              <div><b>20+</b>tecnologías del stack</div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Featured Projects - Bento */}
-      <section id="proyectos" className="relative py-24 px-4">
+      {/* PROYECTOS — bento */}
+      <section className="section" id="proyectos" data-line="proyectos">
         <div className="container mx-auto">
           <Reveal>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-12 text-balance">
-              Proyectos<span className="text-primary">.</span>
+            <div className="section-label">proyectos.destacados</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Cosas que he construido<span className="dot">.</span>
             </h2>
           </Reveal>
-          <Reveal delay={100}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-6">
+          <Reveal delay={120}>
+            <p className="section-lead">Selección de proyectos reales — de stream a producción.</p>
+          </Reveal>
+
+          <div className="bento">
             {featured.map((project, i) => (
-              <Link
-                key={project.id}
-                href={project.demo !== '#' ? project.demo : project.code}
-                target={project.demo !== '#' ? '_blank' : undefined}
-                rel="noopener noreferrer"
-                className={`group p-6 rounded-lg border border-border bg-card/50 backdrop-blur hover:border-primary transition-all flex flex-col justify-between ${
-                  i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''
-                }`}
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    {project.stream && <Badge variant="secondary" className="text-xs">Hecho en Stream</Badge>}
-                    <Badge variant="outline" className="text-xs">{project.category}</Badge>
+              <Reveal key={project.id} delay={i * 60}>
+                <Link
+                  href={project.demo !== '#' ? project.demo : project.code}
+                  target={project.demo !== '#' ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className={cn(
+                    'card-editorial flex flex-col justify-between group',
+                    i === 0 && 'c-a',
+                    i === 1 && 'c-b',
+                    i === 2 && 'c-c',
+                    i === 3 && 'c-d',
+                    i === 4 && 'c-e'
+                  )}
+                >
+                  <div>
+                    {project.stream && <span className="card-tag">Hecho en Stream</span>}
+                    <div className="card-mock" style={i !== 0 ? { height: '80px' } : undefined}>
+                      preview / captura del proyecto
+                    </div>
+                    <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-[0.92rem] leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
-                  <h3 className={`font-display font-bold mb-2 ${i === 0 ? 'text-3xl' : 'text-2xl'}`}>
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
-                </div>
-                <div className="mt-6">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="card-stack">
                     {project.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+                      <span key={tag}>{tag}</span>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2 text-primary group-hover:translate-x-1 transition-transform">
-                    {project.demo !== '#' ? <ExternalLink className="h-4 w-4" /> : <Github className="h-4 w-4" />}
-                    <span className="text-sm font-medium">Ver proyecto</span>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
-          </Reveal>
-          <Reveal delay={200}>
-          <div className="mt-12 text-center">
-            <Button variant="outline" className="gap-2 bg-transparent" asChild>
-              <Link href="/projects">Ver todos los proyectos</Link>
-            </Button>
-          </div>
-          </Reveal>
         </div>
       </section>
 
-      {/* Live Section */}
-      <section className="relative py-24 px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-        <div className="container mx-auto relative z-10 text-center max-w-3xl">
+      {/* COMUNIDAD — plataformas */}
+      <section className="section" id="comunidad" data-line="comunidad">
+        <div className="container mx-auto">
           <Reveal>
-          <div className="inline-flex items-center gap-2 bg-card/50 border border-border rounded-full px-4 py-2 mb-6">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-primary" />
-            </span>
-            <span className="text-sm font-mono text-muted-foreground">EN VIVO</span>
-          </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4 text-balance">
-            Construyendo en vivo<span className="text-primary">.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Streams donde construyo proyectos reales, comparto consejos y respondo preguntas de la comunidad.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="gap-2" asChild>
-              <a href="https://kick.com/isjuandev" target="_blank" rel="noopener noreferrer">
-                <Radio className="h-5 w-5" />
-                Ver en Kick
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="gap-2 bg-transparent" asChild>
-              <Link href="/contact">
-                <Users className="h-5 w-5" />
-                Únete a la Comunidad
-              </Link>
-            </Button>
-          </div>
+            <div className="section-label">comunidad.status</div>
           </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Construimos esto juntos<span className="dot">.</span>
+            </h2>
+          </Reveal>
+
+          <div className="platforms">
+            {[
+              { icon: 'K', name: 'Kick', num: '—', label: 'seguidores', href: 'https://kick.com/isjuandev' },
+              { icon: 'D', name: 'Discord', num: '—', label: 'miembros', href: '/contact' },
+              { icon: 'IG', name: 'Instagram', num: '—', label: 'seguidores', href: 'https://instagram.com/isjuandev' },
+            ].map((p) => (
+              <Reveal key={p.name} delay={80}>
+                <Link href={p.href} className="platform block hover:border-primary/50 transition-colors">
+                  <span className="icon">{p.icon}</span>
+                  <h3>{p.name}</h3>
+                  <div className="num">{p.num}</div>
+                  <div className="num-label">{p.label}</div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>

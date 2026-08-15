@@ -4,21 +4,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { SocialButton } from '@/components/social-button'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Reveal } from '@/components/motion/reveal'
 import { SkillsTerminal } from '@/components/motion/skills-terminal'
-import {
-  Video,
-  Rocket,
-  Heart,
-  Users,
-  FileText,
-  Code2,
-  Target,
-  Github
-} from 'lucide-react'
+import { Rocket, Heart, Code2, Target } from 'lucide-react'
 
 export default function AboutPage() {
   const [statsVisible, setStatsVisible] = useState(false)
@@ -27,12 +16,10 @@ export default function AboutPage() {
   const [technologiesUsed, setTechnologiesUsed] = useState(0)
   const [companiesWorked, setCompaniesWorked] = useState(0)
 
-  // Animate stats on mount
   useEffect(() => {
     setStatsVisible(true)
   }, [])
 
-  // Animate stats counting up
   useEffect(() => {
     if (!statsVisible) return
 
@@ -61,21 +48,70 @@ export default function AboutPage() {
     return () => timers.forEach(clearInterval)
   }, [statsVisible])
 
+  const stack = [
+    { title: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Angular', 'Vite'] },
+    { title: 'Backend', items: ['.NET Core', 'Node.js', 'Express', 'NestJS', 'APIs REST'] },
+    { title: 'Bases de Datos', items: ['SQL Server', 'MongoDB', 'PostgreSQL'] },
+    { title: 'DevOps / Cloud', items: ['AWS', 'Docker', 'Azure DevOps', 'Git', 'CI/CD'] },
+  ]
+
+  const experience = [
+    {
+      role: 'Desarrollador FullStack Senior',
+      company: 'CODERLAND',
+      period: '2025-2026',
+      text: 'Desarrollo de aplicaciones empresariales con .NET y React. Implementación de APIs REST, marketplaces, integración de pasarelas de pago. Contenedorización con Docker y automatización CI/CD con Azure DevOps.',
+    },
+    {
+      role: 'Desarrollador FullStack .NET Sr',
+      company: 'IMAGINAMOS',
+      period: '2022-2025',
+      text: 'Desarrollo de aplicaciones web con React y .NET Core. Arquitecturas escalables basadas en microservicios, optimización de consultas SQL Server, reducción de tiempos de carga en 30%. Integración AWS.',
+      tags: ['React', 'TypeScript', '.NET Core', 'SQL Server', 'AWS'],
+    },
+    {
+      role: 'Desarrollador Frontend & Backend',
+      company: 'Freelance',
+      period: '2016-Presente',
+      text: 'Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core. Desarrollo móvil con Flutter. Optimización con code-splitting y lazy loading.',
+    },
+  ]
+
+  const timeline = [
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: '2016 - Primeros pasos como desarrollador',
+      text: 'Comencé como desarrollador freelance, construyendo sitios web y aprendiendo las bases del desarrollo full-stack.',
+    },
+    {
+      icon: <Code2 className="h-6 w-6" />,
+      title: '2022 - Primeros pasos en una empresa de desarrollo',
+      text: 'Me uní a IMAGINAMOS como desarrollador .NET JR durante 6 meses, después de eso me ascendieron a desarrollador .NET SENIOR, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.',
+    },
+    {
+      icon: <Rocket className="h-6 w-6" />,
+      title: '2025 - Desarrollador Senior',
+      text: 'Ahora como desarrollador senior en CODERLAND, LIDERÉ y participé en proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.',
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: 'Presente - Compartiendo Conocimiento',
+      text: 'Desarrollo proyectos empresariales mientras construyo una comunidad, comparto experiencias en streaming y ayudo a otros desarrolladores a crecer.',
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      <section className="relative py-32 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Profile Image */}
-            <div className="flex justify-center md:justify-start">
+      {/* Sobre mí */}
+      <section className="section" id="sobre-mi" data-line="about">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="section-label">sobre.mi</div>
+          </Reveal>
+          <div className="grid md:grid-cols-[auto_1fr] gap-12 items-center">
+            <Reveal>
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 animate-gradient" />
                 <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden">
@@ -88,15 +124,16 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-            </div>
+            </Reveal>
 
-            {/* Right: Content */}
-            <div className="space-y-6">
-              <div>
-                <h1 className="text-5xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Juan Diego García Castaño
+            <Reveal delay={80}>
+              <div className="space-y-6">
+                <h1 className="font-display font-bold text-5xl sm:text-6xl leading-none">
+                  Juan Diego<span className="text-primary">.</span>
                 </h1>
-                <p className="text-xl text-primary mb-4">Desarrollador FullStack | React & .NET</p>
+                <p className="text-xl text-primary font-mono">
+                  Desarrollador FullStack | React &amp; .NET
+                </p>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     Ingeniero de software especializado en desarrollo full-stack con experiencia en la creación de soluciones web modernas y escalables.
@@ -108,272 +145,144 @@ export default function AboutPage() {
                     Actualmente trabajo en proyectos empresariales mientras comparto conocimiento con la comunidad de desarrolladores a través de streaming y contenido educativo.
                   </p>
                 </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <SocialButton platform="kick" href="https://kick.com/isjuandev" />
+                  <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
+                  <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
+                </div>
               </div>
-
-              <div className="flex flex-wrap gap-3">
-                <SocialButton platform="kick" href="https://kick.com/isjuandev" />
-                <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
-                <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
-              </div>
-            </div>
-          </div>
-
-          {/* Stats Cards */}
-          <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-            <Card className="text-center border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-              <CardContent className="pt-6">
-                <Video className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-5xl sm:text-6xl font-display font-bold text-primary mb-2">
-                  {yearsExperience}+
-                </div>
-                <div className="text-sm text-muted-foreground">Años de Experiencia</div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-secondary/30 bg-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
-              <CardContent className="pt-6">
-                <Rocket className="h-8 w-8 text-secondary mx-auto mb-3" />
-                <div className="text-5xl sm:text-6xl font-display font-bold text-secondary mb-2">
-                  {projectsBuilt}+
-                </div>
-                <div className="text-sm text-muted-foreground">Proyectos Completados</div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-              <CardContent className="pt-6">
-                <Users className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-5xl sm:text-6xl font-display font-bold text-primary mb-2">
-                  {technologiesUsed}+
-                </div>
-                <div className="text-sm text-muted-foreground">Tecnologías Dominadas</div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-secondary/30 bg-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
-              <CardContent className="pt-6">
-                <FileText className="h-8 w-8 text-secondary mx-auto mb-3" />
-                <div className="text-5xl sm:text-6xl font-display font-bold text-secondary mb-2">
-                  {companiesWorked}
-                </div>
-                <div className="text-sm text-muted-foreground">Empresas (Actual)</div>
-              </CardContent>
-            </Card>
-          </div>
-          </Reveal>
-
-          {/* Tech Stack */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold mb-6 text-center">Stack Tecnológico</h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {/* Frontend */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur">
-                <CardContent className="pt-6">
-                  <h4 className="font-semibold text-primary mb-3 text-center">Frontend</h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Angular', 'Vite'].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Backend */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur">
-                <CardContent className="pt-6">
-                  <h4 className="font-semibold text-primary mb-3 text-center">Backend</h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {['.NET Core', 'Node.js', 'Express', 'NestJS', 'APIs REST'].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Bases de Datos */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur">
-                <CardContent className="pt-6">
-                  <h4 className="font-semibold text-primary mb-3 text-center">Bases de Datos</h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {['SQL Server', 'MongoDB', 'PostgreSQL'].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* DevOps / Cloud */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur">
-                <CardContent className="pt-6">
-                  <h4 className="font-semibold text-primary mb-3 text-center">DevOps / Cloud</h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {['AWS', 'Docker', 'Azure DevOps', 'Git', 'CI/CD'].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Terminal de Skills */}
-          <div className="mt-16">
-            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
-              Skills<span className="text-primary">.</span>
-            </h3>
-            <Reveal>
-              <SkillsTerminal />
             </Reveal>
           </div>
 
-          {/* Experiencia Profesional */}
+          {/* Stats */}
+          <Reveal delay={120}>
+            <div className="hero-meta justify-center md:justify-start mt-16">
+              <div><b>{yearsExperience}+</b>años de experiencia</div>
+              <div><b>{projectsBuilt}+</b>proyectos completados</div>
+              <div><b>{technologiesUsed}+</b>tecnologías dominadas</div>
+              <div><b>{companiesWorked}</b>empresas</div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Stack */}
+      <section className="section" id="stack" data-line="stack">
+        <div className="container mx-auto">
           <Reveal>
-          <div className="mt-16">
-            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
-              Experiencia<span className="text-primary">.</span>
-            </h3>
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div className="section-label">stack.init</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Lo que uso a diario<span className="dot">.</span>
+            </h2>
+          </Reveal>
 
-              {/* CODERLAND */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all">
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-xl font-semibold text-primary">Desarrollador FullStack Senior</h4>
-                      <p className="text-muted-foreground">CODERLAND</p>
-                    </div>
-                    <Badge variant="secondary">2025-2026</Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desarrollo de aplicaciones empresariales con .NET y React. Implementación de APIs REST, marketplaces,
-                    integración de pasarelas de pago. Contenedorización con Docker y automatización CI/CD con Azure DevOps.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* IMAGINAMOS */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all">
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-xl font-semibold text-primary">Desarrollador FullStack .NET Sr</h4>
-                      <p className="text-muted-foreground">IMAGINAMOS</p>
-                    </div>
-                    <Badge variant="secondary">2022-2025</Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    Desarrollo de aplicaciones web con React y .NET Core. Arquitecturas escalables basadas en microservicios,
-                    optimización de consultas SQL Server, reducción de tiempos de carga en 30%. Integración AWS.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['React', 'TypeScript', '.NET Core', 'SQL Server', 'AWS'].map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
+          <Reveal delay={120}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[18px] mt-12">
+              {stack.map((group) => (
+                <div key={group.title} className="card-editorial">
+                  <h3 className="font-display font-bold text-[1.05rem] text-primary mb-4">{group.title}</h3>
+                  <div className="card-stack" style={{ marginTop: 0 }}>
+                    {group.items.map((tech) => (
+                      <span key={tech}>{tech}</span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Freelance */}
-              <Card className="border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all">
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-xl font-semibold text-primary">Desarrollador Frontend & Backend</h4>
-                      <p className="text-muted-foreground">Freelance</p>
-                    </div>
-                    <Badge variant="secondary">2016-Presente</Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core.
-                    Desarrollo móvil con Flutter. Optimización con code-splitting y lazy loading.
-                  </p>
-                </CardContent>
-              </Card>
+                </div>
+              ))}
             </div>
-          </div>
           </Reveal>
+        </div>
+      </section>
 
-          {/* Mi Trayectoria - Timeline */}
+      {/* Skills terminal */}
+      <section className="section" id="skills" data-line="skills">
+        <div className="container mx-auto">
           <Reveal>
-          <div className="mt-16">
-            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
-              Trayectoria<span className="text-primary">.</span>
-            </h3>
-            <div className="max-w-3xl mx-auto space-y-6">
-
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <Target className="h-6 w-6" />
-                  </div>
-                  <div className="flex-1 w-px bg-gradient-to-b from-primary to-secondary mt-2" style={{ minHeight: '60px' }} />
-                </div>
-                <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2016 - Primeros pasos como desarrollador</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Comencé como desarrollador freelance, construyendo sitios web y aprendiendo las bases del desarrollo full-stack.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                    <Code2 className="h-6 w-6" />
-                  </div>
-                  <div className="flex-1 w-px bg-gradient-to-b from-secondary to-primary mt-2" style={{ minHeight: '60px' }} />
-                </div>
-                <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2022 - Primeros pasos en una empresa de desarrollo</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Me uní a IMAGINAMOS como desarrollador .NET <span className="font-bold">JR</span> durante 6 meses, después de eso me ascendieron a desarrollador .NET <span className="font-bold">SENIOR</span>, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <Rocket className="h-6 w-6" />
-                  </div>
-                  <div className="flex-1 w-px bg-gradient-to-b from-primary to-secondary mt-2" style={{ minHeight: '60px' }} />
-                </div>
-                <div className="flex-1 pb-8">
-                  <h4 className="text-xl font-semibold mb-2">2025 - Desarrollador Senior</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Ahora como desarrollador senior en CODERLAND, <span className="font-bold">LIDERÉ</span> y participé en proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                    <Heart className="h-6 w-6" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xl font-semibold mb-2">Presente - Compartiendo Conocimiento</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Desarrollo proyectos empresariales mientras construyo una comunidad, comparto experiencias en streaming y ayudo a otros desarrolladores a crecer.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div className="section-label">stack.init</div>
           </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Skills<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <SkillsTerminal />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Experiencia */}
+      <section className="section" id="experiencia" data-line="experiencia">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="section-label">experiencia.log</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Experiencia<span className="dot">.</span>
+            </h2>
+          </Reveal>
+
+          <div className="max-w-4xl space-y-6 mt-12">
+            {experience.map((job, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className="card-editorial">
+                  <div className="flex justify-between items-start mb-2 gap-4 flex-wrap">
+                    <div>
+                      <h3 className="font-display font-bold text-xl text-primary">{job.role}</h3>
+                      <p className="text-muted-foreground">{job.company}</p>
+                    </div>
+                    <Badge variant="secondary">{job.period}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{job.text}</p>
+                  {job.tags && (
+                    <div className="card-stack">
+                      {job.tags.map((tech) => (
+                        <span key={tech}>{tech}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trayectoria */}
+      <section className="section" id="trayectoria" data-line="trayectoria">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="section-label">trayectoria.log</div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Trayectoria<span className="dot">.</span>
+            </h2>
+          </Reveal>
+
+          <div className="max-w-3xl mx-auto space-y-6 mt-12">
+            {timeline.map((item, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    {i < timeline.length - 1 && (
+                      <div className="flex-1 w-px bg-gradient-to-b from-primary to-secondary mt-2" style={{ minHeight: '60px' }} />
+                    )}
+                  </div>
+                  <div className={i < timeline.length - 1 ? 'flex-1 pb-8' : 'flex-1'}>
+                    <h4 className="font-display font-bold text-xl mb-2">{item.title}</h4>
+                    <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>
