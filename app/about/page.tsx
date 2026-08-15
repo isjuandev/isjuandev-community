@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
+import { SocialButton } from '@/components/social-button'
 import { Badge } from '@/components/ui/badge'
 import { Reveal } from '@/components/motion/reveal'
 import { SkillsTerminal } from '@/components/motion/skills-terminal'
+import { Rocket, Heart, Code2, Target } from 'lucide-react'
 
 export default function AboutPage() {
   const [statsVisible, setStatsVisible] = useState(false)
@@ -77,18 +79,22 @@ export default function AboutPage() {
 
   const timeline = [
     {
+      icon: <Target className="h-6 w-6" />,
       title: '2016 - Primeros pasos como desarrollador',
       text: 'Comencé como desarrollador freelance, construyendo sitios web y aprendiendo las bases del desarrollo full-stack.',
     },
     {
+      icon: <Code2 className="h-6 w-6" />,
       title: '2022 - Primeros pasos en una empresa de desarrollo',
       text: 'Me uní a IMAGINAMOS como desarrollador .NET JR durante 6 meses, después de eso me ascendieron a desarrollador .NET SENIOR, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.',
     },
     {
+      icon: <Rocket className="h-6 w-6" />,
       title: '2025 - Desarrollador Senior',
       text: 'Ahora como desarrollador senior en CODERLAND, LIDERÉ y participé en proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.',
     },
     {
+      icon: <Heart className="h-6 w-6" />,
       title: 'Presente - Compartiendo Conocimiento',
       text: 'Desarrollo proyectos empresariales mientras construyo una comunidad, comparto experiencias en streaming y ayudo a otros desarrolladores a crecer.',
     },
@@ -137,6 +143,12 @@ export default function AboutPage() {
                   <p>
                     Actualmente trabajo en proyectos empresariales mientras comparto conocimiento con la comunidad de desarrolladores a través de streaming y contenido educativo.
                   </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <SocialButton platform="kick" href="https://kick.com/isjuandev" />
+                  <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
+                  <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
                 </div>
               </div>
             </Reveal>
@@ -253,9 +265,19 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto space-y-6 mt-12">
             {timeline.map((item, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className="card-editorial">
-                  <h4 className="font-display font-bold text-xl mb-2">{item.title}</h4>
-                  <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+                <div className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center text-primary bg-card">
+                      {item.icon}
+                    </div>
+                    {i < timeline.length - 1 && (
+                      <div className="flex-1 w-[2px] bg-border mt-3" style={{ minHeight: '60px' }} />
+                    )}
+                  </div>
+                  <div className={i < timeline.length - 1 ? 'flex-1 pb-8' : 'flex-1'}>
+                    <h4 className="font-display font-bold text-xl mb-2">{item.title}</h4>
+                    <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}

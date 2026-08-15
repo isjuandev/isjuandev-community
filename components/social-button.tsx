@@ -46,13 +46,11 @@ export function SocialButton({ platform, href, label }: SocialButtonProps) {
             rel="noopener noreferrer"
             className="
         inline-flex items-center gap-2
-        px-5 py-2.5 rounded-xl
+        px-5 py-2.5 rounded-[6px]
         text-sm font-semibold
-        border border-primary/40
-        text-primary bg-primary/10
-        hover:bg-primary/20 hover:border-primary/70 hover:shadow-lg hover:shadow-primary/20
-        hover:scale-105
-        transition-all duration-300
+        border border-input bg-background text-foreground
+        hover:border-primary hover:text-primary
+        transition-colors
       "
         >
             <span className="text-secondary">{icon}</span>
