@@ -12,15 +12,16 @@ export function Navigation() {
   const pathname = usePathname()
 
   const navLinks = [
+    { href: '/', label: 'Inicio' },
     { href: '/projects', label: 'Proyectos' },
     { href: '/about', label: 'Sobre mí' },
     { href: '/blog', label: 'Aprendizajes' },
-    { href: '/#comunidad', label: 'Comunidad' },
+    { href: '/comunidad', label: 'Comunidad' },
     { href: '/contact', label: 'Contacto' },
   ]
 
   const isActive = (href: string) => {
-    if (href === '/#comunidad') return pathname === '/'
+    if (href === '/') return pathname === '/'
     return pathname.startsWith(href)
   }
 

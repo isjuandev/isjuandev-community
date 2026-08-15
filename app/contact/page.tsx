@@ -76,7 +76,7 @@ export default function ContactPage() {
                   </p>
                   <div className="space-y-4">
                     <Button className="w-full gap-2" size="lg" asChild>
-                      <a href="/#comunidad">
+                      <a href="/comunidad">
                         <Users className="h-5 w-5" />
                         Ver la comunidad en público
                       </a>

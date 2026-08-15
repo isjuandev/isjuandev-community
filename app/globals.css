@@ -520,6 +520,7 @@ button:focus-visible {
   }
 
   .capability-card h3,
+  .community-pillar h2,
   .community-pillar h3 {
     margin: 42px 0 10px;
     font-family: var(--font-display);
@@ -594,6 +595,7 @@ button:focus-visible {
     background: hsl(var(--card));
   }
 
+  .community-pillar h2,
   .community-pillar h3 {
     margin-top: 42px;
   }
@@ -734,6 +736,7 @@ button:focus-visible {
     font-weight: 600;
   }
 
+  .platform h2,
   .platform h3 {
     margin: 0;
     font-family: var(--font-display);

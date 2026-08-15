@@ -4,7 +4,6 @@ import { ArrowUpRight } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { projects } from '@/lib/data/content'
-import { platformIcons } from '@/components/platform-icons'
 import { Reveal } from '@/components/motion/reveal'
 import { cn } from '@/lib/utils'
 
@@ -33,13 +32,13 @@ const capabilities = [
     index: '01',
     title: 'Interfaces web',
     description: 'Aplicaciones modernas, rápidas y mantenibles con React, Next.js y TypeScript.',
-    tags: ['React', 'Next.js', 'TypeScript'],
+    tags: ['React', 'Next.js'],
   },
   {
     index: '02',
     title: 'APIs & backend',
     description: 'APIs REST, autenticación, microservicios y sistemas empresariales con .NET.',
-    tags: ['.NET', 'Node.js', 'REST'],
+    tags: ['.NET', 'Node.js'],
   },
   {
     index: '03',
@@ -60,31 +59,6 @@ const currentFocus = [
   { label: 'experimentando con', value: 'IA · Agents · WebGL · Three.js' },
   { label: 'compartiendo en', value: 'Kick · TikTok · Instagram' },
   { label: 'buscando', value: 'Proyectos interesantes · colaboraciones · oportunidades' },
-]
-
-const communityPillars = [
-  {
-    index: '01',
-    title: 'En vivo',
-    description: 'Desarrollo proyectos, pruebo tecnologías y resuelvo problemas reales frente a la comunidad.',
-  },
-  {
-    index: '02',
-    title: 'Comparto',
-    description: 'Convierto decisiones, errores y aprendizajes en tutoriales, consejos y contenido útil.',
-  },
-  {
-    index: '03',
-    title: 'Comunidad',
-    description: 'Un espacio para desarrolladores que están construyendo sus propios proyectos sin hacerlo solos.',
-  },
-]
-
-const platforms = [
-  { key: 'kick', name: 'Kick', num: 'LIVE', label: 'desarrollo en vivo', href: 'https://kick.com/isjuandev' },
-  { key: 'discord', name: 'Discord', num: 'JOIN', label: 'conversaciones y comunidad', href: '/contact' },
-  { key: 'tiktok', name: 'TikTok', num: 'CLIPS', label: 'aprendizajes rápidos', href: 'https://tiktok.com/@isjuandev' },
-  { key: 'instagram', name: 'Instagram', num: 'BUILD', label: 'proceso y proyectos', href: 'https://instagram.com/isjuandev' },
 ]
 
 export default function HomePage() {
@@ -139,9 +113,9 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal delay={340}>
-                <a href="#comunidad" className="hero-build-link">
+                <Link href="/comunidad" className="hero-build-link">
                   Construyo en público <ArrowUpRight />
-                </a>
+                </Link>
               </Reveal>
             </div>
 
@@ -330,68 +304,6 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMUNIDAD */}
-      <section className="section" id="comunidad" data-line="comunidad">
-        <div className="container mx-auto">
-          <Reveal>
-            <div className="section-label">comunidad.status</div>
-          </Reveal>
-          <Reveal delay={60}>
-            <h2 className="section-title">
-              Construyo en público<span className="dot">.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="section-lead">
-              No solo escribo código. Muestro cómo se construyen productos reales, con sus decisiones, errores y aprendizajes.
-            </p>
-          </Reveal>
-
-          <div className="community-pillars">
-            {communityPillars.map((pillar, i) => (
-              <Reveal key={pillar.index} delay={i * 60}>
-                <article className="community-pillar">
-                  <span className="community-pillar-index">{pillar.index}</span>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={180}>
-            <div className="community-actions">
-              <Button size="lg" asChild>
-                <a href="https://kick.com/isjuandev" target="_blank" rel="noopener noreferrer">
-                  Ver streams <ArrowUpRight />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Conoce la comunidad</Link>
-              </Button>
-            </div>
-          </Reveal>
-
-          <div className="platforms">
-            {platforms.map((platform, i) => (
-              <Reveal key={platform.key} delay={220 + i * 40}>
-                <a
-                  href={platform.href}
-                  target={platform.href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  className="platform block hover:border-primary/50 transition-colors"
-                >
-                  <span className="icon">{platformIcons[platform.key]}</span>
-                  <h3>{platform.name}</h3>
-                  <div className="num">{platform.num}</div>
-                  <div className="num-label">{platform.label}</div>
-                </a>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
