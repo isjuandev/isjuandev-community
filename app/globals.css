@@ -54,8 +54,8 @@ button:focus-visible {
     --secondary-foreground: 210 55% 6%; /* hsl(210, 55%, 6%) - Azul oscuro para contraste */
     
     /* 3. Azul Suave - Bordes y elementos sutiles */
-    --accent: 200 80% 60%;          /* hsl(200, 80%, 60%) - Azul brillante para hovers */
-    --accent-foreground: 210 55% 6%; /* hsl(210, 55%, 6%) - Texto oscuro sobre azul brillante */
+    --accent: 210 40% 20%;          /* hsl(210, 40%, 20%) - Superficie neutra elevada para hovers */
+    --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - Texto claro sobre la superficie */
     
     /* Muted - tonos apagados con tinte azul */
     --muted: 210 28% 17%;           /* hsl(210, 28%, 17%) - Más apagado para contraste */
