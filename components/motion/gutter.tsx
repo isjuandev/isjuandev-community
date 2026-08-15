@@ -36,7 +36,7 @@ export function Gutter() {
 
   return (
     <div
-      className="hidden md:flex fixed top-0 left-0 bottom-0 w-16 flex-col items-center pt-[84px] border-r border-border bg-card/50 backdrop-blur z-40 font-mono text-[0.68rem] text-muted-foreground/55 select-none"
+      className="hidden md:flex fixed top-0 left-0 bottom-0 w-16 flex-col items-center pt-[84px] border-r border-border bg-card z-40 font-mono text-[0.68rem] text-muted-foreground/55 select-none"
       aria-hidden="true"
     >
       {lines.map((line, i) => (

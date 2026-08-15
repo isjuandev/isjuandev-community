@@ -25,7 +25,7 @@ export function Navigation() {
   }
 
   return (
-    <header className="sticky top-0 z-30 bg-background/80 backdrop-blur-xl border-b border-border">
+    <header className="sticky top-0 z-30 bg-background border-b border-border">
       <div className="container mx-auto px-7">
         <div className="flex items-center justify-between h-[64px]">
           <Link href="/" className="inline-flex items-center">
@@ -72,7 +72,7 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-border bg-background">
           <div className="container mx-auto px-7 py-5 flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link

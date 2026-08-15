@@ -84,7 +84,6 @@ export default function TipsPage() {
                 </div>
 
                 <div className="flex items-start justify-between gap-2 mb-4">
-                  <div className="text-3xl leading-none">{tip.icon}</div>
                   <span className="card-tag" style={{ marginBottom: 0 }}>{tip.category}</span>
                 </div>
 

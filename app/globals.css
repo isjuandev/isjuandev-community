@@ -37,45 +37,45 @@ button:focus-visible {
     --foreground: 0 0% 100%;        /* hsl(0, 0%, 100%) - Blanco puro, mayor contraste */
     
     /* Cards y popovers */
-    --card: 210 45% 10%;            /* hsl(210, 45%, 10%) - Cards con azul oscuro */
+    --card: 210 45% 11%;            /* hsl(210, 45%, 11%) - Cards con azul oscuro */
     --card-foreground: 0 0% 100%;   /* hsl(0, 0%, 100%) */
-    --surface-2: 210 40% 13%;       /* hsl(210, 40%, 13%) - Superficie elevada (terminal-bar, mockups) */
-    --popover: 210 45% 10%;         /* hsl(210, 45%, 10%) */
+    --surface-2: 210 40% 14%;       /* hsl(210, 40%, 14%) - Superficie elevada (terminal-bar, mockups) */
+    --popover: 210 45% 11%;         /* hsl(210, 45%, 11%) */
     --popover-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
     
     /* 3 COLORES PRINCIPALES - AZUL CYAN Y DORADO */
     
     /* 1. Azul Cyan - Botones y acciones primarias */
-    --primary: 190 90% 58%;         /* hsl(190, 90%, 58%) - Cyan más brillante (protagonista) */
+    --primary: 190 95% 62%;         /* hsl(190, 95%, 62%) - Cyan más brillante (protagonista) */
     --primary-foreground: 210 55% 6%; /* hsl(210, 55%, 6%) - Texto sobre cyan = fondo */
     
     /* 2. Dorado/Naranja - Badges y elementos destacados */
-    --secondary: 35 90% 63%;        /* hsl(35, 90%, 63%) - Dorado vibrante (mockup) */
+    --secondary: 35 95% 68%;        /* hsl(35, 95%, 68%) - Dorado vibrante (mockup) */
     --secondary-foreground: 210 55% 6%; /* hsl(210, 55%, 6%) - Azul oscuro para contraste */
     
     /* 3. Azul Suave - Bordes y elementos sutiles */
-    --accent: 200 70% 50%;          /* hsl(200, 70%, 50%) - Azul medio más saturado */
-    --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --accent: 200 80% 60%;          /* hsl(200, 80%, 60%) - Azul brillante para hovers */
+    --accent-foreground: 210 55% 6%; /* hsl(210, 55%, 6%) - Texto oscuro sobre azul brillante */
     
     /* Muted - tonos apagados con tinte azul */
-    --muted: 210 25% 14%;           /* hsl(210, 25%, 14%) - Más apagado para contraste */
-    --muted-foreground: 200 15% 65%; /* hsl(200, 15%, 65%) - Levemente más legible */
+    --muted: 210 28% 17%;           /* hsl(210, 28%, 17%) - Más apagado para contraste */
+    --muted-foreground: 200 20% 74%; /* hsl(200, 20%, 74%) - Más legible */
     
     /* Destructive - rojo para errores */
-    --destructive: 0 72% 55%;       /* hsl(0, 72%, 55%) - Rojo balanceado */
+    --destructive: 0 72% 60%;       /* hsl(0, 72%, 60%) - Rojo balanceado */
     --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
     
     /* Bordes e inputs - usando azul sutil */
-    --border: 210 30% 20%;          /* hsl(210, 30%, 20%) - Bordes mockup */
-    --input: 210 30% 20%;           /* hsl(210, 30%, 20%) */
-    --ring: 190 90% 58%;            /* hsl(190, 90%, 58%) - Focus ring = primary */
+    --border: 210 35% 26%;          /* hsl(210, 35%, 26%) - Bordes más visibles */
+    --input: 210 35% 26%;           /* hsl(210, 35%, 26%) */
+    --ring: 190 95% 62%;            /* hsl(190, 95%, 62%) - Focus ring = primary */
     
     /* Charts - usando azul cyan, dorado y variaciones */
-    --chart-1: 190 85% 55%;         /* hsl(190, 85%, 55%) - Cyan brillante */
-    --chart-2: 35 90% 63%;          /* hsl(35, 90%, 63%) - Dorado */
-    --chart-3: 200 60% 45%;         /* hsl(200, 60%, 45%) - Azul medio */
-    --chart-4: 195 70% 50%;         /* hsl(195, 70%, 50%) - Cyan intermedio */
-    --chart-5: 30 85% 55%;          /* hsl(30, 85%, 55%) - Naranja suave */
+    --chart-1: 190 90% 60%;         /* hsl(190, 90%, 60%) - Cyan brillante */
+    --chart-2: 35 95% 68%;          /* hsl(35, 95%, 68%) - Dorado */
+    --chart-3: 200 65% 55%;         /* hsl(200, 65%, 55%) - Azul medio */
+    --chart-4: 195 75% 58%;         /* hsl(195, 75%, 58%) - Cyan intermedio */
+    --chart-5: 30 85% 60%;          /* hsl(30, 85%, 60%) - Naranja suave */
     
     --radius: 0.75rem;
   }

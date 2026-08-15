@@ -29,7 +29,6 @@ export interface Tip {
   title: string
   description: string
   category: string
-  icon: string
   code: string | null
 }
 
@@ -352,7 +351,6 @@ export const tips: Tip[] = [
     title: 'Usa Atajos de Teclado',
     description: 'Domina los atajos de VS Code para 10x tu velocidad de programación',
     category: 'Productividad',
-    icon: '⚡',
     code: null
   },
   {
@@ -360,7 +358,6 @@ export const tips: Tip[] = [
     title: 'Poder de Array.reduce()',
     description: 'Reduce es más versátil de lo que piensas',
     category: 'Fragmentos',
-    icon: '🔥',
     code: `const sum = arr.reduce((acc, val) => acc + val, 0);`
   },
   {
@@ -368,7 +365,6 @@ export const tips: Tip[] = [
     title: 'Mensajes de Commit en Git',
     description: 'Usa commits convencionales para mejor historial de git',
     category: 'Buenas Prácticas',
-    icon: '📝',
     code: 'feat: add user authentication\nfix: resolve memory leak\ndocs: update API docs'
   },
   {
@@ -376,7 +372,6 @@ export const tips: Tip[] = [
     title: 'Chrome DevTools',
     description: 'Usa console.table() para mejor debugging',
     category: 'Herramientas',
-    icon: '🔧',
     code: `console.table([{name: 'Alice', age: 25}, {name: 'Bob', age: 30}]);`
   },
   {
@@ -384,7 +379,6 @@ export const tips: Tip[] = [
     title: 'CSS Grid Auto-Fit',
     description: 'Grids responsivos sin media queries',
     category: 'Fragmentos',
-    icon: '🎨',
     code: `.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }`
   },
   {
@@ -392,7 +386,6 @@ export const tips: Tip[] = [
     title: 'Generador de Favicon',
     description: 'Usa realfavicongenerator.net para todas las plataformas',
     category: 'Recursos',
-    icon: '🌐',
     code: null
   },
   {
@@ -400,7 +393,6 @@ export const tips: Tip[] = [
     title: 'Encadenamiento Opcional',
     description: 'Accede a propiedades de objetos anidados de forma segura',
     category: 'Fragmentos',
-    icon: '🔗',
     code: `const value = obj?.nested?.property ?? 'default';`
   },
   {
@@ -408,7 +400,6 @@ export const tips: Tip[] = [
     title: 'Plantillas de README',
     description: 'Usa readme.so para documentación hermosa de proyectos',
     category: 'Recursos',
-    icon: '📄',
     code: null
   },
   {
@@ -416,7 +407,6 @@ export const tips: Tip[] = [
     title: 'Función Debounce',
     description: 'Optimiza inputs de búsqueda con debouncing',
     category: 'Fragmentos',
-    icon: '⏱️',
     code: `const debounce = (fn, delay) => {\n  let timeout;\n  return (...args) => {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n};`
   },
   {
@@ -424,7 +414,6 @@ export const tips: Tip[] = [
     title: 'Usa Lighthouse',
     description: 'Audita el rendimiento de tu sitio regularmente',
     category: 'Buenas Prácticas',
-    icon: '💡',
     code: null
   },
   {
@@ -432,7 +421,6 @@ export const tips: Tip[] = [
     title: 'Excalidraw',
     description: 'Dibuja diagramas de arquitectura con excalidraw.com',
     category: 'Herramientas',
-    icon: '✏️',
     code: null
   },
   {
@@ -440,7 +428,6 @@ export const tips: Tip[] = [
     title: 'Error Boundaries',
     description: 'Siempre implementa error boundaries en React',
     category: 'Buenas Prácticas',
-    icon: '🛡️',
     code: `class ErrorBoundary extends React.Component {\n  componentDidCatch(error, info) {\n    logError(error, info);\n  }\n  render() {\n    return this.state.hasError ? <Fallback /> : this.props.children;\n  }\n}`
   }
 ]
