@@ -121,7 +121,7 @@ export default function AboutPage() {
             <Card className="text-center border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <CardContent className="pt-6">
                 <Video className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-3xl font-bold text-primary mb-2">
+                <div className="text-5xl sm:text-6xl font-display font-bold text-primary mb-2">
                   {yearsExperience}+
                 </div>
                 <div className="text-sm text-muted-foreground">Años de Experiencia</div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
             <Card className="text-center border-secondary/30 bg-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
               <CardContent className="pt-6">
                 <Rocket className="h-8 w-8 text-secondary mx-auto mb-3" />
-                <div className="text-3xl font-bold text-secondary mb-2">
+                <div className="text-5xl sm:text-6xl font-display font-bold text-secondary mb-2">
                   {projectsBuilt}+
                 </div>
                 <div className="text-sm text-muted-foreground">Proyectos Completados</div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
             <Card className="text-center border-primary/30 bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <CardContent className="pt-6">
                 <Users className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-3xl font-bold text-primary mb-2">
+                <div className="text-5xl sm:text-6xl font-display font-bold text-primary mb-2">
                   {technologiesUsed}+
                 </div>
                 <div className="text-sm text-muted-foreground">Tecnologías Dominadas</div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
             <Card className="text-center border-secondary/30 bg-card/50 backdrop-blur hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20">
               <CardContent className="pt-6">
                 <FileText className="h-8 w-8 text-secondary mx-auto mb-3" />
-                <div className="text-3xl font-bold text-secondary mb-2">
+                <div className="text-5xl sm:text-6xl font-display font-bold text-secondary mb-2">
                   {companiesWorked}
                 </div>
                 <div className="text-sm text-muted-foreground">Empresas (Actual)</div>
@@ -222,9 +222,38 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Terminal de Skills */}
+          <div className="mt-16">
+            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
+              Skills<span className="text-primary">.</span>
+            </h3>
+            <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card/50 backdrop-blur overflow-hidden shadow-xl shadow-black/40">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/50">
+                <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+                <span className="ml-3 text-sm font-mono text-muted-foreground">skills — zsh</span>
+              </div>
+              <div className="p-6 font-mono text-sm leading-relaxed space-y-2">
+                <div className="flex gap-2">
+                  <span className="text-primary">$</span>
+                  <span>pnpm isjuandev@skills init</span>
+                </div>
+                <div className="text-muted-foreground">✔ Cargando perfil de Juan Diego…</div>
+                <div className="text-muted-foreground">✔ 8+ años de experiencia FullStack</div>
+                <div className="text-muted-foreground">✔ 20+ tecnologías dominadas</div>
+                <div className="text-muted-foreground">✔ React &amp; .NET · microservicios · AWS</div>
+                <div className="text-muted-foreground">✔ Streams en vivo: construyo en público</div>
+                <div className="text-primary font-bold">✨ Pkg ready in 0ms — sin humo, con código.</div>
+              </div>
+            </div>
+          </div>
+
           {/* Experiencia Profesional */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">Experiencia Profesional</h3>
+            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
+              Experiencia<span className="text-primary">.</span>
+            </h3>
             <div className="max-w-4xl mx-auto space-y-6">
 
               {/* CODERLAND */}
@@ -289,7 +318,9 @@ export default function AboutPage() {
 
           {/* Mi Trayectoria - Timeline */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">Mi Trayectoria</h3>
+            <h3 className="font-display text-4xl sm:text-5xl font-bold mb-8 text-center text-balance">
+              Trayectoria<span className="text-primary">.</span>
+            </h3>
             <div className="max-w-3xl mx-auto space-y-6">
 
               <div className="flex gap-4">
