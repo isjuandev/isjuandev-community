@@ -376,6 +376,18 @@ button:focus-visible {
     color: hsl(var(--muted-foreground));
   }
 
+  .card-mock.card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .c-a .card-mock.card-image {
+    aspect-ratio: 16 / 9;
+  }
+
   .card-stack {
     display: flex;
     gap: 8px;

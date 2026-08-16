@@ -189,9 +189,13 @@ export default function HomePage() {
                         <span className="project-status">{project.status ?? 'En evolución'}</span>
                       </div>
                       {project.stream && <span className="card-tag">Hecho en Stream</span>}
-                      <div className="card-mock" aria-hidden="true">
-                        preview / captura del proyecto
-                      </div>
+                      {project.image && project.image !== '/placeholder.svg' ? (
+                        <img src={project.image} alt={project.title} className="card-mock card-image" loading="lazy" />
+                      ) : (
+                        <div className="card-mock" aria-hidden="true">
+                          preview / captura del proyecto
+                        </div>
+                      )}
                       <a
                         href={projectHref}
                         target="_blank"

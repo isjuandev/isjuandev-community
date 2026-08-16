@@ -108,7 +108,11 @@ export default function ProjectsPage() {
                 >
                   <div>
                     {project.stream && <span className="card-tag">Hecho en Stream</span>}
-                    <div className="card-mock">preview / captura del proyecto</div>
+                    {project.image && project.image !== '/placeholder.svg' ? (
+                      <img src={project.image} alt={project.title} className="card-mock card-image" loading="lazy" />
+                    ) : (
+                      <div className="card-mock">preview / captura del proyecto</div>
+                    )}
                     <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
