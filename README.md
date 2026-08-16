@@ -68,7 +68,7 @@ Sitio web personal de **IsJuanDev** (Juan García): un hub de comunidad para des
 │       └── content.ts            # Datos: proyectos, posts de blog y tips (single source of truth)
 │
 ├── public/
-│   ├── profile.jpg               # Foto de perfil
+│   ├── profile.png                # Foto de perfil
 │   ├── placeholder.svg
 │   └── CV_JuanDiegoGarcia.pdf
 │
