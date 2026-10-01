@@ -53,8 +53,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#proyectos" className="hover:text-primary transition-colors">
-                  Casos de Éxito en Producción
+                <Link href="/#proceso" className="hover:text-primary transition-colors">
+                  El Método en 7 Días
                 </Link>
               </li>
               <li>

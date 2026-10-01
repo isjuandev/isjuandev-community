@@ -22,7 +22,7 @@ import {
 } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
-import { projects, businessSolutions, faqs } from '@/lib/data/content'
+import { businessSolutions, faqs } from '@/lib/data/content'
 import { Reveal } from '@/components/motion/reveal'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { SITE_CONFIG } from '@/lib/config'
@@ -45,8 +45,6 @@ export const metadata: Metadata = {
     canonical: '/',
   },
 }
-
-const featuredProjects = projects.slice(0, 5)
 
 const workSteps = [
   {
@@ -405,106 +403,6 @@ export default function HomePage() {
                 </article>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CASOS DE ÉXITO & PROYECTOS */}
-      <section className="section" id="proyectos" data-line="proyectos">
-        <div className="container mx-auto">
-          <Reveal>
-            <div className="section-label">projects.showcase // en producción</div>
-          </Reveal>
-          <Reveal delay={60}>
-            <h2 className="section-title">
-              Sistemas reales que generan resultados<span className="dot">.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="section-lead max-w-2xl text-muted-foreground">
-              Infraestructura construida para clientes y plataformas propias. Sin maquetas falsas: 
-              productos reales desplegados y operando en vivo.
-            </p>
-          </Reveal>
-
-          <div className="bento mt-12">
-            {featuredProjects.map((project, i) => {
-              const projectHref = project.demo !== '#' ? project.demo : project.code
-              const hasDemo = project.demo !== '#'
-
-              return (
-                <Reveal
-                  key={project.id}
-                  delay={i * 60}
-                  className={cn(
-                    i === 0 && 'c-a',
-                    i === 1 && 'c-b',
-                    i === 2 && 'c-c',
-                    i === 3 && 'c-d',
-                    i === 4 && 'c-e'
-                  )}
-                >
-                  <article className="card-editorial project-card group">
-                    <div>
-                      <div className="project-card-topline">
-                        <span className="project-index">0{i + 1}</span>
-                        <span className="project-status">{project.status ?? 'En producción'}</span>
-                      </div>
-                      {project.image && project.image !== '/placeholder.svg' ? (
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="card-mock card-image object-cover" 
-                          loading="lazy" 
-                        />
-                      ) : (
-                        <div className="card-mock flex items-center justify-center font-mono text-xs text-muted-foreground" aria-hidden="true">
-                          [ preview del sistema ]
-                        </div>
-                      )}
-                      <a
-                        href={projectHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-title-link"
-                      >
-                        <h3 className="font-display font-bold text-[1.25rem] mb-2 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                      </a>
-                      <p className="project-subtitle text-primary text-xs font-mono mb-2">
-                        {project.subtitle ?? project.description}
-                      </p>
-                      <p className="text-muted-foreground text-[0.90rem] leading-relaxed mb-4">
-                        {project.description}
-                      </p>
-                      <div className="project-meta text-xs">
-                        <span><b>Rol</b>{project.role ?? 'FullStack'}</span>
-                        <span><b>Categoría</b>{project.category}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="card-stack mt-4">
-                        {project.tags.slice(0, 4).map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                      <div className="project-actions mt-4 pt-4 border-t border-border/50">
-                        <a href={projectHref} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-primary flex items-center gap-1">
-                          {hasDemo ? 'Ver demostración' : 'Ver repositorio'} <ArrowUpRight className="h-3.5 w-3.5" />
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              )
-            })}
-          </div>
-
-          <div className="section-action mt-10">
-            <Link href="/projects" className="text-primary font-mono text-[0.85rem] hover:underline underline-offset-4 inline-flex items-center gap-1.5">
-              Explorar todos los proyectos técnicos y código abierto <ArrowUpRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>

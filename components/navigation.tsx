@@ -16,7 +16,7 @@ export function Navigation() {
   // Exactamente 3 enlaces principales en el header
   const primaryNavLinks = [
     { href: '/#servicios', label: 'Soluciones' },
-    { href: '/#proyectos', label: 'Casos de Éxito' },
+    { href: '/#auditoria', label: 'Auditoría Web' },
     { href: '/about', label: 'Sobre mí' },
   ]
 
