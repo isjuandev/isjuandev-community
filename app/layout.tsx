@@ -23,13 +23,14 @@ const SITE_URL = 'https://isjuandev.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Juan Diego — Desarrollador FullStack | React & .NET',
+    default: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
     template: '%s | IsJuanDev',
   },
-  description: 'Desarrollador FullStack que construye aplicaciones web, APIs y productos digitales que llegan a producción. React, .NET y cloud.',
+  description: 'Ayudo a empresas y negocios a captar más clientes, responder en menos de 60 segundos y automatizar sus operaciones con software web moderno y agentes de IA.',
   keywords: [
-    'IsJuanDev', 'Desarrollador FullStack', 'React', '.NET', 'TypeScript', 'Next.js',
-    'AWS', 'Docker', 'desarrollo web', 'portafolio', 'build in public', 'streaming',
+    'IsJuanDev', 'Automatizaciones con IA', 'n8n', 'Chatbots WhatsApp', 'Desarrollo Web',
+    'Landing pages alta conversión', 'Next.js', 'DeepSeek', 'Sistemas a medida', 'CRM Notion',
+    'Consultor IA', 'Colombia',
   ],
   authors: [{ name: 'Juan Diego García Castaño', url: 'https://github.com/isjuandev' }],
   creator: 'IsJuanDev',
@@ -51,21 +52,21 @@ export const metadata: Metadata = {
     siteName: 'IsJuanDev',
     locale: 'es_ES',
     url: '/',
-    title: 'Juan Diego — Desarrollador FullStack | React & .NET',
-    description: 'Construyo productos digitales que llegan a producción y comparto el proceso en público.',
+    title: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
+    description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'IsJuanDev — Construyo productos digitales en público.',
+        alt: 'IsJuanDev — Webs de Alta Conversión y Automatizaciones IA.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Juan Diego — Desarrollador FullStack | React & .NET',
-    description: 'Construyo productos digitales que llegan a producción y comparto el proceso en público.',
+    title: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
+    description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
     images: ['/opengraph-image.png'],
   },
   alternates: {

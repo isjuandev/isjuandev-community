@@ -30,7 +30,7 @@ export default function ProjectsPage() {
     return filtered
   }, [projectSearch, projectCategory, projectSort])
 
-  const cats = ['Todos', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Pruebas Técnicas', 'Código Abierto']
+  const cats = ['Todos', 'Automatizaciones con IA', 'Aplicaciones Web', 'Backend / APIs', 'Aplicaciones Móviles', 'Experimentos', 'Código Abierto']
 
   return (
     <div className="min-h-screen bg-background text-foreground">

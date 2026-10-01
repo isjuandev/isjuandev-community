@@ -7,7 +7,9 @@ import { SocialButton } from '@/components/social-button'
 import { Badge } from '@/components/ui/badge'
 import { Reveal } from '@/components/motion/reveal'
 import { SkillsTerminal } from '@/components/motion/skills-terminal'
-import { Rocket, Heart, Code2, Target } from 'lucide-react'
+import { Rocket, Heart, Code2, Target, MessageCircle, ArrowUpRight, Zap } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { SITE_CONFIG } from '@/lib/config'
 
 export default function AboutPage() {
   const [statsVisible, setStatsVisible] = useState(false)
@@ -41,7 +43,7 @@ export default function AboutPage() {
     const timers = [
       animateStat(8, setYearsExperience),
       animateStat(50, setProjectsBuilt),
-      animateStat(20, setTechnologiesUsed),
+      animateStat(25, setTechnologiesUsed),
       animateStat(2, setCompaniesWorked)
     ]
 
@@ -49,18 +51,26 @@ export default function AboutPage() {
   }, [statsVisible])
 
   const stack = [
-    { title: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Angular', 'Vite'] },
-    { title: 'Backend', items: ['.NET Core', 'Node.js', 'Express', 'NestJS', 'APIs REST'] },
-    { title: 'Bases de Datos', items: ['SQL Server', 'MongoDB', 'PostgreSQL'] },
-    { title: 'DevOps / Cloud', items: ['AWS', 'Docker', 'Azure DevOps', 'Git', 'CI/CD'] },
+    { title: 'Automatizaciones & IA', items: ['n8n', 'WhatsApp API', 'DeepSeek', 'OpenAI', 'Browserless', 'Notion API'] },
+    { title: 'Frontend & Conversión', items: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Vite'] },
+    { title: 'Backend & APIs', items: ['.NET Core', 'Node.js', 'Express', 'NestJS', 'APIs REST', 'Microservicios'] },
+    { title: 'Bases de Datos & Cloud', items: ['PostgreSQL', 'Supabase', 'SQL Server', 'Docker', 'AWS', 'CI/CD'] },
   ]
 
   const experience = [
+    {
+      role: 'Consultor de Automatización IA & Desarrollador Web',
+      company: 'IsJuanDev / NexoBite',
+      period: '2024-Presente',
+      text: 'Diseño e implementación de ecosistemas web de alta conversión y flujos automatizados con n8n e IA. Creación de agentes de WhatsApp para atención y agendamiento 24/7, sistemas de pago en línea y optimización operativa para negocios.',
+      tags: ['n8n', 'Next.js', 'WhatsApp API', 'DeepSeek', 'Supabase'],
+    },
     {
       role: 'Desarrollador FullStack Senior',
       company: 'CODERLAND',
       period: '2025-2026',
       text: 'Desarrollo de aplicaciones empresariales con .NET y React. Implementación de APIs REST, marketplaces, integración de pasarelas de pago. Contenedorización con Docker y automatización CI/CD con Azure DevOps.',
+      tags: ['.NET', 'React', 'Docker', 'CI/CD', 'Azure DevOps'],
     },
     {
       role: 'Desarrollador FullStack .NET Sr',
@@ -72,31 +82,32 @@ export default function AboutPage() {
     {
       role: 'Desarrollador Frontend & Backend',
       company: 'Freelance',
-      period: '2016-Presente',
-      text: 'Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core. Desarrollo móvil con Flutter. Optimización con code-splitting y lazy loading.',
+      period: '2016-2022',
+      text: 'Desarrollo de interfaces modernas con React y Context API. Diseño de APIs REST/GraphQL con Node.js y .NET Core. Integraciones de pago y optimización de conversión web.',
+      tags: ['React', 'Node.js', 'APIs REST', 'JavaScript'],
     },
   ]
 
   const timeline = [
     {
       icon: <Target className="h-6 w-6" />,
-      title: '2016 - Primeros pasos como desarrollador',
-      text: 'Comencé como desarrollador freelance, construyendo sitios web y aprendiendo las bases del desarrollo full-stack.',
+      title: '2016 - Primeros pasos en la industria',
+      text: 'Comencé como desarrollador freelance, construyendo sitios web comerciales y aprendiendo las bases de la arquitectura de software.',
     },
     {
       icon: <Code2 className="h-6 w-6" />,
-      title: '2022 - Primeros pasos en una empresa de desarrollo',
-      text: 'Me uní a IMAGINAMOS como desarrollador .NET JR durante 6 meses, después de eso me ascendieron a desarrollador .NET SENIOR, especializándome en arquitecturas de microservicios y desarrollo empresarial con React y .NET Core.',
+      title: '2022 - Ingeniería Empresarial y Microservicios',
+      text: 'Me uní a IMAGINAMOS, donde fui promovido a desarrollador .NET SENIOR, especializándome en arquitecturas de microservicios, alta concurrencia y rendimiento empresarial.',
     },
     {
       icon: <Rocket className="h-6 w-6" />,
-      title: '2025 - Desarrollador Senior',
-      text: 'Ahora como desarrollador senior en CODERLAND, LIDERÉ y participé en proyectos de e-commerce, implementando CI/CD con Docker y Azure DevOps.',
+      title: '2025 - Liderazgo Técnico y E-commerce',
+      text: 'En CODERLAND lideré y participé en plataformas de e-commerce complejas con .NET y React, automatizando despliegues continuos con Docker y Azure DevOps.',
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: 'Presente - Compartiendo Conocimiento',
-      text: 'Desarrollo proyectos empresariales mientras construyo una comunidad, comparto experiencias en streaming y ayudo a otros desarrolladores a crecer.',
+      title: 'Presente - Consultoría de Automatizaciones IA y Conversión Web',
+      text: 'Combino 8+ años de ingeniería senior con Inteligencia Artificial práctica (n8n, visión multimodal, WhatsApp) para construir activos digitales que generan ventas y ahorran horas de trabajo a empresas reales.',
     },
   ]
 
@@ -108,7 +119,7 @@ export default function AboutPage() {
       <section className="section" id="sobre-mi" data-line="about">
         <div className="container mx-auto">
           <Reveal>
-            <div className="section-label">sobre.mi</div>
+            <div className="section-label">sobre.mi // perfil profesional</div>
           </Reveal>
           <div className="grid md:grid-cols-[auto_1fr] gap-12 items-center">
             <Reveal>
@@ -131,24 +142,32 @@ export default function AboutPage() {
                   Juan Diego<span className="text-primary">.</span>
                 </h1>
                 <p className="text-xl text-primary font-mono">
-                  Desarrollador FullStack | React &amp; .NET
+                  Ingeniero Senior &amp; Consultor de Automatizaciones con IA
                 </p>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Soy Juan Diego, desarrollador FullStack y constructor de productos digitales.
+                    Llevo más de 8 años en la industria del software, pasando de desarrollar plataformas empresariales en corporaciones multinacionales a construir activos digitales que generan ingresos medibles para negocios.
                   </p>
                   <p>
-                    Llevo más de 8 años creando software para empresas y proyectos propios, trabajando principalmente con React, .NET y tecnologías cloud.
+                    Mi enfoque no es venderte tecnología por vender: es identificar dónde está perdiendo dinero tu negocio (visitas que no compran, chats desatendidos, tareas repetitivas de horas) y solucionarlo con webs de alta conversión y flujos inteligentes en WhatsApp.
                   </p>
                   <p>
-                    Me interesa especialmente convertir ideas en productos reales: desde la arquitectura y el backend hasta la interfaz, infraestructura y despliegue. Y cuando encuentro algo interesante, lo construyo en público.
+                    Trabajas directamente conmigo: un Ingeniero Senior que diseña la arquitectura, escribe el código y asegura que todo funcione en producción sin intermediarios.
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <SocialButton platform="kick" href="https://kick.com/isjuandev" />
-                  <SocialButton platform="tiktok" href="https://tiktok.com/@isjuandev" />
-                  <SocialButton platform="instagram" href="https://instagram.com/isjuandev" />
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <Button asChild className="gap-2 bg-primary text-primary-foreground font-semibold">
+                    <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-4 w-4" />
+                      Hablemos de tu Proyecto
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <a href="/CV_JuanDiegoGarcia.pdf" download className="gap-2">
+                      Descargar CV Técnico <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Reveal>

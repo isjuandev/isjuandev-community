@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría Identidad Visual — IsJuanDev | Sistema Editorial Dark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== TOKENS — espejo exacto de app/globals.css ===== */
+:root{
+  --bg:210 55% 6%;
+  --fg:0 0% 100%;
+  --card:210 45% 11%;
+  --card-fg:0 0% 100%;
+  --surface-2:210 40% 14%;
+  --primary:190 95% 62%;
+  --primary-fg:210 55% 6%;
+  --secondary:35 95% 68%;
+  --secondary-fg:210 55% 6%;
+  --accent:210 40% 20%;
+  --accent-fg:0 0% 100%;
+  --muted:210 28% 17%;
+  --muted-fg:200 20% 74%;
+  --destructive:0 72% 60%;
+  --destructive-fg:0 0% 100%;
+  --border:210 35% 26%;
+  --ring:190 95% 62%;
+  --radius:0.75rem;
+  --font-inter:"Inter",system-ui,sans-serif;
+  --font-display:"Space Grotesk",sans-serif;
+  --font-mono:"Spline Sans Mono",ui-monospace,monospace;
+  --nav-h:56px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-inter);
+  background:hsl(var(--bg));
+  color:hsl(var(--fg));
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  height:var(--nav-h);
+  display:flex;align-items:center;gap:16px;
+  padding:0 24px;
+  background:hsl(var(--bg) / .85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid hsl(var(--border) / .6);
+}
+.topbar__brand{
+  font-family:var(--font-mono);
+  font-size:.85rem;letter-spacing:.04em;
+  display:flex;align-items:center;gap:10px;
+}
+.topbar__brand i{font-style:normal;color:hsl(var(--muted-fg))}
+.topbar__brand b{color:hsl(var(--primary))}
+.topbar__title{
+  font-family:var(--font-display);
+  font-weight:700;font-size:.92rem;letter-spacing:-.01em;
+  margin-left:8px;padding-left:16px;
+  border-left:1px solid hsl(var(--border));
+}
+.topbar__spacer{flex:1}
+.topbar__actions{display:flex;gap:8px;align-items:center}
+.pill{
+  font-family:var(--font-mono);font-size:.70rem;
+  border:1px solid hsl(var(--border));
+  padding:5px 10px;border-radius:999px;
+  color:hsl(var(--muted-fg));
+  display:inline-flex;align-items:center;gap:6px;
+}
+.pill.live{border-color:hsl(var(--primary)/.4);color:hsl(var(--primary))}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:hsl(var(--primary));animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 hsl(var(--primary)/.45)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.btn{
+  font-family:var(--font-mono);font-size:.75rem;font-weight:500;
+  border:1px solid hsl(var(--border));
+  background:hsl(var(--card));
+  color:hsl(var(--fg));
+  padding:7px 12px;border-radius:6px;cursor:pointer;
+  transition:.15s;
+}
+.btn:hover{border-color:hsl(var(--primary)/.5);transform:translateY(-1px)}
+.btn.primary{background:hsl(var(--primary));color:hsl(var(--primary-fg));border-color:transparent}
+.btn.primary:hover{background:hsl(var(--primary)/.9)}
+.btn.ghost{background:transparent}
+.btn.small{padding:5px 9px;font-size:.70rem}
+
+/* ===== LAYOUT ===== */
+.shell{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - var(--nav-h))}
+.nav{
+  position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));
+  overflow:auto;
+  border-right:1px solid hsl(var(--border)/.6);
+  padding:18px 14px;
+  background:hsl(var(--card)/.35);
+}
+.nav__label{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;
+  color:hsl(var(--muted-fg));margin:16px 0 8px;text-transform:uppercase
+}
+.nav__label:first-child{margin-top:0}
+.nav a{
+  display:flex;align-items:center;gap:8px;
+  font-size:.84rem;color:hsl(var(--muted-fg));
+  padding:7px 8px;border-radius:6px;
+  transition:.15s;
+}
+.nav a:hover{background:hsl(var(--accent)/.5);color:hsl(var(--fg))}
+.nav a.active{background:hsl(var(--primary)/.12);color:hsl(var(--primary));border:1px solid hsl(var(--primary)/.22)}
+.nav a span.num{font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--primary));min-width:18px}
+.main{padding:28px 28px 0}
+.container{max-width:1180px;margin:0 auto}
+.hero-audit{
+  border:1px solid hsl(var(--border));
+  border-radius:12px;
+  background:linear-gradient(120deg,hsl(var(--card)),hsl(var(--surface-2)));
+  padding:28px;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:28px;
+}
+.hero-audit h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2rem,4vw,3rem);line-height:.95;letter-spacing:-.02em;
+}
+.hero-audit h1 i{font-style:normal;color:hsl(var(--primary))}
+.hero-audit h1 em{font-style:normal;color:hsl(var(--muted-fg));font-family:var(--font-mono);font-size:1rem;font-weight:400;letter-spacing:0;display:block;margin-top:10px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.kpi{border:1px solid hsl(var(--border));border-radius:8px;padding:14px;background:hsl(var(--bg)/.5)}
+.kpi b{font-family:var(--font-display);font-size:1.5rem;display:block}
+.kpi span{font-family:var(--font-mono);font-size:.68rem;color:hsl(var(--muted-fg))}
+.audit-legend{
+  border:1px solid hsl(var(--border));border-radius:10px;padding:18px;background:hsl(var(--card)/.6);
+  font-family:var(--font-mono);font-size:.74rem;color:hsl(var(--muted-fg))
+}
+.audit-legend b{color:hsl(var(--fg))}
+.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:.68rem;border:1px solid hsl(var(--border));margin:2px}
+.tag.ok{border-color:hsl(142 70% 45% / .4);color:hsl(142 70% 65%)}
+.tag.warn{border-color:hsl(var(--secondary)/.45);color:hsl(var(--secondary))}
+.tag.bad{border-color:hsl(var(--destructive)/.45);color:hsl(var(--destructive))}
+.tag.info{border-color:hsl(var(--primary)/.35);color:hsl(var(--primary))}
+
+/* ===== SECTIONS ===== */
+.section{padding:42px 0;border-bottom:1px solid hsl(var(--border)/.55)}
+.section-label{font-family:var(--font-mono);font-size:.78rem;color:hsl(var(--muted-fg));display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.section-label::before{content:"//";color:hsl(var(--primary)/.7)}
+.section h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-.015em}
+.section h2 .dot{color:hsl(var(--primary))}
+.section .lead{max-width:680px;color:hsl(var(--muted-fg));margin-top:10px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.filters button{font-family:var(--font-mono);font-size:.72rem;padding:6px 10px;border-radius:999px;border:1px solid hsl(var(--border));background:hsl(var(--card));color:hsl(var(--muted-fg));cursor:pointer}
+.filters button.active{background:hsl(var(--primary));color:hsl(var(--primary-fg));border-color:transparent}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.swatch{border:1px solid hsl(var(--border));border-radius:10px;overflow:hidden;background:hsl(var(--card))}
+.swatch__color{height:86px;position:relative}
+.swatch__body{padding:12px}
+.swatch__name{font-family:var(--font-display);font-weight:600;font-size:.92rem}
+.swatch__meta{font-family:var(--font-mono);font-size:.70rem;color:hsl(var(--muted-fg));margin-top:4px;line-height:1.6}
+.swatch__copy{margin-top:8px;display:flex;gap:6px}
+.swatch__copy button{font-family:var(--font-mono);font-size:.68rem;padding:4px 8px;border-radius:6px;border:1px solid hsl(var(--border));background:hsl(var(--bg));color:hsl(var(--muted-fg));cursor:pointer}
+
+/* type specimen */
+.specimen{border:1px solid hsl(var(--border));border-radius:10px;overflow:hidden;background:hsl(var(--card));margin-top:18px}
+.specimen__head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid hsl(var(--border));background:hsl(var(--surface-2))}
+.specimen__head b{font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg));letter-spacing:.06em}
+.specimen__body{padding:18px 16px}
+.type-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid hsl(var(--border)/.5)}
+.type-row:last-child{border:0}
+.type-row dt{font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))}
+.type-row dd{font-size:.95rem}
+
+/* component playground */
+.playground{border:1px solid hsl(var(--border));border-radius:10px;background:hsl(var(--card));padding:18px;margin-top:18px}
+.variant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:14px}
+.card-demo{border:1px solid hsl(var(--border));border-radius:10px;background:hsl(var(--surface-2));padding:16px;transition:.15s}
+.card-demo:hover{border-color:hsl(var(--primary)/.45);transform:translateY(-2px)}
+.code{font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg));background:hsl(var(--bg));border:1px solid hsl(var(--border));border-radius:6px;padding:8px 10px;overflow:auto;margin-top:8px}
+.inline-code{font-family:var(--font-mono);font-size:.78em;background:hsl(var(--bg));border:1px solid hsl(var(--border));padding:2px 6px;border-radius:4px}
+
+/* tables */
+.table-wrap{overflow:auto;border:1px solid hsl(var(--border));border-radius:10px;margin-top:18px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{font-family:var(--font-mono);font-size:.72rem;text-align:left;color:hsl(var(--muted-fg));letter-spacing:.05em;padding:12px 14px;border-bottom:1px solid hsl(var(--border));background:hsl(var(--surface-2))}
+td{padding:12px 14px;border-bottom:1px solid hsl(var(--border)/.6);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.mono{font-family:var(--font-mono);font-size:.78rem;color:hsl(var(--muted-fg))}
+td strong{font-weight:600}
+
+/* tokens table copy */
+.copy-btn{font-family:var(--font-mono);font-size:.68rem;padding:4px 8px;border:1px solid hsl(var(--border));background:hsl(var(--bg));border-radius:6px;cursor:pointer;color:hsl(var(--muted-fg))}
+
+/* bento demo */
+.bento-demo{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:18px}
+.bento-demo > div{border:1px solid hsl(var(--border));border-radius:10px;background:hsl(var(--card));padding:16px;min-height:110px}
+.bento-demo .a{grid-column:span 4;grid-row:span 2;min-height:180px}
+.bento-demo .b,.bento-demo .c{grid-column:span 2}
+.bento-demo .d,.bento-demo .e{grid-column:span 3}
+.bento-tag{font-family:var(--font-mono);font-size:.68rem;color:hsl(var(--secondary));border:1px solid hsl(var(--secondary)/.35);padding:2px 8px;border-radius:999px}
+.mock{height:64px;border-radius:8px;background:repeating-linear-gradient(135deg,hsl(var(--primary)/.07) 0 2px,transparent 2px 14px),hsl(var(--surface-2));border:1px solid hsl(var(--border));display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.68rem;color:hsl(var(--muted-fg));margin:10px 0}
+
+/* checklist */
+.checklist{display:grid;gap:10px;margin-top:16px}
+.check{display:flex;gap:10px;align-items:flex-start;border:1px solid hsl(var(--border));border-radius:8px;padding:12px;background:hsl(var(--card))}
+.check input{margin-top:3px}
+.check b{font-size:.88rem}
+.check p{font-size:.82rem;color:hsl(var(--muted-fg))}
+
+/* toast */
+.toast{position:fixed;right:16px;bottom:16px;background:hsl(var(--card));border:1px solid hsl(var(--primary)/.35);color:hsl(var(--fg));padding:10px 12px;border-radius:8px;font-family:var(--font-mono);font-size:.74rem;transform:translateY(20px);opacity:0;transition:.25s;pointer-events:none}
+.toast.show{transform:none;opacity:1}
+
+/* search */
+.search{position:relative;flex:1;max-width:360px}
+.search input{
+  width:100%;background:hsl(var(--card));border:1px solid hsl(var(--border));
+  color:hsl(var(--fg));border-radius:8px;padding:8px 10px 8px 32px;
+  font-family:var(--font-mono);font-size:.78rem;outline:none;
+}
+.search input:focus{border-color:hsl(var(--primary)/.5)}
+.search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.5}
+
+/* responsive */
+@media(max-width:980px){
+  .shell{grid-template-columns:1fr}
+  .nav{position:static;height:auto;display:flex;gap:6px;overflow:auto;white-space:nowrap;padding:10px}
+  .nav__label{display:none}
+  .nav a{flex:0 0 auto}
+  .hero-audit{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .bento-demo{grid-template-columns:1fr}
+  .bento-demo .a,.bento-demo .b,.bento-demo .c,.bento-demo .d,.bento-demo .e{grid-column:span 1;grid-row:auto;min-height:110px}
+  .kpis{grid-template-columns:1fr}
+}
+@media(max-width:560px){.swatches{grid-template-columns:1fr}.main{padding:16px}}
+mark{background:hsl(var(--primary)/.25);color:hsl(var(--fg));padding:0 2px;border-radius:3px}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__brand"><i>&lt;</i><b>IsJuanDev</b><i>/&gt;</i> <span class="topbar__title">Auditoría Visual</span></div>
+  <div class="search" title="Filtrar componentes">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="q" placeholder="Buscar token, componente, clase… (ej: primary, bento, terminal)">
+  </div>
+  <div class="topbar__spacer"></div>
+  <div class="topbar__actions">
+    <span class="pill live"><span class="dot"></span> dark editorial</span>
+    <span class="pill">isjuandev-community</span>
+    <button class="btn ghost small" onclick="window.print()">Imprimir / PDF</button>
+    <button class="btn primary small" onclick="exportJSON()">Exportar JSON</button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="nav" id="nav">
+    <div class="nav__label">Auditoría</div>
+    <a href="#resumen" class="active"><span class="num">00</span> Resumen</a>
+    <a href="#marca"><span class="num">01</span> Marca</a>
+    <a href="#paleta"><span class="num">02</span> Paleta</a>
+    <a href="#tipografia"><span class="num">03</span> Tipografía</a>
+    <a href="#componentes"><span class="num">04</span> Componentes</a>
+    <a href="#editorial"><span class="num">05</span> Editorial</a>
+    <a href="#layout"><span class="num">06</span> Layout</a>
+    <a href="#motion"><span class="num">07</span> Motion</a>
+    <a href="#paginas"><span class="num">08</span> Páginas</a>
+    <a href="#hallazgos"><span class="num">09</span> Hallazgos</a>
+    <div class="nav__label">Acciones</div>
+    <a href="#" onclick="toggleContrast(event)"><span class="num">◐</span> Test contraste</a>
+    <a href="#" onclick="document.getElementById('q').focus();return false"><span class="num">⌕</span> Buscar</a>
+  </nav>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- RESUMEN -->
+      <div class="hero-audit" id="resumen">
+        <div>
+          <p style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;color:hsl(var(--primary))">AUDITORÍA DE IDENTIDAD VISUAL — UI UPDATE</p>
+          <h1>Portafolio <i>editorial</i> dark<span class="dot">.</span> <em>isjuandev-community — Next.js + shadcn/ui + Tailwind — single dark theme</em></h1>
+          <div class="kpis">
+            <div class="kpi"><b>3</b><span>colores protagonistas: cyan / dorado / azul-suave</span></div>
+            <div class="kpi"><b>50+</b><span>componentes shadcn/ui + 12 patrones editoriales</span></div>
+            <div class="kpi"><b>1180px</b><span>container fijo · Inter + Space Grotesk + Spline Mono</span></div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" onclick="document.getElementById('paleta').scrollIntoView({behavior:'smooth'})">Auditar paleta →</button>
+            <button class="btn" onclick="document.getElementById('componentes').scrollIntoView({behavior:'smooth'})">Ver componentes</button>
+            <span class="pill">audit build: 2026-08-29</span>
+          </div>
+        </div>
+        <div class="audit-legend">
+          <b style="display:block;margin-bottom:8px">Cómo leer esta auditoría</b>
+          <div style="display:grid;gap:8px">
+            <div><span class="tag ok">OK</span> token/componente estable — mantener</div>
+            <div><span class="tag warn">REVISAR</span> inconsistencia o deuda — priorizar en update</div>
+            <div><span class="tag bad">CRÍTICO</span> bloquea rebranding o a11y</div>
+            <div><span class="tag info">PROPUESTO</span> viene de <span class="inline-code">rebranding-propuesta.md</span></div>
+          </div>
+          <div style="margin-top:12px;padding-top:12px;border-top:1px solid hsl(var(--border))">
+            <div>Usa <b>Buscar</b> arriba para filtrar tokens/clases. Cada swatch y token tiene <b>Copiar</b>. Abajo puedes exportar el inventario a JSON.</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span class="tag">globals.css</span><span class="tag">tailwind.config.ts</span><span class="tag">layout.tsx</span><span class="tag">design.md</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 01 MARCA -->
+      <section class="section" id="marca" data-search="marca wordmark isjuandev logo tagline">
+        <div class="section-label">marca</div>
+        <h2>Wordmark & posicionamiento<span class="dot">.</span></h2>
+        <p class="lead">Marca actual <span class="inline-code">&lt;IsJuanDev /&gt;</span> · Propuesta editorial: <b>Space Grotesk Bold</b> + <span style="color:hsl(var(--primary))">Dev</span> en cyan, brackets en muted. Monograma <span class="inline-code">▌</span> como favicon.</p>
+
+        <div class="playground" style="margin-top:18px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:.70rem;color:hsl(var(--muted-fg));letter-spacing:.06em;margin-bottom:8px">ACTUAL</div>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:2.2rem;letter-spacing:-.02em">&lt;<span style="color:hsl(var(--muted-fg))">IsJuan</span><span style="color:hsl(var(--fg))">Dev</span> /&gt;</div>
+              <div class="code">&lt;IsJuanDev /&gt; — Inter / neutral · tagline: "Construyendo en público, un stream a la vez"</div>
+              <div style="margin-top:10px"><span class="tag warn">REVISAR</span> <span style="font-size:.82rem;color:hsl(var(--muted-fg))">Wordmark poco diferenciado vs. competencia; falta versión mono para terminal.</span></div>
+            </div>
+            <div style="border-left:1px solid hsl(var(--border));padding-left:18px">
+              <div style="font-family:var(--font-mono);font-size:.70rem;color:hsl(var(--primary));letter-spacing:.06em;margin-bottom:8px">PROPUESTO — editorial</div>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:2.6rem;letter-spacing:-.03em"><span style="color:hsl(var(--muted-fg))">&lt;</span>IsJuan<span style="color:hsl(var(--primary))">Dev</span><span style="color:hsl(var(--muted-fg))"> /&gt;</span><span style="color:hsl(var(--primary));animation:blink 1s step-end infinite">▌</span></div>
+              <div class="code">Space Grotesk Bold · Dev en hsl(var(--primary)) · brackets muted · cursor ▌ parpadeante</div>
+              <div style="margin-top:10px"><span class="tag info">PROPUESTO</span> <span style="font-size:.82rem;color:hsl(var(--muted-fg))">Hero: "Construyo en público" gigante escalonado.</span></div>
+            </div>
+          </div>
+          <style>@keyframes blink{50%{opacity:0}}</style>
+          <div class="table-wrap" style="margin-top:16px">
+            <table>
+              <thead><tr><th>Atributo</th><th>Actual (design.md)</th><th>Propuesto (rebranding)</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Posicionamiento</strong></td><td class="mono">Dev Community Hub</td><td class="mono">Portafolio editorial híbrido: senior + comunidad</td><td><span class="tag warn">REVISAR</span></td></tr>
+                <tr><td><strong>Tagline hero</strong></td><td class="mono">Únete mientras construimos…</td><td class="mono">Construyo en público. Sin humo.</td><td><span class="tag info">PROPUESTO</span></td></tr>
+                <tr><td><strong>Canales</strong></td><td class="mono">Kick / TikTok / IG / GitHub</td><td class="mono">igual + badge "Hecho en Stream" dorado</td><td><span class="tag ok">OK</span></td></tr>
+                <tr><td><strong>Idioma/tono</strong></td><td class="mono">ES, 1ª persona cercana</td><td class="mono">ES editorial + tech EN sin traducir</td><td><span class="tag ok">OK</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 PALETA -->
+      <section class="section" id="paleta" data-search="paleta color tokens hsl cyan dorado border ring chart">
+        <div class="section-label">paleta — dark editorial único</div>
+        <h2>Paleta & tokens HSL<span class="dot">.</span></h2>
+        <p class="lead">Tema <b>único oscuro</b> sin modo claro. Tokens en <span class="inline-code">app/globals.css :root</span> consumidos vía <span class="inline-code">hsl(var(--token))</span>. Fondo profundo <span class="inline-code">210 55% 6% #060f1a</span> + cyan protagonista + dorado puntual. Contraste auditado abajo.</p>
+
+        <div class="filters" id="paletteFilters">
+          <button class="active" data-filter="all">Todos</button>
+          <button data-filter="brand">Marca (3)</button>
+          <button data-filter="surface">Superficies</button>
+          <button data-filter="utility">Utilitarios</button>
+          <button data-filter="chart">Charts</button>
+        </div>
+
+        <div class="swatches" id="swatches">
+          <!-- brand -->
+          <div class="swatch" data-group="brand" data-search="primary cyan boton cta"><div class="swatch__color" style="background:hsl(190 95% 62%)"></div><div class="swatch__body"><div class="swatch__name">primary — cyan</div><div class="swatch__meta">--primary: 190 95% 62% · #44d9f0<br>Uso: botones, links, Dev, focus ring<br>Texto: --primary-fg 210 55% 6%</div><div class="swatch__copy"><button onclick="copyText('hsl(190 95% 62%)')">Copiar HSL</button><button onclick="copyText('#44d9f0')">HEX</button></div></div></div>
+          <div class="swatch" data-group="brand" data-search="secondary dorado gold badge"><div class="swatch__color" style="background:hsl(35 95% 68%)"></div><div class="swatch__body"><div class="swatch__name">secondary — dorado</div><div class="swatch__meta">--secondary: 35 95% 68% · #f7bd5a<br>Uso: badges "Hecho en Stream", stats<br>Texto: --secondary-fg 210 55% 6%</div><div class="swatch__copy"><button onclick="copyText('hsl(35 95% 68%)')">Copiar HSL</button><button onclick="copyText('#f7bd5a')">HEX</button></div></div></div>
+          <div class="swatch" data-group="brand" data-search="accent azul suave"><div class="swatch__color" style="background:hsl(210 40% 20%)"></div><div class="swatch__body"><div class="swatch__name">accent — azul suave</div><div class="swatch__meta">--accent: 210 40% 20% · #1f3a52<br>Uso: hovers, superficies neutras<br>Texto: --accent-fg 0 0% 100%</div><div class="swatch__copy"><button onclick="copyText('hsl(210 40% 20%)')">Copiar</button></div></div></div>
+          <div class="swatch" data-group="surface" data-search="background fondo"><div class="swatch__color" style="background:hsl(210 55% 6%);border-bottom:1px solid hsl(var(--border))"></div><div class="swatch__body"><div class="swatch__name">background</div><div class="swatch__meta">--background: 210 55% 6% · #060f1a<br>Fondo principal profundo</div><div class="swatch__copy"><button onclick="copyText('hsl(210 55% 6%)')">Copiar</button></div></div></div>
+          <div class="swatch" data-group="surface" data-search="card popover"><div class="swatch__color" style="background:hsl(210 45% 11%)"></div><div class="swatch__body"><div class="swatch__name">card / popover</div><div class="swatch__meta">--card: 210 45% 11% · #0f1f33<br>Tarjetas, popovers</div><div class="swatch__copy"><button onclick="copyText('hsl(210 45% 11%)')">Copiar</button></div></div></div>
+          <div class="swatch" data-group="surface" data-search="surface-2 elevado mockup terminal"><div class="swatch__color" style="background:hsl(210 40% 14%)"></div><div class="swatch__body"><div class="swatch__name">surface-2</div><div class="swatch__meta">--surface-2: 210 40% 14% · #16283d<br>Terminal bar, mockups elevados</div><div class="swatch__copy"><button onclick="copyText('hsl(210 40% 14%)')">Copiar</button></div></div></div>
+          <div class="swatch" data-group="utility" data-search="muted foreground"><div class="swatch__color" style="background:hsl(210 28% 17%)"></div><div class="swatch__body"><div class="swatch__name">muted</div><div class="swatch__meta">--muted: 210 28% 17% · #1e2e3d<br>Fondos apagados</div></div></div>
+          <div class="swatch" data-group="utility" data-search="muted foreground texto secundario"><div class="swatch__color" style="background:hsl(200 20% 74%)"></div><div class="swatch__body"><div class="swatch__name" style="color:#111">muted-foreground</div><div class="swatch__meta">--muted-fg: 200 20% 74% · #b0c0c9<br>Texto secundario</div></div></div>
+          <div class="swatch" data-group="utility" data-search="border input"><div class="swatch__color" style="background:hsl(210 35% 26%)"></div><div class="swatch__body"><div class="swatch__name">border / input</div><div class="swatch__meta">--border: 210 35% 26% · #2b4560<br>Bordes, inputs</div></div></div>
+          <div class="swatch" data-group="utility" data-search="destructive rojo"><div class="swatch__color" style="background:hsl(0 72% 60%)"></div><div class="swatch__body"><div class="swatch__name">destructive</div><div class="swatch__meta">--destructive: 0 72% 60% · #e34d4d<br>Errores</div></div></div>
+          <div class="swatch" data-group="utility" data-search="foreground blanco"><div class="swatch__color" style="background:hsl(0 0% 100%);border:1px solid #ddd"></div><div class="swatch__body"><div class="swatch__name" style="color:#111">foreground</div><div class="swatch__meta">--foreground: 0 0% 100% · #ffffff<br>Texto principal (blanco puro)</div></div></div>
+          <div class="swatch" data-group="utility" data-search="ring focus"><div class="swatch__color" style="background:hsl(190 95% 62%);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.70rem;color:hsl(210 55% 6%)">focus ring</div><div class="swatch__body"><div class="swatch__name">ring</div><div class="swatch__meta">--ring: 190 95% 62% (= primary)<br>Outline 2px + offset 3px</div></div></div>
+          <!-- charts -->
+          <div class="swatch" data-group="chart" data-search="chart cyan"><div class="swatch__color" style="background:hsl(190 90% 60%)"></div><div class="swatch__body"><div class="swatch__name">chart-1</div><div class="swatch__meta">190 90% 60% · cyan brillante</div></div></div>
+          <div class="swatch" data-group="chart" data-search="chart dorado"><div class="swatch__color" style="background:hsl(35 95% 68%)"></div><div class="swatch__body"><div class="swatch__name">chart-2</div><div class="swatch__meta">35 95% 68% · dorado</div></div></div>
+          <div class="swatch" data-group="chart" data-search="chart azul"><div class="swatch__color" style="background:hsl(200 65% 55%)"></div><div class="swatch__body"><div class="swatch__name">chart-3</div><div class="swatch__meta">200 65% 55% · azul medio</div></div></div>
+          <div class="swatch" data-group="chart" data-search="chart cyan intermedio"><div class="swatch__color" style="background:hsl(195 75% 58%)"></div><div class="swatch__body"><div class="swatch__name">chart-4</div><div class="swatch__meta">195 75% 58% · cyan intermedio</div></div></div>
+          <div class="swatch" data-group="chart" data-search="chart naranja"><div class="swatch__color" style="background:hsl(30 85% 60%)"></div><div class="swatch__body"><div class="swatch__name">chart-5</div><div class="swatch__meta">30 85% 60% · naranja suave</div></div></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>HSL</th><th>HEX</th><th>Uso auditado</th><th>Contraste</th><th>Acción</th></tr></thead>
+            <tbody id="paletteTable">
+              <tr><td><strong>--primary</strong></td><td class="mono">190 95% 62%</td><td class="mono">#44d9f0</td><td>CTA, links, .dot, focus</td><td><span class="tag ok">12.8:1 sobre bg</span></td><td><button class="copy-btn" onclick="copyText('hsl(190 95% 62%)')">Copiar</button></td></tr>
+              <tr><td><strong>--secondary</strong></td><td class="mono">35 95% 68%</td><td class="mono">#f7bd5a</td><td>Badges, stats doradas</td><td><span class="tag ok">11.1:1 sobre bg</span></td><td><button class="copy-btn" onclick="copyText('hsl(35 95% 68%)')">Copiar</button></td></tr>
+              <tr><td><strong>--background</strong></td><td class="mono">210 55% 6%</td><td class="mono">#060f1a</td><td>Fondo global</td><td><span class="tag ok">base</span></td><td><button class="copy-btn" onclick="copyText('hsl(210 55% 6%)')">Copiar</button></td></tr>
+              <tr><td><strong>--border</strong></td><td class="mono">210 35% 26%</td><td class="mono">#2b4560</td><td>Bordes 1px / 0.6 cuando divider</td><td><span class="tag warn">2.1:1 — solo decorativo</span></td><td><button class="copy-btn" onclick="copyText('hsl(210 35% 26%)')">Copiar</button></td></tr>
+              <tr><td><strong>--muted-fg</strong></td><td class="mono">200 20% 74%</td><td class="mono">#b0c0c9</td><td>Body secundario</td><td><span class="tag ok">8.2:1 sobre bg</span></td><td><button class="copy-btn" onclick="copyText('hsl(200 20% 74%)')">Copiar</button></td></tr>
+              <tr><td><strong>--radius</strong></td><td class="mono" colspan="2">0.75rem (12px)</td><td>Cards 10px, buttons 6px, pills 999px</td><td><span class="tag ok">OK</span></td><td><button class="copy-btn" onclick="copyText('0.75rem')">Copiar</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag warn">REVISAR</span><span style="font-size:.82rem;color:hsl(var(--muted-fg))">design.md lista valores HSL ligeramente distintos (ej. background 210 50% 8% vs. código 210 55% 6%). Normalizar doc ↔ código antes del update.</span>
+        </div>
+      </section>
+
+      <!-- 03 TIPOGRAFÍA -->
+      <section class="section" id="tipografia" data-search="tipografia inter space grotesk spline mono font">
+        <div class="section-label">tipografía</div>
+        <h2>Tipografía — 3 familias<span class="dot">.</span></h2>
+        <p class="lead">Cargadas vía <span class="inline-code">next/font/google</span> en <span class="inline-code">app/layout.tsx</span>. Variables CSS: <span class="inline-code">--font-inter</span>, <span class="inline-code">--font-display</span>, <span class="inline-code">--font-mono</span>. Tailwind mapea <span class="inline-code">font-sans → Inter</span>, <span class="inline-code">font-display → Space Grotesk</span>, <span class="inline-code">font-mono → Spline Sans Mono</span>.</p>
+
+        <div class="specimen">
+          <div class="specimen__head"><b>SPECIMEN — INTER (SANS) · SPACE GROTESK (DISPLAY) · SPLINE SANS MONO (MONO)</b><button class="btn small" onclick="copyText('Inter / Space Grotesk / Spline Sans Mono')">Copiar stack</button></div>
+          <div class="specimen__body">
+            <div class="type-row">
+              <dt>Inter — body<br><span style="font-family:var(--font-mono);font-size:.70rem">--font-inter</span></dt>
+              <dd><div style="font-family:var(--font-inter);font-size:1.35rem">Construyo productos digitales que llegan a producción.</div><div class="code">font-sans antialiased · body: text-lg leading-relaxed text-muted-foreground · weight 400/500/600/700</div></dd>
+            </div>
+            <div class="type-row">
+              <dt>Space Grotesk — display<br><span style="font-family:var(--font-mono);font-size:.70rem">--font-display</span></dt>
+              <dd>
+                <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);line-height:.95;letter-spacing:-.02em">Construyo<br>en público<span style="color:hsl(var(--primary))">.</span></div>
+                <div class="code">hero-title: clamp(3rem, 9.5vw, 7.5rem) / 0.98 · section-title: clamp(2rem, 4.4vw, 3.4rem) · 700</div>
+              </dd>
+            </div>
+            <div class="type-row">
+              <dt>Spline Sans Mono — mono<br><span style="font-family:var(--font-mono);font-size:.70rem">--font-mono</span></dt>
+              <dd>
+                <div style="font-family:var(--font-mono);font-size:.95rem;color:hsl(var(--muted-fg))">// section-label · meta · badge · terminal</div>
+                <div style="font-family:var(--font-mono);font-size:.82rem;margin-top:6px">pnpm isjuandev@skills init — 12.4s · COMMIT a1b2c3 · 4 min read</div>
+                <div class="code">section-label: 0.82rem mono · hero-links/status-card/terminal/meta: 0.72–0.82rem mono · badges mono</div>
+              </dd>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nivel</th><th>Clases</th><th>Uso</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hero h1</strong></td><td class="mono">font-display clamp 3rem→7.5rem / 0.98 · 700 · -0.02em</td><td>Home hero</td><td><span class="tag ok">OK editorial</span></td></tr>
+              <tr><td><strong>Hero role/stack</strong></td><td class="mono">role 1.55→3.15rem display · stack 1→1.35rem mono muted</td><td>Subtítulo + stack</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Section title</strong></td><td class="mono">font-display 700 clamp 2→3.4rem · .dot primary</td><td>Títulos de sección</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Card title</strong></td><td class="mono">CardTitle text-2xl font-semibold tracking-tight</td><td>Cards genéricas</td><td><span class="tag warn">REVISAR — desalineado con editorial (usar display en project cards)</span></td></tr>
+              <tr><td><strong>Body / lead</strong></td><td class="mono">section-lead 1.05rem muted · hero-sub 1.08rem</td><td>Texto editorial</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Meta</strong></td><td class="mono">font-mono 0.70–0.82rem muted</td><td>Fechas, tags, lectura</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Gradiente marca</strong></td><td class="mono">bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent</td><td>Títulos con marca</td><td><span class="tag info">PROPUESTO — mantener solo en wordmark</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="playground">
+          <b style="font-family:var(--font-display)">Escala tipográfica interactiva</b>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <label style="font-family:var(--font-mono);font-size:.72rem">Tamaño hero: <input type="range" id="typeRange" min="32" max="120" value="64" oninput="updateType(this.value)"> <span id="typeVal">64px</span></label>
+            <button class="btn small" onclick="document.getElementById('typeDemo').style.letterSpacing='-0.02em'">Tracking -0.02</button>
+            <button class="btn small" onclick="document.getElementById('typeDemo').style.letterSpacing='-0.04em'">Tracking -0.04</button>
+            <button class="btn small" onclick="document.getElementById('typeDemo').style.letterSpacing='0'">Reset tracking</button>
+          </div>
+          <div id="typeDemo" style="font-family:var(--font-display);font-weight:700;font-size:64px;line-height:.95;letter-spacing:-.02em;margin-top:14px;border:1px dashed hsl(var(--border));border-radius:8px;padding:16px">Aa Construyo en público.</div>
+          <div class="code">Inter 400/500/600/700 · Space Grotesk 500/600/700 · Spline Sans Mono 400/500 — latin + latin-ext</div>
+        </div>
+      </section>
+
+      <!-- 04 COMPONENTES shadcn -->
+      <section class="section" id="componentes" data-search="componentes shadcn button badge card input dialog tabs accordion">
+        <div class="section-label">componentes — shadcn/ui (style default, neutral, cssVariables)</div>
+        <h2>Inventario de componentes<span class="dot">.</span></h2>
+        <p class="lead"><span class="inline-code">components.json</span> · <span class="inline-code">iconLibrary: lucide</span> · <span class="inline-code">50+ componentes</span> en <span class="inline-code">components/ui/</span>. Abajo: estados auditados + playground interactivo.</p>
+
+        <div class="filters" id="compFilters">
+          <button class="active" data-c="all">Todos (50)</button>
+          <button data-c="core">Core (usados)</button>
+          <button data-c="form">Form</button>
+          <button data-c="overlay">Overlay</button>
+          <button data-c="data">Data display</button>
+        </div>
+
+        <div class="variant-grid" id="compGrid" style="margin-top:14px">
+          <!-- core -->
+          <div class="card-demo" data-c="core"><b>Button</b> <span class="tag ok">USADO</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn primary small">Primary</button><button class="btn small">Secondary</button><button class="btn ghost small">Ghost</button><button class="btn small" style="border-color:hsl(var(--destructive)/.5);color:hsl(var(--destructive))">Destructive</button><button class="btn small" style="background:transparent;text-decoration:underline;color:hsl(var(--primary));border-color:transparent">Link</button></div><div class="code">cva: default/secondary/destructive/outline/ghost/link · sizes default/sm/lg/icon · rounded 6px · font-mono 0.82rem · gap-2</div></div>
+          <div class="card-demo" data-c="core"><b>Badge</b> <span class="tag ok">USADO</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><span class="tag" style="background:hsl(var(--primary));color:hsl(var(--primary-fg));border-color:transparent">default</span><span class="tag" style="background:hsl(var(--secondary));color:hsl(var(--secondary-fg));border-color:transparent">secondary</span><span class="tag" style="background:hsl(var(--destructive));color:#fff;border-color:transparent">destructive</span><span class="tag">outline</span></div><div class="code">rounded-full · px-2.5 py-0.5 text-xs font-semibold · hover /80</div></div>
+          <div class="card-demo" data-c="core"><b>Card</b> <span class="tag ok">USADO</span><div style="border:1px solid hsl(var(--border));border-radius:8px;background:hsl(var(--card));padding:12px;margin-top:10px"><div style="font-weight:600">CardTitle</div><div style="font-size:.82rem;color:hsl(var(--muted-fg))">CardDescription + CardContent + CardFooter</div></div><div class="code">rounded-lg border bg-card text-card-foreground shadow-sm · p-6</div></div>
+          <div class="card-demo" data-c="form"><b>Input / Textarea / Label</b> <span class="tag ok">USADO</span><input placeholder="hola@isjuandev.com" style="width:100%;margin-top:8px;background:hsl(var(--bg));border:1px solid hsl(var(--border));border-radius:6px;padding:8px 10px;color:hsl(var(--fg));font-family:var(--font-mono);font-size:.82rem"><textarea placeholder="Mensaje…" rows="2" style="width:100%;margin-top:8px;background:hsl(var(--bg));border:1px solid hsl(var(--border));border-radius:6px;padding:8px 10px;color:hsl(var(--fg));font-family:var(--font-mono);font-size:.82rem"></textarea><div class="code">border-input · ring primary · focus-visible 2px</div></div>
+          <div class="card-demo" data-c="form"><b>Select / Checkbox / Radio / Switch / Slider</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;display:grid;gap:6px;font-size:.82rem"><label><input type="checkbox" checked> Checkbox</label><label><input type="radio" name="r1" checked> Radio</label><div style="display:flex;align-items:center;gap:8px">Switch <span style="width:36px;height:20px;border-radius:999px;background:hsl(var(--primary));display:inline-block;position:relative"><span style="position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff"></span></span></div></div><div class="code">Radix primitives · estilados con tokens HSL</div></div>
+          <div class="card-demo" data-c="overlay"><b>Dialog / Sheet / Drawer / Popover / Tooltip / HoverCard</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn small" onclick="alert('Dialog demo: Radix Dialog + overlay bg 9800')">Dialog</button><button class="btn small" onclick="alert('Sheet demo: lateral')">Sheet</button><button class="btn small" onclick="alert('Popover demo')">Popover</button></div><div class="code">Radix + backdrop-blur · border-border</div></div>
+          <div class="card-demo" data-c="overlay"><b>Dropdown / ContextMenu / Menubar / NavigationMenu</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))">Menús accesibles, keyboard nav, focus ring primary.</div><div class="code">Radix Menu primitives</div></div>
+          <div class="card-demo" data-c="data"><b>Table / Tabs / Accordion / Carousel / Chart / Calendar</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><span class="tag">Tabs</span><span class="tag">Accordion</span><span class="tag">Carousel (embla)</span><span class="tag">Recharts</span><span class="tag">Calendar (react-day-picker)</span></div><div class="code">recharts 2.15 · embla 8.5 · date-fns 4.1</div></div>
+          <div class="card-demo" data-c="data"><b>Avatar / Separator / Progress / Skeleton / Pagination / Breadcrumb</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px"><div style="height:6px;border-radius:999px;background:hsl(var(--muted));overflow:hidden"><div style="width:62%;height:100%;background:hsl(var(--primary))"></div></div><div style="height:10px;border-radius:4px;background:hsl(var(--muted));margin-top:8px;width:70%"></div></div><div class="code">Progress · Skeleton animado</div></div>
+          <div class="card-demo" data-c="form"><b>Form (react-hook-form + zod)</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))">HookForm 7.54 + zod 3.24 + @hookform/resolvers. Validación + mensajes.</div><div class="code">components/ui/form.tsx</div></div>
+          <div class="card-demo" data-c="core"><b>Alert / Sonner / Toaster / Toast</b> <span class="tag ok">EN LIB</span><div style="margin-top:8px;border:1px solid hsl(var(--primary)/.35);background:hsl(var(--primary)/.08);border-radius:6px;padding:8px;font-size:.82rem">Alert — info con icono lucide</div><div class="code">sonner 1.7 · Radix Toast</div></div>
+          <div class="card-demo" data-c="data"><b>Sidebar (shadcn sidebar)</b> <span class="tag warn">REVISAR</span><div style="margin-top:8px;font-size:.82rem;color:hsl(var(--muted-fg))">Tokens sidebar-* definidos pero no usados en portafolio. ¿Eliminar o implementar?</div><div class="code">--sidebar-* en globals.css sin consumo</div></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Grupo</th><th>Componentes</th><th>Uso real en portafolio</th><th>Riesgo / nota</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Core</strong></td><td class="mono">Button, Badge, Card, Separator, Avatar</td><td>Alto — usados en todas las páginas</td><td><span class="tag ok">OK</span> Button migrado a font-mono 0.82rem (editorial)</td></tr>
+              <tr><td><strong>Form</strong></td><td class="mono">Input, Textarea, Label, Select, Checkbox, Radio, Switch, Slider, Form, InputOTP</td><td>Medio — Contact + filtros Projects</td><td><span class="tag ok">OK</span> bordes unified a --border</td></tr>
+              <tr><td><strong>Overlay</strong></td><td class="mono">Dialog, Sheet, Drawer, Popover, Tooltip, HoverCard, AlertDialog</td><td>Bajo — reservados</td><td><span class="tag ok">OK</span> mantener para update</td></tr>
+              <tr><td><strong>Navigation</strong></td><td class="mono">NavigationMenu, Menubar, Breadcrumb, Pagination, Tabs, Command (cmdk)</td><td>Bajo</td><td><span class="tag warn">REVISAR</span> Navigation custom en components/navigation.tsx — unificar con NavigationMenu</td></tr>
+              <tr><td><strong>Data</strong></td><td class="mono">Table, Chart (recharts), Calendar, Carousel, Accordion, Collapsible, Progress, Skeleton</td><td>Bajo/Medio</td><td><span class="tag ok">OK</span> Chart tokens alineados a paleta</td></tr>
+              <tr><td><strong>Layout</strong></td><td class="mono">Resizable, ScrollArea, AspectRatio</td><td>Bajo</td><td><span class="tag ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 05 EDITORIAL PATTERNS -->
+      <section class="section" id="editorial" data-search="editorial bento card card-editorial terminal commit platform section hero status-card">
+        <div class="section-label">patrones editoriales — @layer components</div>
+        <h2>Sistema editorial<span class="dot">.</span></h2>
+        <p class="lead">Clases custom en <span class="inline-code">app/globals.css @layer components</span>. Todo en español editorial + meta mono. Hover sutil, no sombras agresivas.</p>
+
+        <div class="filters" style="margin-top:14px">
+          <button class="btn small" onclick="toggleEditorialCode()">Ver código CSS</button>
+          <button class="btn small" onclick="document.getElementById('bentoLive').scrollIntoView({behavior:'smooth'})">Ver bento</button>
+          <button class="btn small" onclick="document.getElementById('terminalLive').scrollIntoView({behavior:'smooth'})">Ver terminal</button>
+        </div>
+
+        <div id="editorialCode" class="code hidden" style="margin-top:12px;white-space:pre">.section { padding:120px 0; border-bottom:1px solid hsl(var(--border)/.6) }
+.section-label::before { content:"//"; color:hsl(var(--primary)/.7) }
+.section-title { font-display 700 clamp 2→3.4rem; .dot primary }
+.card-editorial { bg-card border-border rounded 10px p-26 hover:border-primary/50 translateY -2px }
+.card-tag { mono 0.7rem secondary border-secondary/35 rounded-full }
+.card-mock { 120px dashed primary/7 surface-2 }
+.terminal { card + bar surface-2 + body mono 0.88rem }
+.commit { grid 90px 1fr auto; hover:pl 8px; hash primary mono }
+.platforms { grid 4 cols card 24px icon primary/12 }</div>
+
+        <!-- Bento live -->
+        <div id="bentoLive" class="playground">
+          <b>Bento — grid asimétrico</b> <span class="tag ok">6 cols · gap 18 · mt 50</span>
+          <div class="bento-demo">
+            <div class="a"><span class="bento-tag">destacado</span><div class="mock">mock 16/9</div><b>Proyecto destacado</b><p style="font-size:.85rem;color:hsl(var(--muted-fg))">c-a: span 4 / span 2 — card-editorial</p></div>
+            <div class="b"><span class="bento-tag">stream</span><div class="mock">mock</div><b>Card B</b></div>
+            <div class="c"><b>Card C</b><div class="mock">mock</div></div>
+            <div class="d"><b>Card D</b><p style="font-size:.82rem;color:hsl(var(--muted-fg))">c-d: span 3</p></div>
+            <div class="e"><b>Card E</b><p style="font-size:.82rem;color:hsl(var(--muted-fg))">c-e: span 3</p></div>
+          </div>
+          <div class="code">.bento { grid 6 cols gap 18 } · .c-a span4/span2 · .c-b/.c-c span2 · .c-d/.c-e span3 · @900px → 1 col</div>
+        </div>
+
+        <!-- Terminal + Commit -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px" id="terminalLive">
+          <div class="playground">
+            <b>Terminal</b> <span class="tag ok">600–720px</span>
+            <div style="margin-top:10px;background:hsl(var(--card));border:1px solid hsl(var(--border));border-radius:10px;overflow:hidden">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:hsl(var(--surface-2));border-bottom:1px solid hsl(var(--border))"><span style="width:10px;height:10px;border-radius:50%;background:hsl(var(--border))"></span><span style="width:10px;height:10px;border-radius:50%;background:hsl(var(--border))"></span><span style="width:10px;height:10px;border-radius:50%;background:hsl(var(--border))"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))">skills.sh</span></div>
+              <div style="padding:16px 18px;font-family:var(--font-mono);font-size:.82rem;line-height:1.9;color:hsl(var(--muted-fg))"><span style="color:hsl(var(--fg))">$ pnpm isjuandev@skills init</span><br><span style="color:hsl(var(--primary))">✔</span> React · Next.js · TypeScript<br><span style="color:hsl(var(--primary))">✔</span> .NET · AWS · Docker</div>
+            </div>
+            <div class="code">.terminal + .terminal-bar (surface-2) + .terminal-body mono 0.88rem · .prompt fg · .ok primary</div>
+          </div>
+          <div class="playground">
+            <b>Commit log — Blog</b> <span class="tag ok">border-top + hover pl 8px</span>
+            <div style="margin-top:10px;border-top:1px solid hsl(var(--border))">
+              <div style="display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid hsl(var(--border))"><span style="font-family:var(--font-mono);font-size:.78rem;color:hsl(var(--primary))">a1b2c3</span><div><b style="font-family:var(--font-display)">Post destacado</b><p style="font-size:.82rem;color:hsl(var(--muted-fg))">Extracto max 520px</p></div><span style="font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))">4 min</span></div>
+              <div style="display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid hsl(var(--border))"><span style="font-family:var(--font-mono);font-size:.78rem;color:hsl(var(--primary))">9f8e7d</span><div><b style="font-family:var(--font-display)">Otro post</b><p style="font-size:.82rem;color:hsl(var(--muted-fg))">Meta mono a la derecha</p></div><span style="font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg))">6 min</span></div>
+            </div>
+            <div class="code">.commit { 90px 1fr auto · hash mono primary · hover pl 8px }</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Clase / patrón</th><th>Specs</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>.section / .section-label / .section-title / .section-lead</strong></td><td class="mono">py 120 · label mono 0.82rem // primary/70 · title display 700 clamp · lead 640px 1.05rem muted</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>.hero-section / .hero-layout / .status-card</strong></td><td class="mono">layout 1.35fr + 0.65fr gap70 end · status-card card/72 mono 0.78rem · meta mono + b display 1.6rem</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>.card-editorial / .card-tag / .card-mock / .card-stack</strong></td><td class="mono">card border 10px p26 hover primary/50 -2px · tag secondary/35 pill · mock 120 + diagonal · stack mono pills</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>.project-card / .project-meta / .project-actions</strong></td><td class="mono">topline mono index/status · meta mono b fg · actions mono primary → translateX</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>.capabilities-grid / .capability-card</strong></td><td class="mono">grid 4 cols gap18 · card 250px p24 index primary</td><td><span class="tag warn">REVISAR — 4 cols denso en 1180px, probar 3 cols</span></td></tr>
+              <tr><td><strong>.current-panel / .terminal / .commit-log / .platforms</strong></td><td class="mono">current 0.7/1.3 gap60 · terminal 720px · commit 90/1fr/auto · platforms 4 cols</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>.about-home / .contact-panel / footer</strong></td><td class="mono">about 280px+1fr gap60 · contact gradient card→surface-2 border primary/45 · footer 90px center</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Responsive</strong></td><td class="mono">900px: hero/bento/current 1col · 760px: platforms/community 1col · 640px: commit stacked</td><td><span class="tag ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 06 LAYOUT -->
+      <section class="section" id="layout" data-search="layout container grid spacing navbar section">
+        <div class="section-label">layout & spacing</div>
+        <h2>Layout, grid y espaciado<span class="dot">.</span></h2>
+        <p class="lead">Container fijo <span class="inline-code">1180px</span> en todos los breakpoints · Navbar <span class="inline-code">h-16 blur-xl bg-background/80 border-b z-50</span> · Secciones <span class="inline-code">py 120 (→ 32 en design.md legacy)</span>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Elemento</th><th>Especificación</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Container</strong></td><td class="mono">center true · padding 28px · screens sm→2xl = 1180px fijo (no fluido)</td><td><span class="tag warn">REVISAR — fijo 1180px limita ultra-wide; evaluar max 1280 fluido</span></td></tr>
+              <tr><td><strong>Navbar</strong></td><td class="mono">fija h-16 backdrop-blur-xl bg/80 border-b z-50 · activa por ruta</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Secciones</strong></td><td class="mono">.section py 120 + border bottom 0.6 · last no border</td><td><span class="tag ok">OK editorial</span></td></tr>
+              <tr><td><strong>Grids</strong></td><td class="mono">bento 6 cols / capabilities 4 cols / platforms 4 cols / community 3 cols gap 18</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Gaps / radius</strong></td><td class="mono">gap 18–60 según patrón · radius lg 0.75rem → md -2px → sm -4px · pills 999px</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Max-widths texto</strong></td><td class="mono">lead 640 · hero-sub 560 · about-copy 720 · terminal 720</td><td><span class="tag ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="playground" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <b>Regla de oro:</b> <span style="font-size:.85rem;color:hsl(var(--muted-fg))">Todo respira en múltiplos de 6/18/60. No introducir gaps nuevos sin mapear a escala.</span>
+          <span class="tag info">ESCALA: 6 · 12 · 18 · 28 · 60 · 120</span>
+        </div>
+      </section>
+
+      <!-- 07 MOTION -->
+      <section class="section" id="motion" data-search="motion animacion gradient float pulse live">
+        <div class="section-label">motion</div>
+        <h2>Motion & micro-interacciones<span class="dot">.</span></h2>
+        <p class="lead">Definidas en <span class="inline-code">globals.css @keyframes</span> + Tailwind <span class="inline-code">animation</span>. Respeto a <span class="inline-code">prefers-reduced-motion</span>.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px">
+          <div class="card-demo"><b>animate-gradient</b><span class="tag ok">EN USO</span><div style="height:36px;border-radius:6px;margin-top:8px;background:linear-gradient(90deg,hsl(var(--primary)),hsl(var(--secondary)),hsl(var(--primary)));background-size:200% 200%;animation:grad 3s ease infinite"></div><div class="code">8s ease infinite · 200% size · en títulos/hero orb</div></div>
+          <div class="card-demo"><b>pulse-live</b><span class="tag ok">EN USO</span><div style="display:flex;align-items:center;gap:8px;margin-top:12px"><span style="width:10px;height:10px;border-radius:50%;background:hsl(0 75% 60%);animation:pulse 1.6s infinite"></span> <span style="font-family:var(--font-mono);font-size:.78rem">dot-status.live</span></div><div class="code">box-shadow 0→8px hsl(0 75% 60% / .45→0) 1.8s</div></div>
+          <div class="card-demo"><b>hover / reveal</b><span class="tag info">PROPUESTO</span><div style="margin-top:8px;display:flex;gap:8px"><button class="btn small" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">hover -2px</button><button class="btn small">underline-dvz</button></div><div class="code">card-editorial -2px + border primary/50 · link translateX 2px · reveal via IntersectionObserver (pendiente)</div></div>
+        </div>
+        <style>@keyframes grad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}</style>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Animación</th><th>Donde vive</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>animate-gradient</strong></td><td class="mono">globals + tailwind animate · hero/títulos gradiente</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>float</strong></td><td class="mono">translateY -10px · definida pero no usada</td><td><span class="tag warn">REVISAR — eliminar o aplicar a orbes</span></td></tr>
+              <tr><td><strong>pulse-live</strong></td><td class="mono">status dot rojo 1.8s</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>accordion-down/up</strong></td><td class="mono">Radix accordion 0.2s ease-out</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Cursor custom / particles / scroll-progress</strong></td><td class="mono">propuestos en rebranding-propuesta §7</td><td><span class="tag info">PROPUESTO — no implementado</span></td></tr>
+              <tr><td><strong>prefers-reduced-motion</strong></td><td class="mono">anula gradient/pulse/bounce</td><td><span class="tag ok">OK a11y</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 08 PÁGINAS -->
+      <section class="section" id="paginas" data-search="paginas home about projects blog tips contact">
+        <div class="section-label">páginas — 6 rutas</div>
+        <h2>Mapa de páginas auditadas<span class="dot">.</span></h2>
+        <p class="lead">Estructura confirmada de 6 páginas. Datos en <span class="inline-code">lib/data/content.ts</span>. Filtros/búsqueda/copy funcionales — solo cambia look.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Página</th><th>Título editorial</th><th>Patrones clave</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Home</strong></td><td class="mono">Hero gigante + status-card + bento 3–4 + plataformas + terminal</td><td class="mono">hero-section, bento, platforms, terminal, commit-log</td><td><span class="tag ok">OK — base del rebrand</span></td></tr>
+              <tr><td><strong>About</strong></td><td class="mono">Fragments of me. + logros gigantes + terminal skills</td><td class="mono">capabilities-grid, current-panel, orbes pulse</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Projects</strong></td><td class="mono">Grid editorial bento + filtros + badge dorado "Hecho en Stream"</td><td class="mono">card-editorial, project-card, card-stack</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Blog</strong></td><td class="mono">Writing. · meta mono grande · destacado 2 cols</td><td class="mono">commit-log, section-label //</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Tips</strong></td><td class="mono">Skills · terminal + copiar/expandir</td><td class="mono">terminal, card-stack</td><td><span class="tag ok">OK</span></td></tr>
+              <tr><td><strong>Contact</strong></td><td class="mono">Cierre editorial + formulario + newsletter + wordmark footer</td><td class="mono">contact-panel, footer wordmark</td><td><span class="tag ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="playground">
+          <b>SEO / metadata</b> <span class="tag ok">auditado en app/layout.tsx</span>
+          <div class="code">title: "Juan Diego — Desarrollador FullStack | React & .NET" · description prod · OG 1200×630 /opengraph-image.png · jsonLd WebSite+Person · themeColor #060b14 · colorScheme dark · alternates canonical · manifest /site.webmanifest</div>
+        </div>
+      </section>
+
+      <!-- 09 HALLAZGOS -->
+      <section class="section" id="hallazgos" data-search="hallazgos checklist rebranding deuda a11y">
+        <div class="section-label">hallazgos & plan de update</div>
+        <h2>Hallazgos priorizados<span class="dot">.</span></h2>
+        <p class="lead">Checklist accionable para el update de UI. Marca lo completado — se guarda local.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:hsl(var(--destructive))">CRÍTICO — hacer primero</div>
+            <div class="checklist">
+              <label class="check"><input type="checkbox" data-id="c1"> <div><b>Normalizar design.md ↔ globals.css</b><p>HSL difieren (ej. background, primary, muted). Fuente única de verdad: globals.css. Actualizar design.md.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="c2"> <div><b>Contraste muted-fg auditado pero border no debe usarse para texto</b><p>OK actual; no introducir texto sobre border.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="c3"> <div><b>Unificar Navigation custom → shadcn NavigationMenu</b><p>Hay NavigationMenu en lib sin uso; navbar custom duplica lógica.</p></div></label>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:hsl(var(--secondary))">REVISAR — deuda media</div>
+            <div class="checklist">
+              <label class="check"><input type="checkbox" data-id="r1"> <div><b>CardTitle desalineado con editorial</b><p>Usa text-2xl sans; project cards deberían usar font-display.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="r2"> <div><b>Tokens sidebar-* sin uso</b><p>Definidos en :root pero 0 consumo. Eliminar o implementar sidebar.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="r3"> <div><b>float keyframe sin uso</b><p>Aplicar a orbes o eliminar.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="r4"> <div><b>Container 1180px fijo</b><p>Evaluar fluido max 1280 con padding 28 para ultra-wide.</p></div></label>
+              <label class="check"><input type="checkbox" data-id="r5"> <div><b>Capabilities 4 cols denso</b><p>Probar 3 cols en 1180px para legibilidad.</p></div></label>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <div style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:hsl(var(--primary))">PROPUESTO — rebranding-propuesta.md (priorizar según checklist de aprobación)</div>
+          <div class="checklist" style="grid-template-columns:1fr 1fr">
+            <label class="check"><input type="checkbox" data-id="p1"> <div><b>Wordmark editorial + monograma ▌</b><p>Space Grotesk · Dev cyan · cursor favicon</p></div></label>
+            <label class="check"><input type="checkbox" data-id="p2"> <div><b>Hero palabras gigantes escalonadas</b><p>"Construyo / en público / ▌"</p></div></label>
+            <label class="check"><input type="checkbox" data-id="p3"> <div><b>Cursor custom + particles + scroll-progress + reveal</b><p>Motion §7 propuesta</p></div></label>
+            <label class="check"><input type="checkbox" data-id="p4"> <div><b>Tono editorial "Sin humo."</b><p>Reemplazar CTA genérico comunidad</p></div></label>
+          </div>
+        </div>
+
+        <div class="playground" style="margin-top:18px">
+          <b>Plan por fases (de rebranding-propuesta §9)</b>
+          <div class="table-wrap" style="margin-top:10px">
+            <table>
+              <thead><tr><th>Fase</th><th>Alcance</th><th>Archivos</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1</strong></td><td>Tokens + fuentes</td><td class="mono">globals.css, layout.tsx, tailwind.config.ts</td></tr>
+                <tr><td><strong>2</strong></td><td>Wordmark + nav</td><td class="mono">navigation.tsx, layout.tsx, icon.svg</td></tr>
+                <tr><td><strong>3</strong></td><td>Home + About</td><td class="mono">app/page.tsx, app/about/page.tsx</td></tr>
+                <tr><td><strong>4</strong></td><td>Projects + Blog + Tips</td><td class="mono">app/projects/page.tsx, app/blog/page.tsx, app/tips/page.tsx</td></tr>
+                <tr><td><strong>5</strong></td><td>Contact + motion</td><td class="mono">app/contact/page.tsx + nuevos motion components</td></tr>
+                <tr><td><strong>6</strong></td><td>QA build + a11y + responsive</td><td class="mono">pnpm build</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" onclick="clearChecks()">Limpiar checks</button>
+          <button class="btn primary" onclick="exportJSON()">Exportar JSON del inventario</button>
+          <span style="font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-fg));align-self:center">Los checks se guardan en localStorage (audit-isjuandev-checks).</span>
+        </div>
+      </section>
+
+      <footer style="padding:28px 0 40px;text-align:center;border-top:1px solid hsl(var(--border)/.6);margin-top:8px">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:1.6rem;letter-spacing:-.02em"><span style="color:hsl(var(--muted-fg))">&lt;</span>IsJuanDev<span style="color:hsl(var(--primary))">Dev</span><span style="color:hsl(var(--muted-fg))"> /&gt;</span></div>
+        <div style="font-family:var(--font-mono);font-size:.74rem;color:hsl(var(--muted-fg));margin-top:6px">Código, proyectos y comunidad · Auditoría visual generada desde <span class="inline-code">globals.css</span> + <span class="inline-code">tailwind.config.ts</span> + <span class="inline-code">design.md</span> + <span class="inline-code">rebranding-propuesta.md</span></div>
+        <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+          <span class="pill">Inter + Space Grotesk + Spline Sans Mono</span>
+          <span class="pill">shadcn/ui 50+ · lucide · Radix</span>
+          <span class="pill">single dark · 1180px · radius 12px</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// search filter
+const q=document.getElementById('q');
+q.addEventListener('input',()=>{
+  const v=q.value.toLowerCase().trim();
+  document.querySelectorAll('[data-search]').forEach(el=>{
+    const hay=el.getAttribute('data-search').toLowerCase().includes(v);
+    const isSection=el.classList.contains('section');
+    if(!v){ el.classList.remove('hidden'); el.querySelectorAll('.swatch, .card-demo').forEach(c=>c.classList.remove('hidden')); return; }
+    if(el.classList.contains('swatch')||el.classList.contains('card-demo')){
+      el.classList.toggle('hidden', !hay);
+    } else if(isSection){
+      // show section if any child matches or section itself matches
+      const text=(el.getAttribute('data-search')+' '+el.innerText).toLowerCase();
+      const hit=text.includes(v);
+      el.classList.toggle('hidden', !hit);
+      // highlight
+    }
+  });
+  // also filter swatches/cards directly
+  document.querySelectorAll('.swatch, .card-demo').forEach(el=>{
+    if(!v) return;
+    const s=(el.getAttribute('data-search')||el.innerText).toLowerCase();
+    // already handled
+  });
+});
+
+// palette filter
+document.querySelectorAll('#paletteFilters [data-filter]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#paletteFilters [data-filter]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f=b.dataset.filter;
+    document.querySelectorAll('#swatches .swatch').forEach(s=>{
+      s.classList.toggle('hidden', f!=='all' && s.dataset.group!==f);
+    });
+  });
+});
+
+// comp filter
+document.querySelectorAll('#compFilters [data-c]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#compFilters [data-c]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f=b.dataset.c;
+    document.querySelectorAll('#compGrid .card-demo').forEach(s=>{
+      s.classList.toggle('hidden', f!=='all' && s.dataset.c!==f);
+    });
+  });
+});
+
+function copyText(t){
+  navigator.clipboard.writeText(t);
+  toast('Copiado: '+t);
+}
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),1800);
+}
+function toggleEditorialCode(){
+  document.getElementById('editorialCode').classList.toggle('hidden');
+}
+function updateType(v){
+  document.getElementById('typeVal').textContent=v+'px';
+  document.getElementById('typeDemo').style.fontSize=v+'px';
+}
+function toggleContrast(e){
+  e.preventDefault();
+  document.body.classList.toggle('contrast-test');
+  if(document.body.classList.contains('contrast-test')){
+    document.body.style.filter='grayscale(1) contrast(1.15)';
+    toast('Modo test contraste: grayscale');
+  } else {
+    document.body.style.filter='';
+    toast('Contraste normal');
+  }
+}
+// active nav on scroll
+const sections=[...document.querySelectorAll('.section, .hero-audit')];
+const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(ent=>{
+    if(ent.isIntersecting){
+      navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+ent.target.id));
+    }
+  });
+},{rootMargin:'-40% 0px -50% 0px',threshold:0});
+sections.forEach(s=>io.observe(s));
+
+// checklist persist
+const CK='audit-isjuandev-checks';
+function loadChecks(){
+  try{ const d=JSON.parse(localStorage.getItem(CK)||'{}'); document.querySelectorAll('.check input').forEach(i=>{ if(d[i.dataset.id]) i.checked=true; }); }catch{}
+}
+function saveChecks(){
+  const d={}; document.querySelectorAll('.check input').forEach(i=>d[i.dataset.id]=i.checked);
+  localStorage.setItem(CK, JSON.stringify(d));
+}
+document.querySelectorAll('.check input').forEach(i=>i.addEventListener('change',saveChecks));
+function clearChecks(){
+  localStorage.removeItem(CK);
+  document.querySelectorAll('.check input').forEach(i=>i.checked=false);
+  toast('Checks limpiados');
+}
+loadChecks();
+
+function exportJSON(){
+  const data={
+    project:'isjuandev-community',
+    theme:'dark editorial single',
+    tokens:{
+      background:'210 55% 6% #060f1a',
+      foreground:'0 0% 100% #ffffff',
+      card:'210 45% 11% #0f1f33',
+      surface2:'210 40% 14% #16283d',
+      primary:'190 95% 62% #44d9f0',
+      secondary:'35 95% 68% #f7bd5a',
+      accent:'210 40% 20% #1f3a52',
+      muted:'210 28% 17% #1e2e3d',
+      mutedFg:'200 20% 74% #b0c0c9',
+      border:'210 35% 26% #2b4560',
+      ring:'190 95% 62%',
+      radius:'0.75rem',
+      charts:['190 90% 60%','35 95% 68%','200 65% 55%','195 75% 58%','30 85% 60%']
+    },
+    typography:{
+      sans:'Inter --font-inter',
+      display:'Space Grotesk --font-display 700 clamp 3rem→7.5rem',
+      mono:'Spline Sans Mono --font-mono 0.72–0.82rem'
+    },
+    stack:['next 16.1.6','shadcn/ui default neutral cssVariables','tailwind 3.4','lucide','radix','recharts 2.15','embla 8.5'],
+    components:['Button','Badge','Card','Input','Textarea','Label','Select','Checkbox','Radio','Switch','Slider','Dialog','Sheet','Drawer','Popover','Tooltip','HoverCard','Dropdown','ContextMenu','Menubar','NavigationMenu','Table','Tabs','Accordion','Carousel','Chart','Calendar','Avatar','Separator','Progress','Skeleton','Pagination','Breadcrumb','Form','Alert','Sonner','Sidebar','Resizable','ScrollArea','AspectRatio','Collapsible','Toggle','Command','InputOTP'],
+    editorial:['section','hero','bento','card-editorial','project-card','capabilities','current-panel','terminal','commit-log','platforms','about-home','contact-panel'],
+    findings:['design.md ↔ globals.css HSL drift','CardTitle vs display','sidebar tokens unused','float unused','container 1180 fixed','capabilities 4 cols dense']
+  };
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='auditoria-isjuandev-identidad.json'; a.click();
+  URL.revokeObjectURL(url);
+  toast('JSON exportado');
+}
+</script>
+</body>
+</html>

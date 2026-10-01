@@ -13,6 +13,24 @@ export interface Project {
   status?: string
 }
 
+export interface Solution {
+  index: string
+  badge: string
+  title: string
+  subtitle: string
+  description: string
+  deliverables: string[]
+  timeframe: string
+  price: string
+  popular?: boolean
+  tags: string[]
+}
+
+export interface FAQItem {
+  question: string
+  answer: string
+}
+
 export interface BlogPost {
   id: number
   slug: string
@@ -35,34 +53,116 @@ export interface Tip {
   code: string | null
 }
 
+export const businessSolutions: Solution[] = [
+  {
+    index: '01',
+    badge: 'MÁS POPULAR',
+    popular: true,
+    title: 'Sprint Web de Alta Conversión',
+    subtitle: 'Tu negocio abierto 24/7 con una web rápida que convierte visitas en clientes',
+    description: 'Diseño y desarrollo de sitios web y landing pages ultrarrápidas, optimizadas para celulares, con copywriting persuasivo, SEO y botón flotante inteligente hacia WhatsApp.',
+    deliverables: [
+      'Sitio web o landing en Next.js 16 + Tailwind (Carga en <1 segundo)',
+      'Diseño móvil-first enfocado 100% en conversión',
+      'Botón inteligente directo a WhatsApp con mensaje de bienvenida precalificado',
+      'Formulario de contacto con captura automática a Notion o correo',
+      'Optimización de textos comerciales y propuesta de valor',
+      'Dominio, SSL y despliegue en infraestructura cloud de alta velocidad'
+    ],
+    timeframe: '5 a 7 días hábiles',
+    price: '$500 USD',
+    tags: ['Next.js', 'Alta Conversión', 'WhatsApp', 'SEO Local']
+  },
+  {
+    index: '02',
+    badge: 'ALTO RETORNO (ROI)',
+    popular: false,
+    title: 'Asistente WhatsApp & Captación 24/7',
+    subtitle: 'Responde en menos de 60 segundos y no pierdas ni una sola venta',
+    description: 'Automatización inteligente con n8n e IA conectada a tu WhatsApp. Atiende dudas frecuentes, califica el interés del cliente y agenda citas automáticamente en Google Calendar o Notion.',
+    deliverables: [
+      'Agente de atención con IA activo 24/7 en WhatsApp oficial',
+      'Filtro de prospectos: califica presupuesto e intención antes de pasarlo a humano',
+      'Agendamiento automático de citas en Google Calendar o Cal.com',
+      'Notificaciones inmediatas a tu móvil cuando entra un lead caliente',
+      'CRM centralizado en Notion para seguimiento de cada prospecto',
+      'Soporte y calibración de respuestas durante los primeros 14 días'
+    ],
+    timeframe: '3 a 5 días hábiles',
+    price: '$350 USD',
+    tags: ['n8n', 'WhatsApp IA', 'DeepSeek', 'Notion CRM']
+  },
+  {
+    index: '03',
+    badge: 'ESCALABILIDAD',
+    popular: false,
+    title: 'Sistemas a Medida & Pagos Automatizados',
+    subtitle: 'Digitaliza tu operación comercial y cobra en automático',
+    description: 'Desarrollo de plataformas personalizadas, pasarelas de pago automatizadas (MercadoPago, Stripe, Nequi/Daviplata) y sincronización de datos entre tus herramientas operativas.',
+    deliverables: [
+      'Integración con pasarelas de pago y confirmación automática de transacciones',
+      'Embudos de venta con checkout optimizado para compra inmediata',
+      'Paneles de administración y dashboards para métricas del negocio',
+      'Conexión segura entre bases de datos, correo transaccional y CRM',
+      'Arquitectura robusta basada en microservicios o serverless'
+    ],
+    timeframe: 'Según alcance del proyecto',
+    price: 'Cotización personalizada',
+    tags: ['MercadoPago', 'Supabase', 'APIs', 'Docker']
+  }
+]
+
+export const faqs: FAQItem[] = [
+  {
+    question: '¿En cuánto tiempo estará lista mi web o automatización?',
+    answer: 'Nuestros proyectos se construyen en sprints ágiles. Un Asistente de WhatsApp o automatización operativa toma entre 3 y 5 días hábiles. Un Sprint Web de Alta Conversión toma entre 5 y 7 días hábiles. Sin reuniones eternas ni meses de espera.'
+  },
+  {
+    question: '¿Necesito saber de programación o tecnología para administrarlo?',
+    answer: 'Para nada. Todas las soluciones están diseñadas para que el dueño de negocio o su equipo puedan gestionarlas fácilmente (Notion, Google Calendar, WhatsApp). Al finalizar, realizamos una sesión de entrega y te entrego videos cortos de uso.'
+  },
+  {
+    question: '¿Cómo funciona el esquema de pago?',
+    answer: 'Manejamos un esquema 50/50: 50% de anticipo para apartar la fecha del sprint y comenzar el desarrollo, y el 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción.'
+  },
+  {
+    question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',
+    answer: 'Podemos auditar tu sitio actual y conectar el asistente de WhatsApp o los flujos de automatización de n8n sin tocar tu web. Si tu web actual es lenta o no genera ventas, podemos migrarla a una landing de alto rendimiento en Next.js para maximizar la conversión.'
+  },
+  {
+    question: '¿Por qué trabajar contigo en lugar de una agencia tradicional?',
+    answer: 'En una agencia tradicional pagas por intermediarios, gerentes de cuenta y reuniones innecesarias. Conmigo hablas y trabajas directamente con un Ingeniero Senior con 8+ años de experiencia. Velocidad de ejecución implacable, código limpio y foco 100% en retorno de inversión.'
+  }
+]
+
 export const projects: Project[] = [
-  // ── Aplicaciones Web ─────────────────────────────────────────────────────
+  // ── Soluciones de Alto Impacto ─────────────────────────────────────────────
   {
     id: 1,
-    title: 'isjuandev-community',
-    subtitle: 'Hub de comunidad para desarrolladores',
-    description: 'Sitio personal de IsJuanDev: proyectos en vivo (streaming), blog y consejos de desarrollo. Next.js 16 + React 19 + Tailwind (shadcn/ui).',
-    image: '/proyectos/isjuandev-community.png',
-    category: 'Aplicaciones Web',
-    tags: ['Next.js 16', 'React 19', 'shadcn/ui', 'TypeScript'],
-    demo: 'https://isjuandev.com',
-    code: 'https://github.com/isjuandev/isjuandev-community',
-    stream: true,
-    role: 'FullStack',
+    title: 'NexoBite',
+    subtitle: 'Chatbots con IA y automatización de ventas en WhatsApp',
+    description: 'Ecosistema de atención comercial y chatbots con IA para WhatsApp. Diseñado para responder consultas en segundos, filtrar clientes calificados y agendar citas o pedidos automáticamente sin intervención manual.',
+    image: '/proyectos/nexobite.png',
+    category: 'Automatizaciones con IA',
+    tags: ['Next.js 16', 'n8n', 'WhatsApp API', 'DeepSeek', 'TypeScript'],
+    demo: 'https://nexobite.com',
+    code: 'https://github.com/isjuandev/nexobite',
+    stream: false,
+    role: 'Arquitectura & FullStack',
     status: 'Producción'
   },
   {
     id: 2,
-    title: 'NexoBite',
-    subtitle: 'Chatbots WhatsApp + automatización de ventas',
-    description: 'Chatbots con IA y automatización para WhatsApp, desarrollo web y software a medida, con planes y paquetes orientados a conversión. Next.js 16 + React 19 + Tailwind (shadcn/ui).',
-    image: '/proyectos/nexobite.png',
-    category: 'Aplicaciones Web',
-    tags: ['Next.js 16', 'React 19', 'shadcn/ui', 'TypeScript'],
-    demo: 'https://nexobite.com',
-    code: 'https://github.com/isjuandev/nexobite',
+    title: 'Auditor Web Multimodal con IA',
+    subtitle: 'Diagnóstico visual y técnico para detección de fugas de conversión',
+    description: 'Motor inteligente automatizado con n8n que toma capturas de pantalla de sitios web con Chromium headless, procesa el diseño visual con DeepSeek Vision y analiza elementos de conversión (WhatsApp, formularios, legibilidad móvil), generando un informe accionable en Notion y un guion de video en 30 segundos.',
+    image: '/proyectos/generic.png',
+    category: 'Automatizaciones con IA',
+    tags: ['n8n', 'DeepSeek Vision', 'Browserless', 'Notion API'],
+    demo: 'https://isjuandev.com/#auditoria',
+    code: '#',
     stream: false,
-    role: 'FullStack',
+    role: 'Lead Architect',
     status: 'Producción'
   },
   {
