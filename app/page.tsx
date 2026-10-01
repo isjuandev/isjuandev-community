@@ -755,38 +755,74 @@ export default function HomePage() {
             <div className="section-label">contact.start // empecemos hoy</div>
           </Reveal>
           <Reveal delay={60}>
-            <div className="contact-panel p-8 md:p-12 rounded-2xl border border-primary/30 bg-gradient-to-b from-card to-background">
-              <div className="max-w-2xl">
-                <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full inline-block mb-3">
-                  ● 2 SLOTS DISPONIBLES ESTE MES
+            <div className="relative overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-card via-card/95 to-background p-8 md:p-12 lg:p-14 shadow-2xl shadow-primary/5">
+              {/* Resplandores sutiles de fondo */}
+              <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
+
+              <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Columna Izquierda: Mensaje y Propuesta */}
+                <div className="lg:col-span-7 space-y-5">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    2 CUPOS DISPONIBLES ESTE MES
+                  </div>
+
+                  <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight text-foreground leading-[1.15]">
+                    ¿Listo para escalar las ventas de tu negocio<span className="text-primary">?</span>
+                  </h2>
+
+                  <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl">
+                    Agenda un diagnóstico de 15 minutos o escríbeme directamente por WhatsApp. 
+                    Te responderé con una propuesta transparente y el plan exacto para tu caso.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-foreground/80">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Sin reuniones de relleno
+                    </span>
+                    <span className="flex items-center gap-1.5 text-foreground/80">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 3 a 7 días
+                    </span>
+                    <span className="flex items-center gap-1.5 text-foreground/80">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
+                    </span>
+                  </div>
+                </div>
+
+                {/* Columna Derecha: Tarjeta de Acciones */}
+                <div className="lg:col-span-5 flex flex-col gap-3.5 bg-background/70 p-6 sm:p-8 rounded-xl border border-border/80 backdrop-blur-sm shadow-inner">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">// Acción Directa</span>
+                  
+                  <Button size="lg" asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 text-base shadow-lg shadow-primary/20">
+                    <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5" />
+                      Chatear por WhatsApp Ahora
+                    </a>
+                  </Button>
+
+                  <Button size="lg" variant="outline" asChild className="w-full border-border hover:bg-card text-foreground font-medium py-6">
+                    <Link href="/contact" className="gap-2">
+                      Enviar Formulario Detallado <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+
+                  <p className="text-center font-mono text-[0.75rem] text-muted-foreground pt-1">
+                    ⚡ Tiempo promedio de respuesta: &lt; 2 horas
+                  </p>
+                </div>
+              </div>
+
+              {/* Barra Inferior con Datos de Confianza */}
+              <div className="relative z-10 mt-10 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-6">
+                  <span>Email: <a href={`mailto:${SITE_CONFIG.email}`} className="text-primary hover:underline">{SITE_CONFIG.email}</a></span>
+                  <span>Ubicación: Colombia (Servicio Global)</span>
+                </div>
+                <span className="text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  Soporte técnico directo sin intermediarios
                 </span>
-                <h2 className="section-title mb-4">
-                  ¿Listo para escalar las ventas de tu negocio<span className="text-primary">?</span>
-                </h2>
-                <p className="section-lead text-muted-foreground text-base mb-8">
-                  Agenda un diagnóstico de 15 minutos o escríbeme directamente por WhatsApp. 
-                  Te responderé con una propuesta transparente y el plan exacto para tu caso.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                <Button size="lg" asChild className="gap-2 bg-primary text-primary-foreground font-semibold px-8 shadow-lg shadow-primary/25">
-                  <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" />
-                    Chatear por WhatsApp Ahora
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="border-border">
-                  <Link href="/contact">
-                    Enviar Formulario Detallado <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-center gap-6 text-xs font-mono text-muted-foreground">
-                <span>Email directo: <a href={`mailto:${SITE_CONFIG.email}`} className="text-primary hover:underline">{SITE_CONFIG.email}</a></span>
-                <span>Ubicación: Colombia (Servicio Global)</span>
-                <span>Horario de respuesta: &lt; 2 horas</span>
               </div>
             </div>
           </Reveal>
