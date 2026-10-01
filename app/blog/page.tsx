@@ -42,7 +42,7 @@ export default function BlogPage() {
         <div className="container mx-auto">
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="section-label">aprendizajes.log</span>
+              <span className="section-label">Artículos &amp; Reflexiones</span>
             </div>
           </Reveal>
           <Reveal delay={60}>

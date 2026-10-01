@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Reveal } from '@/components/motion/reveal'
 import { 
-  MessageCircle, 
   Send, 
   CheckCircle2, 
   Clock, 
@@ -17,6 +16,7 @@ import {
   Mail, 
   Globe 
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/platform-icons'
 import { SITE_CONFIG } from '@/lib/config'
 
 export default function ContactPage() {
@@ -45,10 +45,10 @@ export default function ContactPage() {
       <section className="section" id="contacto" data-line="contacto">
         <div className="container mx-auto">
           <Reveal>
-            <div className="flex items-center gap-3">
-              <span className="section-label">inquiry.discovery // propuesta rápida</span>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="section-label mb-0">Contacto Directo</span>
               <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                RESPUESTA EN &lt; 2 HORAS
+                Respuesta en &lt; 2 horas
               </span>
             </div>
           </Reveal>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                       </p>
                       <Button asChild className="gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold">
                         <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                          <MessageCircle className="h-4 w-4" />
+                          <WhatsAppIcon className="h-4 w-4" />
                           Abrir WhatsApp Ahora
                         </a>
                       </Button>
@@ -166,11 +166,11 @@ export default function ContactPage() {
                           value={formData.service}
                           onChange={(e) => setFormData({...formData, service: e.target.value})}
                         >
-                          <option value="Sprint Web de Conversión ($500 USD)">Sprint Web de Alta Conversión ($500 USD)</option>
-                          <option value="Asistente WhatsApp & Captación 24/7 ($350 USD)">Asistente WhatsApp &amp; Captación 24/7 ($350 USD)</option>
-                          <option value="Ambas Soluciones (Web + WhatsApp IA)">Pack Completo: Web + Asistente WhatsApp IA</option>
+                          <option value="Sprint Web de Alta Conversión ($1.450.000 COP / $370 USD)">Sprint Web de Alta Conversión ($1.450.000 COP / $370 USD)</option>
+                          <option value="Asistente WhatsApp & Captación 24/7 ($980.000 COP / $250 USD)">Asistente WhatsApp &amp; Captación 24/7 ($980.000 COP / $250 USD)</option>
+                          <option value="Pack Completo: Web + Asistente WhatsApp IA">Pack Completo: Web + Asistente WhatsApp IA</option>
                           <option value="Auditoría Web Gratuita (90s)">Solo Auditoría Web Gratuita</option>
-                          <option value="Desarrollo a Medida / Pasarelas">Sistema a Medida / Pasarelas de Pago</option>
+                          <option value="Desarrollo a Medida / Pasarelas (Desde $2.800.000 COP)">Sistema a Medida / Pasarelas (Desde $2.800.000 COP / $700 USD)</option>
                         </select>
                       </div>
 
@@ -188,8 +188,8 @@ export default function ContactPage() {
                         />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full gap-2 bg-primary text-primary-foreground font-semibold mt-4 shadow-lg shadow-primary/20">
-                        <MessageCircle className="h-4 w-4" />
+                      <Button type="submit" size="lg" className="w-full gap-2 bg-primary text-primary-foreground font-semibold mt-4">
+                        <WhatsAppIcon className="h-4 w-4" />
                         Enviar y Abrir WhatsApp
                       </Button>
                     </form>
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 <div className="card-editorial p-7 rounded-2xl border-primary/50 bg-gradient-to-b from-card to-background">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
-                      <MessageCircle className="h-6 w-6" />
+                      <WhatsAppIcon className="h-6 w-6" />
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-lg text-foreground">
@@ -224,7 +224,7 @@ export default function ContactPage() {
 
                   <Button size="lg" className="w-full gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold" asChild>
                     <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5" />
+                      <WhatsAppIcon className="h-5 w-5" />
                       Chatear por WhatsApp
                     </a>
                   </Button>

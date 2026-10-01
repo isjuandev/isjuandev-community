@@ -23,7 +23,7 @@ const SITE_URL = 'https://isjuandev.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
+    default: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
     template: '%s | IsJuanDev',
   },
   description: 'Ayudo a empresas y negocios a captar más clientes, responder en menos de 60 segundos y automatizar sus operaciones con software web moderno y agentes de IA.',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: 'IsJuanDev',
     locale: 'es_ES',
     url: '/',
-    title: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
+    title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
     description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Juan Diego (IsJuanDev) — Webs de Alta Conversión & Automatizaciones con IA',
+    title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
     description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
     images: ['/opengraph-image.png'],
   },

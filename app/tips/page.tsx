@@ -39,7 +39,7 @@ export default function TipsPage() {
         <div className="container mx-auto">
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="section-label">consejos.quick</span>
+              <span className="section-label">Consejos Rápidos</span>
             </div>
           </Reveal>
           <Reveal delay={60}>

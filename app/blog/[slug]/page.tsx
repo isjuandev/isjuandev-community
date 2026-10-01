@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: Props) {
                         </Link>
                     </Button>
 
-                    <div className="section-label">{post.category.toLowerCase().replace(/\s+/g, '.')}.nota</div>
+                    <div className="section-label">{post.category}</div>
 
                     <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.4rem)] leading-tight mb-6">
                         {post.title}<span className="text-primary">.</span>

@@ -6,8 +6,8 @@ import { Navigation } from '@/components/navigation'
 import { SocialButton } from '@/components/social-button'
 import { Badge } from '@/components/ui/badge'
 import { Reveal } from '@/components/motion/reveal'
-import { SkillsTerminal } from '@/components/motion/skills-terminal'
-import { Rocket, Heart, Code2, Target, MessageCircle, ArrowUpRight, Zap } from 'lucide-react'
+import { Rocket, Heart, Code2, Target, ArrowUpRight, Zap } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/platform-icons'
 import { Button } from '@/components/ui/button'
 import { SITE_CONFIG } from '@/lib/config'
 
@@ -119,7 +119,7 @@ export default function AboutPage() {
       <section className="section" id="sobre-mi" data-line="about">
         <div className="container mx-auto">
           <Reveal>
-            <div className="section-label">sobre.mi // perfil profesional</div>
+            <div className="section-label">Perfil Profesional</div>
           </Reveal>
           <div className="grid md:grid-cols-[auto_1fr] gap-12 items-center">
             <Reveal>
@@ -159,7 +159,7 @@ export default function AboutPage() {
                 <div className="flex flex-wrap gap-4 pt-2">
                   <Button asChild className="gap-2 bg-primary text-primary-foreground font-semibold">
                     <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-4 w-4" />
+                      <WhatsAppIcon className="h-4 w-4" />
                       Hablemos de tu Proyecto
                     </a>
                   </Button>
@@ -188,12 +188,9 @@ export default function AboutPage() {
       {/* Stack */}
       <section className="section" id="stack" data-line="stack">
         <div className="container mx-auto">
-          <Reveal>
-            <div className="section-label">stack.init</div>
-          </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title">
-              Lo que uso a diario<span className="dot">.</span>
+              Tecnologías &amp; Herramientas<span className="dot">.</span>
             </h2>
           </Reveal>
 
@@ -214,32 +211,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Skills terminal */}
-      <section className="section" id="skills" data-line="skills">
-        <div className="container mx-auto">
-          <Reveal>
-            <div className="section-label">stack.init</div>
-          </Reveal>
-          <Reveal delay={60}>
-            <h2 className="section-title">
-              Skills<span className="dot">.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <SkillsTerminal />
-          </Reveal>
-        </div>
-      </section>
-
       {/* Experiencia */}
       <section className="section" id="experiencia" data-line="experiencia">
         <div className="container mx-auto">
-          <Reveal>
-            <div className="section-label">experiencia.log</div>
-          </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title">
-              Experiencia<span className="dot">.</span>
+              Trayectoria Laboral<span className="dot">.</span>
             </h2>
           </Reveal>
 
@@ -273,7 +250,7 @@ export default function AboutPage() {
       <section className="section" id="trayectoria" data-line="trayectoria">
         <div className="container mx-auto">
           <Reveal>
-            <div className="section-label">trayectoria.log</div>
+            <div className="section-label">Historia &amp; Evolución</div>
           </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title">

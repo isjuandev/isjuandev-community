@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { ArrowUpRight, MessageCircle } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/platform-icons'
 import { SITE_CONFIG } from '@/lib/config'
 
 export function Footer() {
@@ -10,13 +11,12 @@ export function Footer() {
           {/* Brand & Value Prop */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-block">
-              <span className="font-display font-bold text-xl text-foreground">
-                Juan Diego <span className="text-primary font-mono">//</span> IsJuanDev
+              <span className="font-display font-bold text-xl text-foreground inline-flex items-center gap-2">
+                <span>Juan Diego</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Ingeniero Senior &amp; Consultor de Automatizaciones IA. 
-              Desarrollo sitios web que convierten visitas en clientes y flujos inteligentes en WhatsApp que operan tu negocio 24/7.
+              Desarrollo de páginas web de alta conversión y automatizaciones comerciales con IA para negocios que buscan escalar sin perder ventas.
             </p>
             <div className="pt-2">
               <a
@@ -25,26 +25,26 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors"
               >
-                <MessageCircle className="h-3.5 w-3.5" />
-                Respuesta en &lt; 2 horas por WhatsApp
+                <WhatsAppIcon className="h-3.5 w-3.5" />
+                Respuesta directa por WhatsApp
               </a>
             </div>
           </div>
 
           {/* Columna 1: Soluciones & Negocio */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-mono text-xs text-foreground uppercase tracking-wider font-semibold">
-              // Soluciones
+            <h4 className="text-xs text-foreground uppercase tracking-wider font-semibold">
+              Soluciones
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground font-mono text-[0.85rem]">
               <li>
                 <Link href="/#servicios" className="hover:text-primary transition-colors">
-                  Sprint Web de Conversión ($500)
+                  Sprint Web de Alta Conversión
                 </Link>
               </li>
               <li>
                 <Link href="/#servicios" className="hover:text-primary transition-colors">
-                  Asistente WhatsApp IA ($350)
+                  Asistente WhatsApp con IA
                 </Link>
               </li>
               <li>
@@ -67,8 +67,8 @@ export function Footer() {
 
           {/* Columna 2: Ecosistema & Recursos */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-mono text-xs text-foreground uppercase tracking-wider font-semibold">
-              // Ecosistema &amp; Recursos
+            <h4 className="text-xs text-foreground uppercase tracking-wider font-semibold">
+              Ecosistema &amp; Recursos
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground font-mono text-[0.85rem]">
               <li>
@@ -106,8 +106,8 @@ export function Footer() {
 
           {/* Columna 3: Canales & Contacto */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-mono text-xs text-foreground uppercase tracking-wider font-semibold">
-              // Conecta
+            <h4 className="text-xs text-foreground uppercase tracking-wider font-semibold">
+              Canales Directos
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground font-mono text-[0.85rem]">
               <li>

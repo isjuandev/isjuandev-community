@@ -57,7 +57,7 @@ export default function CommunityPage() {
       <section className="section" id="comunidad" data-line="comunidad">
         <div className="container mx-auto">
           <Reveal>
-            <div className="section-label">comunidad.status</div>
+            <div className="section-label">Comunidad &amp; Streams</div>
           </Reveal>
           <Reveal delay={60}>
             <h1 className="section-title">

@@ -7,10 +7,12 @@ body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -87,28 +89,31 @@ button:focus-visible {
 @layer components {
   /* Secciones */
   .section {
-    padding: 120px 0;
+    padding: 72px 0;
     border-bottom: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 110px 0;
+    }
   }
 
   .section:last-of-type {
     border-bottom: none;
   }
 
-  /* Section label — comentario de código */
+  /* Section label — categoría editorial */
   .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: hsl(var(--muted-foreground));
-    margin-bottom: 18px;
-    display: flex;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--primary));
+    margin-bottom: 16px;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-  }
-
-  .section-label::before {
-    content: "//";
-    color: hsl(var(--primary) / 0.7);
+    gap: 8px;
   }
 
   .section-title {

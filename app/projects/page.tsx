@@ -40,7 +40,7 @@ export default function ProjectsPage() {
         <div className="container mx-auto">
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="section-label">projects.archive</span>
+              <span className="section-label">Portafolio &amp; Código Abierto</span>
             </div>
           </Reveal>
           <Reveal delay={60}>

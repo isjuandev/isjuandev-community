@@ -72,8 +72,8 @@ export const businessSolutions: Solution[] = [
       'Sin pagos mensuales forzados: la página es 100% de tu propiedad'
     ],
     timeframe: 'Lista en 5 a 7 días',
-    price: '$500 USD',
-    priceNote: 'Pago único · 50/50',
+    price: '$1.450.000 COP / $370 USD',
+    priceNote: 'Pago único · 50% anticipo / 50% entrega',
     ctaText: 'Quiero mi Página Web',
     tags: ['Web Móvil', 'WhatsApp Directo', 'Diseño Moderno', 'Google']
   },
@@ -93,8 +93,8 @@ export const businessSolutions: Solution[] = [
       'Te enseñamos a usarlo y ajustarlo en una sesión corta de 15 minutos'
     ],
     timeframe: 'Listo en 3 a 5 días',
-    price: '$350 USD',
-    priceNote: 'Pago único · 50/50',
+    price: '$980.000 COP / $250 USD',
+    priceNote: 'Pago único · 50% anticipo / 50% entrega',
     ctaText: 'Quiero mi Asistente WhatsApp',
     tags: ['WhatsApp 24/7', 'Citas Automáticas', 'Cero Mensajes Perdidos']
   },
@@ -113,8 +113,8 @@ export const businessSolutions: Solution[] = [
       'Acompañamiento técnico directo y garantía de funcionamiento'
     ],
     timeframe: 'Según el tamaño de tu proyecto',
-    price: 'A tu Medida',
-    priceNote: 'Presupuesto cerrado sin sorpresas',
+    price: 'Desde $2.800.000 COP / $700 USD',
+    priceNote: 'Presupuesto cerrado según requerimientos',
     ctaText: 'Consultar mi Proyecto',
     tags: ['Cobros en Línea', 'Reservas', 'Automatización a Medida']
   }

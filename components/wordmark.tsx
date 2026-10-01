@@ -9,16 +9,12 @@ export function Wordmark({ size = 'sm', className }: WordmarkProps) {
   return (
     <span
       className={cn(
-        'font-display font-bold whitespace-nowrap inline-flex items-center gap-0.5 tracking-[-0.01em]',
-        size === 'lg' ? 'text-[clamp(2rem,6vw,4.2rem)]' : 'text-[1.15rem]',
+        'font-display font-bold tracking-tight inline-flex items-center gap-2',
+        size === 'lg' ? 'text-3xl sm:text-4xl' : 'text-xl',
         className
       )}
     >
-      <span className="text-muted-foreground">&lt;</span>
-      <span>Is</span>
-      <span className="text-primary">Juan</span>
-      <span>Dev</span>
-      <span className="text-muted-foreground">&nbsp;/&gt;</span>
+      <span className="text-foreground">IsJuanDev</span>
     </span>
   )
 }
