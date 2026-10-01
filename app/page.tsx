@@ -309,17 +309,17 @@ export default function HomePage() {
       <section className="section" id="servicios" data-line="servicios">
         <div className="container mx-auto">
           <Reveal>
-            <div className="section-label">services.catalog // paquetes cerrados</div>
+            <div className="section-label">services.solutions // lo que hacemos por ti</div>
           </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title">
-              Soluciones diseñadas para aumentar tus ventas<span className="dot">.</span>
+              Tres formas directas de conseguir más clientes<span className="dot">.</span>
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Sin semanas de reuniones interminables ni presupuestos inflados. 
-              Paquetes claros, de entrega rápida y orientados a generar ingresos desde el primer día.
+              Precios transparentes, sin sorpresas y con entrega en días, no en meses. 
+              Tú eliges qué necesita tu negocio para empezar a vender más hoy.
             </p>
           </Reveal>
 
@@ -327,43 +327,43 @@ export default function HomePage() {
             {businessSolutions.map((solution, i) => (
               <Reveal key={solution.index} delay={180 + i * 80} className="flex">
                 <article className={cn(
-                  "card-editorial flex flex-col justify-between w-full relative p-7 rounded-xl border transition-all",
+                  "card-editorial flex flex-col justify-between w-full p-7 sm:p-8 rounded-2xl border transition-all",
                   solution.popular 
-                    ? "border-primary/80 bg-card shadow-lg shadow-primary/5 ring-1 ring-primary/30" 
-                    : "border-border bg-card/60 hover:border-border/80"
+                    ? "border-primary/80 bg-gradient-to-b from-card via-card to-background shadow-xl shadow-primary/5 ring-1 ring-primary/30" 
+                    : "border-border/80 bg-card/60 hover:border-border"
                 )}>
-                  {solution.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-primary text-primary-foreground shadow">
-                      {solution.badge}
-                    </div>
-                  )}
-
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs text-muted-foreground">PLAN {solution.index}</span>
-                      {!solution.popular && (
-                        <span className="text-xs font-mono px-2 py-0.5 rounded bg-muted text-muted-foreground">
-                          {solution.badge}
-                        </span>
-                      )}
+                    {/* Header de la tarjeta con badge integrado (sin desbordes) */}
+                    <div className="flex items-center justify-between gap-2 mb-5">
+                      <span className="font-mono text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                        // OPCIÓN {solution.index}
+                      </span>
+                      <span className={cn(
+                        "text-xs font-mono font-medium px-3 py-1 rounded-full border",
+                        solution.popular
+                          ? "bg-primary/15 text-primary border-primary/30"
+                          : "bg-muted text-muted-foreground border-border/60"
+                      )}>
+                        {solution.badge}
+                      </span>
                     </div>
 
-                    <h3 className="font-display font-bold text-xl mb-2 text-foreground">
+                    <h3 className="font-display font-bold text-2xl mb-2 text-foreground">
                       {solution.title}
                     </h3>
-                    <p className="text-xs font-mono text-primary mb-4">
+                    <p className="text-xs font-mono text-primary font-medium mb-3">
                       {solution.subtitle}
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                       {solution.description}
                     </p>
 
-                    <div className="space-y-2.5 pt-4 border-t border-border/60 mb-6">
+                    <div className="space-y-3 pt-5 border-t border-border/60 mb-6">
                       <p className="text-xs font-mono text-foreground font-semibold uppercase tracking-wider">
-                        Qué incluye:
+                        Lo que incluye:
                       </p>
                       {solution.deliverables.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs text-muted-foreground">
+                        <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
                           <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
@@ -371,32 +371,42 @@ export default function HomePage() {
                     </div>
                   </div>
 
+                  {/* Bloque de Inversión y Botón (sin solapamientos tipográficos) */}
                   <div className="pt-6 border-t border-border/60">
-                    <div className="flex items-baseline justify-between mb-1">
-                      <span className="text-xs font-mono text-muted-foreground">Inversión:</span>
-                      <span className="font-display font-bold text-2xl text-foreground">
-                        {solution.price}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs font-mono text-secondary mb-5">
-                      <Clock className="h-3.5 w-3.5" />
-                      <span>{solution.timeframe}</span>
+                    <div className="mb-5">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span className="font-display font-bold text-3xl text-foreground">
+                          {solution.price}
+                        </span>
+                        {solution.priceNote && (
+                          <span className="text-xs font-mono text-muted-foreground">
+                            ({solution.priceNote})
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-secondary mt-1.5">
+                        <Clock className="h-3.5 w-3.5" />
+                        <span>{solution.timeframe}</span>
+                      </div>
                     </div>
 
                     <Button 
+                      size="lg"
                       className={cn(
-                        "w-full gap-2 font-medium",
-                        solution.popular ? "bg-primary text-primary-foreground" : "variant-outline border-border"
+                        "w-full gap-2 font-semibold py-5 text-sm",
+                        solution.popular 
+                          ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20" 
+                          : "variant-outline border-border hover:bg-card text-foreground"
                       )}
                       asChild
                     >
                       <a 
-                        href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Me interesa contratar o saber más sobre el plan: ${solution.title}.`)}
+                        href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Me interesa contratar o saber más sobre: ${solution.title}.`)}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <MessageCircle className="h-4 w-4" />
-                        Elegir este Plan
+                        {solution.ctaText || 'Elegir este Plan'}
                       </a>
                     </Button>
                   </div>
