@@ -14,7 +14,11 @@ import {
   Video, 
   Layers, 
   Smartphone,
-  ChevronRight
+  ChevronRight,
+  BookOpen,
+  Code2,
+  Tv,
+  FolderGit2
 } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
@@ -583,6 +587,125 @@ export default function HomePage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ECOSISTEMA & CONSTRUYO EN PÚBLICO (AUTORIDAD TÉCNICA) */}
+      <section className="section bg-card/30" id="ecosistema" data-line="ecosistema">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <span className="section-label">community.ecosystem // autoridad técnica</span>
+              <span className="text-xs font-mono px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                OPEN SOURCE &amp; STREAMING
+              </span>
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title">
+              Construyo en público: código, streaming y comunidad<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="section-lead max-w-2xl text-muted-foreground">
+              Detrás de cada solución para clientes hay investigación real, desarrollo en vivo y una comunidad activa. 
+              Accede libremente a mis aprendizajes, snippets y proyectos públicos.
+            </p>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <Reveal delay={180}>
+              <Link href="/blog" className="group block h-full">
+                <article className="card-editorial p-6 h-full flex flex-col justify-between border-border/70 bg-background/80 group-hover:border-primary/60 transition-all">
+                  <div>
+                    <div className="p-3 w-fit rounded-lg bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <BookOpen className="h-5 w-5" />
+                    </div>
+                    <span className="text-xs font-mono text-primary">// 01. BLOG</span>
+                    <h3 className="font-display font-bold text-lg mt-1 mb-2 text-foreground group-hover:text-primary transition-colors">
+                      Aprendizajes
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Artículos sobre arquitectura de software, toma de decisiones técnicas, carrera y lecciones reales de desarrollo.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-primary">
+                    <span>Leer artículos</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </article>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={240}>
+              <Link href="/tips" className="group block h-full">
+                <article className="card-editorial p-6 h-full flex flex-col justify-between border-border/70 bg-background/80 group-hover:border-secondary/60 transition-all">
+                  <div>
+                    <div className="p-3 w-fit rounded-lg bg-secondary/10 text-secondary mb-4 group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
+                      <Code2 className="h-5 w-5" />
+                    </div>
+                    <span className="text-xs font-mono text-secondary">// 02. SNIPPETS</span>
+                    <h3 className="font-display font-bold text-lg mt-1 mb-2 text-foreground group-hover:text-secondary transition-colors">
+                      Tips de Código
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Fragmentos interactivos, trucos de frontend, buenas prácticas y utilidades listas para copiar en tus proyectos.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-secondary">
+                    <span>Explorar tips</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </article>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <Link href="/comunidad" className="group block h-full">
+                <article className="card-editorial p-6 h-full flex flex-col justify-between border-border/70 bg-background/80 group-hover:border-primary/60 transition-all">
+                  <div>
+                    <div className="p-3 w-fit rounded-lg bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <Tv className="h-5 w-5" />
+                    </div>
+                    <span className="text-xs font-mono text-primary">// 03. EN VIVO</span>
+                    <h3 className="font-display font-bold text-lg mt-1 mb-2 text-foreground group-hover:text-primary transition-colors">
+                      Comunidad &amp; Streams
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Sesiones de programación en vivo en Kick, clips educativos en TikTok e historias de proyectos en Instagram.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-primary">
+                    <span>Ver comunidad</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </article>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={360}>
+              <Link href="/projects" className="group block h-full">
+                <article className="card-editorial p-6 h-full flex flex-col justify-between border-border/70 bg-background/80 group-hover:border-secondary/60 transition-all">
+                  <div>
+                    <div className="p-3 w-fit rounded-lg bg-secondary/10 text-secondary mb-4 group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
+                      <FolderGit2 className="h-5 w-5" />
+                    </div>
+                    <span className="text-xs font-mono text-secondary">// 04. GITHUB</span>
+                    <h3 className="font-display font-bold text-lg mt-1 mb-2 text-foreground group-hover:text-secondary transition-colors">
+                      Archivo de Proyectos
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Catálogo con más de 50 repositorios públicos, pruebas técnicas, experimentos y productos de código abierto.
+                    </p>
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-secondary">
+                    <span>Explorar archivo</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </article>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

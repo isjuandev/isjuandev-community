@@ -13,14 +13,19 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  const navLinks = [
-    { href: '/', label: 'Inicio' },
+  // Exactamente 3 enlaces principales en el header
+  const primaryNavLinks = [
     { href: '/#servicios', label: 'Soluciones' },
-    { href: '/#auditoria', label: 'Auditoría Web' },
     { href: '/#proyectos', label: 'Casos de Éxito' },
-    { href: '/#proceso', label: 'El Método' },
     { href: '/about', label: 'Sobre mí' },
-    { href: '/contact', label: 'Contacto' },
+  ]
+
+  // Enlaces del ecosistema para el menú móvil
+  const ecosystemLinks = [
+    { href: '/blog', label: 'Aprendizajes (Blog)' },
+    { href: '/tips', label: 'Tips de Código' },
+    { href: '/comunidad', label: 'Comunidad & Streams' },
+    { href: '/projects', label: 'Archivo de Proyectos' },
   ]
 
   const isActive = (href: string) => {
@@ -36,15 +41,15 @@ export function Navigation() {
             <Wordmark size="sm" />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
+          {/* Desktop Nav: Máximo 3 enlaces principales */}
+          <nav className="hidden md:flex items-center gap-8">
+            {primaryNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'text-[0.90rem] text-muted-foreground hover:text-foreground transition-colors',
-                  isActive(link.href) && 'text-primary font-medium'
+                  'text-[0.92rem] text-muted-foreground hover:text-foreground transition-colors font-medium',
+                  isActive(link.href) && 'text-primary'
                 )}
               >
                 {link.label}
@@ -52,14 +57,14 @@ export function Navigation() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-[12px]">
+          <div className="hidden md:flex items-center gap-[14px]">
             <Link
               href="/contact"
-              className="text-[0.85rem] font-mono text-muted-foreground hover:text-foreground transition-colors px-2"
+              className="text-[0.88rem] font-mono text-muted-foreground hover:text-foreground transition-colors px-2"
             >
               Contacto
             </Link>
-            <Button size="sm" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-sm">
+            <Button size="sm" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm">
               <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4" />
                 Cotizar Proyecto
@@ -70,7 +75,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden font-mono text-[0.85rem] text-foreground"
+            className="md:hidden font-mono text-[0.85rem] text-foreground"
             aria-expanded={mobileMenuOpen}
           >
             [ {mobileMenuOpen ? 'cerrar' : 'menu'} ]
@@ -80,32 +85,60 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-background">
-          <div className="container mx-auto px-7 py-5 flex flex-col gap-4">
-            {navLinks.map((link) => (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="container mx-auto px-7 py-6 flex flex-col gap-5">
+            {/* Principales de Venta */}
+            <div className="flex flex-col gap-3">
+              <span className="font-mono text-[0.75rem] text-muted-foreground uppercase tracking-wider">// Menú Principal</span>
               <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'text-[0.92rem] text-muted-foreground hover:text-foreground transition-colors',
-                  isActive(link.href) && 'text-primary font-medium'
-                )}
+                href="/"
+                className="text-[0.95rem] text-foreground font-medium hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.label}
+                Inicio
               </Link>
-            ))}
-            <div className="flex flex-col gap-2 pt-2 border-t border-border/50">
-              <Button className="w-full gap-2" asChild>
+              {primaryNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[0.95rem] text-foreground font-medium hover:text-primary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="text-[0.95rem] text-foreground font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contacto
+              </Link>
+            </div>
+
+            {/* Ecosistema */}
+            <div className="flex flex-col gap-2.5 pt-4 border-t border-border/50">
+              <span className="font-mono text-[0.75rem] text-muted-foreground uppercase tracking-wider">// Ecosistema &amp; Recursos</span>
+              {ecosystemLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[0.88rem] text-muted-foreground hover:text-primary transition-colors flex items-center justify-between"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span>{link.label}</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/60" />
+                </Link>
+              ))}
+            </div>
+
+            {/* Acciones */}
+            <div className="flex flex-col gap-2.5 pt-4 border-t border-border/50">
+              <Button className="w-full gap-2 bg-primary text-primary-foreground font-semibold" asChild>
                 <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4" />
                   Cotizar por WhatsApp
                 </a>
-              </Button>
-              <Button variant="outline" className="w-full" asChild>
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Formulario de Contacto <ArrowUpRight className="h-4 w-4" />
-                </Link>
               </Button>
             </div>
           </div>
