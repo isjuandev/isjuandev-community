@@ -96,66 +96,66 @@ export default function HomePage() {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="section hero-section" id="top" data-line="hero">
+      <section className="section hero-section relative overflow-hidden" id="top" data-line="hero">
         <div className="container mx-auto">
-          <div className="hero-layout">
-            <div>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* LEFT COLUMN: HIGH-CONVERTING COPY */}
+            <div className="lg:col-span-7">
               <Reveal>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="section-label">solutions.init // isjuandev</span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    2 CUPOS DISPONIBLES ESTE MES
-                  </span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 border border-primary/20 text-primary mb-6">
+                  <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Soluciones Digitales de Alta Conversión</span>
+                  <span className="text-muted-foreground/60">•</span>
+                  <span className="text-foreground font-semibold">2 cupos para este mes</span>
                 </div>
               </Reveal>
 
               <Reveal delay={80}>
-                <h1 className="hero-title">
-                  <span className="block font-bold">Webs que Convierten</span>
-                  <span className="hero-role text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary">
-                    &amp; Automatizaciones con IA
-                  </span>
-                  <span className="hero-stack font-mono text-muted-foreground text-xl md:text-2xl mt-1 block">
-                    Menos tareas manuales <span className="text-primary font-bold">·</span> Más clientes que pagan
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground leading-[1.12] mb-6">
+                  Webs que Venden <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary">
+                    + WhatsApp con IA.
                   </span>
                 </h1>
               </Reveal>
 
               <Reveal delay={160}>
-                <p className="hero-sub text-muted-foreground text-lg leading-relaxed max-w-xl">
-                  Ayudo a empresas, clínicas y negocios de servicios a captar más prospectos, 
-                  responder consultas en menos de 60 segundos y automatizar sus operaciones repetitivas 
-                  con webs ultrarrápidas y agentes de WhatsApp inteligentes.
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
+                  Diseño páginas web ultrarrápidas y configuro agentes inteligentes de WhatsApp 
+                  que atienden consultas, cotizan y agendan clientes en segundos.
+                  <span className="text-foreground font-medium block mt-1.5">
+                    Menos tareas repetitivas. Más prospectos calificados listos para pagar.
+                  </span>
                 </p>
               </Reveal>
 
               <Reveal delay={240}>
-                <div className="flex gap-[14px] mt-8 flex-wrap items-center">
-                  <Button size="lg" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 shadow-lg shadow-primary/20">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-6">
+                  <Button size="lg" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7 py-6 text-base shadow-lg shadow-primary/25 rounded-xl">
                     <a href="#auditoria">
-                      Solicitar Auditoría Gratis <ArrowUpRight className="h-4 w-4" />
+                      <Sparkles className="h-4 w-4" />
+                      Solicitar Auditoría Gratis
+                      <ArrowUpRight className="h-4 w-4 ml-0.5" />
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="border-border hover:bg-card/80">
+                  <Button size="lg" variant="outline" asChild className="border-border hover:bg-card/90 px-6 py-6 text-base rounded-xl">
                     <a href="#servicios">
                       Ver Soluciones &amp; Precios
                     </a>
                   </Button>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-muted-foreground">
                   <a
                     href={SITE_CONFIG.getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-primary transition-colors ml-1"
+                    className="inline-flex items-center gap-1.5 font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
-                    <MessageCircle className="h-4 w-4 text-emerald-400" />
-                    O chatea directo por WhatsApp &rarr;
+                    <MessageCircle className="h-3.5 w-3.5" />
+                    O escríbeme directo a WhatsApp &rarr;
                   </a>
-                </div>
-              </Reveal>
-
-              <Reveal delay={300}>
-                <div className="flex items-center gap-4 mt-8 text-xs font-mono text-muted-foreground/80">
+                  <span className="hidden sm:inline text-border">|</span>
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Sin reuniones eternas
                   </span>
@@ -169,44 +169,126 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* STATUS ASIDE */}
-            <Reveal delay={180}>
-              <aside className="status-card" aria-label="Disponibilidad y stack de IsJuanDev">
-                <div className="status-card-header">
-                  <span className="dot-status live" />
-                  <span>ONLINE &amp; ACCEPTING CLIENTS</span>
+            {/* RIGHT COLUMN: LIVE CONVERSION ENGINE SHOWCASE */}
+            <div className="lg:col-span-5">
+              <Reveal delay={180}>
+                <div className="relative">
+                  {/* Subtle ambient glow behind card */}
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/20 via-cyan-500/20 to-secondary/20 blur-xl opacity-60" />
+
+                  <div className="relative rounded-2xl border border-border/80 bg-card/90 backdrop-blur-xl p-5 sm:p-6 shadow-2xl">
+                    {/* Mockup Header */}
+                    <div className="flex items-center justify-between border-b border-border/60 pb-3 mb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+                        <span className="ml-2 font-mono text-[11px] text-muted-foreground/70">
+                          sistema-de-ventas.live
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        EN VIVO 24/7
+                      </div>
+                    </div>
+
+                    {/* Quick Metric Pills */}
+                    <div className="grid grid-cols-2 gap-2.5 mb-4">
+                      <div className="rounded-xl bg-background/60 border border-border/60 p-2.5">
+                        <div className="text-[11px] text-muted-foreground flex items-center gap-1">
+                          <Zap className="h-3 w-3 text-amber-400" /> Rendimiento Web
+                        </div>
+                        <div className="text-base font-bold text-foreground mt-0.5">
+                          0.8s <span className="text-[10px] font-normal text-emerald-400">· 99/100 Vitals</span>
+                        </div>
+                      </div>
+                      <div className="rounded-xl bg-background/60 border border-border/60 p-2.5">
+                        <div className="text-[11px] text-muted-foreground flex items-center gap-1">
+                          <Clock className="h-3 w-3 text-primary" /> Respuesta a Leads
+                        </div>
+                        <div className="text-base font-bold text-foreground mt-0.5">
+                          &lt; 30s <span className="text-[10px] font-normal text-primary">· Agente IA</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* WhatsApp IA Live Simulation */}
+                    <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/20 p-3.5 space-y-3">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground border-b border-emerald-500/10 pb-2">
+                        <div className="flex items-center gap-2 text-foreground font-medium">
+                          <div className="h-6 w-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px]">
+                            WA
+                          </div>
+                          <span>Agente IA · Atención Inmediata</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400">En línea</span>
+                      </div>
+
+                      {/* Chat Bubble: Prospect */}
+                      <div className="flex flex-col items-start max-w-[88%]">
+                        <div className="rounded-2xl rounded-tl-sm bg-muted/70 text-foreground px-3 py-2 text-xs">
+                          Hola, vi sus soluciones y quiero automatizar la atención de citas en mi negocio.
+                        </div>
+                        <span className="text-[9px] text-muted-foreground mt-1 ml-1">10:42 AM</span>
+                      </div>
+
+                      {/* Chat Bubble: AI Agent */}
+                      <div className="flex flex-col items-end max-w-[92%] ml-auto">
+                        <div className="rounded-2xl rounded-tr-sm bg-emerald-600/25 border border-emerald-500/30 text-emerald-100 px-3 py-2 text-xs">
+                          ¡Hola! 👋 Claro que sí. Tenemos el sistema de agenda y cotización automática listo. ¿Prefieres cita mañana a las 10:00 AM o a las 3:00 PM?
+                        </div>
+                        <span className="text-[9px] text-emerald-400/90 mt-1 mr-1 flex items-center gap-1">
+                          <Zap className="h-2.5 w-2.5" /> Respondido en 8s · Agente IA
+                        </span>
+                      </div>
+
+                      {/* Outcome pill */}
+                      <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/25 py-2 px-3 flex items-center justify-between text-[11px]">
+                        <div className="flex items-center gap-1.5 text-emerald-300 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 flex-shrink-0" />
+                          <span>Cita agendada · Notificado al dueño</span>
+                        </div>
+                        <span className="font-mono text-[10px] text-muted-foreground">0 pérdidas</span>
+                      </div>
+                    </div>
+
+                    {/* Trust badges footer */}
+                    <div className="flex items-center justify-between pt-3 mt-3 border-t border-border/40 text-[11px] text-muted-foreground font-mono">
+                      <span>⚡ 3 a 7 días</span>
+                      <span>•</span>
+                      <span>🛡️ 100% Código Propio</span>
+                      <span>•</span>
+                      <span>🤝 Sin ataduras</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="status-card-file">// juandev.agency_engine</div>
-                <dl className="status-list text-sm">
-                  <div><dt>role:</dt><dd>Software &amp; AI Architect</dd></div>
-                  <div><dt>specialty:</dt><dd>Webs de Conversión · IA</dd></div>
-                  <div><dt>turnaround:</dt><dd className="text-secondary font-semibold">3 a 7 días hábiles</dd></div>
-                  <div><dt>lead_response:</dt><dd className="text-primary font-semibold">&lt; 60s con IA</dd></div>
-                  <div><dt>stack:</dt><dd>Next.js · n8n · WhatsApp API</dd></div>
-                  <div><dt>guarantee:</dt><dd className="text-primary">100% Código Propio</dd></div>
-                </dl>
-              </aside>
-            </Reveal>
+              </Reveal>
+            </div>
           </div>
 
-          {/* HERO METRICS */}
-          <Reveal delay={320}>
-            <div className="hero-meta grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-border/50">
-              <div>
-                <b className="text-3xl text-primary font-display font-bold">8+</b>
-                <span className="block text-sm text-muted-foreground mt-1">Años de experiencia en ingeniería</span>
+          {/* HERO METRICS CARDS */}
+          <Reveal delay={300}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 pt-10 border-t border-border/50">
+              <div className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/70 p-5 hover:border-primary/40 transition-colors">
+                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">8+</div>
+                <div className="text-sm font-semibold text-foreground mt-1">Años de Trayectoria</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Ingeniería de software y arquitectura</div>
               </div>
-              <div>
-                <b className="text-3xl text-secondary font-display font-bold">&lt; 60s</b>
-                <span className="block text-sm text-muted-foreground mt-1">Tiempo de respuesta automática a leads</span>
+              <div className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/70 p-5 hover:border-secondary/40 transition-colors">
+                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">&lt; 45s</div>
+                <div className="text-sm font-semibold text-foreground mt-1">Respuesta Automática</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Atención 24/7 con Agente IA en WhatsApp</div>
               </div>
-              <div>
-                <b className="text-3xl text-primary font-display font-bold">3 a 7</b>
-                <span className="block text-sm text-muted-foreground mt-1">Días hábiles para entrega llave en mano</span>
+              <div className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/70 p-5 hover:border-primary/40 transition-colors">
+                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">3 a 7</div>
+                <div className="text-sm font-semibold text-foreground mt-1">Días de Entrega</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Solución llave en mano lista para facturar</div>
               </div>
-              <div>
-                <b className="text-3xl text-secondary font-display font-bold">0</b>
-                <span className="block text-sm text-muted-foreground mt-1">Leads perdidos por falta de atención</span>
+              <div className="rounded-2xl bg-card/40 backdrop-blur-sm border border-border/70 p-5 hover:border-secondary/40 transition-colors">
+                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">0</div>
+                <div className="text-sm font-semibold text-foreground mt-1">Leads Perdidos</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Respuesta inmediata a cada visitante</div>
               </div>
             </div>
           </Reveal>
