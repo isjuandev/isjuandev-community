@@ -165,7 +165,7 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
             setApi={setApi}
             opts={{
               align: 'start',
-              containScroll: 'trimSnaps',
+              loop: true,
             }}
             className="w-full relative"
           >
