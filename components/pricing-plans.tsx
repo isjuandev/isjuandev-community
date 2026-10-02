@@ -128,20 +128,9 @@ function PricingCard({ solution }: { solution: Solution }) {
 }
 
 export function PricingPlans({ solutions }: PricingPlansProps) {
-  const [activeTab, setActiveTab] = React.useState<'all' | 'web' | 'ai'>('all')
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const [count, setCount] = React.useState(0)
-
-  const filteredSolutions = React.useMemo(() => {
-    if (activeTab === 'web') {
-      return solutions.filter((s) => s.index === '01' || s.index === '02')
-    }
-    if (activeTab === 'ai') {
-      return solutions.filter((s) => s.index === '03' || s.index === '04')
-    }
-    return solutions
-  }, [solutions, activeTab])
 
   React.useEffect(() => {
     if (!api) return
@@ -152,52 +141,10 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
     api.on('select', () => {
       setCurrent(api.selectedScrollSnap())
     })
-  }, [api, filteredSolutions])
+  }, [api, solutions])
 
   return (
-    <div className="w-full">
-      {/* ── Filtro por Categorías / Selector ── */}
-      <div className="flex justify-center mt-8 mb-6">
-        <div className="inline-flex items-center rounded-xl bg-card/60 p-1 border border-border/80">
-          <button
-            type="button"
-            onClick={() => setActiveTab('all')}
-            className={cn(
-              'px-4 py-2 text-xs sm:text-sm font-mono rounded-lg transition-all',
-              activeTab === 'all'
-                ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
-                : 'text-muted-foreground hover:text-foreground'
-            )}
-          >
-            Todos los planes (4)
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('web')}
-            className={cn(
-              'px-4 py-2 text-xs sm:text-sm font-mono rounded-lg transition-all',
-              activeTab === 'web'
-                ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
-                : 'text-muted-foreground hover:text-foreground'
-            )}
-          >
-            Páginas Web (2)
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('ai')}
-            className={cn(
-              'px-4 py-2 text-xs sm:text-sm font-mono rounded-lg transition-all',
-              activeTab === 'ai'
-                ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
-                : 'text-muted-foreground hover:text-foreground'
-            )}
-          >
-            WhatsApp &amp; IA (2)
-          </button>
-        </div>
-      </div>
-
+    <div className="w-full mt-8">
       {/* ── Slider / Carousel unificado (2 en desktop md+, 1 en mobile) ── */}
       <Reveal delay={120}>
         <div className="relative max-w-5xl mx-auto px-0 sm:px-2">
@@ -210,7 +157,7 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
               Desliza para explorar planes &rarr;
             </span>
             <span className="font-semibold text-foreground">
-              {current + 1} / {count || filteredSolutions.length}
+              {current + 1} / {count || solutions.length}
             </span>
           </div>
 
@@ -223,7 +170,7 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
             className="w-full relative"
           >
             <CarouselContent className="-ml-4 sm:-ml-6 py-2 items-stretch">
-              {filteredSolutions.map((solution) => (
+              {solutions.map((solution) => (
                 <CarouselItem
                   key={solution.index}
                   className="pl-4 sm:pl-6 basis-[88%] sm:basis-[80%] md:basis-1/2 flex"
@@ -242,7 +189,7 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
 
           {/* Indicadores de paginación / Dots interactivos */}
           <div className="flex justify-center items-center gap-2 mt-5 md:mt-0">
-            {filteredSolutions.map((item, index) => (
+            {solutions.map((item, index) => (
               <button
                 key={item.index}
                 type="button"
