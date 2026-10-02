@@ -169,7 +169,7 @@ export default function ContactPage() {
                           <option value="Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD)">Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD) [Recomendado]</option>
                           <option value="Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)">Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)</option>
                           <option value="AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)">AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)</option>
-                          <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)">Sistema a Medida / CRM Notion / Pasarelas (Desde $2.800.000 COP / $700 USD)</option>
+                          <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)">Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)</option>
                           <option value="Auditoría de Proceso Gratuita (90s)">Solo Auditoría de Proceso en Video (90s)</option>
                         </select>
                       </div>

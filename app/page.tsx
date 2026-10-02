@@ -422,7 +422,7 @@ export default function HomePage() {
                     <span className="text-xs font-mono text-muted-foreground">· Desde $2.800.000 COP / $700 USD</span>
                   </div>
                   <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">
-                    ¿Necesitas conectar pasarelas de pago, bases de datos o tu CRM en Notion?
+                    ¿Necesitas conectar pasarelas de pago, bases de datos o tu CRM?
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
                     Desarrollo e integración de flujos con n8n, pasarelas locales (Wompi, PSE, Stripe), portales privados y automatización de operaciones complejas. Presupuesto cerrado según tus requerimientos.

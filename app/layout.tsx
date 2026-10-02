@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'Next.js',
     'Desarrollo de Software',
     'Sistemas a medida',
-    'CRM Notion',
+    'Integraciones CRM',
     'Consultor IA',
     'Automatización de procesos',
     'Chatbot inteligente WhatsApp',
@@ -172,7 +172,7 @@ const jsonLd = {
           {
             '@type': 'Offer',
             name: 'Sistema o Automatización a Medida',
-            description: 'Integraciones con n8n, CRM Notion/HubSpot, pasarelas de pago y portales de clientes sin mensualidades forzadas.',
+            description: 'Integraciones con n8n, CRM, pasarelas de pago y portales de clientes sin mensualidades forzadas.',
             price: '2800000',
             priceCurrency: 'COP',
           },
