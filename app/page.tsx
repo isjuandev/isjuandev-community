@@ -38,10 +38,20 @@ export const metadata: Metadata = {
     title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
     description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
     url: '/',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'IsJuanDev — Webs de Alta Conversión y Automatizaciones IA',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
     description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/',

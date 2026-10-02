@@ -2,16 +2,26 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Proyectos',
-  description: 'Proyectos públicos de IsJuanDev en GitHub, organizados por categoría: aplicaciones web, backend/APIs, móviles, experimentos y más.',
+  description: 'Portafolio de proyectos y sistemas desarrollados por IsJuanDev: aplicaciones web de alto rendimiento, sistemas backend, automatizaciones y experimentos en código.',
   openGraph: {
     type: 'website',
-    title: 'Proyectos | IsJuanDev',
-    description: 'Proyectos públicos de IsJuanDev en GitHub: web, backend/APIs, móviles y experimentos.',
+    title: 'Proyectos y Sistemas | IsJuanDev',
+    description: 'Explora los proyectos, sistemas web y desarrollos construidos por IsJuanDev.',
     url: '/projects',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Proyectos de IsJuanDev',
+      },
+    ],
   },
   twitter: {
-    title: 'Proyectos | IsJuanDev',
-    description: 'Proyectos públicos de IsJuanDev en GitHub: web, backend/APIs, móviles y experimentos.',
+    card: 'summary_large_image',
+    title: 'Proyectos y Sistemas | IsJuanDev',
+    description: 'Explora los proyectos, sistemas web y desarrollos construidos por IsJuanDev.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/projects',

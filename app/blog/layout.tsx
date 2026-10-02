@@ -1,17 +1,27 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Aprendizajes',
-  description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura, errores y decisiones reales.',
+  title: 'Blog & Aprendizajes',
+  description: 'Artículos, aprendizajes y reflexiones de IsJuanDev sobre desarrollo de software, automatizaciones con IA, arquitectura web y lecciones creando en público.',
   openGraph: {
     type: 'website',
-    title: 'Aprendizajes | IsJuanDev',
-    description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura y decisiones reales.',
+    title: 'Blog & Aprendizajes | IsJuanDev',
+    description: 'Artículos, notas técnicas y reflexiones sobre software, automatizaciones y tecnología por IsJuanDev.',
     url: '/blog',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Blog de IsJuanDev',
+      },
+    ],
   },
   twitter: {
-    title: 'Aprendizajes | IsJuanDev',
-    description: 'Notas técnicas y de proceso de IsJuanDev sobre proyectos, arquitectura y decisiones reales.',
+    card: 'summary_large_image',
+    title: 'Blog & Aprendizajes | IsJuanDev',
+    description: 'Artículos, notas técnicas y reflexiones sobre software, automatizaciones y tecnología por IsJuanDev.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/blog',

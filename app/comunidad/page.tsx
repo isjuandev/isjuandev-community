@@ -7,17 +7,27 @@ import { platformIcons } from '@/components/platform-icons'
 import { Reveal } from '@/components/motion/reveal'
 
 export const metadata: Metadata = {
-  title: 'Comunidad',
-  description: 'Construyo productos en público, comparto el proceso y conecto con desarrolladores en Kick, TikTok e Instagram.',
+  title: 'Comunidad & Streams',
+  description: 'Construyo productos digitales en público, comparto el proceso técnico y conecto con la comunidad de desarrolladores en Kick, Discord, TikTok e Instagram.',
   openGraph: {
     type: 'website',
-    title: 'Comunidad | IsJuanDev',
-    description: 'Construyo productos en público, comparto el proceso y conecto con desarrolladores.',
+    title: 'Comunidad & Streams | IsJuanDev',
+    description: 'Construyo productos digitales en público y comparto todo el proceso técnico.',
     url: '/comunidad',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Comunidad IsJuanDev',
+      },
+    ],
   },
   twitter: {
-    title: 'Comunidad | IsJuanDev',
-    description: 'Construyo productos en público, comparto el proceso y conecto con desarrolladores.',
+    card: 'summary_large_image',
+    title: 'Comunidad & Streams | IsJuanDev',
+    description: 'Construyo productos digitales en público y comparto todo el proceso técnico.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/comunidad',

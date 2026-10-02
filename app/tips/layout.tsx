@@ -1,17 +1,27 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Consejos',
-  description: 'Consejos rápidos y accionables para mejorar tus habilidades de desarrollo: fragmentos de código, herramientas, buenas prácticas y productividad.',
+  title: 'Consejos & Snippets',
+  description: 'Consejos técnicos y fragmentos de código accionables para desarrolladores: soluciones prácticas, automatizaciones, buenas prácticas y productividad.',
   openGraph: {
     type: 'website',
-    title: 'Consejos | IsJuanDev',
-    description: 'Consejos rápidos de desarrollo: fragmentos de código, herramientas y buenas prácticas.',
+    title: 'Consejos & Snippets | IsJuanDev',
+    description: 'Consejos técnicos y fragmentos de código accionables para desarrolladores y automatizadores.',
     url: '/tips',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Consejos de IsJuanDev',
+      },
+    ],
   },
   twitter: {
-    title: 'Consejos | IsJuanDev',
-    description: 'Consejos rápidos de desarrollo: fragmentos de código, herramientas y buenas prácticas.',
+    card: 'summary_large_image',
+    title: 'Consejos & Snippets | IsJuanDev',
+    description: 'Consejos técnicos y fragmentos de código accionables para desarrolladores y automatizadores.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/tips',

@@ -2,16 +2,26 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Sobre mí',
-  description: 'Juan Diego García Castaño (IsJuanDev): desarrollador FullStack que convierte ideas en productos reales con React, .NET y cloud.',
+  description: 'Conoce a Juan Diego García (IsJuanDev): Consultor de Automatizaciones con IA y Desarrollador Web FullStack. Trayectoria, stack técnico y enfoque en software que genera ventas reales.',
   openGraph: {
-    type: 'website',
-    title: 'Sobre mí | IsJuanDev',
-    description: 'Ingeniero de software full-stack especializado en React, .NET y cloud (AWS).',
+    type: 'profile',
+    title: 'Sobre mí | Juan Diego (IsJuanDev)',
+    description: 'Consultor de Automatizaciones con IA & Desarrollador Web FullStack enfocado en soluciones digitales de alto impacto.',
     url: '/about',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Sobre Juan Diego (IsJuanDev)',
+      },
+    ],
   },
   twitter: {
-    title: 'Sobre mí | IsJuanDev',
-    description: 'Ingeniero de software full-stack especializado en React, .NET y cloud (AWS).',
+    card: 'summary_large_image',
+    title: 'Sobre mí | Juan Diego (IsJuanDev)',
+    description: 'Consultor de Automatizaciones con IA & Desarrollador Web FullStack enfocado en soluciones digitales de alto impacto.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/about',

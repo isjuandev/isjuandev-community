@@ -1,17 +1,27 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contacto',
-  description: 'Contacta con IsJuanDev: colaboraciones, preguntas o únete a su comunidad de desarrolladores en Discord, Kick, TikTok e Instagram.',
+  title: 'Contacto & Cotizaciones',
+  description: 'Agenda una auditoría gratuita o cotiza tu sitio web de alta conversión o asistente inteligente de WhatsApp con IsJuanDev. Trato directo, sin intermediarios y entrega rápida.',
   openGraph: {
     type: 'website',
-    title: 'Contacto | IsJuanDev',
-    description: 'Contacta con IsJuanDev o únete a su comunidad de desarrolladores.',
+    title: 'Contacto & Cotizaciones | IsJuanDev',
+    description: 'Cotiza tu proyecto de desarrollo web o automatización con IA directamente con el ingeniero a cargo.',
     url: '/contact',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Contacto IsJuanDev',
+      },
+    ],
   },
   twitter: {
-    title: 'Contacto | IsJuanDev',
-    description: 'Contacta con IsJuanDev o únete a su comunidad de desarrolladores.',
+    card: 'summary_large_image',
+    title: 'Contacto & Cotizaciones | IsJuanDev',
+    description: 'Cotiza tu proyecto de desarrollo web o automatización con IA directamente con el ingeniero a cargo.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: '/contact',
