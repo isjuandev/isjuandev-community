@@ -8,6 +8,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
   type CarouselApi,
 } from '@/components/ui/carousel'
 import { Solution } from '@/lib/data/content'
@@ -196,20 +198,15 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
         </div>
       </div>
 
-      {/* ── Vista Desktop: Grid 2 Columnas espacioso y legible (md+) ── */}
-      <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
-        {filteredSolutions.map((solution, i) => (
-          <Reveal key={solution.index} delay={120 + i * 80} className="flex h-full">
-            <PricingCard solution={solution} />
-          </Reveal>
-        ))}
-      </div>
-
-      {/* ── Vista Responsive/Móvil: Slider táctil con Embla Carousel (< md) ── */}
-      <div className="block md:hidden">
-        <Reveal delay={120}>
-          <div className="flex items-center justify-between mb-3 px-1 text-xs font-mono text-muted-foreground">
-            <span className="flex items-center gap-1">
+      {/* ── Slider / Carousel unificado (2 en desktop md+, 1 en mobile) ── */}
+      <Reveal delay={120}>
+        <div className="relative max-w-5xl mx-auto px-0 sm:px-2">
+          {/* Contador y guía rápida */}
+          <div className="flex items-center justify-between mb-4 px-1 text-xs font-mono text-muted-foreground">
+            <span className="hidden sm:inline-flex items-center gap-1.5">
+              Usa las flechas o desliza para navegar por los planes
+            </span>
+            <span className="sm:hidden inline-flex items-center gap-1">
               Desliza para explorar planes &rarr;
             </span>
             <span className="font-semibold text-foreground">
@@ -223,19 +220,28 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
               align: 'start',
               containScroll: 'trimSnaps',
             }}
-            className="w-full"
+            className="w-full relative"
           >
-            <CarouselContent className="-ml-3 py-1">
+            <CarouselContent className="-ml-4 sm:-ml-6 py-2 items-stretch">
               {filteredSolutions.map((solution) => (
-                <CarouselItem key={solution.index} className="pl-3 basis-[88%] sm:basis-[80%] flex">
+                <CarouselItem
+                  key={solution.index}
+                  className="pl-4 sm:pl-6 basis-[88%] sm:basis-[80%] md:basis-1/2 flex"
+                >
                   <PricingCard solution={solution} />
                 </CarouselItem>
               ))}
             </CarouselContent>
+
+            {/* Flechas de navegación para desktop / tablets */}
+            <div className="hidden md:flex items-center justify-end gap-2 mt-6">
+              <CarouselPrevious className="static translate-y-0 h-9 w-9 border-border bg-card hover:bg-card/80 text-foreground" />
+              <CarouselNext className="static translate-y-0 h-9 w-9 border-border bg-card hover:bg-card/80 text-foreground" />
+            </div>
           </Carousel>
 
           {/* Indicadores de paginación / Dots interactivos */}
-          <div className="flex justify-center items-center gap-2 mt-5">
+          <div className="flex justify-center items-center gap-2 mt-5 md:mt-0">
             {filteredSolutions.map((item, index) => (
               <button
                 key={item.index}
@@ -251,8 +257,8 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
               />
             ))}
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </div>
   )
 }
