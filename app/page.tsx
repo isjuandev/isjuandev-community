@@ -25,6 +25,7 @@ import { WhatsAppIcon } from '@/components/platform-icons'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { businessSolutions, faqs } from '@/lib/data/content'
+import { RATE_NOTE, OPTIONAL_ADDONS, CUSTOM_SYSTEM } from '@/lib/data/pricing'
 import { Reveal } from '@/components/motion/reveal'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { SITE_CONFIG } from '@/lib/config'
@@ -150,7 +151,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-1.5 font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <WhatsAppIcon className="h-3.5 w-3.5" />
-                  O chatea directo por WhatsApp &rarr;
+                  Chatea directo por WhatsApp &rarr;
                 </a>
                 <span className="hidden sm:inline text-border">|</span>
                 <span className="flex items-center gap-1.5">
@@ -310,7 +311,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title mt-2">
-              Tres formas directas de conseguir más clientes<span className="dot">.</span>
+              Planes directos para conseguir más clientes y automatizar tu negocio<span className="dot">.</span>
             </h2>
           </Reveal>
           <Reveal delay={120}>
@@ -318,19 +319,27 @@ export default function HomePage() {
               Precios transparentes, sin sorpresas y con entrega en días, no en meses. 
               Tú eliges qué necesita tu negocio para empezar a vender más hoy.
             </p>
+            <p className="text-xs font-mono text-muted-foreground mt-3">
+              {RATE_NOTE}
+            </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12 items-stretch">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 items-stretch">
             {businessSolutions.map((solution, i) => (
               <Reveal key={solution.index} delay={180 + i * 80} className="flex">
                 <article className={cn(
-                  "card-editorial flex flex-col justify-between w-full p-7 sm:p-8 rounded-2xl border transition-all",
+                  "card-editorial flex flex-col justify-between w-full p-6 sm:p-7 rounded-2xl border transition-all",
                   solution.popular 
                     ? "border-primary/80 bg-card" 
                     : "border-border/80 bg-card/60 hover:border-border"
                 )}>
                   <div>
                     {/* Header de la tarjeta */}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-xs font-mono text-primary font-semibold">
+                        {solution.badge}
+                      </span>
+                    </div>
                     <h3 className="font-display font-bold text-2xl mb-2 text-foreground">
                       {solution.title}
                     </h3>
@@ -351,35 +360,39 @@ export default function HomePage() {
                           <span>{item}</span>
                         </div>
                       ))}
+                      {solution.notIncluded && solution.notIncluded.length > 0 && (
+                        <div className="pt-2 space-y-2 border-t border-border/40">
+                          {solution.notIncluded.map((item, idx) => (
+                            <div key={`not-${idx}`} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <span className="font-mono text-muted-foreground/80 font-bold shrink-0">✕</span>
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   {/* Bloque de Inversión y Botón */}
                   <div className="pt-6 border-t border-border/60">
                     <div className="mb-5">
-                      <div className="flex items-baseline gap-2 flex-wrap">
-                        {solution.price.includes(' / ') ? (
-                          <>
-                            <span className="font-display font-bold text-2xl sm:text-[1.7rem] text-foreground">
-                              {solution.price.split(' / ')[0]}
-                            </span>
-                            <span className="text-xs sm:text-sm font-mono text-muted-foreground font-medium">
-                              / {solution.price.split(' / ')[1]}
-                            </span>
-                          </>
-                        ) : (
-                          <span className="font-display font-bold text-3xl text-foreground">
-                            {solution.price}
+                      <div className="space-y-1">
+                        <div className="flex items-baseline gap-1.5 flex-wrap">
+                          <span className="font-display font-bold text-2xl sm:text-[1.65rem] text-foreground">
+                            {solution.price.split(' / ')[0]}
                           </span>
-                        )}
+                          <span className="text-xs sm:text-sm font-mono text-muted-foreground font-medium">
+                            / {solution.price.split(' / ')[1]}
+                          </span>
+                        </div>
                         {solution.priceNote && (
-                          <span className="text-xs font-mono text-muted-foreground block w-full mt-1">
-                            ({solution.priceNote})
-                          </span>
+                          <div className="text-xs font-mono text-muted-foreground leading-snug">
+                            {solution.priceNote}
+                          </div>
                         )}
                       </div>
-                      <div className="flex items-center gap-1.5 text-xs font-mono text-secondary mt-1.5">
-                        <Clock className="h-3.5 w-3.5" />
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-secondary mt-2">
+                        <Clock className="h-3.5 w-3.5 shrink-0" />
                         <span>{solution.timeframe}</span>
                       </div>
                     </div>
@@ -410,6 +423,77 @@ export default function HomePage() {
             ))}
           </div>
 
+          {/* Complementos Opcionales: Soporte Mensual y Mantenimiento Web */}
+          <div className="mt-8">
+            <Reveal delay={380}>
+              <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/40">
+                <div className="max-w-2xl mb-6">
+                  <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold mb-1">
+                    Complementos Opcionales
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
+                    Mantenimiento y Acompañamiento Mensual
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Sin permanencia mínima. Tu página y código son 100% de tu propiedad; estos servicios son totalmente opcionales para quienes buscan soporte continuo.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {OPTIONAL_ADDONS.map((addon) => (
+                    <div
+                      key={addon.id}
+                      className="p-5 sm:p-6 rounded-xl border border-border/70 bg-background/60 flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <h4 className="font-display font-bold text-base sm:text-lg text-foreground">
+                            {addon.name}
+                          </h4>
+                          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">
+                            Opcional
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-4">
+                          {addon.description}
+                        </p>
+                        <div className="space-y-2 mb-6">
+                          {addon.features.map((feat, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-xs text-foreground/90">
+                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-4 border-t border-border/60">
+                        <div className="flex items-baseline justify-between gap-2 flex-wrap mb-3">
+                          <span className="font-display font-bold text-xl text-foreground">
+                            {addon.priceDisplay}
+                          </span>
+                          <span className="text-[11px] font-mono text-muted-foreground">
+                            Sin permanencia
+                          </span>
+                        </div>
+                        <Button size="sm" variant="outline" asChild className="w-full gap-2 border-border hover:bg-card text-foreground">
+                          <a
+                            href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Me gustaría consultar sobre el complemento opcional: ${addon.name}.`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <WhatsAppIcon className="h-3.5 w-3.5" />
+                            <span>Consultar {addon.name}</span>
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
           {/* Banner de Proyectos a Medida / CRM */}
           <div className="mt-8">
             <Reveal delay={420}>
@@ -419,7 +503,7 @@ export default function HomePage() {
                     <span className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">
                       Sistemas a Medida &amp; CRM
                     </span>
-                    <span className="text-xs font-mono text-muted-foreground">· Desde $2.800.000 COP / $700 USD</span>
+                    <span className="text-xs font-mono text-muted-foreground">· {CUSTOM_SYSTEM.priceDisplay}</span>
                   </div>
                   <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">
                     ¿Necesitas conectar pasarelas de pago, bases de datos o tu CRM?

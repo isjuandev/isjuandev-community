@@ -26,7 +26,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     website: '',
-    service: 'Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD)',
+    service: 'Pack Crecimiento Completo: Web + Asistente WhatsApp ($1.990.000 COP / ~$603 USD ref.)',
     message: ''
   })
 
@@ -166,10 +166,11 @@ export default function ContactPage() {
                           value={formData.service}
                           onChange={(e) => setFormData({...formData, service: e.target.value})}
                         >
-                          <option value="Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD)">Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD) [Recomendado]</option>
-                          <option value="Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)">Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)</option>
-                          <option value="AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)">AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)</option>
-                          <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)">Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)</option>
+                          <option value="Pack Crecimiento Completo: Web + Asistente WhatsApp ($1.990.000 COP / ~$603 USD ref.)">Pack Crecimiento Completo: Web + Asistente WhatsApp ($1.990.000 COP / ~$603 USD ref.) [Recomendado]</option>
+                          <option value="Web Express ($690.000 COP / ~$209 USD ref.)">Web Express ($690.000 COP / ~$209 USD ref.)</option>
+                          <option value="Tu Nueva Web para Vender ($1.450.000 COP / ~$439 USD ref.)">Tu Nueva Web para Vender ($1.450.000 COP / ~$439 USD ref.)</option>
+                          <option value="Asistente Automático de WhatsApp ($790.000 COP / ~$239 USD ref.)">Asistente Automático de WhatsApp ($790.000 COP / ~$239 USD ref.)</option>
+                          <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / ~$848 USD ref.)">Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / ~$848 USD ref.)</option>
                           <option value="Auditoría de Proceso Gratuita (90s)">Solo Auditoría de Proceso en Video (90s)</option>
                         </select>
                       </div>

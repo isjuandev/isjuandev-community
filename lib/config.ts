@@ -1,10 +1,12 @@
+import { MAIN_PLANS, CUSTOM_SYSTEM } from '@/lib/data/pricing'
+
 export const SITE_CONFIG = {
   name: 'Juan Diego (IsJuanDev)',
   role: 'Consultor de Automatizaciones IA & Desarrollador Web FullStack',
   title: 'Juan Diego — Webs de Alta Conversión & Automatizaciones con IA',
   description: 'Ayudo a empresas y negocios a captar más clientes, responder en menos de 60 segundos y automatizar sus operaciones repetitivas con software moderno.',
   url: 'https://isjuandev.com',
-  email: 'garciajuandiego162@gmail.com',
+  email: 'hola@isjuandev.com',
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573178073598',
   getWhatsAppUrl: (customMessage?: string) => {
     const defaultMsg = '¡Hola Juan! Vi tu portafolio y me gustaría agendar una auditoría gratuita o cotizar una solución para mi negocio.'
@@ -19,9 +21,11 @@ export const SITE_CONFIG = {
     instagram: 'https://instagram.com/isjuandev',
   },
   pricing: {
-    webSprint: '$1.450.000 COP / $370 USD',
-    whatsappBot: '$980.000 COP / $250 USD',
-    growthPack: '$2.180.000 COP / $550 USD',
-    customSystem: 'Desde $2.800.000 COP / $700 USD',
+    webExpress: MAIN_PLANS[0].priceDisplay,
+    webSprint: MAIN_PLANS[1].priceDisplay,
+    whatsappBot: MAIN_PLANS[2].priceDisplay,
+    growthPack: MAIN_PLANS[3].priceDisplay,
+    customSystem: CUSTOM_SYSTEM.priceDisplay,
   }
 }
+

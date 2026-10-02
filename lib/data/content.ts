@@ -13,6 +13,8 @@ export interface Project {
   status?: string
 }
 
+import { MAIN_PLANS } from '@/lib/data/pricing'
+
 export interface Solution {
   index: string
   badge: string
@@ -20,6 +22,7 @@ export interface Solution {
   subtitle: string
   description: string
   deliverables: string[]
+  notIncluded?: string[]
   timeframe: string
   price: string
   priceNote?: string
@@ -55,76 +58,26 @@ export interface Tip {
   code: string | null
 }
 
-export const businessSolutions: Solution[] = [
-  {
-    index: '01',
-    badge: '🚀 SPRINT 7 DÍAS',
-    popular: false,
-    title: 'Tu Nueva Web para Vender',
-    subtitle: 'Atrae clientes y haz que te contacten de inmediato desde su celular',
-    description: 'Diseñamos una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
-    deliverables: [
-      'Página web completa y adaptada 100% para teléfonos celulares',
-      'Botón directo a tu WhatsApp para que te escriban con un solo toque',
-      'Textos claros y persuasivos que explican por qué deben elegirte a ti',
-      'Formulario fácil para recibir solicitudes de clientes en tu correo',
-      'Tu nombre en internet (.com), seguridad SSL y puesta en marcha incluida',
-      'Sin pagos mensuales forzados: la página es 100% de tu propiedad'
-    ],
-    timeframe: 'Lista en 5 a 7 días',
-    price: '$1.450.000 COP / $370 USD',
-    priceNote: 'Pago único · 50% anticipo / 50% entrega',
-    ctaText: 'Quiero mi Página Web',
-    tags: ['Web Móvil', 'WhatsApp Directo', 'Diseño Moderno', 'Google']
-  },
-  {
-    index: '02',
-    badge: '⚡ AI AUTOMATION SPRINT',
-    popular: false,
-    title: 'Asistente Automático de WhatsApp',
-    subtitle: 'Responde en segundos 24/7 con control total y derivación a tu equipo',
-    description: 'Automatizamos la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
-    deliverables: [
-      'Atención inmediata en WhatsApp en menos de 45 segundos día y noche',
-      'Respuestas automáticas basadas únicamente en tu información aprobada',
-      'Agenda citas directamente en tu Google Calendar sin cruzar mensajes',
-      'Control y Escalamiento Humano: la IA escala a tu equipo en casos especiales',
-      'Filtro de curiosos y registro de prospectos ordenado en tu CRM o Sheets',
-      'Capacitación en video y acompañamiento directo en la puesta en marcha'
-    ],
-    timeframe: 'Listo en 3 a 5 días',
-    price: '$980.000 COP / $250 USD',
-    priceNote: 'Pago único · 50% anticipo / 50% entrega',
-    ctaText: 'Quiero mi Asistente WhatsApp',
-    tags: ['WhatsApp 24/7', 'Escalamiento Humano', 'Cero Fugas']
-  },
-  {
-    index: '03',
-    badge: '🔥 RECOMENDADO · MÁXIMA CONVERSIÓN',
-    popular: true,
-    title: 'Pack Crecimiento Completo',
-    subtitle: 'Tu web de ventas + tu asistente de WhatsApp integrados en un solo sprint',
-    description: 'La combinación más rentable para tu negocio: una web moderna que atrae clientes desde Google y redes, conectada a un asistente inteligente que responde al instante y agenda citas 24/7.',
-    deliverables: [
-      'Página Web de Alta Conversión completa adaptada 100% a celulares',
-      'Asistente de WhatsApp 24/7 conectado a los botones de tu nueva web',
-      'Agendamiento automático de citas y respuestas a preguntas frecuentes',
-      'Escalamiento inmediato a tu celular cuando un cliente solicita atención personal',
-      'Dominio, seguridad, base de datos y puesta en marcha llave en mano',
-      'Ahorras $250.000 COP frente a contratar cada solución por separado'
-    ],
-    timeframe: 'Listo en 7 días',
-    price: '$2.180.000 COP / $550 USD',
-    priceNote: 'Ahorras $250.000 COP · 50% anticipo / 50% entrega',
-    ctaText: 'Quiero el Pack Completo',
-    tags: ['Web + IA WhatsApp', 'Embudo 24/7', 'Ahorro $250k', 'Sprint 7 Días']
-  }
-]
+export const businessSolutions: Solution[] = MAIN_PLANS.map((plan) => ({
+  index: plan.index,
+  badge: plan.badge,
+  popular: plan.popular,
+  title: plan.title,
+  subtitle: plan.subtitle,
+  description: plan.description,
+  deliverables: plan.deliverables,
+  notIncluded: plan.notIncluded,
+  timeframe: plan.timeframe,
+  price: plan.priceDisplay,
+  priceNote: plan.paymentTerms,
+  ctaText: plan.ctaText,
+  tags: plan.tags,
+}))
 
 export const faqs: FAQItem[] = [
   {
     question: '¿En cuánto tiempo estará lista mi web o automatización?',
-    answer: 'Nuestros proyectos se construyen en sprints ágiles. Un Asistente de WhatsApp o automatización operativa toma entre 3 y 5 días hábiles. Un Sprint Web de Alta Conversión toma entre 5 y 7 días hábiles. Sin reuniones eternas ni meses de espera.'
+    answer: 'Nuestros proyectos se construyen en sprints ágiles. La Web Express toma de 2 a 3 días hábiles. Un Asistente de WhatsApp toma entre 3 y 5 días hábiles. Tu Nueva Web para Vender toma entre 5 y 7 días hábiles, y el Pack Crecimiento Completo 7 días. Sin reuniones eternas ni meses de espera.'
   },
   {
     question: '¿Necesito saber de programación o tecnología para administrarlo?',
@@ -132,7 +85,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Cómo funciona el esquema de pago?',
-    answer: 'Manejamos un esquema 50/50: 50% de anticipo para apartar la fecha del sprint y comenzar el desarrollo, y el 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción.'
+    answer: 'Para Web Express, el pago es 100% por adelantado al iniciar el sprint. Para el resto de soluciones (Web completa, Asistente de WhatsApp y Pack Crecimiento), manejamos un esquema 50/50: 50% de anticipo para apartar la fecha y comenzar el desarrollo, y 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción. Los complementos de Soporte Mensual Completo y Mantenimiento Web son suscripciones mensuales opcionales sin permanencia mínima.'
   },
   {
     question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',
