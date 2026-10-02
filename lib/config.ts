@@ -21,6 +21,7 @@ export const SITE_CONFIG = {
   pricing: {
     webSprint: '$1.450.000 COP / $370 USD',
     whatsappBot: '$980.000 COP / $250 USD',
+    growthPack: '$2.180.000 COP / $550 USD',
     customSystem: 'Desde $2.800.000 COP / $700 USD',
   }
 }

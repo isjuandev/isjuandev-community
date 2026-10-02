@@ -61,20 +61,20 @@ export const metadata: Metadata = {
 const workSteps = [
   {
     step: '01',
-    title: 'Diagnóstico & Estrategia',
-    description: 'Analizamos tu presencia web actual y tu flujo de clientes. Identificamos con exactitud dónde estás perdiendo ventas y definimos la solución con el retorno de inversión más rápido.',
+    title: 'Diagnóstico de Proceso',
+    description: 'Analizamos tu flujo actual de captación y atención. Identificamos tareas repetitivas y diseñamos la arquitectura automatizada (AS-IS → TO-BE) antes de escribir una sola línea de código.',
     badge: 'Día 1'
   },
   {
     step: '02',
-    title: 'Sprint de Construcción',
-    description: 'Diseño, desarrollo e integración de tu web o flujos de IA con n8n y WhatsApp. Sin retrasos ni reuniones innecesarias; tú sigues operando tu negocio normalmente.',
+    title: 'AI Automation & Web Sprint',
+    description: 'Diseño e integración de tu web o flujos de IA con WhatsApp y n8n. Conectamos tus herramientas sin fricción ni reuniones innecesarias; tú sigues operando tu negocio normalmente.',
     badge: 'Días 2 al 5'
   },
   {
     step: '03',
-    title: 'Lanzamiento & Capacitación',
-    description: 'Despliegue en producción con dominio y SSL. Pruebas reales de captación y compra en caliente, más una capacitación en video para ti o tu equipo.',
+    title: 'QA, Lanzamiento & Control Humano',
+    description: 'Pruebas reales en caliente, calibración de respuestas seguras (cero alucinaciones) y entrega llave en mano con videos explicativos para ti y tu equipo.',
     badge: 'Días 6 y 7'
   }
 ]
@@ -408,6 +408,37 @@ export default function HomePage() {
                 </article>
               </Reveal>
             ))}
+          </div>
+
+          {/* Banner de Proyectos a Medida / CRM */}
+          <div className="mt-8">
+            <Reveal delay={420}>
+              <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-1.5 text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">
+                      Sistemas a Medida &amp; CRM
+                    </span>
+                    <span className="text-xs font-mono text-muted-foreground">· Desde $2.800.000 COP / $700 USD</span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-foreground">
+                    ¿Necesitas conectar pasarelas de pago, bases de datos o tu CRM en Notion?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
+                    Desarrollo e integración de flujos con n8n, pasarelas locales (Wompi, PSE, Stripe), portales privados y automatización de operaciones complejas. Presupuesto cerrado según tus requerimientos.
+                  </p>
+                </div>
+
+                <div className="w-full md:w-auto shrink-0">
+                  <Button size="lg" variant="outline" asChild className="w-full md:w-auto gap-2 border-border hover:bg-card text-foreground font-semibold py-5">
+                    <a href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Tengo un requerimiento más complejo o sistema a medida que me gustaría evaluar y cotizar.')} target="_blank" rel="noopener noreferrer">
+                      <span>Cotizar Proyecto a Medida</span>
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -58,17 +58,17 @@ export interface Tip {
 export const businessSolutions: Solution[] = [
   {
     index: '01',
-    badge: '🔥 MÁS SOLICITADO',
-    popular: true,
+    badge: '🚀 SPRINT 7 DÍAS',
+    popular: false,
     title: 'Tu Nueva Web para Vender',
     subtitle: 'Atrae clientes y haz que te contacten de inmediato desde su celular',
-    description: 'Diseñamos una página web moderna y atractiva para tu negocio, hecha para que cualquier persona que entre desde su teléfono entienda qué vendes y te escriba directamente a tu WhatsApp.',
+    description: 'Diseñamos una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
     deliverables: [
       'Página web completa y adaptada 100% para teléfonos celulares',
       'Botón directo a tu WhatsApp para que te escriban con un solo toque',
       'Textos claros y persuasivos que explican por qué deben elegirte a ti',
       'Formulario fácil para recibir solicitudes de clientes en tu correo',
-      'Tu nombre en internet (.com), seguridad y puesta en marcha incluida',
+      'Tu nombre en internet (.com), seguridad SSL y puesta en marcha incluida',
       'Sin pagos mensuales forzados: la página es 100% de tu propiedad'
     ],
     timeframe: 'Lista en 5 a 7 días',
@@ -79,44 +79,45 @@ export const businessSolutions: Solution[] = [
   },
   {
     index: '02',
-    badge: '⭐ AHORRO DE TIEMPO',
+    badge: '⚡ AI AUTOMATION SPRINT',
     popular: false,
     title: 'Asistente Automático de WhatsApp',
-    subtitle: 'Responde al instante 24/7 y no pierdas ventas de noche ni fines de semana',
-    description: 'Un asistente inteligente para tu WhatsApp que atiende a tus clientes en segundos. Da precios, responde dudas frecuentes, agenda citas y te avisa a tu celular solo cuando alguien está listo para comprar.',
+    subtitle: 'Responde en segundos 24/7 con control total y derivación a tu equipo',
+    description: 'Automatizamos la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
     deliverables: [
-      'Atención inmediata en WhatsApp a cualquier hora del día o noche',
-      'Respuestas automáticas a las preguntas y precios más frecuentes',
-      'Agenda citas o llamadas directamente en tu calendario sin cruzar mensajes',
-      'Filtra a los curiosos y te notifica solo cuando hay un cliente interesado real',
-      'Lista ordenada con los datos y teléfonos de cada persona que escribe',
-      'Te enseñamos a usarlo y ajustarlo en una sesión corta de 15 minutos'
+      'Atención inmediata en WhatsApp en menos de 45 segundos día y noche',
+      'Respuestas automáticas basadas únicamente en tu información aprobada',
+      'Agenda citas directamente en tu Google Calendar sin cruzar mensajes',
+      'Control y Escalamiento Humano: la IA escala a tu equipo en casos especiales',
+      'Filtro de curiosos y registro de prospectos ordenado en tu CRM o Sheets',
+      'Capacitación en video y acompañamiento directo en la puesta en marcha'
     ],
     timeframe: 'Listo en 3 a 5 días',
     price: '$980.000 COP / $250 USD',
     priceNote: 'Pago único · 50% anticipo / 50% entrega',
     ctaText: 'Quiero mi Asistente WhatsApp',
-    tags: ['WhatsApp 24/7', 'Citas Automáticas', 'Cero Mensajes Perdidos']
+    tags: ['WhatsApp 24/7', 'Escalamiento Humano', 'Cero Fugas']
   },
   {
     index: '03',
-    badge: '💼 A MEDIDA',
-    popular: false,
-    title: 'Sistemas a Medida & Cobros Online',
-    subtitle: 'Cobra con tarjeta o automatiza las tareas pesadas de tu operación',
-    description: 'Si necesitas cobrar en línea con tarjeta o transferencias, tener una plataforma de reservas propia o conectar las herramientas de tu negocio para ahorrar horas de trabajo manual en Excel.',
+    badge: '🔥 RECOMENDADO · MÁXIMA CONVERSIÓN',
+    popular: true,
+    title: 'Pack Crecimiento Completo',
+    subtitle: 'Tu web de ventas + tu asistente de WhatsApp integrados en un solo sprint',
+    description: 'La combinación más rentable para tu negocio: una web moderna que atrae clientes desde Google y redes, conectada a un asistente inteligente que responde al instante y agenda citas 24/7.',
     deliverables: [
-      'Cobro automático en tu web con tarjetas, transferencias o pagos locales',
-      'Emisión instantánea de comprobantes y confirmaciones a tus clientes',
-      'Conexión entre tu página web y tus bases de datos o sistemas de control',
-      'Panel fácil para ver tus ventas e ingresos en tiempo real',
-      'Acompañamiento técnico directo y garantía de funcionamiento'
+      'Página Web de Alta Conversión completa adaptada 100% a celulares',
+      'Asistente de WhatsApp 24/7 conectado a los botones de tu nueva web',
+      'Agendamiento automático de citas y respuestas a preguntas frecuentes',
+      'Escalamiento inmediato a tu celular cuando un cliente solicita atención personal',
+      'Dominio, seguridad, base de datos y puesta en marcha llave en mano',
+      'Ahorras $250.000 COP frente a contratar cada solución por separado'
     ],
-    timeframe: 'Según el tamaño de tu proyecto',
-    price: 'Desde $2.800.000 COP / $700 USD',
-    priceNote: 'Presupuesto cerrado según requerimientos',
-    ctaText: 'Consultar mi Proyecto',
-    tags: ['Cobros en Línea', 'Reservas', 'Automatización a Medida']
+    timeframe: 'Listo en 7 días',
+    price: '$2.180.000 COP / $550 USD',
+    priceNote: 'Ahorras $250.000 COP · 50% anticipo / 50% entrega',
+    ctaText: 'Quiero el Pack Completo',
+    tags: ['Web + IA WhatsApp', 'Embudo 24/7', 'Ahorro $250k', 'Sprint 7 Días']
   }
 ]
 

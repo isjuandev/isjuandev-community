@@ -26,7 +26,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     website: '',
-    service: 'Sprint Web de Conversión',
+    service: 'Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD)',
     message: ''
   })
 
@@ -166,11 +166,11 @@ export default function ContactPage() {
                           value={formData.service}
                           onChange={(e) => setFormData({...formData, service: e.target.value})}
                         >
-                          <option value="Sprint Web de Alta Conversión ($1.450.000 COP / $370 USD)">Sprint Web de Alta Conversión ($1.450.000 COP / $370 USD)</option>
-                          <option value="Asistente WhatsApp & Captación 24/7 ($980.000 COP / $250 USD)">Asistente WhatsApp &amp; Captación 24/7 ($980.000 COP / $250 USD)</option>
-                          <option value="Pack Completo: Web + Asistente WhatsApp IA">Pack Completo: Web + Asistente WhatsApp IA</option>
-                          <option value="Auditoría Web Gratuita (90s)">Solo Auditoría Web Gratuita</option>
-                          <option value="Desarrollo a Medida / Pasarelas (Desde $2.800.000 COP)">Sistema a Medida / Pasarelas (Desde $2.800.000 COP / $700 USD)</option>
+                          <option value="Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD)">Pack Crecimiento Completo: Web + Asistente WhatsApp ($2.180.000 COP / $550 USD) [Recomendado]</option>
+                          <option value="Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)">Tu Nueva Web para Vender ($1.450.000 COP / $370 USD)</option>
+                          <option value="AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)">AI Automation Sprint — Asistente WhatsApp 24/7 ($980.000 COP / $250 USD)</option>
+                          <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / $700 USD)">Sistema a Medida / CRM Notion / Pasarelas (Desde $2.800.000 COP / $700 USD)</option>
+                          <option value="Auditoría de Proceso Gratuita (90s)">Solo Auditoría de Proceso en Video (90s)</option>
                         </select>
                       </div>
 

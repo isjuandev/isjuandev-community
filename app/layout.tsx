@@ -150,6 +150,13 @@ const jsonLd = {
         itemListElement: [
           {
             '@type': 'Offer',
+            name: 'Pack Crecimiento Completo (Web + Asistente WhatsApp)',
+            description: 'Embudo comercial completo: página web de alta conversión adaptada a móviles conectada a asistente de WhatsApp 24/7 con agendamiento y escalamiento humano.',
+            price: '2180000',
+            priceCurrency: 'COP',
+          },
+          {
+            '@type': 'Offer',
             name: 'Tu Nueva Web para Vender (Web Sprint 7 Días)',
             description: 'Página web completa y adaptada 100% para teléfonos celulares, enfocada en conversión directa a WhatsApp.',
             price: '1450000',
@@ -157,8 +164,8 @@ const jsonLd = {
           },
           {
             '@type': 'Offer',
-            name: 'Asistente Automático de WhatsApp 24/7',
-            description: 'Asistente con IA que responde de inmediato a clientes, resuelve preguntas frecuentes, agenda citas y filtra prospectos.',
+            name: 'AI Automation Sprint — Asistente WhatsApp 24/7',
+            description: 'Automatización de atención y pre-calificación con IA que responde en menos de 45 segundos, agenda citas y deriva a tu equipo.',
             price: '980000',
             priceCurrency: 'COP',
           },
