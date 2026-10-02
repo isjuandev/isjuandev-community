@@ -48,7 +48,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-3 mb-2">
               <span className="section-label mb-0">Contacto Directo</span>
               <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Respuesta en &lt; 2 horas
+                Respuesta humana en menos de 2 horas
               </span>
             </div>
           </Reveal>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     'Juan Diego Garcia',
     'Automatizaciones con IA',
     'Desarrollo Web Colombia',
-    'Desarrollo Web Medellin',
+    'Colombia (Servicio Global)',
     'Chatbots WhatsApp',
     'Agentes de IA',
     'n8n consultor',
@@ -129,12 +129,12 @@ const jsonLd = {
       image: `${SITE_URL}/opengraph-image`,
       description: 'Consultoría y desarrollo de sitios web de alta conversión, asistentes automáticos de WhatsApp y flujos de automatización con inteligencia artificial.',
       telephone: '+573178073598',
-      email: 'garciajuandiego162@gmail.com',
+      email: 'hola@isjuandev.com',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'CO',
-        addressLocality: 'Medellín',
+        addressLocality: 'Colombia (Servicio Global)',
       },
       areaServed: [
         { '@type': 'Country', name: 'Colombia' },
@@ -165,7 +165,7 @@ const jsonLd = {
           {
             '@type': 'Offer',
             name: 'AI Automation Sprint — Asistente WhatsApp 24/7',
-            description: 'Automatización de atención y pre-calificación con IA que responde en menos de 45 segundos, agenda citas y deriva a tu equipo.',
+            description: 'Automatización de atención y pre-calificación con IA que responde en menos de 60 segundos, agenda citas y deriva a tu equipo.',
             price: '980000',
             priceCurrency: 'COP',
           },

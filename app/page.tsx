@@ -176,12 +176,12 @@ export default function HomePage() {
                 <div className="text-xs text-muted-foreground mt-0.5">Ingeniería de software y arquitectura</div>
               </div>
               <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">&lt; 45s</div>
+                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">&lt; 60s</div>
                 <div className="text-sm font-semibold text-foreground mt-1">Respuesta Automática</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Atención inmediata con WhatsApp API</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Atención en menos de 60 segundos con WhatsApp</div>
               </div>
               <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">3 a 7</div>
+                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">2 a 7</div>
                 <div className="text-sm font-semibold text-foreground mt-1">Días de Entrega</div>
                 <div className="text-xs text-muted-foreground mt-0.5">Solución llave en mano lista para facturar</div>
               </div>
@@ -821,7 +821,7 @@ export default function HomePage() {
                   </Button>
 
                   <p className="text-center font-mono text-[0.75rem] text-muted-foreground pt-1">
-                    Tiempo promedio de respuesta: &lt; 2 horas
+                    Tiempo promedio de respuesta humana: menos de 2 horas
                   </p>
                 </div>
               </div>
