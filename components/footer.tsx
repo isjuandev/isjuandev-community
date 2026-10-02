@@ -2,64 +2,48 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/platform-icons'
 import { Wordmark } from '@/components/wordmark'
+import { Button } from '@/components/ui/button'
 import { SITE_CONFIG } from '@/lib/config'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer data-line="footer" className="relative border-t border-border bg-background text-foreground overflow-hidden">
-      {/* Sutil resplandor superior integrado con la estética del sitio */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-24 bg-gradient-to-b from-primary/5 to-transparent"
-      />
-
+    <footer data-line="footer" className="border-t border-border bg-card/40">
       <div className="container mx-auto px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-border/60">
           {/* Brand & Value Prop (5 columnas) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex flex-col gap-2">
-              <Link href="/" className="inline-flex items-center gap-1.5 w-fit">
-                <Wordmark size="sm" />
-                <span className="text-primary font-display font-bold text-xl">.</span>
-              </Link>
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Disponible para nuevos sprints y consultoría</span>
-              </div>
-            </div>
+            <Link href="/" className="inline-block">
+              <Wordmark size="sm" />
+            </Link>
 
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Desarrollo de páginas web de alta conversión y automatizaciones comerciales con IA para negocios que buscan escalar sin perder ventas.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href={SITE_CONFIG.getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all shadow-sm"
-              >
-                <WhatsAppIcon className="h-3.5 w-3.5" />
-                <span>Cotizar por WhatsApp</span>
-              </a>
+              <Button size="sm" asChild>
+                <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="h-4 w-4" />
+                  Cotizar por WhatsApp
+                </a>
+              </Button>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 text-xs font-mono px-3.5 py-2 rounded-lg border border-border bg-card/50 hover:bg-card text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span>Auditoría Gratuita</span>
-                <ArrowUpRight className="h-3 w-3 text-muted-foreground/70" />
-              </Link>
+              <Button size="sm" variant="outline" asChild>
+                <Link href="/contact">
+                  Auditoría Gratuita
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </Button>
             </div>
           </div>
 
           {/* Columna 1: Soluciones (3 columnas) */}
           <div className="lg:col-span-3 space-y-3.5">
-            <div className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Soluciones
-            </div>
+            </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link href="/#servicios" className="hover:text-foreground transition-colors block">
@@ -91,9 +75,9 @@ export function Footer() {
 
           {/* Columna 2: Ecosistema & Recursos (2 columnas) */}
           <div className="lg:col-span-2 space-y-3.5">
-            <div className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Ecosistema
-            </div>
+            </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link href="/blog" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
@@ -130,9 +114,9 @@ export function Footer() {
 
           {/* Columna 3: Canales Directos (2 columnas) */}
           <div className="lg:col-span-2 space-y-3.5">
-            <div className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Canales
-            </div>
+            </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <a href={SITE_CONFIG.social.kick} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
@@ -171,16 +155,16 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
           <p>© {currentYear} IsJuanDev. Todos los derechos reservados.</p>
           <div className="flex flex-wrap items-center gap-5 sm:gap-6">
-            <Link href="/" className="hover:text-primary transition-colors">
+            <Link href="/" className="hover:text-foreground transition-colors">
               Inicio
             </Link>
-            <Link href="/about" className="hover:text-primary transition-colors">
+            <Link href="/about" className="hover:text-foreground transition-colors">
               Sobre mí
             </Link>
-            <Link href="/projects" className="hover:text-primary transition-colors">
+            <Link href="/projects" className="hover:text-foreground transition-colors">
               Proyectos
             </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">
+            <Link href="/contact" className="hover:text-foreground transition-colors">
               Contacto
             </Link>
           </div>
