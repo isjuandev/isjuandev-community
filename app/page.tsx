@@ -26,6 +26,7 @@ import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { businessSolutions, faqs } from '@/lib/data/content'
 import { RATE_NOTE, OPTIONAL_ADDONS, CUSTOM_SYSTEM } from '@/lib/data/pricing'
+import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { Reveal } from '@/components/motion/reveal'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { SITE_CONFIG } from '@/lib/config'
@@ -158,7 +159,7 @@ export default function HomePage() {
                   <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Sin reuniones eternas
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 3 a 7 días
+                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 2 a 7 días
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
@@ -611,7 +612,85 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7. ECOSISTEMA & AUTORIDAD TÉCNICA ─────────────────────────────── */}
+      {/* ── 6.5 PRUEBA SOCIAL / TESTIMONIOS (CONDICIONAL) ───────────────── */}
+      {canRenderTestimonials && (
+        <section className="section bg-card/20 border-t border-border" id="testimonios" data-line="testimonios">
+          <div className="container mx-auto">
+            <Reveal>
+              <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                Prueba Social
+              </div>
+            </Reveal>
+            <Reveal delay={60}>
+              <h2 className="section-title mt-2">
+                Resultados en negocios reales<span className="dot">.</span>
+              </h2>
+            </Reveal>
+            <div className="grid md:grid-cols-3 gap-6 mt-12 items-stretch">
+              {testimonials.map((t, idx) => (
+                <Reveal key={idx} delay={180 + idx * 80} className="flex">
+                  <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
+                    <div>
+                      <p className="text-sm text-foreground/90 leading-relaxed italic mb-6">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+                      <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 text-xs font-mono text-primary font-semibold mb-4">
+                        {t.result}
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-border/60">
+                      <h3 className="font-display font-bold text-base text-foreground">{t.name}</h3>
+                      <p className="text-xs text-muted-foreground">{t.business}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── 8. PREGUNTAS FRECUENTES (FAQ) ─────────────────────────────────── */}
+      <section className="section bg-card/20 border-t border-border" id="faq" data-line="faq">
+        <div className="container mx-auto max-w-3xl">
+          <Reveal>
+            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+              Resolvemos tus Dudas
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title mt-2">
+              Preguntas Frecuentes<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="section-lead text-muted-foreground mb-8">
+              Todo lo que necesitas saber antes de dar el primer paso.
+            </p>
+          </Reveal>
+
+          <Reveal delay={180}>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, i) => (
+                <AccordionItem 
+                  key={i} 
+                  value={`item-${i}`}
+                  className="card-editorial px-5 border border-border/70 rounded-lg bg-card/40"
+                >
+                  <AccordionTrigger className="text-left font-display font-semibold text-base py-4 hover:text-primary transition-colors">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── 8. ECOSISTEMA & AUTORIDAD TÉCNICA ─────────────────────────────── */}
       <section className="section bg-card/30 border-t border-border" id="ecosistema" data-line="ecosistema">
         <div className="container mx-auto">
           <Reveal>
@@ -727,46 +806,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 8. PREGUNTAS FRECUENTES (FAQ) ─────────────────────────────────── */}
-      <section className="section bg-card/20 border-t border-border" id="faq" data-line="faq">
-        <div className="container mx-auto max-w-3xl">
-          <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
-              Resolvemos tus Dudas
-            </div>
-          </Reveal>
-          <Reveal delay={60}>
-            <h2 className="section-title mt-2">
-              Preguntas Frecuentes<span className="dot">.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="section-lead text-muted-foreground mb-8">
-              Todo lo que necesitas saber antes de dar el primer paso.
-            </p>
-          </Reveal>
-
-          <Reveal delay={180}>
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {faqs.map((faq, i) => (
-                <AccordionItem 
-                  key={i} 
-                  value={`item-${i}`}
-                  className="card-editorial px-5 border border-border/70 rounded-lg bg-card/40"
-                >
-                  <AccordionTrigger className="text-left font-display font-semibold text-base py-4 hover:text-primary transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── 9. CONTACTO & CIERRE COMERCIAL ────────────────────────────────── */}
       <section className="section contact-section border-t border-border" id="contacto" data-line="contact">
         <div className="container mx-auto">
@@ -781,35 +820,34 @@ export default function HomePage() {
                 {/* Columna Izquierda: Mensaje y Propuesta */}
                 <div className="lg:col-span-7 space-y-5">
                   <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl tracking-tight text-foreground leading-[1.15]">
-                    ¿Listo para escalar las ventas de tu negocio<span className="text-primary">?</span>
+                    ¿Listo para captar más clientes y dejar de perder ventas<span className="text-primary">?</span>
                   </h2>
 
                   <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl">
-                    Agenda un diagnóstico de 15 minutos o escríbeme directamente por WhatsApp. 
-                    Te responderé con una propuesta transparente y el plan exacto para tu caso.
+                    Pide tu auditoría gratuita: te grabo un video de 90 segundos mostrándote exactamente qué ajustar para empezar a recibir más mensajes de clientes (con llamada de 15 min opcional si la requieres).
                   </p>
 
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 text-xs font-mono text-muted-foreground">
                     <span className="flex items-center gap-1.5 text-foreground/80">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Sin reuniones de relleno
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Sin reuniones eternas
                     </span>
                     <span className="flex items-center gap-1.5 text-foreground/80">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Entrega en 3 a 7 días
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Video en menos de 24 horas
                     </span>
                     <span className="flex items-center gap-1.5 text-foreground/80">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Esquema 50/50
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> 100% gratuito y sin compromiso
                     </span>
                   </div>
                 </div>
 
                 {/* Columna Derecha: Tarjeta de Acciones */}
                 <div className="lg:col-span-5 flex flex-col gap-3.5 bg-background/80 p-4 sm:p-6 md:p-8 rounded-xl border border-border/80">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Acción Directa</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Acción Principal</span>
                   
                   <Button size="lg" asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 sm:py-6 text-sm sm:text-base h-auto min-h-[48px] whitespace-normal sm:whitespace-nowrap text-center justify-center">
-                    <a href={SITE_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                      <WhatsAppIcon className="h-5 w-5 shrink-0" />
-                      <span>Chatear por WhatsApp Ahora</span>
+                    <a href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Me gustaría recibir la auditoría gratuita de 90 segundos para mi sitio web o negocio.')} target="_blank" rel="noopener noreferrer">
+                      <Sparkles className="h-5 w-5 shrink-0" />
+                      <span>Pedir Auditoría Gratis (90s)</span>
                     </a>
                   </Button>
 
@@ -820,9 +858,20 @@ export default function HomePage() {
                     </Link>
                   </Button>
 
-                  <p className="text-center font-mono text-[0.75rem] text-muted-foreground pt-1">
-                    Tiempo promedio de respuesta humana: menos de 2 horas
-                  </p>
+                  <div className="pt-2 text-center space-y-1">
+                    <a
+                      href={SITE_CONFIG.getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-emerald-400 transition-colors"
+                    >
+                      <WhatsAppIcon className="h-3.5 w-3.5" />
+                      <span>O chatea directo por WhatsApp &rarr;</span>
+                    </a>
+                    <p className="font-mono text-[0.75rem] text-muted-foreground">
+                      Tiempo promedio de respuesta humana: menos de 2 horas
+                    </p>
+                  </div>
                 </div>
               </div>
 
