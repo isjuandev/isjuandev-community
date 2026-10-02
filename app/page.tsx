@@ -598,7 +598,7 @@ export default function HomePage() {
                       Archivo de Proyectos
                     </h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Catálogo con más de 50 repositorios públicos, pruebas técnicas, experimentos y productos de código abierto.
+                      Catálogo con 26 repositorios públicos en GitHub, pruebas técnicas, experimentos y productos de código abierto.
                     </p>
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-secondary">
@@ -706,7 +706,7 @@ export default function HomePage() {
                   </Button>
 
                   <p className="text-center font-mono text-[0.75rem] text-muted-foreground pt-1">
-                    ⚡ Tiempo promedio de respuesta: &lt; 2 horas
+                    Tiempo promedio de respuesta: &lt; 2 horas
                   </p>
                 </div>
               </div>

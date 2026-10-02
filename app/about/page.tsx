@@ -42,7 +42,7 @@ export default function AboutPage() {
 
     const timers = [
       animateStat(8, setYearsExperience),
-      animateStat(50, setProjectsBuilt),
+      animateStat(26, setProjectsBuilt),
       animateStat(25, setTechnologiesUsed),
       animateStat(2, setCompaniesWorked)
     ]
@@ -177,7 +177,7 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="hero-meta justify-center md:justify-start mt-16">
               <div><b>{yearsExperience}+</b>años de experiencia</div>
-              <div><b>{projectsBuilt}+</b>proyectos en producción</div>
+              <div><b>{projectsBuilt}</b>repositorios públicos</div>
               <div><b>{technologiesUsed}+</b>tecnologías utilizadas</div>
               <div><b>{companiesWorked}</b>empresas</div>
             </div>
