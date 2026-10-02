@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk, Spline_Sans_Mono } from 'next/font/google'
 import { Footer } from '@/components/footer'
+import { MAIN_PLANS, OPTIONAL_ADDONS, CUSTOM_SYSTEM } from '@/lib/data/pricing'
 
 import './globals.css'
 
@@ -148,34 +149,27 @@ const jsonLd = {
         '@type': 'OfferCatalog',
         name: 'Servicios de Crecimiento & Automatización Digital',
         itemListElement: [
+          ...MAIN_PLANS.map((plan) => ({
+            '@type': 'Offer',
+            name: plan.title,
+            description: plan.description,
+            price: plan.priceCop.toString(),
+            priceCurrency: 'COP',
+          })),
           {
             '@type': 'Offer',
-            name: 'Pack Crecimiento Completo (Web + Asistente WhatsApp)',
-            description: 'Embudo comercial completo: página web de alta conversión adaptada a móviles conectada a asistente de WhatsApp 24/7 con agendamiento y escalamiento humano.',
-            price: '2180000',
+            name: CUSTOM_SYSTEM.title,
+            description: CUSTOM_SYSTEM.description,
+            price: CUSTOM_SYSTEM.priceCop.toString(),
             priceCurrency: 'COP',
           },
-          {
+          ...OPTIONAL_ADDONS.map((addon) => ({
             '@type': 'Offer',
-            name: 'Tu Nueva Web para Vender (Web Sprint 7 Días)',
-            description: 'Página web completa y adaptada 100% para teléfonos celulares, enfocada en conversión directa a WhatsApp.',
-            price: '1450000',
+            name: `${addon.name} (Complemento opcional)`,
+            description: addon.description,
+            price: addon.priceCop.toString(),
             priceCurrency: 'COP',
-          },
-          {
-            '@type': 'Offer',
-            name: 'AI Automation Sprint — Asistente WhatsApp 24/7',
-            description: 'Automatización de atención y pre-calificación con IA que responde en menos de 60 segundos, agenda citas y deriva a tu equipo.',
-            price: '980000',
-            priceCurrency: 'COP',
-          },
-          {
-            '@type': 'Offer',
-            name: 'Sistema o Automatización a Medida',
-            description: 'Integraciones con n8n, CRM, pasarelas de pago y portales de clientes sin mensualidades forzadas.',
-            price: '2800000',
-            priceCurrency: 'COP',
-          },
+          })),
         ],
       },
       sameAs: [
