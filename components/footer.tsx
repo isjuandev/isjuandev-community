@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/platform-icons'
 import { Wordmark } from '@/components/wordmark'
 import { Button } from '@/components/ui/button'
+import { SiteCredit } from '@/components/site-credit'
 import { SITE_CONFIG } from '@/lib/config'
 
 export function Footer() {
@@ -31,7 +32,7 @@ export function Footer() {
               </Button>
 
               <Button size="sm" variant="outline" asChild>
-                <Link href="/contact">
+                <Link href="/#auditoria">
                   Auditoría Gratuita
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
@@ -41,9 +42,9 @@ export function Footer() {
 
           {/* Columna 1: Soluciones (3 columnas) */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Soluciones
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link href="/#servicios" className="hover:text-foreground transition-colors block">
@@ -75,9 +76,9 @@ export function Footer() {
 
           {/* Columna 2: Ecosistema & Recursos (2 columnas) */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Ecosistema
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link href="/blog" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
@@ -114,9 +115,9 @@ export function Footer() {
 
           {/* Columna 3: Canales Directos (2 columnas) */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Canales
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <a href={SITE_CONFIG.social.kick} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
@@ -153,8 +154,11 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-          <p>© {currentYear} IsJuanDev. Todos los derechos reservados.</p>
-          <div className="flex flex-wrap items-center gap-5 sm:gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            <p>© {currentYear} IsJuanDev. Todos los derechos reservados.</p>
+            <SiteCredit />
+          </div>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link href="/" className="hover:text-foreground transition-colors">
               Inicio
             </Link>
@@ -166,6 +170,12 @@ export function Footer() {
             </Link>
             <Link href="/contact" className="hover:text-foreground transition-colors">
               Contacto
+            </Link>
+            <Link href="/privacidad" className="hover:text-foreground transition-colors">
+              Privacidad
+            </Link>
+            <Link href="/terminos" className="hover:text-foreground transition-colors">
+              Términos
             </Link>
           </div>
         </div>

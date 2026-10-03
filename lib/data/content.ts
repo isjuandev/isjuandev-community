@@ -121,7 +121,7 @@ export const projects: Project[] = [
     image: '/proyectos/generic.png',
     category: 'Automatizaciones con IA',
     tags: ['n8n', 'DeepSeek Vision', 'Browserless', 'Notion API'],
-    demo: 'https://isjuandev.com/#auditoria',
+    demo: 'https://www.isjuandev.com/#auditoria',
     code: '#',
     stream: false,
     role: 'Lead Architect',

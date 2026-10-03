@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) return {}
-  const url = `https://isjuandev.com/blog/${post.slug}`
-  const ogImageUrl = `https://isjuandev.com/blog/${post.slug}/opengraph-image`
+  const url = `https://www.isjuandev.com/blog/${post.slug}`
+  const ogImageUrl = `https://www.isjuandev.com/blog/${post.slug}/opengraph-image`
 
   return {
     title: post.title,
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       url,
       siteName: 'IsJuanDev',
-      locale: 'es_ES',
+      locale: 'es_CO',
       publishedTime: post.date,
       authors: ['Juan Diego García Castaño'],
       tags: post.tags,
@@ -72,27 +72,27 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    url: `https://isjuandev.com/blog/${post.slug}`,
+    url: `https://www.isjuandev.com/blog/${post.slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://isjuandev.com/blog/${post.slug}`,
+      '@id': `https://www.isjuandev.com/blog/${post.slug}`,
     },
     author: {
       '@type': 'Person',
       name: 'Juan Diego García Castaño',
       alternateName: 'IsJuanDev',
-      url: 'https://isjuandev.com',
+      url: 'https://www.isjuandev.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'IsJuanDev',
-      url: 'https://isjuandev.com',
+      url: 'https://www.isjuandev.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://isjuandev.com/profile.png',
+        url: 'https://www.isjuandev.com/profile.png',
       },
     },
-    image: `https://isjuandev.com/blog/${post.slug}/opengraph-image`,
+    image: `https://www.isjuandev.com/blog/${post.slug}/opengraph-image`,
     keywords: post.tags.join(', '),
   }
 

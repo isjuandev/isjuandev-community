@@ -94,7 +94,7 @@ export default function OpengraphImage() {
               letterSpacing: '0.02em',
             }}
           >
-            isjuandev.com
+            www.isjuandev.com
           </div>
         </div>
 

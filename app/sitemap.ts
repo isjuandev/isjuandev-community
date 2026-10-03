@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { blogPosts } from '@/lib/data/content'
 
-const SITE_URL = 'https://isjuandev.com'
+const SITE_URL = 'https://www.isjuandev.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -48,6 +48,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/privacidad`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_URL}/terminos`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
     },
   ]
 

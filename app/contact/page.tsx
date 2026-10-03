@@ -235,9 +235,9 @@ export default function ContactPage() {
               {/* Garantías y Confianza */}
               <Reveal delay={300}>
                 <div className="card-editorial p-7 rounded-2xl border-border/80 bg-card/40 space-y-5">
-                  <h4 className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                  <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                     Garantías de Trabajo
-                  </h4>
+                  </p>
 
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">

@@ -46,9 +46,9 @@ export default function BlogPage() {
             </div>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="section-title">
+            <h1 className="section-title">
               Aprendizajes<span className="dot">.</span>
-            </h2>
+            </h1>
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead mb-10">

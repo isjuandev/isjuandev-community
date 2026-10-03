@@ -14,6 +14,7 @@ import {
   Layers, 
   Smartphone,
   ChevronRight,
+  ChevronDown,
   BookOpen,
   Code2,
   Tv,
@@ -29,18 +30,19 @@ import { RATE_NOTE, OPTIONAL_ADDONS, CUSTOM_SYSTEM } from '@/lib/data/pricing'
 import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { PricingPlans } from '@/components/pricing-plans'
 import { Reveal } from '@/components/motion/reveal'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { SITE_CONFIG } from '@/lib/config'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
-  description: 'Ayudo a empresas y negocios a captar más clientes, responder en menos de 60 segundos y automatizar sus operaciones repetitivas con software moderno.',
+  title: 'Páginas Web y Asistente de WhatsApp con IA | IsJuanDev',
+  description: 'Diseño páginas web de alta conversión y configuro tu asistente de WhatsApp con IA. Automatización con IA para captar clientes y escalar tu negocio.',
   openGraph: {
     type: 'website',
-    title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
-    description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
-    url: '/',
+    siteName: 'IsJuanDev',
+    locale: 'es_CO',
+    title: 'Páginas Web y Asistente de WhatsApp con IA | IsJuanDev',
+    description: 'Diseño páginas web de alta conversión y configuro tu asistente de WhatsApp con IA. Automatización con IA para captar clientes y escalar tu negocio.',
+    url: 'https://www.isjuandev.com',
     images: [
       {
         url: '/opengraph-image',
@@ -52,12 +54,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IsJuanDev — Webs de Alta Conversión & Automatizaciones con IA',
-    description: 'Desarrollo web de alta conversión y automatizaciones con IA para negocios que buscan escalar sin perder ventas.',
+    site: '@isjuandev',
+    creator: '@isjuandev',
+    title: 'Páginas Web y Asistente de WhatsApp con IA | IsJuanDev',
+    description: 'Diseño páginas web de alta conversión y configuro tu asistente de WhatsApp con IA. Automatización con IA para captar clientes y escalar tu negocio.',
     images: ['/opengraph-image'],
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.isjuandev.com',
   },
 }
 
@@ -110,90 +114,81 @@ export default function HomePage() {
       <section className="section hero-section relative" id="top" data-line="hero">
         <div className="container mx-auto">
           <div className="max-w-3xl">
-            <Reveal delay={80}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground leading-[1.12] mb-6">
-                Webs que Venden <br className="hidden sm:inline" />
-                <span className="text-primary">
-                  + WhatsApp con IA.
-                </span>
-              </h1>
-            </Reveal>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground leading-[1.12] mb-6">
+              Webs que Venden <br className="hidden sm:inline" />
+              <span className="text-primary">
+                + WhatsApp con IA.
+              </span>
+            </h1>
 
-            <Reveal delay={160}>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
-                Diseño páginas web de alto rendimiento y configuro asistentes de WhatsApp 
-                que atienden consultas, cotizan y agendan clientes automáticamente.
-                <span className="text-foreground font-medium block mt-2">
-                  Menos tareas manuales. Más prospectos calificados listos para comprar.
-                </span>
-              </p>
-            </Reveal>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
+              Especialista en diseño de páginas web de alta conversión y configuración de tu asistente de WhatsApp con IA para atender consultas, cotizar y agendar clientes automáticamente.
+              <span className="text-foreground font-medium block mt-2">
+                Menos tareas manuales. Más prospectos calificados listos para comprar.
+              </span>
+            </p>
 
-            <Reveal delay={240}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
-                <Button size="lg" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7 py-6 text-base rounded-xl transition-all">
-                  <a href="#auditoria">
-                    <Sparkles className="h-4 w-4" />
-                    Solicitar Auditoría Gratis (90s)
-                    <ArrowUpRight className="h-4 w-4 ml-0.5" />
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="border-border hover:bg-card/90 px-6 py-6 text-base rounded-xl transition-all">
-                  <a href="#servicios">
-                    Ver Soluciones &amp; Precios
-                  </a>
-                </Button>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-muted-foreground">
-                <a
-                  href={SITE_CONFIG.getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5" />
-                  Chatea directo por WhatsApp &rarr;
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
+              <Button size="lg" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7 py-6 text-base rounded-xl transition-all">
+                <a href="#auditoria">
+                  <Sparkles className="h-4 w-4" />
+                  Solicitar Auditoría Gratis (90s)
+                  <ArrowUpRight className="h-4 w-4 ml-0.5" />
                 </a>
-                <span className="hidden sm:inline text-border">|</span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Sin reuniones eternas
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 2 a 7 días
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
-                </span>
-              </div>
-            </Reveal>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="border-border hover:bg-card/90 px-6 py-6 text-base rounded-xl transition-all">
+                <a href="#servicios">
+                  Ver Soluciones &amp; Precios
+                </a>
+              </Button>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-muted-foreground">
+              <a
+                href={SITE_CONFIG.getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5" />
+                Chatea directo por WhatsApp &rarr;
+              </a>
+              <span className="hidden sm:inline text-border">|</span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Sin reuniones eternas
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 2 a 7 días
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
+              </span>
+            </div>
           </div>
 
           {/* Tarjetas de Métricas de Experiencia */}
-          <Reveal delay={300}>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20 pt-10 border-t border-border/50">
-              <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">8+</div>
-                <div className="text-sm font-semibold text-foreground mt-1">Años de Trayectoria</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Ingeniería de software y arquitectura</div>
-              </div>
-              <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">&lt; 60s</div>
-                <div className="text-sm font-semibold text-foreground mt-1">Respuesta Automática</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Atención en menos de 60 segundos con WhatsApp</div>
-              </div>
-              <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-primary font-display font-bold">2 a 7</div>
-                <div className="text-sm font-semibold text-foreground mt-1">Días de Entrega</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Solución llave en mano lista para facturar</div>
-              </div>
-              <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
-                <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">24/7</div>
-                <div className="text-sm font-semibold text-foreground mt-1">Atención Continua</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Tus prospectos atendidos a cualquier hora</div>
-              </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20 pt-10 border-t border-border/50">
+            <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
+              <div className="text-3xl lg:text-4xl text-primary font-display font-bold">8+</div>
+              <div className="text-sm font-semibold text-foreground mt-1">Años de Trayectoria</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Ingeniería de software y arquitectura</div>
             </div>
-          </Reveal>
+            <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
+              <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">&lt; 60s</div>
+              <div className="text-sm font-semibold text-foreground mt-1">Respuesta Automática</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Atención en menos de 60 segundos con WhatsApp</div>
+            </div>
+            <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
+              <div className="text-3xl lg:text-4xl text-primary font-display font-bold">2 a 7</div>
+              <div className="text-sm font-semibold text-foreground mt-1">Días de Entrega</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Solución llave en mano lista para facturar</div>
+            </div>
+            <div className="rounded-2xl bg-card/40 border border-border/70 p-5 hover:border-border transition-colors">
+              <div className="text-3xl lg:text-4xl text-secondary font-display font-bold">24/7</div>
+              <div className="text-sm font-semibold text-foreground mt-1">Atención Continua</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Tus prospectos atendidos a cualquier hora</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -318,7 +313,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Precios transparentes, sin sorpresas y con entrega en días, no en meses. 
+              Elige el plan ideal para el diseño de páginas web o la integración de tu asistente de WhatsApp con IA. Precios transparentes, sin sorpresas y con entrega en días, no en meses. 
               Tú eliges qué necesita tu negocio para empezar a vender más hoy.
             </p>
             <p className="text-xs font-mono text-muted-foreground mt-3">
@@ -574,22 +569,24 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={180}>
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <div className="w-full space-y-4">
               {faqs.map((faq, i) => (
-                <AccordionItem 
-                  key={i} 
-                  value={`item-${i}`}
-                  className="card-editorial px-5 border border-border/70 rounded-lg bg-card/40"
+                <details
+                  key={i}
+                  className="group card-editorial px-5 py-4 border border-border/70 rounded-lg bg-card/40 transition-colors open:bg-card/70 open:border-border"
                 >
-                  <AccordionTrigger className="text-left font-display font-semibold text-base py-4 hover:text-primary transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-left font-display font-semibold text-base py-1 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded">
+                    <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors pr-4 m-0">
+                      {faq.question}
+                    </h3>
+                    <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
+                  </summary>
+                  <div className="text-sm text-muted-foreground leading-relaxed pt-3 pb-1 border-t border-border/40 mt-3">
                     {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+                  </div>
+                </details>
               ))}
-            </Accordion>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -631,7 +628,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-primary">
-                    <span>Leer artículos</span>
+                    <span>Leer artículos del blog</span>
                     <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </article>
@@ -654,7 +651,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-secondary">
-                    <span>Explorar tips</span>
+                    <span>Explorar tips de código</span>
                     <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </article>
@@ -677,7 +674,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-primary">
-                    <span>Ver comunidad</span>
+                    <span>Ver comunidad y streams</span>
                     <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </article>
@@ -700,7 +697,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-secondary">
-                    <span>Explorar archivo</span>
+                    <span>Explorar archivo de proyectos</span>
                     <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </article>

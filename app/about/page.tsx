@@ -271,7 +271,7 @@ export default function AboutPage() {
                     )}
                   </div>
                   <div className={i < timeline.length - 1 ? 'flex-1 pb-8' : 'flex-1'}>
-                    <h4 className="font-display font-bold text-xl mb-2">{item.title}</h4>
+                    <h3 className="font-display font-bold text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{item.text}</p>
                   </div>
                 </div>

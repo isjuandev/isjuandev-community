@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://isjuandev.com/sitemap.xml',
-    host: 'https://isjuandev.com',
+    sitemap: 'https://www.isjuandev.com/sitemap.xml',
+    host: 'https://www.isjuandev.com',
   }
 }

@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   role: 'Consultor de Automatizaciones IA & Desarrollador Web FullStack',
   title: 'Juan Diego — Webs de Alta Conversión & Automatizaciones con IA',
   description: 'Ayudo a empresas y negocios a captar más clientes, responder en menos de 60 segundos y automatizar sus operaciones repetitivas con software moderno.',
-  url: 'https://isjuandev.com',
+  url: 'https://www.isjuandev.com',
   email: 'hola@isjuandev.com',
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573178073598',
   getWhatsAppUrl: (customMessage?: string) => {

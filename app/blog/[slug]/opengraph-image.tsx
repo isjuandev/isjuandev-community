@@ -94,7 +94,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               color: 'rgba(255, 255, 255, 0.6)',
             }}
           >
-            isjuandev.com/blog
+            www.isjuandev.com/blog
           </div>
         </div>
 

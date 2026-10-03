@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -44,9 +45,9 @@ export default function ProjectsPage() {
             </div>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="section-title">
+            <h1 className="section-title">
               Proyectos<span className="dot">.</span>
-            </h2>
+            </h1>
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead mb-12">
@@ -109,7 +110,13 @@ export default function ProjectsPage() {
                   <div>
                     {project.stream && <span className="card-tag">Hecho en Stream</span>}
                     {project.image && project.image !== '/placeholder.svg' ? (
-                      <img src={project.image} alt={project.title} className="card-mock card-image" loading="lazy" />
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={600}
+                        height={340}
+                        className="card-mock card-image object-cover"
+                      />
                     ) : (
                       <div className="card-mock">preview / captura del proyecto</div>
                     )}
