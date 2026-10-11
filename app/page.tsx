@@ -572,20 +572,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 8. ENLACES SECUNDARIOS ────────────────────────────────────────── */}
-      <section className="section-sm border-t border-border" id="ecosistema" data-line="ecosistema">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-            <span className="text-xs font-mono uppercase tracking-wider font-semibold">Construyo en público</span>
-            <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
-            <Link href="/tips" className="hover:text-primary transition-colors">Tips de código</Link>
-            <Link href="/comunidad" className="hover:text-primary transition-colors">Comunidad y streams</Link>
-            <Link href="/projects" className="hover:text-primary transition-colors">Proyectos</Link>
-          </div>
-        </div>
-      </section>
-
-
       {/* ── 9. CONTACTO & CIERRE ─────────────────────────────────────────── */}
       <section className="section contact-section border-t border-border" id="contacto" data-line="contact">
         <div className="container mx-auto">
