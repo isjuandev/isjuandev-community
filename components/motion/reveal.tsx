@@ -30,7 +30,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '0px 0px 15% 0px' }
     )
 
     observer.observe(el)
@@ -40,7 +40,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${Math.min(delay, 200)}ms` }}
       className={cn(
         'transition-all duration-[600ms] ease-out motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none',
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[18px]',

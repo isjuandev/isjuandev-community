@@ -37,7 +37,7 @@ export function Navigation() {
     <header className="sticky top-0 z-30 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-7">
         <div className="flex items-center justify-between h-[64px]">
-          <Link href="/" className="inline-flex items-center">
+          <Link href="/" className="inline-flex items-center min-h-11">
             <Wordmark size="sm" />
           </Link>
 
@@ -75,7 +75,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground border border-border/80 px-2.5 py-1 rounded"
+            className="md:hidden text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground border border-border/80 px-3 min-h-11 rounded"
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? 'Cerrar' : 'Menú'}

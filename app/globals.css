@@ -89,7 +89,7 @@ button:focus-visible {
 @layer components {
   /* Secciones */
   .section {
-    padding: 72px 0;
+    padding: 56px 0;
     border-bottom: 1px solid hsl(var(--border) / 0.6);
   }
 

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { 
   ArrowUpRight,
@@ -183,7 +184,7 @@ export default function HomePage() {
           </Reveal>
 
           {/* Grid de 3 Tiles con el mismo diseño y alineación que Planes & Precios */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12 items-stretch">
+          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
                 <div>
@@ -294,8 +295,9 @@ export default function HomePage() {
           {/* Complementos Opcionales: Soporte Mensual y Mantenimiento Web */}
           <div className="mt-8">
             <Reveal delay={380}>
-              <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/40">
-                <div className="max-w-2xl mb-6">
+              <details className="group p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/40">
+                <summary className="cursor-pointer list-none flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded">
+                <div className="max-w-2xl">
                   <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold mb-1">
                     Complementos Opcionales
                   </div>
@@ -306,8 +308,10 @@ export default function HomePage() {
                     Sin permanencia mínima. Tu página y código son 100% de tu propiedad; estos servicios son totalmente opcionales para quienes buscan soporte continuo.
                   </p>
                 </div>
+                <ChevronDown className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+                </summary>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-6 mt-6">
                   {OPTIONAL_ADDONS.map((addon) => (
                     <div
                       key={addon.id}
@@ -358,7 +362,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </details>
             </Reveal>
           </div>
         </div>
@@ -383,7 +387,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-12 items-stretch">
+          <div className="grid md:grid-cols-2 gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
                 <div>
@@ -472,7 +476,7 @@ export default function HomePage() {
           </Reveal>
 
           {/* Flujo de Pasos Conectados */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12">
             {workSteps.map((step, i) => (
               <Reveal key={step.step} delay={180 + i * 80}>
                 <div className="card-editorial p-7 h-full flex flex-col justify-between border-border/70 bg-background/80 relative">
@@ -511,7 +515,7 @@ export default function HomePage() {
                 Resultados en negocios reales<span className="dot">.</span>
               </h2>
             </Reveal>
-            <div className="grid md:grid-cols-3 gap-6 mt-12 items-stretch">
+            <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
               {testimonials.map((t, idx) => (
                 <Reveal key={idx} delay={180 + idx * 80} className="flex">
                   <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
@@ -593,6 +597,20 @@ export default function HomePage() {
                     ¿Quieres que te escriban más clientes y no perder ventas<span className="text-primary">?</span>
                   </h2>
 
+                  <div className="flex items-center gap-3 pt-1">
+                    <Image
+                      src="/juan.jpg"
+                      alt="Juan Diego García, desarrollador y fundador de IsJuanDev"
+                      width={56}
+                      height={56}
+                      className="h-14 w-14 rounded-full object-cover object-top border border-border/80"
+                    />
+                    <p className="text-sm text-muted-foreground leading-snug">
+                      <span className="block text-foreground font-medium">Soy Juan Diego</span>
+                      Reviso tu caso y te respondo yo personalmente.
+                    </p>
+                  </div>
+
                   <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl">
                     Pide tu auditoría gratuita: te grabo un video de 90 segundos mostrándote qué ajustar en tu web o tus redes (con llamada de 15 min opcional si la quieres).
                   </p>
@@ -621,17 +639,17 @@ export default function HomePage() {
                         href={SITE_CONFIG.getWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-emerald-400 transition-colors"
+                        className="inline-flex items-center gap-1.5 min-h-11 text-muted-foreground hover:text-emerald-400 transition-colors"
                       >
                         <WhatsAppIcon className="h-3.5 w-3.5" />
                         <span>Escríbeme por WhatsApp</span>
                       </a>
-                      <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                      <Link href="/contact" className="inline-flex items-center min-h-11 text-muted-foreground hover:text-primary transition-colors">
                         Usar formulario
                       </Link>
                     </div>
                     <p className="font-mono text-[0.75rem] text-muted-foreground">
-                      Respondo personalmente, normalmente en menos de 2 horas
+                      Normalmente respondo en menos de 2 horas
                     </p>
                   </div>
                 </div>
