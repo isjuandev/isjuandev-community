@@ -1,4 +1,4 @@
-import { MAIN_PLANS, CUSTOM_SYSTEM, OPTIONAL_ADDONS } from '@/lib/data/pricing'
+import { MAIN_PLANS, CUSTOM_SYSTEM, SUBSCRIPTION_TIERS } from '@/lib/data/pricing'
 import { faqs } from '@/lib/data/content'
 
 export const SITE_URL = 'https://www.isjuandev.com'
@@ -29,7 +29,7 @@ export function getRootJsonLd(): StructuredDataGraph {
       name: 'Asistente Automático de WhatsApp',
       serviceType: 'Asistente de WhatsApp con IA',
       description: 'Automatizo la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
-      price: 790000,
+      price: 490000,
     },
     {
       id: 'service-pack-crecimiento',
@@ -135,14 +135,21 @@ export function getRootJsonLd(): StructuredDataGraph {
           availability: 'https://schema.org/InStock',
           url: `${SITE_URL}/#servicios`,
         },
-        ...OPTIONAL_ADDONS.map((addon) => ({
+        ...SUBSCRIPTION_TIERS.map((tier) => ({
           '@type': 'Offer',
-          name: `${addon.name} (Complemento opcional)`,
-          description: addon.description,
-          price: addon.priceCop,
+          name: `Plan mensual ${tier.name}`,
+          description: tier.description,
+          price: tier.priceCop,
           priceCurrency: 'COP',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: tier.priceCop,
+            priceCurrency: 'COP',
+            billingDuration: 1,
+            unitCode: 'MON',
+          },
           availability: 'https://schema.org/InStock',
-          url: `${SITE_URL}/#servicios`,
+          url: `${SITE_URL}/#mensualidad`,
         })),
       ],
     },

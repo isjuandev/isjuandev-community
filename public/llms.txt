@@ -29,25 +29,27 @@ Todos los proyectos se entregan llave en mano con código 100% propio del client
 3. **Asistente Automático de WhatsApp**
    - **Enfoque:** Responde en menos de 60 segundos 24/7 con control total y derivación a tu equipo humano.
    - **Plazo:** 3 a 5 días hábiles.
-   - **Precio:** $790.000 COP (~$239 USD ref.).
-   - **Términos:** Esquema 50/50 (50% anticipo / 50% entrega).
-   - **Incluye:** Respuestas automáticas con IA calibrada, agendamiento automático en Google Calendar, filtro de curiosos y derivación inteligente a humanos.
+   - **Precio de instalación:** $490.000 COP (~$148 USD ref.) + plan mensual Crecimiento de $149.000 COP/mes (~$45 USD/mes ref.), incluido desde la entrega y sin permanencia.
+   - **Términos:** Instalación 50% anticipo / 50% entrega.
+   - **Incluye:** Respuestas automáticas con IA calibrada, agendamiento automático en Google Calendar, filtro de curiosos, derivación inteligente a humanos, monitoreo, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual.
 
 4. **Pack Crecimiento Completo (Recomendado)**
    - **Enfoque:** Tu web de ventas + tu asistente de WhatsApp integrados en un solo sprint de 7 días.
    - **Plazo:** 7 días hábiles.
-   - **Precio:** $1.990.000 COP (~$603 USD ref.) — Ahorro de $250.000 COP.
-   - **Términos:** Esquema 50/50.
-   - **Incluye:** Web completa de alta conversión + Asistente WhatsApp 24/7 + 2 meses de soporte completo incluidos (valor de $198.000 COP).
+   - **Precio:** $1.990.000 COP (~$603 USD ref.) — Ahorro de $248.000 COP.
+   - **Términos:** Esquema 50/50. Plan mensual Crecimiento ($149.000 COP/mes) con los 2 primeros meses incluidos; desde el mes 3, sin permanencia.
+   - **Incluye:** Web completa pensada para vender + Asistente WhatsApp 24/7 + 2 meses del plan Crecimiento (valor $298.000 COP).
 
 5. **Sistemas a Medida & CRM**
    - **Enfoque:** Pasarelas locales (Wompi, PSE, Stripe), flujos n8n, portales privados y bases de datos.
    - **Proceso:** Primero una Auditoría de Procesos ($200.000 COP, ~$61 USD ref., descontable si se contrata el proyecto) y luego entrega por etapas.
    - **Precio:** Desde $2.800.000 COP (~$848 USD ref.) bajo cotización cerrada.
 
-## Complementos Opcionales (Sin Permanencia)
-- **Soporte Mensual Completo:** $99.000 COP/mes (~$30 USD/mes ref.). Mantenimiento, monitoreo de flujos y consumo razonable de IA.
-- **Mantenimiento Web:** $49.000 COP/mes (~$15 USD/mes ref.). Actualizaciones técnicas y seguridad web.
+## Planes Mensuales (Sin Permanencia)
+Pagando el año completo se reciben 2 meses gratis (10 meses de 12).
+- **Esencial:** $69.000 COP/mes (~$21 USD/mes ref.). Mantenimiento web, monitoreo de disponibilidad y SSL, cambios menores y soporte.
+- **Crecimiento:** $149.000 COP/mes (~$45 USD/mes ref.). Todo Esencial + asistente de WhatsApp monitoreado, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual. Incluido en el Asistente de WhatsApp.
+- **Pro:** $349.000 COP/mes (~$106 USD/mes ref.). Todo Crecimiento + 1 mejora o flujo nuevo al mes, campañas de reactivación de clientes y revisión mensual.
 
 ## Enlaces Principales
 - **Inicio / Soluciones:** https://www.isjuandev.com/#servicios

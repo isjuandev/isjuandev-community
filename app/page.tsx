@@ -15,7 +15,7 @@ import { WhatsAppIcon } from '@/components/platform-icons'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { businessSolutions, faqs } from '@/lib/data/content'
-import { RATE_NOTE, OPTIONAL_ADDONS, CUSTOM_SYSTEM, CUSTOM_AUDIT } from '@/lib/data/pricing'
+import { RATE_NOTE, SUBSCRIPTION_TIERS, ANNUAL_NOTE, CUSTOM_SYSTEM, CUSTOM_AUDIT } from '@/lib/data/pricing'
 import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { PricingPlans } from '@/components/pricing-plans'
 import { HeroChatMockup } from '@/components/hero-chat-mockup'
@@ -317,79 +317,78 @@ export default function HomePage() {
           </Reveal>
 
           <PricingPlans solutions={businessSolutions} />
+        </div>
+      </section>
 
-          {/* Complementos Opcionales: Soporte Mensual y Mantenimiento Web */}
-          <div className="mt-8">
-            <Reveal delay={380}>
-              <details className="group p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/40">
-                <summary className="cursor-pointer list-none flex items-start justify-between gap-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded">
-                <div className="max-w-2xl">
-                  <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold mb-1">
-                    Complementos Opcionales
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
-                    Mantenimiento y Acompañamiento Mensual
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    Sin permanencia mínima. Tu página y código son 100% de tu propiedad; estos servicios son totalmente opcionales para quienes buscan soporte continuo.
-                  </p>
-                </div>
-                <ChevronDown className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
-                </summary>
+      {/* ── 3.5 MENSUALIDADES ────────────────────────────────────────────── */}
+      <section className="section border-t border-border" id="mensualidad" data-line="mensualidad">
+        <div className="container mx-auto">
+          <Reveal>
+            <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">
+              Soporte &amp; Crecimiento Mensual
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="section-title mt-2">
+              Tu web y tu asistente funcionando y mejorando cada mes<span className="dot">.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="section-lead max-w-2xl text-muted-foreground">
+              Un asistente de WhatsApp no se instala y se olvida: lo monitoreo, ajusto sus respuestas y te muestro los resultados. Sin permanencia: avisas antes del siguiente ciclo y listo. {ANNUAL_NOTE}
+            </p>
+          </Reveal>
 
-                <div className="grid md:grid-cols-2 gap-6 mt-6">
-                  {OPTIONAL_ADDONS.map((addon) => (
-                    <div
-                      key={addon.id}
-                      className="p-5 sm:p-6 rounded-xl border border-border/70 bg-background/60 flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display font-bold text-base sm:text-lg text-foreground">
-                            {addon.name}
-                          </h4>
-                          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">
-                            Opcional
-                          </span>
-                        </div>
-                        <p className="text-xs text-muted-foreground mb-4">
-                          {addon.description}
-                        </p>
-                        <div className="space-y-2 mb-6">
-                          {addon.features.map((feat, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-xs text-foreground/90">
-                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                              <span>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
+          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
+            {SUBSCRIPTION_TIERS.map((tier, i) => (
+              <Reveal key={tier.id} delay={180 + i * 60} className="flex">
+                <article
+                  className={cn(
+                    'card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border',
+                    tier.highlight
+                      ? 'border-primary/80 bg-card shadow-xl shadow-primary/5 ring-1 ring-primary/30'
+                      : 'border-border/80 bg-card/60'
+                  )}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <h3 className="font-display font-bold text-xl text-foreground">{tier.name}</h3>
+                      {tier.highlight && (
+                        <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
+                          Incluido en el asistente
+                        </span>
+                      )}
+                    </div>
+                    <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mb-4">{tier.description}</p>
+                    <div className="mb-4">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span className={cn('font-display font-bold text-2xl tracking-tight', tier.highlight ? 'text-secondary' : 'text-foreground')}>
+                          {tier.priceDisplay.split(' / ')[0]}
+                        </span>
+                        <span className="text-xs font-mono text-muted-foreground">/ mes</span>
                       </div>
-
-                      <div className="pt-4 border-t border-border/60">
-                        <div className="flex items-baseline justify-between gap-2 flex-wrap mb-3">
-                          <span className="font-display font-bold text-xl text-foreground">
-                            {addon.priceDisplay}
-                          </span>
-                          <span className="text-[11px] font-mono text-muted-foreground">
-                            Sin permanencia
-                          </span>
-                        </div>
-                        <Button size="sm" variant="outline" asChild className="w-full gap-2 border-border hover:bg-card text-foreground">
-                          <a
-                            href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Me gustaría consultar sobre el complemento opcional: ${addon.name}.`)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <WhatsAppIcon className="h-3.5 w-3.5" />
-                            <span>Consultar {addon.name}</span>
-                          </a>
-                        </Button>
+                      <div className="text-xs font-mono text-muted-foreground mt-1">
+                        o {tier.annualDisplay} (2 meses gratis)
                       </div>
                     </div>
-                  ))}
-                </div>
-              </details>
-            </Reveal>
+                    <IncludesList items={tier.features} />
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border/60">
+                    <p className="hidden md:block text-[11px] text-muted-foreground leading-snug mb-3">{tier.note}</p>
+                    <Button size="sm" variant="outline" asChild className="w-full gap-2 border-border hover:bg-card text-foreground min-h-11 h-auto whitespace-normal">
+                      <a
+                        href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Quiero saber más sobre el plan mensual ${tier.name}.`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <WhatsAppIcon className="h-3.5 w-3.5" />
+                        <span>Consultar plan {tier.name}</span>
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

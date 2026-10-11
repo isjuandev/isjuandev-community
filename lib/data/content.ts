@@ -26,6 +26,8 @@ export interface Solution {
   timeframe: string
   price: string
   priceNote?: string
+  monthlyDisplay?: string
+  monthlyNote?: string
   ctaText?: string
   popular?: boolean
   tags: string[]
@@ -70,6 +72,8 @@ export const businessSolutions: Solution[] = MAIN_PLANS.map((plan) => ({
   timeframe: plan.timeframe,
   price: plan.priceDisplay,
   priceNote: plan.paymentTerms,
+  monthlyDisplay: plan.monthlyDisplay,
+  monthlyNote: plan.monthlyNote,
   ctaText: plan.ctaText,
   tags: plan.tags,
 }))
@@ -85,7 +89,11 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Cómo funciona el esquema de pago?',
-    answer: 'Para Web Express, el pago es 100% por adelantado al iniciar el sprint. Para el resto de soluciones (Web completa, Asistente de WhatsApp y Pack Crecimiento), trabajo con un esquema 50/50: 50% de anticipo para apartar la fecha y comenzar el desarrollo, y 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción. Los complementos de Soporte Mensual Completo y Mantenimiento Web son suscripciones mensuales opcionales sin permanencia mínima.'
+    answer: 'Web Express se paga 100% por adelantado al iniciar el sprint. Tu Nueva Web, la instalación del Asistente de WhatsApp y el Pack Crecimiento se pagan 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades (Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP) no tienen permanencia mínima: avisas antes de tu siguiente ciclo y listo. Si pagas el año completo, recibes 2 meses gratis.'
+  },
+  {
+    question: '¿Por qué el asistente de WhatsApp tiene una mensualidad?',
+    answer: 'Porque un asistente no se instala y se olvida: hay que monitorearlo, ajustar las respuestas cuando cambian tus precios o servicios, cubrir el consumo del modelo de IA y revisar los resultados cada mes. Por eso la instalación es más baja ($490.000 COP) y el plan Crecimiento ($149.000 COP al mes) va incluido. Si prefieres, puedes cancelarlo avisando antes del siguiente ciclo; tu web y tu código siguen siendo tuyos.'
   },
   {
     question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',
