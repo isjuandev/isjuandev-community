@@ -17,6 +17,7 @@ import { businessSolutions, faqs } from '@/lib/data/content'
 import { RATE_NOTE, OPTIONAL_ADDONS, CUSTOM_SYSTEM, CUSTOM_AUDIT } from '@/lib/data/pricing'
 import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { PricingPlans } from '@/components/pricing-plans'
+import { HeroChatMockup } from '@/components/hero-chat-mockup'
 import { Reveal } from '@/components/motion/reveal'
 import { SITE_CONFIG } from '@/lib/config'
 import { cn } from '@/lib/utils'
@@ -97,6 +98,7 @@ export default function HomePage() {
       {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
       <section className="section hero-section relative" id="top" data-line="hero">
         <div className="container mx-auto">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground leading-[1.12] mb-6">
               Tu web y tu WhatsApp <br className="hidden sm:inline" />
@@ -113,7 +115,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mb-8">
-              <Button size="lg" asChild className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7 py-6 text-base rounded-xl transition-all">
+              <Button size="lg" asChild className="w-full sm:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5 sm:px-7 py-4 sm:py-6 h-auto min-h-12 text-base rounded-xl transition-all whitespace-normal text-center">
                 <a href="#auditoria">
                   <Sparkles className="h-4 w-4" />
                   Pedir mi auditoría gratis (90 s)
@@ -122,7 +124,7 @@ export default function HomePage() {
               </Button>
               <a
                 href="#servicios"
-                className="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+                className="inline-flex items-center justify-center gap-1.5 min-h-11 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
               >
                 Ver planes y precios
                 <ChevronRight className="h-4 w-4" />
@@ -140,6 +142,9 @@ export default function HomePage() {
                 <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
               </span>
             </div>
+          </div>
+
+          <HeroChatMockup />
           </div>
 
           {/* Diferenciales en franja corta */}
