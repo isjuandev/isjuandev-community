@@ -21,73 +21,59 @@ interface PricingPlansProps {
   solutions: Solution[]
 }
 
+const VISIBLE_DELIVERABLES = 4
+
 function PricingCard({ solution }: { solution: Solution }) {
+  const [price, usdRef] = solution.price.split(' / ')
+  const visible = solution.deliverables.slice(0, VISIBLE_DELIVERABLES)
+  const extra = solution.deliverables.slice(VISIBLE_DELIVERABLES)
+  const hasMore = extra.length > 0 || (solution.notIncluded?.length ?? 0) > 0
+
   return (
     <article
       className={cn(
-        'card-editorial flex flex-col justify-between w-full h-full p-6 sm:p-8 rounded-2xl border transition-all',
+        'card-editorial flex flex-col w-full h-full p-6 sm:p-8 rounded-2xl border transition-all',
         solution.popular
           ? 'border-primary/80 bg-card shadow-xl shadow-primary/5 ring-1 ring-primary/30'
           : 'border-border/80 bg-card/60 hover:border-border'
       )}
     >
-      <div>
-        {/* Header de la tarjeta */}
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">
-            {solution.badge}
+      {/* Header de la tarjeta */}
+      <div className="flex items-center justify-between gap-2 mb-3">
+        <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">
+          {solution.badge}
+        </span>
+        {solution.popular && (
+          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
+            Más Vendido
           </span>
-          {solution.popular && (
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold uppercase tracking-wider">
-              Más Vendido
-            </span>
-          )}
-        </div>
-        <h3 className="font-display font-bold text-2xl sm:text-[1.7rem] text-foreground mb-1.5 leading-snug">
-          {solution.title}
-        </h3>
-        <p className="text-xs sm:text-sm font-mono text-primary font-medium mb-3 leading-snug">
-          {solution.subtitle}
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-          {solution.description}
-        </p>
-
-        <div className="space-y-3 pt-5 border-t border-border/60 mb-6">
-          <p className="text-xs font-mono text-foreground font-semibold uppercase tracking-wider">
-            Lo que incluye:
-          </p>
-          <div className="space-y-2.5">
-            {solution.deliverables.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>{item}</span>
-              </div>
-            ))}
-            {solution.notIncluded && solution.notIncluded.length > 0 && (
-              <div className="pt-2 space-y-2 border-t border-border/40">
-                {solution.notIncluded.map((item, idx) => (
-                  <div key={`not-${idx}`} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
-                    <span className="font-mono text-muted-foreground/80 font-bold shrink-0">✕</span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+        )}
       </div>
+      <h3 className="font-display font-bold text-2xl sm:text-[1.7rem] text-foreground mb-1.5 leading-snug">
+        {solution.title}
+      </h3>
+      <p className="text-xs sm:text-sm font-mono text-primary font-medium mb-3 leading-snug">
+        {solution.subtitle}
+      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+        {solution.description}
+      </p>
 
-      {/* Bloque de Inversión y Botón */}
-      <div className="pt-6 border-t border-border/60">
-        <div className="mb-5">
+      {/* Precio y botón arriba: el espacio sobrante de la tarjeta queda al final */}
+      <div className="pt-5 border-t border-border/60 mb-6">
+        <div className="mb-4">
           <div className="space-y-1">
             <div className="flex items-baseline gap-2 flex-wrap">
-              <span className="font-display font-bold text-2xl sm:text-3xl text-foreground tracking-tight">
-                {solution.price.split(' / ')[0]}
+              <span
+                className={cn(
+                  'font-display font-bold text-2xl sm:text-3xl tracking-tight',
+                  solution.popular ? 'text-secondary' : 'text-foreground'
+                )}
+              >
+                {price}
               </span>
               <span className="text-xs sm:text-sm font-mono text-muted-foreground font-medium">
-                / {solution.price.split(' / ')[1]}
+                / {usdRef}
               </span>
             </div>
             {solution.priceNote && (
@@ -105,7 +91,7 @@ function PricingCard({ solution }: { solution: Solution }) {
         <Button
           size="lg"
           className={cn(
-            'w-full gap-2 font-semibold py-5 text-sm transition-all',
+            'w-full gap-2 font-semibold py-5 text-sm transition-all whitespace-normal h-auto min-h-11',
             solution.popular
               ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20'
               : 'border-border hover:bg-card text-foreground'
@@ -123,11 +109,57 @@ function PricingCard({ solution }: { solution: Solution }) {
           </a>
         </Button>
       </div>
+
+      <div className="space-y-3">
+        <p className="text-xs font-mono text-foreground font-semibold uppercase tracking-wider">
+          Lo que incluye:
+        </p>
+        <div className="space-y-2.5">
+          {visible.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+              <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+
+        {hasMore && (
+          <details className="group">
+            <summary className="cursor-pointer list-none inline-flex items-center min-h-11 text-xs font-mono text-primary hover:underline underline-offset-4">
+              <span className="group-open:hidden">Ver todo lo que incluye</span>
+              <span className="hidden group-open:inline">Ver menos</span>
+            </summary>
+            <div className="space-y-2.5 pt-1">
+              {extra.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </div>
+              ))}
+              {solution.notIncluded && solution.notIncluded.length > 0 && (
+                <div className="pt-2 space-y-2 border-t border-border/40">
+                  {solution.notIncluded.map((item, idx) => (
+                    <div key={`not-${idx}`} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                      <span className="font-mono text-muted-foreground/80 font-bold shrink-0">✕</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </details>
+        )}
+      </div>
     </article>
   )
 }
 
-export function PricingPlans({ solutions }: PricingPlansProps) {
+export function PricingPlans({ solutions: rawSolutions }: PricingPlansProps) {
+  // El plan recomendado abre el carrusel
+  const solutions = React.useMemo(
+    () => [...rawSolutions].sort((a, b) => Number(b.popular) - Number(a.popular)),
+    [rawSolutions]
+  )
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const [count, setCount] = React.useState(0)
@@ -188,20 +220,24 @@ export function PricingPlans({ solutions }: PricingPlansProps) {
           </Carousel>
 
           {/* Indicadores de paginación / Dots interactivos */}
-          <div className="flex justify-center items-center gap-2 mt-5 md:mt-0">
+          <div className="flex justify-center items-center gap-1 mt-2 md:mt-0">
             {solutions.map((item, index) => (
               <button
                 key={item.index}
                 type="button"
                 onClick={() => api?.scrollTo(index)}
-                className={cn(
-                  'h-2 rounded-full transition-all duration-300',
-                  current === index
-                    ? 'w-6 bg-primary'
-                    : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60'
-                )}
+                className="group flex h-11 w-6 items-center justify-center"
                 aria-label={`Ver plan ${index + 1}: ${item.title}`}
-              />
+              >
+                <span
+                  className={cn(
+                    'block h-2 rounded-full transition-all duration-300',
+                    current === index
+                      ? 'w-6 bg-primary'
+                      : 'w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/60'
+                  )}
+                />
+              </button>
             ))}
           </div>
         </div>
