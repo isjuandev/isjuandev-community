@@ -77,23 +77,23 @@ export const businessSolutions: Solution[] = MAIN_PLANS.map((plan) => ({
 export const faqs: FAQItem[] = [
   {
     question: '¿En cuánto tiempo estará lista mi web o automatización?',
-    answer: 'Nuestros proyectos se construyen en sprints ágiles. La Web Express toma de 2 a 3 días hábiles. Un Asistente de WhatsApp toma entre 3 y 5 días hábiles. Tu Nueva Web para Vender toma entre 5 y 7 días hábiles, y el Pack Crecimiento Completo 7 días. Sin reuniones eternas ni meses de espera.'
+    answer: 'Trabajo en sprints cortos con plazo cerrado. La Web Express toma de 2 a 3 días hábiles. Un Asistente de WhatsApp toma entre 3 y 5 días hábiles. Tu Nueva Web para Vender toma entre 5 y 7 días hábiles, y el Pack Crecimiento Completo 7 días. Sin reuniones eternas ni meses de espera.'
   },
   {
     question: '¿Necesito saber de programación o tecnología para administrarlo?',
-    answer: 'Para nada. Todas las soluciones están diseñadas para que el dueño de negocio o su equipo puedan gestionarlas fácilmente (Notion, Google Calendar, WhatsApp). Al finalizar, realizamos una sesión de entrega y te entrego videos cortos de uso.'
+    answer: 'Para nada. Todas las soluciones están diseñadas para que el dueño de negocio o su equipo puedan gestionarlas fácilmente (Notion, Google Calendar, WhatsApp). Al finalizar hacemos una sesión de entrega y te dejo videos cortos de uso.'
   },
   {
     question: '¿Cómo funciona el esquema de pago?',
-    answer: 'Para Web Express, el pago es 100% por adelantado al iniciar el sprint. Para el resto de soluciones (Web completa, Asistente de WhatsApp y Pack Crecimiento), manejamos un esquema 50/50: 50% de anticipo para apartar la fecha y comenzar el desarrollo, y 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción. Los complementos de Soporte Mensual Completo y Mantenimiento Web son suscripciones mensuales opcionales sin permanencia mínima.'
+    answer: 'Para Web Express, el pago es 100% por adelantado al iniciar el sprint. Para el resto de soluciones (Web completa, Asistente de WhatsApp y Pack Crecimiento), trabajo con un esquema 50/50: 50% de anticipo para apartar la fecha y comenzar el desarrollo, y 50% restante una vez que el sistema esté desplegado, probado y funcionando en tu entorno de producción. Los complementos de Soporte Mensual Completo y Mantenimiento Web son suscripciones mensuales opcionales sin permanencia mínima.'
   },
   {
     question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',
-    answer: 'Podemos auditar tu sitio actual y conectar el asistente de WhatsApp o los flujos de automatización de n8n sin tocar tu web. Si tu web actual es lenta o no genera ventas, podemos migrarla a una landing de alto rendimiento en Next.js para maximizar la conversión.'
+    answer: 'Puedo revisar tu sitio actual y conectar el asistente de WhatsApp o los flujos de automatización de n8n sin tocar tu web. Si tu web actual es lenta o no te genera mensajes, puedo rehacerla como una página rápida en Next.js.'
   },
   {
     question: '¿Por qué trabajar contigo en lugar de una agencia tradicional?',
-    answer: 'En una agencia tradicional pagas por intermediarios, gerentes de cuenta y reuniones innecesarias. Conmigo hablas y trabajas directamente con un Ingeniero Senior con 8+ años de experiencia. Velocidad de ejecución implacable, código limpio y foco 100% en retorno de inversión.'
+    answer: 'En una agencia tradicional pagas por intermediarios, gerentes de cuenta y reuniones innecesarias. Conmigo hablas y trabajas directamente con un ingeniero con más de 8 años de experiencia: respuestas rápidas, código limpio y foco en que la inversión se recupere.'
   }
 ]
 
