@@ -1,159 +1,144 @@
-# IsJuanDev | Dev Community Hub
+# IsJuanDev | Webs de Alta Conversión & Asistentes de WhatsApp con IA
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 
-Sitio web personal de **IsJuanDev** (Juan García): un hub de comunidad para desarrolladores donde se comparten **proyectos construidos en vivo (streaming)**, **artículos de blog** sobre la trayectoria dev y **consejos rápidos** de desarrollo.
+Sitio comercial de **Juan Diego García Castaño (IsJuanDev)**, desarrollador FullStack y consultor de automatizaciones con IA en Colombia. Producción: **https://www.isjuandev.com**
 
-> "Código, proyectos y comunidad"
-
----
-
-## 🚀 Características
-
-- **Inicio** — Hero con CTA a streams en Kick y acceso rápido a las secciones del sitio.
-- **Sobre Mí** — Perfil profesional, estadísticas animadas (años de experiencia, proyectos, tecnologías), stack tecnológico, experiencia laboral y línea de tiempo de la trayectoria.
-- **Proyectos** — Catálogo de proyectos con búsqueda, filtros por categoría, ordenamiento (recientes / hechos en stream / A-Z) y badges de "Hecho en Stream".
-- **Blog** — Artículos con artículo destacado, búsqueda, filtro por categoría y orden por fecha. Rutas estáticas generadas por slug.
-- **Consejos** — Tarjetas de consejos rápidos con fragmentos de código, botón "copiar" y expansión de código largo.
-- **Contacto** — Formulario de contacto, newsletter, link a comunidad (Discord) y redes sociales (Kick, TikTok, Instagram).
-- **Tema oscuro** — Paleta personalizada con azul cian, dorado y azul oscuro, con gradientes animados.
+El sitio funciona como embudo de ventas: presenta la oferta (páginas web y asistentes de WhatsApp con IA), ofrece una **auditoría gratuita de 90 segundos** como gancho y dirige todo el tráfico hacia **WhatsApp**. Además mantiene secciones de credibilidad (proyectos, blog, tips y comunidad en Kick).
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🧩 Qué ofrece el sitio
 
-| Área      | Tecnologías |
-|-----------|-------------|
+| Plan | Precio (COP) | Plazo | Pago |
+|---|---|---|---|
+| Web Express | $690.000 | 2–3 días | 100% por adelantado |
+| Tu Nueva Web para Vender | $1.450.000 | 5–7 días | 50% / 50% |
+| Asistente Automático de WhatsApp | $790.000 | 3–5 días | 50% / 50% |
+| Pack Crecimiento Completo (web + asistente + 2 meses de soporte) | $1.990.000 | 7 días | 50% / 50% |
+| Sistemas a Medida & CRM (n8n, Wompi, PSE, Stripe) | desde $2.800.000 | cotización cerrada | — |
+
+Complementos opcionales sin permanencia: **Soporte Mensual Completo** ($99.000/mes) y **Mantenimiento Web** ($49.000/mes). El cobro es en COP; el USD es solo referencial (tasa 3.300 COP/USD).
+
+> Fuente única de precios: `lib/data/pricing.ts`. La home, el JSON-LD y `public/llms.txt` deben mantenerse alineados con ese archivo.
+
+---
+
+## 🗺️ Rutas
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Home: hero con mockup de WhatsApp, auditoría 90s, servicios y precios, proceso, diferenciales, testimonios (apagados), FAQ, ecosistema y contacto |
+| `/about` | Perfil, estadísticas, stack, experiencia y trayectoria |
+| `/projects` | Archivo de proyectos con búsqueda, filtros y ordenamiento |
+| `/blog`, `/blog/[slug]` | Artículos (SSG + metadata + imagen OG dinámica por post) |
+| `/tips` | Consejos rápidos con snippets copiables |
+| `/contact` | Formulario, newsletter y redes |
+| `/comunidad` | Comunidad y streams |
+| `/privacidad`, `/terminos` | Páginas legales |
+| `/servicios/*` | Páginas de detalle por servicio (`paginas-web`, `asistente-whatsapp-ia`, `automatizacion-n8n`, `sistemas-a-medida`). **Borradores con `noindex`**, fuera del sitemap |
+
+SEO y descubrimiento: `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `app/opengraph-image.tsx`, JSON-LD (`lib/schema.ts`: Organization, Service/Offer, FAQ), canónico en `www` y `public/llms.txt` para buscadores de IA.
+
+---
+
+## 🛠️ Stack
+
+| Área | Tecnologías |
+|---|---|
 | Framework | Next.js 16 (App Router) · React 19 |
-| Lenguaje  | TypeScript 5.7 |
-| Estilos   | Tailwind CSS 3.4 · CSS variables (HSL) |
-| UI        | shadcn/ui + Radix UI primitives · lucide-react |
-| Fuentes   | Inter · JetBrains Mono (next/font) |
-| Utilidades| clsx · tailwind-merge · class-variance-authority |
-| Extras    | date-fns · next-themes · sonner · vaul · recharts (disponibles en `components/ui`) |
+| Lenguaje | TypeScript 5.7 |
+| Estilos | Tailwind CSS 3.4 · variables CSS (HSL) |
+| UI | shadcn/ui + Radix UI · lucide-react · Embla Carousel (slider de planes) |
+| Fuentes | Inter · Space Grotesk · Spline Sans Mono (`next/font`) |
+| Analítica | Vercel Analytics · Vercel Speed Insights (GA4 disponible, comentado en `app/layout.tsx`) |
+
+No hay backend ni base de datos: todo el contenido está en archivos TypeScript.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura
 
 ```
 .
-├── app/                          # App Router (rutas y layouts)
-│   ├── layout.tsx                # Root layout + metadata + fuentes
-│   ├── globals.css               # Variables de tema (paleta azul/dorado) y animaciones
-│   ├── page.tsx                  # Home / Hero
-│   ├── about/page.tsx            # Perfil, stats, stack, experiencia, timeline
-│   ├── projects/page.tsx         # Catálogo de proyectos con filtros
-│   ├── blog/page.tsx             # Listado de artículos
-│   ├── blog/[slug]/page.tsx      # Artículo individual (SSG + metadata)
-│   ├── tips/page.tsx             # Consejos con snippets y copy
-│   └── contact/page.tsx          # Formulario, newsletter y redes
-│
+├── app/                    # App Router: rutas, layouts, sitemap, robots, manifest, OG images
 ├── components/
-│   ├── navigation.tsx            # Navbar fija, responsiva, estado activo
-│   ├── social-button.tsx         # Botones de redes (Kick, TikTok, Instagram)
-│   ├── theme-provider.tsx        # Wrapper de next-themes
-│   └── ui/                       # Componentes shadcn/ui (50+)
-│
-├── hooks/
-│   ├── use-mobile.tsx
-│   └── use-toast.ts
-│
+│   ├── navigation.tsx      # Navbar fija responsiva
+│   ├── footer.tsx          # Footer global
+│   ├── pricing-plans.tsx   # Slider de planes (Embla)
+│   ├── motion/             # Reveal, skills-terminal
+│   └── ui/                 # shadcn/ui (muchos componentes no se usan)
 ├── lib/
-│   ├── utils.ts                  # utilidad cn() (clsx + tailwind-merge)
+│   ├── config.ts           # SITE_CONFIG, link de WhatsApp, conversión COP/USD
+│   ├── schema.ts           # JSON-LD
 │   └── data/
-│       └── content.ts            # Datos: proyectos, posts de blog y tips (single source of truth)
-│
-├── public/
-│   ├── profile.png                # Foto de perfil
-│   ├── placeholder.svg
-│   └── CV_JuanDiegoGarcia.pdf
-│
-├── styles/globals.css
-├── next.config.mjs
-├── tailwind.config.ts
-├── postcss.config.mjs
-└── tsconfig.json                 # Alias @/* → ./*
+│       ├── pricing.ts      # Planes, complementos y sistema a medida (fuente de verdad)
+│       ├── content.ts      # FAQs, proyectos, posts de blog y tips
+│       └── testimonials.ts # Testimonios (placeholders; SHOW_TESTIMONIALS = false)
+├── public/                 # llms.txt, CV, imágenes de proyectos
+├── design.md               # Sistema de diseño actual
+├── rebranding-propuesta.md # Propuesta de rebranding editorial
+└── auditoria-identidad-visual.html
 ```
 
 ---
 
-## 🚦 Requisitos
+## ⚙️ Instalación y uso
 
-- Node.js 18+ (recomendado 20+)
-- pnpm (recomendado) o npm
-
----
-
-## ⚙️ Instalación y Uso
+Requisitos: Node.js 20+ y pnpm (hay `pnpm-lock.yaml`; también existe `package-lock.json`).
 
 ```bash
-# 1. Instalar dependencias
 pnpm install
-# o
-npm install
-
-# 2. Iniciar servidor de desarrollo
-pnpm dev
-# o
-npm run dev
+pnpm dev        # http://localhost:3000
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+| Comando | Descripción |
+|---|---|
+| `pnpm dev` | Servidor de desarrollo |
+| `pnpm build` | Build de producción |
+| `pnpm start` | Servir el build |
+| `pnpm lint` | ESLint |
 
-### Scripts disponibles
+### Variables de entorno (`.env.local`)
 
-| Comando         | Descripción                            |
-|-----------------|----------------------------------------|
-| `pnpm dev`      | Servidor de desarrollo con hot reload  |
-| `pnpm build`    | Build de producción                    |
-| `pnpm start`    | Servir el build de producción          |
-| `pnpm lint`     | Ejecutar ESLint sobre el proyecto      |
-
----
-
-## ✍️ Añadir Contenido
-
-Todo el contenido vive en **`lib/data/content.ts`** (un solo archivo, sin CMS ni base de datos):
-
-- **Proyectos** → arreglo `projects` (título, descripción, categoría, tags, links demo/código, flag `stream`).
-- **Blog** → arreglo `blogPosts` (slug, título, excerpt, imagen, categoría, tags, tiempo de lectura, fecha, flag `featured` y cuerpo en markdown plano). El slug se usa automáticamente para generar la ruta `/blog/[slug]`.
-- **Consejos** → arreglo `tips` (título, descripción, categoría, emoji y snippet de código opcional).
-
-> 💡 **Tip:** para un nuevo post de blog solo agrega un objeto a `blogPosts` con un `slug` único; la página se generará estáticamente sin tocar ningún otro archivo.
+| Variable | Uso |
+|---|---|
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número destino de todos los CTA a WhatsApp (formato internacional sin `+`, p. ej. `573178073598`). Si falta, se usa el valor por defecto de `lib/config.ts` |
+| `NEXT_PUBLIC_GA_ID` | Opcional, solo si se descomenta GA4 en `app/layout.tsx` |
 
 ---
 
-## 🎨 Tema y Estilos
+## ✍️ Editar contenido
 
-- Paleta definida con variables CSS en HSL en `app/globals.css`.
-- Colores principales: **azul cian** (`--primary`), **dorado** (`--secondary`) y **azul suave** (`--accent`) sobre fondo azul muy oscuro.
-- Fuentes: **Inter** (sans) y **JetBrains Mono** (mono) cargadas con `next/font`.
-- Animaciones personalizadas: `animate-gradient` (gradiente animado) y `animate-float`.
-
----
-
-## 🧱 Arquitectura y Decisiones
-
-- **App Router** de Next.js con Server Components por defecto; páginas interactivas (about, projects, blog, tips) marcadas como `'use client'` cuando usan estado.
-- **Generación estática (SSG):** `/blog/[slug]` usa `generateStaticParams` + `generateMetadata` para SEO por artículo.
-- **shadcn/ui:** componentes bajo `components/ui` (accordion, dialog, sheet, sidebar, etc.) generados con el CLI de shadcn, listos para usar.
-- **Contenido desacoplado:** la UI lee de `lib/data/content.ts`, lo que facilita migrar a un CMS (Sanity, Contentlayer, etc.) o a un backend en el futuro.
+- **Precios y planes** → `lib/data/pricing.ts`. De ahí se derivan las tarjetas de la home, `SITE_CONFIG.pricing`, las FAQs y la oferta. Después actualiza a mano `lib/schema.ts` (descripciones y precios de `servicePlans`) y `public/llms.txt`.
+- **FAQs, proyectos, blog y tips** → `lib/data/content.ts`. Un nuevo `slug` en `blogPosts` genera automáticamente `/blog/[slug]` y su entrada en el sitemap.
+- **Testimonios** → `lib/data/testimonials.ts`. Reemplaza los placeholders por casos reales y activa `SHOW_TESTIMONIALS`.
+- **Datos de contacto y redes** → `lib/config.ts`.
 
 ---
 
-## 🔗 Redes y Comunidad
+## 🎨 Diseño
 
-- **Streaming:** [Kick — @isjuandev](https://kick.com/isjuandev)
-- **TikTok:** [@isjuandev](https://tiktok.com/@isjuandev)
-- **Instagram:** [@isjuandev](https://instagram.com/isjuandev)
-- **GitHub:** [github.com/isjuandev](https://github.com/isjuandev)
+Tema oscuro (`#060b14`) con acento cian y detalles dorados, definido con variables HSL en `app/globals.css`. Detalles y tokens en `design.md`; la dirección visual futura en `rebranding-propuesta.md`.
 
 ---
 
-## 📄 Licencia
+## ⚠️ Notas conocidas
 
-© 2024 IsJuanDev. Proyecto personal. Si usas alguna parte del código o el diseño como referencia, un crédito es bienvenido.
+- `next.config.mjs` tiene `typescript.ignoreBuildErrors: true` e `images.unoptimized: true`: los errores de tipos no rompen el build.
+- El `name` en `package.json` sigue siendo `isjuandev-community`.
+- Los testimonios son placeholders y están ocultos.
+- Las páginas `/servicios/*` son borradores no indexados.
+
+---
+
+## 🔗 Redes
+
+[Kick](https://kick.com/isjuandev) · [TikTok](https://tiktok.com/@isjuandev) · [Instagram](https://instagram.com/isjuandev) · [GitHub](https://github.com/isjuandev) · hola@isjuandev.com
+
+---
+
+© IsJuanDev. Proyecto personal.
