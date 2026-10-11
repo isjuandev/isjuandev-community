@@ -76,10 +76,10 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Web Express:</strong> Pago del 100% por adelantado al iniciar el sprint (entrega en 2 a 3 días hábiles).
               </li>
               <li>
-                <strong className="text-foreground">Tu Nueva Web, Asistente WhatsApp y Pack Crecimiento:</strong> Esquema 50/50 (50% de anticipo para reserva de sprint y comienzo de arquitectura; 50% restante contra entrega y verificación en producción).
+                <strong className="text-foreground">Tu Nueva Web, instalación del Asistente WhatsApp y Pack Crecimiento:</strong> Esquema 50/50 (50% de anticipo para reserva de sprint y comienzo de arquitectura; 50% restante contra entrega y verificación en producción).
               </li>
               <li>
-                <strong className="text-foreground">Soporte Mensual y Mantenimiento Web:</strong> Suscripciones mensuales opcionales, sin cláusula de permanencia mínima. El cliente puede cancelar en cualquier momento notificando antes de su siguiente ciclo.
+                <strong className="text-foreground">Planes mensuales (Esencial, Crecimiento y Pro):</strong> Suscripciones mensuales sin cláusula de permanencia mínima. El plan Crecimiento está incluido con el Asistente de WhatsApp desde su entrega; en el Pack Crecimiento los dos primeros meses van incluidos y se cobra desde el tercer mes. El cliente puede cancelar en cualquier momento notificando antes de su siguiente ciclo. El pago anual equivale a 10 meses de 12.
               </li>
             </ul>
           </section>
@@ -108,7 +108,7 @@ export default function TerminosPage() {
             <ul className="list-disc pl-5 space-y-1.5">
               <li>Costos de consumo de la API oficial de WhatsApp (Meta / Cloud API / BSP).</li>
               <li>Registro y renovación de dominios de internet (salvo cuando se estipule expresamente como incluido en la oferta de lanzamiento).</li>
-              <li>Consumos directos de tokens o saldo en plataformas de modelos de lenguaje (OpenAI, DeepSeek, Anthropic) cuando el cliente no cuente con el plan de Soporte Mensual que los cubre dentro de un uso razonable.</li>
+              <li>Consumos directos de tokens o saldo en plataformas de modelos de lenguaje (OpenAI, DeepSeek, Anthropic) cuando el cliente no cuente con el plan Crecimiento o Pro, que los cubre dentro de un uso razonable.</li>
             </ul>
           </section>
 

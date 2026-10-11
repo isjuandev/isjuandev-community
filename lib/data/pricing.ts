@@ -30,6 +30,9 @@ export interface PricingPlan {
   priceUsd: number
   priceDisplay: string
   paymentTerms: string
+  monthlyCop?: number
+  monthlyDisplay?: string
+  monthlyNote?: string
   timeframe: string
   deliverables: string[]
   notIncluded?: string[]
@@ -37,13 +40,15 @@ export interface PricingPlan {
   tags: string[]
 }
 
-export interface OptionalAddon {
+export interface SubscriptionTier {
   id: string
   name: string
+  highlight: boolean
   priceCop: number
   priceUsd: number
   priceDisplay: string
-  billingCycle: string
+  annualCop: number
+  annualDisplay: string
   description: string
   features: string[]
   note: string
@@ -109,23 +114,26 @@ export const MAIN_PLANS: PricingPlan[] = [
     title: 'Asistente Automático de WhatsApp',
     subtitle: 'Responde en menos de 60 segundos 24/7 con control total y derivación a tu equipo',
     description: 'Automatizo la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
-    priceCop: 790000,
-    priceUsd: calcUsd(790000), // 239
-    priceDisplay: `${formatCop(790000)} / ${formatUsdRef(790000)}`,
-    paymentTerms: 'Pago único · 50% anticipo / 50% entrega',
+    priceCop: 490000,
+    priceUsd: calcUsd(490000), // 148
+    priceDisplay: `${formatCop(490000)} / ${formatUsdRef(490000)}`,
+    paymentTerms: 'Instalación · 50% anticipo / 50% entrega',
+    monthlyCop: 149000,
+    monthlyDisplay: `+ ${formatCop(149000)} / mes`,
+    monthlyNote: 'Plan Crecimiento incluido desde la entrega: monitoreo, ajustes, consumo de IA y reporte mensual. Sin permanencia.',
     timeframe: 'Listo en 3 a 5 días',
     deliverables: [
       'Atención inmediata en WhatsApp en menos de 60 segundos día y noche',
-      'Configuración y puesta en marcha completa (cubre el pago único)',
+      'Configuración y puesta en marcha completa',
       'Respuestas automáticas basadas únicamente en tu información aprobada',
       'Agenda citas directamente en tu Google Calendar sin cruzar mensajes',
       'Control y Escalamiento Humano: la conversación se transfiere a tu equipo en casos clave',
       'Filtro de curiosos y registro de prospectos ordenado en tu CRM o Sheets',
-      'Capacitación en video y acompañamiento directo en la entrega'
+      'Capacitación en video y acompañamiento directo en la entrega',
+      'Mensualidad incluida: monitoreo, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual de resultados'
     ],
     notIncluded: [
-      'No cubre costos de uso de la API de WhatsApp (los paga el cliente directo al proveedor) ni mantenimiento',
-      'Consumo del modelo de IA incluido con uso razonable solo con Soporte Mensual; sin él, el cliente conecta su propia cuenta del modelo'
+      'No cubre los costos de uso de la API de WhatsApp (los paga el cliente directo al proveedor)'
     ],
     ctaText: 'Quiero mi Asistente WhatsApp',
     tags: ['WhatsApp 24/7', 'Escalamiento Humano', 'Menos de 60s', 'Cero Fugas']
@@ -141,53 +149,81 @@ export const MAIN_PLANS: PricingPlan[] = [
     priceCop: 1990000,
     priceUsd: calcUsd(1990000), // 603
     priceDisplay: `${formatCop(1990000)} / ${formatUsdRef(1990000)}`,
-    paymentTerms: 'Ahorras $250.000 COP + 2 meses de soporte · 50% anticipo / 50% entrega',
+    paymentTerms: 'Ahorras $248.000 COP · 50% anticipo / 50% entrega',
+    monthlyCop: 149000,
+    monthlyDisplay: `+ ${formatCop(149000)} / mes desde el mes 3`,
+    monthlyNote: 'Los 2 primeros meses del plan Crecimiento van incluidos. Después, sin permanencia.',
     timeframe: 'Listo en 7 días',
     deliverables: [
       'Página web completa pensada para vender adaptada 100% a celulares',
       'Asistente de WhatsApp 24/7 conectado a los botones de tu nueva web',
-      '2 meses de Soporte Mensual Completo incluidos (valor de $198.000 COP)',
+      '2 meses del plan Crecimiento incluidos (valor $298.000 COP): monitoreo, ajustes y reporte mensual',
       'Agendamiento automático de citas y respuestas a preguntas frecuentes',
       'Escalamiento inmediato a tu celular cuando un cliente solicita atención personal',
       'Dominio .com, seguridad SSL, base de datos y puesta en marcha lista para usar',
-      'Ahorras $250.000 COP frente a contratar por separado, más 2 meses de soporte incluidos (valor $198.000 COP)'
+      'Ahorras $248.000 COP frente a contratar la web, la instalación del asistente y 2 meses de plan Crecimiento por separado'
     ],
     ctaText: 'Quiero el Pack Completo',
-    tags: ['Web + IA WhatsApp', '2 Meses Soporte Gratis', 'Ahorro $250k', 'Sprint 7 Días']
+    tags: ['Web + IA WhatsApp', '2 Meses Incluidos', 'Ahorro $248k', 'Sprint 7 Días']
   }
 ]
 
-export const OPTIONAL_ADDONS: OptionalAddon[] = [
+export const ANNUAL_NOTE = 'Paga el año completo y recibe 2 meses gratis (10 meses de 12).'
+
+export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
   {
-    id: 'soporte-mensual',
-    name: 'Soporte Mensual Completo',
-    priceCop: 99000,
-    priceUsd: calcUsd(99000), // 30
-    priceDisplay: `${formatCop(99000)} / ${formatUsdRef(99000)}/mes`,
-    billingCycle: 'mensual (opcional, sin permanencia)',
-    description: 'Tranquilidad total para tu web y tu asistente de WhatsApp.',
+    id: 'esencial',
+    name: 'Esencial',
+    highlight: false,
+    priceCop: 69000,
+    priceUsd: calcUsd(69000), // 21
+    priceDisplay: `${formatCop(69000)} / ${formatUsdRef(69000)}/mes`,
+    annualCop: 690000,
+    annualDisplay: `${formatCop(690000)} al año`,
+    description: 'Tu web siempre al día y segura, sin preocuparte por lo técnico.',
     features: [
-      'Mantenimiento técnico continuo y ajustes de contenido',
-      'Monitoreo activo del asistente de WhatsApp y estabilidad operativa',
-      'Consumo del modelo de IA incluido con uso razonable',
-      'Soporte directo prioritario por WhatsApp'
+      'Mantenimiento técnico y cambios menores de textos, imágenes y enlaces',
+      'Monitoreo de disponibilidad y certificado SSL',
+      'Soporte por correo y WhatsApp'
     ],
-    note: 'Sin permanencia mínima. Cancela o reactiva cuando quieras. Tu web y código siguen siendo 100% de tu propiedad.'
+    note: 'Opcional para tu web. Sin permanencia: avisas antes del siguiente ciclo.'
   },
   {
-    id: 'mantenimiento-web',
-    name: 'Mantenimiento Web',
-    priceCop: 49000,
-    priceUsd: calcUsd(49000), // 15
-    priceDisplay: `${formatCop(49000)} / ${formatUsdRef(49000)}/mes`,
-    billingCycle: 'mensual (opcional, sin permanencia)',
-    description: 'Para sitios web que requieren soporte preventivo y actualizaciones periódicas.',
+    id: 'crecimiento',
+    name: 'Crecimiento',
+    highlight: true,
+    priceCop: 149000,
+    priceUsd: calcUsd(149000), // 45
+    priceDisplay: `${formatCop(149000)} / ${formatUsdRef(149000)}/mes`,
+    annualCop: 1490000,
+    annualDisplay: `${formatCop(1490000)} al año`,
+    description: 'Tu asistente de WhatsApp funcionando y mejorando cada mes, con resultados a la vista.',
     features: [
-      'Cambios menores de textos, imágenes y enlaces',
-      'Monitoreo de uptime y certificados de seguridad SSL',
-      'Soporte técnico directo ante incidencias'
+      'Todo lo del plan Esencial',
+      'Asistente de WhatsApp monitoreado y ajuste de respuestas',
+      'Consumo del modelo de IA incluido con uso razonable',
+      'Reporte mensual: consultas atendidas y citas agendadas',
+      'Soporte prioritario por WhatsApp'
     ],
-    note: 'Sin permanencia mínima. La página es 100% de tu propiedad; este mantenimiento es totalmente opcional.'
+    note: 'Incluido en el Asistente de WhatsApp. Sin permanencia: avisas antes del siguiente ciclo.'
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    highlight: false,
+    priceCop: 349000,
+    priceUsd: calcUsd(349000), // 106
+    priceDisplay: `${formatCop(349000)} / ${formatUsdRef(349000)}/mes`,
+    annualCop: 3490000,
+    annualDisplay: `${formatCop(3490000)} al año`,
+    description: 'Para negocios que quieren seguir mejorando: más automatización y acompañamiento.',
+    features: [
+      'Todo lo del plan Crecimiento',
+      '1 mejora o flujo nuevo cada mes',
+      'Campañas de reactivación de clientes por WhatsApp',
+      'Revisión mensual de resultados contigo (30 min)'
+    ],
+    note: 'Sin permanencia: avisas antes del siguiente ciclo.'
   }
 ]
 

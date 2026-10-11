@@ -169,7 +169,7 @@ export default function ContactPage() {
                           <option value="Pack Crecimiento Completo: Web + Asistente WhatsApp ($1.990.000 COP / ~$603 USD ref.)">Pack Crecimiento Completo: Web + Asistente WhatsApp ($1.990.000 COP / ~$603 USD ref.) [Recomendado]</option>
                           <option value="Web Express ($690.000 COP / ~$209 USD ref.)">Web Express ($690.000 COP / ~$209 USD ref.)</option>
                           <option value="Tu Nueva Web para Vender ($1.450.000 COP / ~$439 USD ref.)">Tu Nueva Web para Vender ($1.450.000 COP / ~$439 USD ref.)</option>
-                          <option value="Asistente Automático de WhatsApp ($790.000 COP / ~$239 USD ref.)">Asistente Automático de WhatsApp ($790.000 COP / ~$239 USD ref.)</option>
+                          <option value="Asistente Automático de WhatsApp (Instalación $490.000 COP / ~$148 USD ref. + $149.000 COP/mes)">Asistente Automático de WhatsApp (Instalación $490.000 COP / ~$148 USD ref. + $149.000 COP/mes)</option>
                           <option value="Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / ~$848 USD ref.)">Sistema a Medida / Pasarelas / CRM (Desde $2.800.000 COP / ~$848 USD ref.)</option>
                           <option value="Auditoría de Proceso Gratuita (90s)">Solo Auditoría de Proceso en Video (90s)</option>
                         </select>

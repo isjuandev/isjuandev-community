@@ -76,6 +76,18 @@ function PricingCard({ solution }: { solution: Solution }) {
                 / {usdRef}
               </span>
             </div>
+            {solution.monthlyDisplay && (
+              <div className="pt-1">
+                <div className="font-display font-semibold text-base text-foreground">
+                  {solution.monthlyDisplay}
+                </div>
+                {solution.monthlyNote && (
+                  <div className="text-xs text-muted-foreground leading-snug mt-0.5">
+                    {solution.monthlyNote}
+                  </div>
+                )}
+              </div>
+            )}
             {solution.priceNote && (
               <div className="text-xs font-mono text-muted-foreground leading-snug">
                 {solution.priceNote}
