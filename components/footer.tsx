@@ -45,29 +45,29 @@ export function Footer() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Soluciones
             </p>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <ul className="space-y-0 text-sm text-muted-foreground">
               <li>
-                <Link href="/#servicios" className="hover:text-foreground transition-colors block">
+                <Link href="/#servicios" className="hover:text-foreground transition-colors block py-2.5">
                   Sprint Web de Alta Conversión
                 </Link>
               </li>
               <li>
-                <Link href="/#servicios" className="hover:text-foreground transition-colors block">
+                <Link href="/#servicios" className="hover:text-foreground transition-colors block py-2.5">
                   Asistente WhatsApp con IA
                 </Link>
               </li>
               <li>
-                <Link href="/#auditoria" className="hover:text-foreground transition-colors block">
+                <Link href="/#auditoria" className="hover:text-foreground transition-colors block py-2.5">
                   Auditoría Web Gratuita (90s)
                 </Link>
               </li>
               <li>
-                <Link href="/#proceso" className="hover:text-foreground transition-colors block">
+                <Link href="/#proceso" className="hover:text-foreground transition-colors block py-2.5">
                   El Método en 7 Días
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-foreground transition-colors block">
+                <Link href="/contact" className="hover:text-foreground transition-colors block py-2.5">
                   Formulario de Diagnóstico
                 </Link>
               </li>
@@ -79,33 +79,33 @@ export function Footer() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Ecosistema
             </p>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <ul className="space-y-0 text-sm text-muted-foreground">
               <li>
-                <Link href="/blog" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <Link href="/blog" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Aprendizajes</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </Link>
               </li>
               <li>
-                <Link href="/tips" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <Link href="/tips" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Tips de Código</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </Link>
               </li>
               <li>
-                <Link href="/comunidad" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <Link href="/comunidad" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Comunidad</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <Link href="/projects" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Archivo Proyectos</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </Link>
               </li>
               <li>
-                <a href="/CV_JuanDiegoGarcia.pdf" download className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <a href="/CV_JuanDiegoGarcia.pdf" download className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Descargar CV</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
@@ -118,27 +118,27 @@ export function Footer() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Canales
             </p>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <ul className="space-y-0 text-sm text-muted-foreground">
               <li>
-                <a href={SITE_CONFIG.social.kick} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <a href={SITE_CONFIG.social.kick} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Kick (Streams)</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
               </li>
               <li>
-                <a href={SITE_CONFIG.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <a href={SITE_CONFIG.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>TikTok</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
               </li>
               <li>
-                <a href={SITE_CONFIG.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <a href={SITE_CONFIG.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Instagram</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
               </li>
               <li>
-                <a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group">
+                <a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>GitHub</span>
                   <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
@@ -158,23 +158,23 @@ export function Footer() {
             <p>© {currentYear} IsJuanDev. Todos los derechos reservados.</p>
             <SiteCredit />
           </div>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <Link href="/" className="hover:text-foreground transition-colors">
+          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6">
+            <Link href="/" className="hover:text-foreground transition-colors py-2.5">
               Inicio
             </Link>
-            <Link href="/about" className="hover:text-foreground transition-colors">
+            <Link href="/about" className="hover:text-foreground transition-colors py-2.5">
               Sobre mí
             </Link>
-            <Link href="/projects" className="hover:text-foreground transition-colors">
+            <Link href="/projects" className="hover:text-foreground transition-colors py-2.5">
               Proyectos
             </Link>
-            <Link href="/contact" className="hover:text-foreground transition-colors">
+            <Link href="/contact" className="hover:text-foreground transition-colors py-2.5">
               Contacto
             </Link>
-            <Link href="/privacidad" className="hover:text-foreground transition-colors">
+            <Link href="/privacidad" className="hover:text-foreground transition-colors py-2.5">
               Privacidad
             </Link>
-            <Link href="/terminos" className="hover:text-foreground transition-colors">
+            <Link href="/terminos" className="hover:text-foreground transition-colors py-2.5">
               Términos
             </Link>
           </div>

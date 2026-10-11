@@ -4,6 +4,7 @@ import { Inter, Space_Grotesk, Spline_Sans_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Footer } from '@/components/footer'
+import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { getRootJsonLd, SITE_URL } from '@/lib/schema'
 
 import './globals.css'
@@ -135,6 +136,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <WhatsAppFloat />
         <Analytics />
         <SpeedInsights />
       </body>
