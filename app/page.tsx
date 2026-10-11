@@ -91,6 +91,32 @@ const differentials = [
   }
 ]
 
+function IncludesList({ items }: { items: string[] }) {
+  const list = (
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2 text-xs text-foreground/90">
+          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+
+  return (
+    <>
+      <div className="hidden md:block">{list}</div>
+      <details className="md:hidden group">
+        <summary className="cursor-pointer list-none inline-flex items-center min-h-11 text-xs font-mono text-primary hover:underline underline-offset-4">
+          <span className="group-open:hidden">Ver qué incluye</span>
+          <span className="hidden group-open:inline">Ver menos</span>
+        </summary>
+        <div className="pt-1">{list}</div>
+      </details>
+    </>
+  )
+}
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/25">
@@ -149,11 +175,11 @@ export default function HomePage() {
           </div>
 
           {/* Diferenciales en franja corta */}
-          <div className="grid sm:grid-cols-3 gap-4 mt-16 pt-10 border-t border-border/50">
+          <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mt-10 sm:mt-16 pt-8 sm:pt-10 border-t border-border/50">
             {differentials.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-card/40 border border-border/70 p-5">
+              <div key={item.title} className="rounded-2xl bg-card/40 border border-border/70 px-5 py-3.5 sm:p-5">
                 <div className="text-sm font-display font-semibold text-foreground">{item.title}</div>
-                <div className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.description}</div>
+                <div className="hidden sm:block text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.description}</div>
               </div>
             ))}
           </div>
@@ -186,15 +212,15 @@ export default function HomePage() {
           {/* Grid de 3 Tiles con el mismo diseño y alineación que Planes & Precios */}
           <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div>
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-5">
+              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 sm:mb-5">
                     <Smartphone className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
                     Tu web vista desde el celular
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Reviso cómo ve tu cliente el sitio desde su teléfono: si se lee bien, si se entiende qué ofreces y si encuentra fácil cómo escribirte.
                   </p>
                 </div>
@@ -202,15 +228,15 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={240} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div>
-                  <div className="w-11 h-11 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold mb-5">
+              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold mb-0 sm:mb-5">
                     <Zap className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
                     Por qué no te escriben
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Te muestro por qué la gente visita tu perfil o tu web y se va sin escribirte: falta de botón directo, formularios engorrosos o lentitud.
                   </p>
                 </div>
@@ -218,15 +244,15 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={300} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div>
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-5">
+              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 sm:mb-5">
                     <Video className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
                     Video de 90s + Plan de Acción
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Te grabo un video mostrándote en pantalla los fallos concretos y el plan paso a paso para resolverlos en menos de 7 días.
                   </p>
                 </div>
@@ -389,7 +415,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
+              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-2xl font-bold text-primary">01</span>
@@ -399,14 +425,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="font-display font-bold text-xl text-foreground mb-2">{CUSTOM_AUDIT.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">{CUSTOM_AUDIT.description}</p>
-                  <ul className="space-y-2">
-                    {CUSTOM_AUDIT.deliverables.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-foreground/90">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <IncludesList items={CUSTOM_AUDIT.deliverables} />
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/60 font-display font-bold text-xl text-foreground">
                   {CUSTOM_AUDIT.priceDisplay}
@@ -415,7 +434,7 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={240} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
+              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-2xl font-bold text-primary">02</span>
@@ -424,15 +443,8 @@ export default function HomePage() {
                     </span>
                   </div>
                   <h3 className="font-display font-bold text-xl text-foreground mb-2">{CUSTOM_SYSTEM.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{CUSTOM_SYSTEM.description}</p>
-                  <ul className="space-y-2">
-                    {CUSTOM_SYSTEM.deliverables.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-foreground/90">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mb-5">{CUSTOM_SYSTEM.description}</p>
+                  <IncludesList items={CUSTOM_SYSTEM.deliverables} />
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/60 font-display font-bold text-xl text-foreground">
                   {CUSTOM_SYSTEM.priceDisplay}
@@ -479,7 +491,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12">
             {workSteps.map((step, i) => (
               <Reveal key={step.step} delay={180 + i * 80}>
-                <div className="card-editorial p-7 h-full flex flex-col justify-between border-border/70 bg-background/80 relative">
+                <div className="card-editorial p-5 sm:p-7 h-full flex flex-col justify-between border-border/70 bg-background/80 relative">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="font-mono text-2xl font-bold text-primary">{step.step}</span>
@@ -518,7 +530,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
               {testimonials.map((t, idx) => (
                 <Reveal key={idx} delay={180 + idx * 80} className="flex">
-                  <article className="card-editorial flex flex-col justify-between w-full p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
+                  <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
                     <div>
                       <p className="text-sm text-foreground/90 leading-relaxed italic mb-6">
                         &ldquo;{t.text}&rdquo;
