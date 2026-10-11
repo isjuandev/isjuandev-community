@@ -92,6 +92,10 @@ export const faqs: FAQItem[] = [
     answer: 'Web Express se paga 100% por adelantado al iniciar el sprint. Tu Nueva Web, la instalación del Asistente de WhatsApp y el Pack Crecimiento se pagan 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades (Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP) no tienen permanencia mínima: avisas antes de tu siguiente ciclo y listo. Si pagas el año completo, recibes 2 meses gratis. Pagas por transferencia o con un enlace de pago que te envío cada mes; no hay débito automático.'
   },
   {
+    question: '¿Qué pasa si me atraso con la mensualidad?',
+    answer: 'Te escribo antes de la fecha de corte con los datos para pagar. Si pasan 5 días sin pago, pauso el asistente y el soporte (tu web y tu código siguen siendo tuyos). Cuando pagues, lo reactivo al siguiente día hábil. El plan anual se paga por adelantado y no tiene reembolso por meses no usados.'
+  },
+  {
     question: '¿Por qué el asistente de WhatsApp tiene una mensualidad?',
     answer: 'Porque un asistente no se instala y se olvida: hay que monitorearlo, ajustar las respuestas cuando cambian tus precios o servicios, cubrir el consumo del modelo de IA y revisar los resultados cada mes. Por eso la instalación es más baja ($490.000 COP) y el plan Crecimiento ($149.000 COP al mes) va incluido. Si prefieres, puedes cancelarlo avisando antes del siguiente ciclo; tu web y tu código siguen siendo tuyos.'
   },

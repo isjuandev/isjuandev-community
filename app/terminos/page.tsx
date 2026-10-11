@@ -85,6 +85,32 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Medios de pago:</strong> Los pagos se realizan por transferencia bancaria o mediante un enlace de pago enviado por IsJuanDev. Las mensualidades no se debitan de forma automática: cada mes se pagan con una transferencia o con el enlace de pago que IsJuanDev envía al cliente.
               </li>
             </ul>
+            <p className="pt-2">
+              <strong className="text-foreground">Pago de mensualidades, plazo de gracia y mora:</strong>
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5">
+              <li>
+                <strong className="text-foreground">Ciclo y fecha de pago:</strong> Las mensualidades se pagan por adelantado, en ciclos de 30 días contados desde la fecha de entrega del servicio o desde el inicio del plan, según corresponda. IsJuanDev enviará al cliente los datos de transferencia o el enlace de pago con al menos 3 días de anticipación a la fecha de corte.
+              </li>
+              <li>
+                <strong className="text-foreground">Plazo de gracia:</strong> Si el pago no se recibe en la fecha de corte, el cliente cuenta con un plazo de gracia de 5 días calendario durante el cual el servicio continúa sin interrupción.
+              </li>
+              <li>
+                <strong className="text-foreground">Suspensión:</strong> Vencido el plazo de gracia sin que se haya recibido el pago, IsJuanDev podrá suspender los servicios mensuales: monitoreo, ajustes, soporte y el funcionamiento del asistente de WhatsApp. La suspensión no afecta los entregables ya pagados ni la propiedad del código y de la página web del cliente.
+              </li>
+              <li>
+                <strong className="text-foreground">Reactivación:</strong> El cliente puede reactivar el servicio pagando el ciclo vencido. IsJuanDev lo reactivará dentro de 1 día hábil tras confirmar el pago, sin cobro adicional por reconexión.
+              </li>
+              <li>
+                <strong className="text-foreground">Terminación por falta de pago:</strong> Si transcurren 30 días desde la suspensión sin pago, el plan mensual se entenderá cancelado. IsJuanDev conservará la configuración del cliente durante 30 días adicionales y, pasado ese plazo, podrá eliminarla. Antes de eso, el cliente puede solicitar una copia de sus datos y configuraciones.
+              </li>
+              <li>
+                <strong className="text-foreground">Pago anual:</strong> El pago anual se realiza por adelantado y no es reembolsable por meses no utilizados, salvo cuando la falta de prestación del servicio sea imputable a IsJuanDev.
+              </li>
+              <li>
+                <strong className="text-foreground">Cancelación voluntaria:</strong> El cliente puede cancelar en cualquier momento notificando antes de su siguiente fecha de corte; la cancelación aplica a partir del siguiente ciclo.
+              </li>
+            </ul>
           </section>
 
           <section className="space-y-3">
