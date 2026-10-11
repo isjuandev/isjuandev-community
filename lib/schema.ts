@@ -21,14 +21,14 @@ export function getRootJsonLd(): StructuredDataGraph {
       id: 'service-web-completa',
       name: 'Tu Nueva Web para Vender',
       serviceType: 'Diseño de páginas web',
-      description: 'Diseñamos una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
+      description: 'Diseño una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
       price: 1450000,
     },
     {
       id: 'service-asistente-whatsapp',
       name: 'Asistente Automático de WhatsApp',
       serviceType: 'Asistente de WhatsApp con IA',
-      description: 'Automatizamos la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
+      description: 'Automatizo la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
       price: 790000,
     },
     {

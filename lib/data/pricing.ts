@@ -84,7 +84,7 @@ export const MAIN_PLANS: PricingPlan[] = [
     popular: false,
     title: 'Tu Nueva Web para Vender',
     subtitle: 'Atrae clientes y haz que te contacten de inmediato desde su celular',
-    description: 'Diseñamos una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
+    description: 'Diseño una página web moderna y rápida para tu negocio, estructurada para que cualquier persona que entre desde su teléfono entienda tu oferta y te escriba directamente a WhatsApp.',
     priceCop: 1450000,
     priceUsd: calcUsd(1450000), // 439
     priceDisplay: `${formatCop(1450000)} / ${formatUsdRef(1450000)}`,
@@ -108,7 +108,7 @@ export const MAIN_PLANS: PricingPlan[] = [
     popular: false,
     title: 'Asistente Automático de WhatsApp',
     subtitle: 'Responde en menos de 60 segundos 24/7 con control total y derivación a tu equipo',
-    description: 'Automatizamos la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
+    description: 'Automatizo la atención y pre-calificación en tu WhatsApp. Da precios, resuelve dudas frecuentes, agenda citas y transfiere la conversación a tu equipo solo cuando hay un cliente listo para comprar.',
     priceCop: 790000,
     priceUsd: calcUsd(790000), // 239
     priceDisplay: `${formatCop(790000)} / ${formatUsdRef(790000)}`,
@@ -144,12 +144,12 @@ export const MAIN_PLANS: PricingPlan[] = [
     paymentTerms: 'Ahorras $250.000 COP + 2 meses de soporte · 50% anticipo / 50% entrega',
     timeframe: 'Listo en 7 días',
     deliverables: [
-      'Página Web de Alta Conversión completa adaptada 100% a celulares',
+      'Página web completa pensada para vender adaptada 100% a celulares',
       'Asistente de WhatsApp 24/7 conectado a los botones de tu nueva web',
       '2 meses de Soporte Mensual Completo incluidos (valor de $198.000 COP)',
       'Agendamiento automático de citas y respuestas a preguntas frecuentes',
       'Escalamiento inmediato a tu celular cuando un cliente solicita atención personal',
-      'Dominio .com, seguridad SSL, base de datos y puesta en marcha llave en mano',
+      'Dominio .com, seguridad SSL, base de datos y puesta en marcha lista para usar',
       'Ahorras $250.000 COP frente a contratar por separado, más 2 meses de soporte incluidos (valor $198.000 COP)'
     ],
     ctaText: 'Quiero el Pack Completo',
@@ -191,10 +191,28 @@ export const OPTIONAL_ADDONS: OptionalAddon[] = [
   }
 ]
 
+export const CUSTOM_AUDIT = {
+  title: 'Auditoría de Procesos',
+  priceCop: 400000,
+  priceUsd: calcUsd(400000), // 121
+  priceDisplay: `${formatCop(400000)} / ${formatUsdRef(400000)}`,
+  description: 'Antes de construir, entiendo cómo trabaja tu equipo y dónde se pierde el tiempo. Si decides avanzar con el proyecto, el valor de la auditoría se descuenta del total.',
+  deliverables: [
+    'Mapa de tus procesos y flujos actuales',
+    'Detección de tareas manuales y cuellos de botella',
+    'Alcance priorizado, plan de entregas y presupuesto cerrado'
+  ]
+}
+
 export const CUSTOM_SYSTEM = {
-  title: 'Sistemas a Medida & CRM',
+  title: 'Sistema a Medida & CRM',
   priceCop: 2800000,
   priceUsd: calcUsd(2800000), // 848
   priceDisplay: `Desde ${formatCop(2800000)} / ${formatUsdRef(2800000)}`,
-  description: 'Desarrollo e integración de flujos con n8n, pasarelas locales (Wompi, PSE, Stripe), portales privados y automatización de operaciones complejas. Presupuesto cerrado según tus requerimientos.'
+  description: 'Desarrollo e integración de flujos con n8n, pasarelas locales (Wompi, PSE, Stripe), portales privados y automatización de operaciones complejas. Presupuesto cerrado según tus requerimientos.',
+  deliverables: [
+    'Primera versión funcionando en semanas, no en meses',
+    'Reuniones de avance y ajustes durante el desarrollo',
+    'Integración con tus herramientas actuales y pasarelas de pago'
+  ]
 }
