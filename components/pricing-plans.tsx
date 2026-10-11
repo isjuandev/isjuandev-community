@@ -224,11 +224,9 @@ export function PricingPlans({ solutions: rawSolutions }: PricingPlansProps) {
               ))}
             </CarouselContent>
 
-            {/* Flechas de navegación para desktop / tablets */}
-            <div className="hidden md:flex items-center justify-end gap-2 mt-6">
-              <CarouselPrevious className="static translate-y-0 h-9 w-9 border-border bg-card hover:bg-card/80 text-foreground" />
-              <CarouselNext className="static translate-y-0 h-9 w-9 border-border bg-card hover:bg-card/80 text-foreground" />
-            </div>
+            {/* Flechas centradas verticalmente sobre el carrusel; en móvil quedan en el borde exterior para no tapar el texto de la tarjeta */}
+            <CarouselPrevious className="-left-4 md:-left-5 top-1/2 -translate-y-1/2 z-10 h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
+            <CarouselNext className="-right-4 md:-right-5 top-1/2 -translate-y-1/2 z-10 h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
           </Carousel>
 
           {/* Indicadores de paginación / Dots interactivos */}
