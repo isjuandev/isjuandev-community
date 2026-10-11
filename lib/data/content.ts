@@ -89,7 +89,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Cómo funciona el esquema de pago?',
-    answer: 'Web Express se paga 100% por adelantado al iniciar el sprint. Tu Nueva Web, la instalación del Asistente de WhatsApp y el Pack Crecimiento se pagan 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades (Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP) no tienen permanencia mínima: avisas antes de tu siguiente ciclo y listo. Si pagas el año completo, recibes 2 meses gratis.'
+    answer: 'Web Express se paga 100% por adelantado al iniciar el sprint. Tu Nueva Web, la instalación del Asistente de WhatsApp y el Pack Crecimiento se pagan 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades (Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP) no tienen permanencia mínima: avisas antes de tu siguiente ciclo y listo. Si pagas el año completo, recibes 2 meses gratis. Pagas por transferencia o con un enlace de pago que te envío cada mes; no hay débito automático.'
   },
   {
     question: '¿Por qué el asistente de WhatsApp tiene una mensualidad?',

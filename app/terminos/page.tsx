@@ -81,6 +81,9 @@ export default function TerminosPage() {
               <li>
                 <strong className="text-foreground">Planes mensuales (Esencial, Crecimiento y Pro):</strong> Suscripciones mensuales sin cláusula de permanencia mínima. El plan Crecimiento está incluido con el Asistente de WhatsApp desde su entrega; en el Pack Crecimiento los dos primeros meses van incluidos y se cobra desde el tercer mes. El cliente puede cancelar en cualquier momento notificando antes de su siguiente ciclo. El pago anual equivale a 10 meses de 12.
               </li>
+              <li>
+                <strong className="text-foreground">Medios de pago:</strong> Los pagos se realizan por transferencia bancaria o mediante un enlace de pago enviado por IsJuanDev. Las mensualidades no se debitan de forma automática: cada mes se pagan con una transferencia o con el enlace de pago que IsJuanDev envía al cliente.
+              </li>
             </ul>
           </section>
 
