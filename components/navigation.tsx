@@ -85,7 +85,7 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background">
           <div className="container mx-auto px-7 py-6 flex flex-col gap-5">
             {/* Principales de Venta */}
             <div className="flex flex-col gap-3">
