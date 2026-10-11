@@ -42,7 +42,7 @@ Todos los proyectos se entregan llave en mano con código 100% propio del client
 
 5. **Sistemas a Medida & CRM**
    - **Enfoque:** Pasarelas locales (Wompi, PSE, Stripe), flujos n8n, portales privados y bases de datos.
-   - **Proceso:** Primero una Auditoría de Procesos ($400.000 COP, ~$121 USD ref., descontable si se contrata el proyecto) y luego entrega por etapas.
+   - **Proceso:** Primero una Auditoría de Procesos ($200.000 COP, ~$61 USD ref., descontable si se contrata el proyecto) y luego entrega por etapas.
    - **Precio:** Desde $2.800.000 COP (~$848 USD ref.) bajo cotización cerrada.
 
 ## Complementos Opcionales (Sin Permanencia)

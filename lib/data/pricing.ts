@@ -193,9 +193,9 @@ export const OPTIONAL_ADDONS: OptionalAddon[] = [
 
 export const CUSTOM_AUDIT = {
   title: 'Auditoría de Procesos',
-  priceCop: 400000,
-  priceUsd: calcUsd(400000), // 121
-  priceDisplay: `${formatCop(400000)} / ${formatUsdRef(400000)}`,
+  priceCop: 200000,
+  priceUsd: calcUsd(200000), // 61
+  priceDisplay: `${formatCop(200000)} / ${formatUsdRef(200000)}`,
   description: 'Antes de construir, entiendo cómo trabaja tu equipo y dónde se pierde el tiempo. Si decides avanzar con el proyecto, el valor de la auditoría se descuenta del total.',
   deliverables: [
     'Mapa de tus procesos y flujos actuales',
