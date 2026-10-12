@@ -18,6 +18,7 @@ import { businessSolutions, faqs } from '@/lib/data/content'
 import { RATE_NOTE, SUBSCRIPTION_TIERS, ANNUAL_NOTE, ENTRY_SETUP_COP, formatCop } from '@/lib/data/pricing'
 import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { PricingPlans } from '@/components/pricing-plans'
+import { MonthlyPlans } from '@/components/monthly-plans'
 import { HeroChatMockup } from '@/components/hero-chat-mockup'
 import { Reveal } from '@/components/motion/reveal'
 import { SITE_CONFIG } from '@/lib/config'
@@ -108,32 +109,6 @@ const BIGGER_OPTIONS = [
     message: '¡Hola Juan! Quiero evaluar un sistema a medida para mi negocio.'
   }
 ]
-
-function IncludesList({ items }: { items: string[] }) {
-  const list = (
-    <ul className="space-y-2">
-      {items.map((item) => (
-        <li key={item} className="flex items-start gap-2 text-xs text-foreground/90">
-          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  )
-
-  return (
-    <>
-      <div className="hidden md:block">{list}</div>
-      <details className="md:hidden group">
-        <summary className="cursor-pointer list-none inline-flex items-center min-h-11 text-sm font-medium text-primary hover:underline underline-offset-4">
-          <span className="group-open:hidden">Ver qué incluye</span>
-          <span className="hidden group-open:inline">Ver menos</span>
-        </summary>
-        <div className="pt-1">{list}</div>
-      </details>
-    </>
-  )
-}
 
 export default function HomePage() {
   return (
@@ -360,53 +335,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-8 sm:mt-12 items-stretch max-w-4xl">
-            {SUBSCRIPTION_TIERS.filter((tier) => tier.id !== 'pro').map((tier, i) => (
-              <Reveal key={tier.id} delay={180 + i * 60} className="flex">
-                <article
-                  className={cn(
-                    'card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border',
-                    tier.highlight
-                      ? 'border-primary/80 bg-card shadow-xl shadow-primary/5 ring-1 ring-primary/30'
-                      : 'border-border/80 bg-card/60'
-                  )}
-                >
-                  <div>
-                    <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-2 mb-3">
-                      <h3 className="font-display font-bold text-xl text-foreground">{tier.name}</h3>
-                      {tier.highlight && (
-                        <span className="whitespace-nowrap text-xs font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
-                          Incluido en el asistente
-                        </span>
-                      )}
-                    </div>
-                    <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mb-4">{tier.description}</p>
-                    <div className="mb-4">
-                      <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className={cn('font-display font-bold text-2xl tracking-tight', tier.highlight ? 'text-secondary' : 'text-foreground')}>
-                          {tier.priceDisplay.split(' / ')[0]}
-                        </span>
-                        <span className="text-xs font-mono text-muted-foreground">/ mes</span>
-                      </div>
-                    </div>
-                    <IncludesList items={tier.features} />
-                  </div>
-                  <div className="mt-5 pt-4 border-t border-border/60">
-                    <Button size="sm" variant="outline" asChild className="w-full gap-2 border-border hover:bg-card text-foreground min-h-11 h-auto whitespace-normal">
-                      <a
-                        href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Quiero saber más sobre el plan mensual ${tier.name}.`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <WhatsAppIcon className="h-3.5 w-3.5" />
-                        <span>Consultar plan {tier.name}</span>
-                      </a>
-                    </Button>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <MonthlyPlans tiers={SUBSCRIPTION_TIERS.filter((tier) => tier.id !== 'pro')} />
         </div>
       </section>
 
