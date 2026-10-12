@@ -15,7 +15,7 @@ export function getRootJsonLd(): StructuredDataGraph {
       name: 'Web Express',
       serviceType: 'Diseño de páginas web',
       description: 'Página única de alto impacto basada en una estructura probada para tu nicho. Optimizada para celulares, lista para captar clientes directo a tu WhatsApp y correo.',
-      price: 690000,
+      price: 750000,
     },
     {
       id: 'service-web-completa',

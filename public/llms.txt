@@ -10,51 +10,58 @@
 - **WhatsApp:** https://wa.me/573178073598
 
 ## Soluciones & Precios (Transparencia Comercial)
-Todos los proyectos se entregan llave en mano con código 100% propio del cliente, sin ataduras a plataformas rígidas.
+Todos los precios se cobran en COP; el USD es una referencia a 3.300 COP/USD. Las webs compradas son 100% del cliente desde la entrega; las webs en suscripción pasan a ser del cliente al completar el pago de la opción de compra.
+
+La página principal muestra tres planes: Web Express, Asistente Automático de WhatsApp y Pack Crecimiento Completo. Tu Nueva Web para Vender y los Sistemas a Medida se ofrecen aparte, para quien necesita algo más grande.
 
 1. **Web Express**
    - **Enfoque:** Lanza tu presencia profesional y empieza a recibir contactos de inmediato.
    - **Plazo:** 2 a 3 días hábiles.
-   - **Precio:** $690.000 COP (~$209 USD ref.).
-   - **Términos:** Compra: pago único · 100% por adelantado.
-   - **Suscripción:** Instalación de $290.000 COP + plan Esencial $69.000 COP/mes (incluye hosting), permanencia mínima de 3 meses y opción de compra.
-   - **Incluye:** Página única personalizada, botón directo a WhatsApp, formulario al correo, diseño móvil responsive, 1 ronda de ajustes y puesta en marcha.
+   - **Precio en suscripción (entrada):** $290.000 COP (~$88 USD ref.) de instalación + plan Esencial $69.000 COP/mes (incluye hosting y renovación de dominio), con permanencia mínima de 3 meses y opción de compra.
+   - **Precio de compra:** $750.000 COP (~$227 USD ref.), pago único, 100% por adelantado. Incluye dominio .com registrado a nombre del cliente y hosting el primer año; desde el segundo año se cubren con el plan Esencial.
+   - **Opción de compra:** la web pasa a ser del cliente cuando lo pagado (instalación + mensualidades) llega a $750.000 COP (7 meses de suscripción), o antes pagando la diferencia.
+   - **Incluye:** Página única basada en la plantilla del nicho, personalizada con marca, textos y fotos; botón directo a WhatsApp; formulario conectado al correo; diseño 100% móvil; 1 ronda de ajustes; dominio .com y hosting (el primer año en compra; incluidos mientras dure el plan Esencial en suscripción); publicación y puesta en marcha.
+   - **No incluye:** páginas adicionales.
 
 2. **Tu Nueva Web para Vender**
    - **Enfoque:** Atrae clientes y haz que te contacten de inmediato desde su celular.
    - **Plazo:** 5 a 7 días hábiles.
-   - **Precio:** $1.450.000 COP (~$439 USD ref.).
-   - **Términos:** Compra: esquema 50/50 (50% anticipo / 50% entrega).
-   - **Suscripción:** Instalación de $690.000 COP + plan Esencial $69.000 COP/mes (incluye hosting y renovación de dominio), permanencia mínima de 3 meses y opción de compra.
-   - **Incluye:** Página web completa para celulares, textos persuasivos orientados a ventas, integración directa con WhatsApp, dominio .com por 1 año, SSL y código 100% propio.
+   - **Precio de compra:** $1.450.000 COP (~$439 USD ref.), pago único, 50% anticipo / 50% entrega.
+   - **Precio en suscripción:** $690.000 COP (~$209 USD ref.) de instalación + plan Esencial $69.000 COP/mes (incluye hosting y renovación de dominio), con permanencia mínima de 3 meses y opción de compra.
+   - **Opción de compra:** la web pasa a ser del cliente cuando lo pagado llega a $1.450.000 COP (12 meses de suscripción), o antes pagando la diferencia.
+   - **Incluye:** Página web completa para celulares, textos persuasivos orientados a ventas, botón directo a WhatsApp, formulario al correo, dominio .com incluido el primer año (desde el segundo año se renueva con el plan Esencial), SSL y puesta en marcha. En compra la web es 100% del cliente desde la entrega; en suscripción, con opción de compra.
 
 3. **Asistente Automático de WhatsApp**
-   - **Enfoque:** Responde en menos de 60 segundos 24/7 con control total y derivación a tu equipo humano.
+   - **Enfoque:** Responde en menos de 60 segundos 24/7 con control total y derivación a tu equipo.
    - **Plazo:** 3 a 5 días hábiles.
-   - **Precio de instalación:** $490.000 COP (~$148 USD ref.) + plan mensual Crecimiento de $149.000 COP/mes (~$45 USD/mes ref.), incluido desde la entrega, con permanencia mínima de 3 meses y luego mes a mes.
-   - **Términos:** Instalación 50% anticipo / 50% entrega.
-   - **Incluye:** Respuestas automáticas con IA calibrada, agendamiento automático en Google Calendar, filtro de curiosos, derivación inteligente a humanos, monitoreo, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual.
+   - **Precio de instalación:** $490.000 COP (~$148 USD ref.), 50% anticipo / 50% entrega.
+   - **Mensualidad:** plan Crecimiento $149.000 COP/mes (~$45 USD/mes ref.), incluido desde la entrega, con permanencia mínima de 3 meses y luego mes a mes.
+   - **Incluye:** Atención inmediata día y noche; configuración y puesta en marcha; respuestas basadas únicamente en la información aprobada por el cliente; agendamiento en Google Calendar; escalamiento humano a tu equipo en casos clave; filtro de curiosos y registro de prospectos en CRM o Sheets; capacitación en video y acompañamiento en la entrega; mensualidad con monitoreo, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual.
+   - **No incluye:** los costos de uso de la API de WhatsApp (los paga el cliente directo al proveedor).
 
 4. **Pack Crecimiento Completo (Recomendado)**
    - **Enfoque:** Tu web de ventas + tu asistente de WhatsApp integrados en un solo sprint de 7 días.
    - **Plazo:** 7 días hábiles.
-   - **Precio:** $1.990.000 COP (~$603 USD ref.) — Ahorro de $248.000 COP.
-   - **Términos:** Esquema 50/50. Plan mensual Crecimiento ($149.000 COP/mes) con los 2 primeros meses incluidos; se cobra desde el mes 3 (completa la permanencia mínima) y luego mes a mes.
-   - **Incluye:** Web completa pensada para vender + Asistente WhatsApp 24/7 + 2 meses del plan Crecimiento (valor $298.000 COP).
+   - **Precio:** $1.990.000 COP (~$603 USD ref.), 50% anticipo / 50% entrega. Ahorro de $248.000 COP frente a contratar web, instalación del asistente y 2 meses de plan Crecimiento por separado.
+   - **Mensualidad:** plan Crecimiento $149.000 COP/mes, con los 2 primeros meses incluidos (valor $298.000 COP); se cobra desde el mes 3, que completa la permanencia mínima, y luego mes a mes.
+   - **Incluye:** Web completa pensada para vender y adaptada 100% a celulares; asistente de WhatsApp 24/7 conectado a los botones de la web; agendamiento automático y respuestas a preguntas frecuentes; escalamiento inmediato al celular del cliente; dominio .com incluido el primer año (desde el segundo año lo renueva el plan Crecimiento), SSL, base de datos y puesta en marcha.
 
 5. **Sistemas a Medida & CRM**
-   - **Enfoque:** Pasarelas locales (Wompi, PSE, Stripe), flujos n8n, portales privados y bases de datos.
-   - **Proceso:** Primero una Auditoría de Procesos ($200.000 COP, ~$61 USD ref., descontable si se contrata el proyecto) y luego entrega por etapas.
-   - **Precio:** Desde $2.800.000 COP (~$848 USD ref.) bajo cotización cerrada.
+   - **Enfoque:** Flujos con n8n, pasarelas locales (Wompi, PSE, Stripe), portales privados y automatización de operaciones complejas.
+   - **Proceso:** Primero una Auditoría de Procesos ($200.000 COP, ~$61 USD ref., descontable si se contrata el proyecto) y luego entrega por etapas con presupuesto cerrado.
+   - **Precio:** Desde $2.800.000 COP (~$848 USD ref.).
 
 ## Modelo: Instalación + Mensualidad
-Cada servicio tiene una instalación (pago único) y una mensualidad. El asistente, la web por suscripción y el plan Pro tienen permanencia mínima de 3 meses; después, mes a mes. En una web por suscripción, la web pasa a ser del cliente cuando lo pagado (instalación + mensualidades) alcanza el precio de compra, o antes pagando la diferencia.
+Cada servicio tiene una instalación (pago único) y una mensualidad. El asistente, la web por suscripción y el plan Pro tienen permanencia mínima de 3 meses; después, mes a mes avisando antes del siguiente ciclo. En una web por suscripción, la web pasa a ser del cliente cuando lo pagado (instalación + mensualidades) alcanza el precio de compra, o antes pagando la diferencia.
+
+## Cancelación y dominio
+Si el cliente cancela Esencial, Crecimiento o Pro, el dominio se transfiere al cliente sin costo (código de autorización y acceso para trasladarlo al registrador que elija). En una web por suscripción cancelada sin ejercer la opción de compra, la web se despublica y el cliente conserva su dominio, textos e imágenes.
 
 ## Planes Mensuales
-Pagando el año completo se reciben 2 meses gratis (10 meses de 12).
-- **Esencial:** $69.000 COP/mes (~$21 USD/mes ref.). Mantenimiento web, monitoreo de disponibilidad y SSL, cambios menores y soporte. Opcional y sin permanencia si la web se compró; obligatorio en web por suscripción (incluye hosting y renovación de dominio).
-- **Crecimiento:** $149.000 COP/mes (~$45 USD/mes ref.). Todo Esencial + asistente de WhatsApp monitoreado, ajuste de respuestas, consumo de IA con uso razonable y reporte mensual. Incluido en el Asistente de WhatsApp.
-- **Pro:** $349.000 COP/mes (~$106 USD/mes ref.). Todo Crecimiento + 1 mejora o flujo nuevo al mes, campañas de reactivación de clientes y revisión mensual.
+Pagando el año completo se reciben 2 meses gratis (10 meses de 12): Esencial $690.000 COP/año, Crecimiento $1.490.000 COP/año, Pro $3.490.000 COP/año.
+- **Esencial:** $69.000 COP/mes (~$21 USD/mes ref.). Mantenimiento técnico y cambios menores de textos, imágenes y enlaces; monitoreo de disponibilidad y SSL; soporte por correo y WhatsApp. Opcional y sin permanencia si la web se compró; obligatorio en web por suscripción (incluye hosting y renovación de dominio).
+- **Crecimiento:** $149.000 COP/mes (~$45 USD/mes ref.). Todo Esencial (incluida la renovación del dominio y el hosting) + asistente de WhatsApp monitoreado, ajuste de respuestas, consumo de IA con uso razonable, reporte mensual (consultas atendidas y citas agendadas) y soporte prioritario por WhatsApp. Incluido en el Asistente de WhatsApp.
+- **Pro:** $349.000 COP/mes (~$106 USD/mes ref.). Todo Crecimiento + 1 mejora o flujo nuevo al mes, campañas de reactivación de clientes por WhatsApp y revisión mensual de resultados (30 min).
 
 ## Enlaces Principales
 - **Inicio / Soluciones:** https://www.isjuandev.com/#servicios

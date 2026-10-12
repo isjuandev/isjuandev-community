@@ -104,7 +104,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Compro mi web o la tomo en suscripción?',
-    answer: 'Tú eliges. En compra pagas una sola vez (Web Express $690.000 o Tu Nueva Web $1.450.000 COP) y la web es tuya desde la entrega; el plan Esencial es opcional. En suscripción pagas una instalación más baja (Web Express $290.000 o Tu Nueva Web $690.000 COP) más el plan Esencial de $69.000 COP al mes, que incluye hosting y renovación de dominio, con permanencia mínima de 3 meses. Además tienes opción de compra: cuando lo que has pagado llega al precio de compra, la web pasa a ser tuya, o puedes adelantarlo pagando la diferencia. Si cancelas sin comprarla, la web se despublica y conservas tu dominio, textos y fotos.'
+    answer: 'Tú eliges. En compra pagas una sola vez (Web Express $750.000 o Tu Nueva Web $1.450.000 COP) y la web es tuya desde la entrega; el plan Esencial es opcional. En suscripción pagas una instalación más baja (Web Express $290.000 o Tu Nueva Web $690.000 COP) más el plan Esencial de $69.000 COP al mes, que incluye hosting y renovación de dominio, con permanencia mínima de 3 meses. Además tienes opción de compra: cuando lo que has pagado llega al precio de compra, la web pasa a ser tuya, o puedes adelantarlo pagando la diferencia. Si cancelas sin comprarla, la web se despublica y conservas tu dominio, textos y fotos.'
   },
   {
     question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',

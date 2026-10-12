@@ -17,8 +17,8 @@ Modelo **instalación + mensualidad**: cada servicio tiene un pago de instalaci�
 
 | Plan | Instalación (COP) | Mensualidad (COP) | Plazo | Pago instalación |
 |---|---|---|---|---|
-| Web Express — compra | $690.000 | Esencial $69.000 opcional | 2–3 días | 100% por adelantado |
-| Web Express — suscripción | $290.000 | Esencial $69.000 obligatorio (incluye hosting) | 2–3 días | 100% por adelantado |
+| Web Express — compra | $750.000 (incluye dominio .com y hosting el 1.er año) | Esencial $69.000 opcional | 2–3 días | 100% por adelantado |
+| Web Express — suscripción | $290.000 | Esencial $69.000 obligatorio (hosting + dominio) | 2–3 días | 100% por adelantado |
 | Tu Nueva Web para Vender — compra | $1.450.000 | Esencial $69.000 opcional | 5–7 días | 50% / 50% |
 | Tu Nueva Web para Vender — suscripción | $690.000 | Esencial $69.000 obligatorio (hosting + dominio) | 5–7 días | 50% / 50% |
 | Asistente Automático de WhatsApp | $490.000 | Crecimiento $149.000 | 3–5 días | 50% / 50% |

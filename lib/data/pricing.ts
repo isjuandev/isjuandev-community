@@ -34,7 +34,7 @@ function webSubscription(setupCop: number, monthlyCop: number, purchaseCop: numb
     setupCop,
     monthlyCop,
     display: `o en suscripción: ${formatCop(setupCop)} + ${formatCop(monthlyCop)} / mes`,
-    note: `Instalación más baja con plan Esencial obligatorio (incluye hosting). ${COMMITMENT_NOTE} Opción de compra: la web pasa a ser tuya cuando lo pagado (instalación + mensualidades) llega a ${formatCop(purchaseCop)}, o antes pagando la diferencia.`,
+    note: `Instalación más baja con plan Esencial obligatorio (incluye hosting y dominio .com). ${COMMITMENT_NOTE} Opción de compra: la web pasa a ser tuya cuando lo pagado (instalación + mensualidades) llega a ${formatCop(purchaseCop)}, o antes pagando la diferencia.`,
   }
 }
 
@@ -84,11 +84,11 @@ export const MAIN_PLANS: PricingPlan[] = [
     title: 'Web Express',
     subtitle: 'Lanza tu presencia profesional y empieza a recibir contactos de inmediato',
     description: 'Página única de alto impacto basada en una estructura probada para tu nicho. Optimizada para celulares, lista para captar clientes directo a tu WhatsApp y correo.',
-    priceCop: 690000,
-    priceUsd: calcUsd(690000), // 209
-    priceDisplay: `${formatCop(690000)} / ${formatUsdRef(690000)}`,
+    priceCop: 750000,
+    priceUsd: calcUsd(750000), // 227
+    priceDisplay: `${formatCop(750000)} / ${formatUsdRef(750000)}`,
     paymentTerms: 'Compra · Pago único · 100% por adelantado',
-    subscription: webSubscription(290000, 69000, 690000),
+    subscription: webSubscription(290000, 69000, 750000),
     timeframe: 'Lista en 2 a 3 días',
     deliverables: [
       'Página única basada en la plantilla de tu nicho, personalizada con tu marca, textos y fotos',
@@ -96,10 +96,11 @@ export const MAIN_PLANS: PricingPlan[] = [
       'Formulario de contacto conectado directo a tu correo',
       'Adaptada 100% a celulares y pantallas móviles',
       '1 ronda de ajustes y afinaciones incluida',
+      'Dominio .com registrado a tu nombre y hosting incluidos el primer año',
       'Publicación y puesta en marcha en la web'
     ],
     notIncluded: [
-      'No incluye dominio .com propio (lo registra el cliente en su cuenta, costo directo) ni páginas adicionales'
+      'No incluye páginas adicionales. Desde el segundo año, la renovación del dominio y el hosting se cubren con el plan Esencial'
     ],
     ctaText: 'Quiero mi Web Express',
     tags: ['Web Express', 'WhatsApp Directo', 'Móvil First', '2-3 Días']
@@ -123,7 +124,7 @@ export const MAIN_PLANS: PricingPlan[] = [
       'Botón directo a tu WhatsApp para que te escriban con un solo toque',
       'Textos claros y persuasivos que explican por qué deben elegirte a ti',
       'Formulario fácil para recibir solicitudes de clientes en tu correo',
-      'Tu nombre en internet (.com), seguridad SSL y puesta en marcha incluida',
+      'Tu nombre en internet (.com) incluido el primer año (desde el segundo año se renueva con el plan Esencial), seguridad SSL y puesta en marcha',
       'En modalidad compra la web es 100% tuya desde la entrega; en suscripción, con opción de compra'
     ],
     ctaText: 'Quiero mi Página Web',
@@ -183,7 +184,7 @@ export const MAIN_PLANS: PricingPlan[] = [
       '2 meses del plan Crecimiento incluidos (valor $298.000 COP): monitoreo, ajustes y reporte mensual',
       'Agendamiento automático de citas y respuestas a preguntas frecuentes',
       'Escalamiento inmediato a tu celular cuando un cliente solicita atención personal',
-      'Dominio .com, seguridad SSL, base de datos y puesta en marcha lista para usar',
+      'Dominio .com incluido el primer año (desde el segundo año lo renueva el plan Crecimiento), seguridad SSL, base de datos y puesta en marcha lista para usar',
       'Ahorras $248.000 COP frente a contratar la web, la instalación del asistente y 2 meses de plan Crecimiento por separado'
     ],
     ctaText: 'Quiero el Pack Completo',
@@ -230,7 +231,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
     annualDisplay: `${formatCop(1490000)} al año`,
     description: 'Tu asistente de WhatsApp funcionando y mejorando cada mes, con resultados a la vista.',
     features: [
-      'Todo lo del plan Esencial',
+      'Todo lo del plan Esencial, incluida la renovación del dominio y el hosting',
       'Asistente de WhatsApp monitoreado y ajuste de respuestas',
       'Consumo del modelo de IA incluido con uso razonable',
       'Reporte mensual: consultas atendidas y citas agendadas',

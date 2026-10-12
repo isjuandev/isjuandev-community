@@ -76,7 +76,7 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Web Express:</strong> Pago del 100% por adelantado al iniciar el sprint (entrega en 2 a 3 días hábiles).
               </li>
               <li>
-                <strong className="text-foreground">Webs en modalidad compra o suscripción:</strong> Web Express y Tu Nueva Web pueden contratarse en compra (pago único; el plan Esencial es opcional y sin permanencia) o en suscripción (instalación reducida de $290.000 COP o $690.000 COP, respectivamente, más el plan Esencial obligatorio, que incluye hosting y renovación de dominio). En suscripción, la web y su hosting permanecen bajo administración de IsJuanDev hasta que el cliente ejerza la opción de compra.
+                <strong className="text-foreground">Webs en modalidad compra o suscripción:</strong> Web Express y Tu Nueva Web pueden contratarse en compra (pago único; incluye dominio .com registrado a nombre del cliente y hosting durante el primer año; desde el segundo año, su renovación se cubre con el plan Esencial, opcional y sin permanencia) o en suscripción (instalación reducida de $290.000 COP o $690.000 COP, respectivamente, más el plan Esencial obligatorio, que incluye hosting y el dominio .com). En suscripción, la web y su hosting permanecen bajo administración de IsJuanDev hasta que el cliente ejerza la opción de compra.
               </li>
               <li>
                 <strong className="text-foreground">Opción de compra:</strong> En una web por suscripción, la titularidad pasa al cliente cuando la suma de la instalación y las mensualidades pagadas alcanza el precio de la modalidad compra del plan contratado. El cliente puede adelantarla en cualquier momento pagando la diferencia.
@@ -117,7 +117,7 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Cancelación voluntaria:</strong> El cliente puede cancelar notificando antes de su siguiente fecha de corte; la cancelación aplica a partir del siguiente ciclo. Si cancela antes de cumplir la permanencia mínima de 3 meses, deberá pagar los meses restantes hasta completarla.
               </li>
               <li>
-                <strong className="text-foreground">Entrega al cancelar:</strong> Al cancelar el plan Crecimiento o Pro, el asistente se desactiva y el cliente recibe una exportación de sus prospectos (Google Sheets o CSV). Al cancelar una web por suscripción sin ejercer la opción de compra, la web se despublica y el cliente conserva su dominio, textos e imágenes.
+                <strong className="text-foreground">Entrega al cancelar:</strong> Al cancelar el plan Crecimiento o Pro, el asistente se desactiva y el cliente recibe una exportación de sus prospectos (Google Sheets o CSV). Al cancelar una web por suscripción sin ejercer la opción de compra, la web se despublica y el cliente conserva su dominio, textos e imágenes. Al cancelar el plan Esencial, Crecimiento o Pro, IsJuanDev transfiere el dominio al cliente sin costo, entregándole el código de autorización y el acceso necesario para trasladarlo al registrador que elija.
               </li>
             </ul>
           </section>
@@ -145,7 +145,7 @@ export default function TerminosPage() {
             </p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>Costos de consumo de la API oficial de WhatsApp (Meta / Cloud API / BSP).</li>
-              <li>Registro y renovación de dominios de internet (salvo cuando se estipule expresamente como incluido en la oferta de lanzamiento).</li>
+              <li>Registro y renovación de dominios de internet, salvo cuando estén incluidos en el plan contratado: Web Express en compra (primer año), Tu Nueva Web (primer año) y las webs por suscripción (mientras esté vigente el plan Esencial). El dominio se registra a nombre del cliente.</li>
               <li>Consumos directos de tokens o saldo en plataformas de modelos de lenguaje (OpenAI, DeepSeek, Anthropic) cuando el cliente no cuente con el plan Crecimiento o Pro, que los cubre dentro de un uso razonable.</li>
             </ul>
           </section>
