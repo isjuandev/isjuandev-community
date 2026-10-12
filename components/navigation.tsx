@@ -42,7 +42,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-7">
             {primaryNavLinks.map((link) => (
               <Link
                 key={link.href}
@@ -57,7 +57,7 @@ export function Navigation() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/contact"
               className="text-[0.88rem] text-muted-foreground hover:text-foreground transition-colors px-1"
@@ -75,7 +75,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground border border-border/80 px-3 min-h-11 rounded"
+            className="lg:hidden text-sm font-medium text-muted-foreground hover:text-foreground border border-border/80 px-4 min-h-11 rounded-lg"
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? 'Cerrar' : 'Menú'}
@@ -85,7 +85,7 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background">
+        <div className="lg:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background">
           <div className="container mx-auto px-7 py-6 flex flex-col gap-5">
             {/* Principales de Venta */}
             <div className="flex flex-col gap-3">

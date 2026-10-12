@@ -15,7 +15,7 @@ import { WhatsAppIcon } from '@/components/platform-icons'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { businessSolutions, faqs } from '@/lib/data/content'
-import { RATE_NOTE, SUBSCRIPTION_TIERS, ANNUAL_NOTE, CUSTOM_SYSTEM, CUSTOM_AUDIT } from '@/lib/data/pricing'
+import { RATE_NOTE, SUBSCRIPTION_TIERS, ANNUAL_NOTE, ENTRY_SETUP_COP, formatCop } from '@/lib/data/pricing'
 import { testimonials, canRenderTestimonials } from '@/lib/data/testimonials'
 import { PricingPlans } from '@/components/pricing-plans'
 import { HeroChatMockup } from '@/components/hero-chat-mockup'
@@ -87,7 +87,25 @@ const differentials = [
   },
   {
     title: 'Todo queda tuyo',
-    description: 'Sin mensualidades forzadas ni plataformas que te aten: el código y los flujos son tuyos.'
+    description: 'Sin plataformas que te aten: compras tu web o la tomas en suscripción con opción de compra, y el código y los flujos son tuyos.'
+  }
+]
+
+const BIGGER_OPTIONS = [
+  {
+    title: 'Tu Nueva Web para Vender',
+    description: 'Una web completa con varias secciones, textos de venta y tu dominio .com, para cuando una sola página se queda corta.',
+    message: '¡Hola Juan! Me interesa Tu Nueva Web para Vender.'
+  },
+  {
+    title: 'Plan Pro mensual',
+    description: 'Un flujo o mejora nueva cada mes, campañas para reactivar clientes por WhatsApp y una revisión de resultados contigo.',
+    message: '¡Hola Juan! Quiero saber más sobre el plan mensual Pro.'
+  },
+  {
+    title: 'Sistemas a medida & CRM',
+    description: 'Pasarelas de pago (Wompi, PSE, Stripe), CRM, portales privados y automatización con n8n. Empieza con una auditoría de tus procesos.',
+    message: '¡Hola Juan! Quiero evaluar un sistema a medida para mi negocio.'
   }
 ]
 
@@ -107,7 +125,7 @@ function IncludesList({ items }: { items: string[] }) {
     <>
       <div className="hidden md:block">{list}</div>
       <details className="md:hidden group">
-        <summary className="cursor-pointer list-none inline-flex items-center min-h-11 text-xs font-mono text-primary hover:underline underline-offset-4">
+        <summary className="cursor-pointer list-none inline-flex items-center min-h-11 text-sm font-medium text-primary hover:underline underline-offset-4">
           <span className="group-open:hidden">Ver qué incluye</span>
           <span className="hidden group-open:inline">Ver menos</span>
         </summary>
@@ -141,17 +159,17 @@ export default function HomePage() {
               </span>
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mb-8">
-              <Button size="lg" asChild className="w-full sm:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5 sm:px-7 py-4 sm:py-6 h-auto min-h-12 text-base rounded-xl transition-all whitespace-normal text-center">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-x-6 gap-y-4 mb-8">
+              <Button size="lg" asChild className="w-full sm:w-auto gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5 sm:px-7 py-4 sm:py-6 h-auto min-h-12 text-base rounded-xl transition-all whitespace-normal sm:whitespace-nowrap text-center">
                 <a href="#auditoria">
                   <Sparkles className="h-4 w-4" />
-                  Pedir mi auditoría gratis (90 s)
+                  Pedir mi auditoría gratis (90&nbsp;s)
                   <ArrowUpRight className="h-4 w-4 ml-0.5" />
                 </a>
               </Button>
               <a
                 href="#servicios"
-                className="inline-flex items-center justify-center gap-1.5 min-h-11 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+                className="inline-flex items-center justify-center gap-1.5 min-h-11 whitespace-nowrap text-sm font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
               >
                 Ver planes y precios
                 <ChevronRight className="h-4 w-4" />
@@ -166,7 +184,7 @@ export default function HomePage() {
                 <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Entrega en 2 a 7 días
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Esquema 50/50
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Desde {formatCop(ENTRY_SETUP_COP)}
               </span>
             </div>
           </div>
@@ -188,18 +206,16 @@ export default function HomePage() {
 
 
       {/* ── 2. AUDITORÍA WEB GRATUITA (LEAD MAGNET COMERCIAL) ──────────────── */}
-      <section className="section bg-card/40 border-y border-border" id="auditoria" data-line="auditoria">
+      <section className="section bg-card/40" id="auditoria" data-line="auditoria">
         <div className="container mx-auto">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <span className="text-xs font-mono px-2.5 py-1 rounded bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider font-semibold">
-                Diagnóstico Gratuito
-              </span>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="eyebrow">Diagnóstico Gratuito</span>
               <span className="text-xs text-muted-foreground">Video de 90 segundos · Sin compromiso</span>
             </div>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="section-title mt-4 text-3xl sm:text-4xl lg:text-5xl">
+            <h2 className="section-title mt-2">
               ¿Tu web y tus redes no están generando ventas<span className="text-primary">?</span>
             </h2>
           </Reveal>
@@ -210,51 +226,57 @@ export default function HomePage() {
           </Reveal>
 
           {/* Grid de 3 Tiles con el mismo diseño y alineación que Planes & Precios */}
-          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
+          <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div className="flex items-center gap-3 sm:block">
-                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 sm:mb-5">
+                <div className="flex items-center sm:items-start gap-4 lg:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 lg:mb-5">
                     <Smartphone className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
+                  <div>
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-2 lg:mb-3">
                     Tu web vista desde el celular
                   </h3>
                   <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Reviso cómo ve tu cliente el sitio desde su teléfono: si se lee bien, si se entiende qué ofreces y si encuentra fácil cómo escribirte.
                   </p>
+                  </div>
                 </div>
               </article>
             </Reveal>
 
             <Reveal delay={240} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div className="flex items-center gap-3 sm:block">
-                  <div className="w-11 h-11 shrink-0 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold mb-0 sm:mb-5">
+                <div className="flex items-center sm:items-start gap-4 lg:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold mb-0 lg:mb-5">
                     <Zap className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
+                  <div>
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-2 lg:mb-3">
                     Por qué no te escriben
                   </h3>
                   <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Te muestro por qué la gente visita tu perfil o tu web y se va sin escribirte: falta de botón directo, formularios engorrosos o lentitud.
                   </p>
+                  </div>
                 </div>
               </article>
             </Reveal>
 
             <Reveal delay={300} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
-                <div className="flex items-center gap-3 sm:block">
-                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 sm:mb-5">
+                <div className="flex items-center sm:items-start gap-4 lg:block">
+                  <div className="w-11 h-11 shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold mb-0 lg:mb-5">
                     <Video className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-3">
+                  <div>
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-0 sm:mb-2 lg:mb-3">
                     Video de 90s + Plan de Acción
                   </h3>
                   <p className="hidden sm:block text-sm text-muted-foreground leading-relaxed">
                     Te grabo un video mostrándote en pantalla los fallos concretos y el plan paso a paso para resolverlos en menos de 7 días.
                   </p>
+                  </div>
                 </div>
               </article>
             </Reveal>
@@ -283,7 +305,7 @@ export default function HomePage() {
                       <span>Pedir Auditoría por WhatsApp</span>
                     </a>
                   </Button>
-                  <p className="text-[11px] text-muted-foreground text-left md:text-right">
+                  <p className="text-xs text-muted-foreground text-left md:text-right">
                     Sin llamadas de venta forzadas · Revisión directa por Juan Diego
                   </p>
                 </div>
@@ -297,7 +319,7 @@ export default function HomePage() {
       <section className="section" id="servicios" data-line="servicios">
         <div className="container mx-auto">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <div className="eyebrow">
               Planes &amp; Precios
             </div>
           </Reveal>
@@ -308,10 +330,9 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Elige el plan ideal para el diseño de páginas web o la integración de tu asistente de WhatsApp con IA. Precios transparentes, sin sorpresas y con entrega en días, no en meses. 
-              Tú eliges qué necesita tu negocio para empezar a vender más hoy.
+              Pagas una instalación para arrancar y una mensualidad pequeña con la que mantengo todo funcionando y mejorando. Precios transparentes y entrega en días, no en meses.
             </p>
-            <p className="text-xs font-mono text-muted-foreground mt-3">
+            <p className="text-xs text-muted-foreground mt-3">
               {RATE_NOTE}
             </p>
           </Reveal>
@@ -321,10 +342,10 @@ export default function HomePage() {
       </section>
 
       {/* ── 3.5 MENSUALIDADES ────────────────────────────────────────────── */}
-      <section className="section border-t border-border" id="mensualidad" data-line="mensualidad">
+      <section className="section bg-card/40" id="mensualidad" data-line="mensualidad">
         <div className="container mx-auto">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">
+            <div className="eyebrow">
               Soporte &amp; Crecimiento Mensual
             </div>
           </Reveal>
@@ -335,12 +356,12 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Un asistente de WhatsApp no se instala y se olvida: lo monitoreo, ajusto sus respuestas y te muestro los resultados. Sin permanencia: avisas antes del siguiente ciclo y listo. {ANNUAL_NOTE}
+              Tu web y tu asistente no se instalan y se olvidan: cada mes los monitoreo, ajusto lo que haga falta y te muestro los resultados. {ANNUAL_NOTE}
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
-            {SUBSCRIPTION_TIERS.map((tier, i) => (
+          <div className="grid md:grid-cols-2 gap-6 mt-8 sm:mt-12 items-stretch max-w-4xl">
+            {SUBSCRIPTION_TIERS.filter((tier) => tier.id !== 'pro').map((tier, i) => (
               <Reveal key={tier.id} delay={180 + i * 60} className="flex">
                 <article
                   className={cn(
@@ -351,10 +372,10 @@ export default function HomePage() {
                   )}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-2 mb-3">
                       <h3 className="font-display font-bold text-xl text-foreground">{tier.name}</h3>
                       {tier.highlight && (
-                        <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
+                        <span className="whitespace-nowrap text-xs font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
                           Incluido en el asistente
                         </span>
                       )}
@@ -367,14 +388,10 @@ export default function HomePage() {
                         </span>
                         <span className="text-xs font-mono text-muted-foreground">/ mes</span>
                       </div>
-                      <div className="text-xs font-mono text-muted-foreground mt-1">
-                        o {tier.annualDisplay} (2 meses gratis)
-                      </div>
                     </div>
                     <IncludesList items={tier.features} />
                   </div>
                   <div className="mt-5 pt-4 border-t border-border/60">
-                    <p className="hidden md:block text-[11px] text-muted-foreground leading-snug mb-3">{tier.note}</p>
                     <Button size="sm" variant="outline" asChild className="w-full gap-2 border-border hover:bg-card text-foreground min-h-11 h-auto whitespace-normal">
                       <a
                         href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Quiero saber más sobre el plan mensual ${tier.name}.`)}
@@ -393,84 +410,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 4. SISTEMAS A MEDIDA ─────────────────────────────────────────── */}
-      <section className="section bg-card/20 border-t border-border" id="sistemas" data-line="sistemas">
+      {/* ── 4. ALGO MÁS GRANDE ───────────────────────────────────────────── */}
+      <section className="section" id="sistemas" data-line="sistemas">
         <div className="container mx-auto">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">
-              Sistemas a Medida &amp; CRM
+            <div className="eyebrow">
+              Proyectos más grandes
             </div>
           </Reveal>
           <Reveal delay={60}>
             <h2 className="section-title mt-2">
-              ¿Tu negocio necesita algo más grande que una web<span className="dot">?</span>
+              ¿Necesitas algo más grande<span className="dot">?</span>
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Pasarelas de pago (Wompi, PSE, Stripe), CRM, portales privados y automatización de procesos con n8n. Primero entiendo cómo trabaja tu equipo; después lo construyo por etapas, sin funciones que no necesitas.
+              Si tu negocio ya creció, armamos algo a tu medida. Escríbeme y te digo en una conversación qué te conviene y cuánto cuesta.
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-8 sm:mt-12 items-stretch">
-            <Reveal delay={180} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-bold text-primary">01</span>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20 font-semibold">
-                      Descontable del proyecto
-                    </span>
+          <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12 items-stretch">
+            {BIGGER_OPTIONS.map((option, i) => (
+              <Reveal key={option.title} delay={180 + i * 60} className="flex">
+                <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-6 rounded-2xl border border-border/80 bg-card/60">
+                  <div>
+                    <h3 className="font-display font-bold text-lg text-foreground mb-2">{option.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{option.description}</p>
                   </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-2">{CUSTOM_AUDIT.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{CUSTOM_AUDIT.description}</p>
-                  <IncludesList items={CUSTOM_AUDIT.deliverables} />
-                </div>
-                <div className="mt-6 pt-4 border-t border-border/60 font-display font-bold text-xl text-foreground">
-                  {CUSTOM_AUDIT.priceDisplay}
-                </div>
-              </article>
-            </Reveal>
-
-            <Reveal delay={240} className="flex">
-              <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-bold text-primary">02</span>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">
-                      Entrega por etapas
-                    </span>
-                  </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-2">{CUSTOM_SYSTEM.title}</h3>
-                  <p className="hidden md:block text-sm text-muted-foreground leading-relaxed mb-5">{CUSTOM_SYSTEM.description}</p>
-                  <IncludesList items={CUSTOM_SYSTEM.deliverables} />
-                </div>
-                <div className="mt-6 pt-4 border-t border-border/60 font-display font-bold text-xl text-foreground">
-                  {CUSTOM_SYSTEM.priceDisplay}
-                </div>
-              </article>
-            </Reveal>
+                  <a
+                    href={SITE_CONFIG.getWhatsAppUrl(option.message)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1.5 min-h-11 text-sm font-semibold text-primary hover:underline underline-offset-4"
+                  >
+                    Escríbeme
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </article>
+              </Reveal>
+            ))}
           </div>
-
-          <Reveal delay={300}>
-            <div className="mt-8">
-              <Button size="lg" variant="outline" asChild className="gap-2 border-border hover:bg-card text-foreground font-semibold py-5">
-                <a href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Quiero agendar la auditoría de procesos para evaluar un sistema a medida para mi negocio.')} target="_blank" rel="noopener noreferrer">
-                  <span>Agendar auditoría de procesos</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </Reveal>
         </div>
       </section>
 
 
       {/* ── 5. EL MÉTODO DE TRABAJO (TIMELINE SECUENCIAL) ─────────────────── */}
-      <section className="section bg-card/30 border-t border-border" id="proceso" data-line="proceso">
+      <section className="section bg-card/40" id="proceso" data-line="proceso">
         <div className="container mx-auto">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <div className="eyebrow">
               Cómo trabajo
             </div>
           </Reveal>
@@ -487,7 +475,7 @@ export default function HomePage() {
           </Reveal>
 
           {/* Flujo de Pasos Conectados */}
-          <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12">
+          <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12">
             {workSteps.map((step, i) => (
               <Reveal key={step.step} delay={180 + i * 80}>
                 <div className="card-editorial p-5 sm:p-7 h-full flex flex-col justify-between border-border/70 bg-background/80 relative">
@@ -514,10 +502,10 @@ export default function HomePage() {
 
       {/* ── 6.5 PRUEBA SOCIAL / TESTIMONIOS (CONDICIONAL) ───────────────── */}
       {canRenderTestimonials && (
-        <section className="section bg-card/20 border-t border-border" id="testimonios" data-line="testimonios">
+        <section className="section" id="testimonios" data-line="testimonios">
           <div className="container mx-auto">
             <Reveal>
-              <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+              <div className="eyebrow">
                 Prueba Social
               </div>
             </Reveal>
@@ -526,7 +514,7 @@ export default function HomePage() {
                 Resultados en negocios reales<span className="dot">.</span>
               </h2>
             </Reveal>
-            <div className="grid md:grid-cols-3 gap-6 mt-8 sm:mt-12 items-stretch">
+            <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12 items-stretch">
               {testimonials.map((t, idx) => (
                 <Reveal key={idx} delay={180 + idx * 80} className="flex">
                   <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
@@ -551,10 +539,11 @@ export default function HomePage() {
       )}
 
       {/* ── 8. PREGUNTAS FRECUENTES (FAQ) ─────────────────────────────────── */}
-      <section className="section bg-card/20 border-t border-border" id="faq" data-line="faq">
-        <div className="container mx-auto max-w-3xl">
+      <section className={cn('section', canRenderTestimonials && 'bg-card/40')} id="faq" data-line="faq">
+        <div className="container mx-auto">
+          <div className="max-w-3xl">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            <div className="eyebrow">
               Preguntas antes de empezar
             </div>
           </Reveal>
@@ -589,14 +578,15 @@ export default function HomePage() {
               ))}
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ── 9. CONTACTO & CIERRE ─────────────────────────────────────────── */}
-      <section className="section contact-section border-t border-border" id="contacto" data-line="contact">
+      <section className={cn('section contact-section', !canRenderTestimonials && 'bg-card/40')} id="contacto" data-line="contact">
         <div className="container mx-auto">
           <Reveal>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold mb-3">
+            <div className="eyebrow mb-3">
               Empecemos
             </div>
           </Reveal>
@@ -626,7 +616,7 @@ export default function HomePage() {
                     Pide tu auditoría gratuita: te grabo un video de 90 segundos mostrándote qué ajustar en tu web o tus redes (con llamada de 15 min opcional si la quieres).
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 text-xs font-mono text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1.5 text-foreground/80">
                       <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" /> Video en menos de 24 horas
                     </span>
@@ -640,7 +630,7 @@ export default function HomePage() {
                   <Button size="lg" asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 sm:py-6 text-sm sm:text-base h-auto min-h-[48px] whitespace-normal sm:whitespace-nowrap text-center justify-center">
                     <a href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Me gustaría recibir la auditoría gratuita de 90 segundos para mi sitio web o negocio.')} target="_blank" rel="noopener noreferrer">
                       <Sparkles className="h-5 w-5 shrink-0" />
-                      <span>Pedir auditoría gratis (90 s)</span>
+                      <span>Pedir auditoría gratis <span className="whitespace-nowrap">(90&nbsp;s)</span></span>
                     </a>
                   </Button>
 
@@ -659,14 +649,14 @@ export default function HomePage() {
                         Usar formulario
                       </Link>
                     </div>
-                    <p className="font-mono text-[0.75rem] text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                       Normalmente respondo en menos de 2 horas
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="relative z-10 mt-8 sm:mt-10 pt-6 border-t border-border/50 flex flex-wrap items-center gap-3 sm:gap-6 text-xs font-mono text-muted-foreground">
+              <div className="relative z-10 mt-8 sm:mt-10 pt-6 border-t border-border/50 flex flex-wrap items-center gap-3 sm:gap-6 text-sm text-muted-foreground">
                 <span>Email: <a href={`mailto:${SITE_CONFIG.email}`} className="text-primary hover:underline break-all sm:break-normal">{SITE_CONFIG.email}</a></span>
                 <span>Ubicación: Colombia (servicio global)</span>
               </div>

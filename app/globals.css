@@ -102,7 +102,7 @@ button:focus-visible {
 
   @media (min-width: 768px) {
     .section {
-      padding: 110px 0;
+      padding: 80px 0;
     }
   }
 
@@ -127,8 +127,20 @@ button:focus-visible {
     font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(2rem, 4.4vw, 3.4rem);
+    line-height: 1.1;
     letter-spacing: -0.01em;
     margin: 0 0 20px;
+  }
+
+  /* Eyebrow — etiqueta corta encima del título de sección */
+  .eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--primary));
   }
 
   .section-title .dot {
@@ -836,12 +848,6 @@ button:focus-visible {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 20px;
-  }
-
-  /* Footer */
-  footer {
-    padding: 90px 0 50px;
-    text-align: center;
   }
 
   footer .tagline {

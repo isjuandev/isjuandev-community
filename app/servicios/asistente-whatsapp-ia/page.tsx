@@ -65,6 +65,12 @@ export default function AsistenteWhatsAppPage() {
             <div className="text-right">
               <div className="text-3xl font-display font-bold text-foreground">{plan.priceDisplay.split(' / ')[0]}</div>
               <div className="text-xs font-mono text-muted-foreground">{plan.paymentTerms}</div>
+              {plan.monthlyDisplay && (
+                <div className="text-sm font-display font-semibold text-foreground mt-1">{plan.monthlyDisplay}</div>
+              )}
+              {plan.subscription && (
+                <div className="text-sm font-display font-semibold text-primary mt-1">{plan.subscription.display}</div>
+              )}
             </div>
           </div>
 

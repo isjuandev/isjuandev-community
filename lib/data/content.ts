@@ -13,7 +13,7 @@ export interface Project {
   status?: string
 }
 
-import { MAIN_PLANS } from '@/lib/data/pricing'
+import { MAIN_PLANS, HOME_PLAN_IDS, formatCop, formatPriceString } from '@/lib/data/pricing'
 
 export interface Solution {
   index: string
@@ -28,6 +28,7 @@ export interface Solution {
   priceNote?: string
   monthlyDisplay?: string
   monthlyNote?: string
+  purchaseDisplay?: string
   ctaText?: string
   popular?: boolean
   tags: string[]
@@ -60,7 +61,8 @@ export interface Tip {
   code: string | null
 }
 
-export const businessSolutions: Solution[] = MAIN_PLANS.map((plan) => ({
+// En webs con suscripción, el precio de entrada (instalación + mensualidad) va primero y la compra queda como alternativa
+export const businessSolutions: Solution[] = MAIN_PLANS.filter((plan) => HOME_PLAN_IDS.includes(plan.id)).map((plan) => ({
   index: plan.index,
   badge: plan.badge,
   popular: plan.popular,
@@ -70,10 +72,11 @@ export const businessSolutions: Solution[] = MAIN_PLANS.map((plan) => ({
   deliverables: plan.deliverables,
   notIncluded: plan.notIncluded,
   timeframe: plan.timeframe,
-  price: plan.priceDisplay,
+  price: plan.subscription ? formatPriceString(plan.subscription.setupCop) : plan.priceDisplay,
   priceNote: plan.paymentTerms,
-  monthlyDisplay: plan.monthlyDisplay,
-  monthlyNote: plan.monthlyNote,
+  monthlyDisplay: plan.subscription ? `+ ${formatCop(plan.subscription.monthlyCop)} / mes` : plan.monthlyDisplay,
+  monthlyNote: plan.subscription ? plan.subscription.note : plan.monthlyNote,
+  purchaseDisplay: plan.subscription ? `o cómprala por ${formatCop(plan.priceCop)} (pago único)` : undefined,
   ctaText: plan.ctaText,
   tags: plan.tags,
 }))
@@ -89,7 +92,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Cómo funciona el esquema de pago?',
-    answer: 'Web Express se paga 100% por adelantado al iniciar el sprint. Tu Nueva Web, la instalación del Asistente de WhatsApp y el Pack Crecimiento se pagan 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades (Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP) no tienen permanencia mínima: avisas antes de tu siguiente ciclo y listo. Si pagas el año completo, recibes 2 meses gratis. Pagas por transferencia o con un enlace de pago que te envío cada mes; no hay débito automático.'
+    answer: 'Todo funciona con instalación + mensualidad. La instalación de Web Express se paga 100% por adelantado; la de Tu Nueva Web, el Asistente de WhatsApp y el Pack Crecimiento, 50% de anticipo para apartar la fecha y 50% cuando todo esté funcionando en producción. Las mensualidades son Esencial $69.000, Crecimiento $149.000 y Pro $349.000 COP. El asistente, la web por suscripción y el plan Pro tienen permanencia mínima de 3 meses; después siguen mes a mes y cancelas avisando antes del siguiente ciclo. Si compraste tu web, el plan Esencial es opcional y sin permanencia. Si pagas el año completo, recibes 2 meses gratis. Pagas por transferencia o con un enlace de pago que te envío cada mes; no hay débito automático.'
   },
   {
     question: '¿Qué pasa si me atraso con la mensualidad?',
@@ -97,7 +100,11 @@ export const faqs: FAQItem[] = [
   },
   {
     question: '¿Por qué el asistente de WhatsApp tiene una mensualidad?',
-    answer: 'Porque un asistente no se instala y se olvida: hay que monitorearlo, ajustar las respuestas cuando cambian tus precios o servicios, cubrir el consumo del modelo de IA y revisar los resultados cada mes. Por eso la instalación es más baja ($490.000 COP) y el plan Crecimiento ($149.000 COP al mes) va incluido. Si prefieres, puedes cancelarlo avisando antes del siguiente ciclo; tu web y tu código siguen siendo tuyos.'
+    answer: 'Porque un asistente no se instala y se olvida: hay que monitorearlo, ajustar las respuestas cuando cambian tus precios o servicios, cubrir el consumo del modelo de IA y revisar los resultados cada mes. Por eso la instalación es más baja ($490.000 COP) y el plan Crecimiento ($149.000 COP al mes) va incluido, con permanencia mínima de 3 meses. Después puedes cancelarlo avisando antes del siguiente ciclo y te entrego la exportación de tus prospectos.'
+  },
+  {
+    question: '¿Compro mi web o la tomo en suscripción?',
+    answer: 'Tú eliges. En compra pagas una sola vez (Web Express $690.000 o Tu Nueva Web $1.450.000 COP) y la web es tuya desde la entrega; el plan Esencial es opcional. En suscripción pagas una instalación más baja (Web Express $290.000 o Tu Nueva Web $690.000 COP) más el plan Esencial de $69.000 COP al mes, que incluye hosting y renovación de dominio, con permanencia mínima de 3 meses. Además tienes opción de compra: cuando lo que has pagado llega al precio de compra, la web pasa a ser tuya, o puedes adelantarlo pagando la diferencia. Si cancelas sin comprarla, la web se despublica y conservas tu dominio, textos y fotos.'
   },
   {
     question: '¿Qué pasa si ya tengo un sitio web en WordPress, Wix o Shopify?',
