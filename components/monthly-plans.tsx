@@ -25,7 +25,7 @@ function TierCard({ tier }: { tier: SubscriptionTier }) {
   return (
     <article
       className={cn(
-        'card-editorial flex flex-col justify-between w-full h-full p-5 sm:p-8 rounded-2xl border',
+        'card-editorial flex flex-col w-full h-full p-5 sm:p-8 rounded-2xl border',
         tier.highlight
           ? 'border-primary/80 bg-card shadow-xl shadow-primary/5 ring-1 ring-primary/30'
           : 'border-border/80 bg-card/60'
@@ -37,6 +37,11 @@ function TierCard({ tier }: { tier: SubscriptionTier }) {
           {tier.highlight && (
             <span className="whitespace-nowrap text-xs font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
               Incluido en el asistente
+            </span>
+          )}
+          {tier.id === 'esencial' && (
+            <span className="whitespace-nowrap text-xs font-mono px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold uppercase tracking-wider">
+              Va con tu web
             </span>
           )}
         </div>
@@ -62,23 +67,6 @@ function TierCard({ tier }: { tier: SubscriptionTier }) {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="mt-5 pt-4 border-t border-border/60">
-        <Button
-          size="sm"
-          variant="outline"
-          asChild
-          className="w-full gap-2 border-border hover:bg-card text-foreground min-h-11 h-auto whitespace-normal"
-        >
-          <a
-            href={SITE_CONFIG.getWhatsAppUrl(`¡Hola Juan! Quiero saber más sobre el plan mensual ${tier.name}.`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon className="h-3.5 w-3.5" />
-            <span>Consultar plan {tier.name}</span>
-          </a>
-        </Button>
       </div>
     </article>
   )
@@ -148,6 +136,24 @@ export function MonthlyPlans({ tiers }: MonthlyPlansProps) {
               />
             </button>
           ))}
+        </div>
+
+        <div className="mt-6 sm:mt-8">
+          <Button
+            size="lg"
+            variant="outline"
+            asChild
+            className="w-full sm:w-auto gap-2 border-border hover:bg-card text-foreground min-h-11 h-auto whitespace-normal"
+          >
+            <a
+              href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Quiero saber más sobre qué incluye la mensualidad.')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              <span>Preguntar por la mensualidad</span>
+            </a>
+          </Button>
         </div>
       </Reveal>
     </div>

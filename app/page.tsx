@@ -321,7 +321,7 @@ export default function HomePage() {
         <div className="container mx-auto">
           <Reveal>
             <div className="eyebrow">
-              Soporte &amp; Crecimiento Mensual
+              Qué incluye tu mensualidad
             </div>
           </Reveal>
           <Reveal delay={60}>
@@ -331,7 +331,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="section-lead max-w-2xl text-muted-foreground">
-              Tu web y tu asistente no se instalan y se olvidan: cada mes los monitoreo, ajusto lo que haga falta y te muestro los resultados. {ANNUAL_NOTE}
+              Es lo que mantiene tu web y tu asistente funcionando: cada mes los monitoreo, ajusto lo que haga falta y te muestro los resultados. {ANNUAL_NOTE}
             </p>
           </Reveal>
 
