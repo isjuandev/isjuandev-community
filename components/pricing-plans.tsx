@@ -245,18 +245,12 @@ export function PricingPlans({ solutions: rawSolutions }: PricingPlansProps) {
           }}
           className="w-full"
         >
-          {/* Contador y flechas (solo cuando hay carrusel) */}
+          {/* Contador (solo cuando hay carrusel) */}
           <div className="flex items-center justify-between gap-4 mb-4 text-xs text-muted-foreground lg:hidden">
             <span>Desliza para ver los {solutions.length} planes</span>
-            <div className="flex items-center gap-3">
-              <span className="font-mono font-semibold text-foreground">
-                {current + 1} / {count || solutions.length}
-              </span>
-              <div className="hidden sm:flex items-center gap-2">
-                <CarouselPrevious className="static translate-y-0 h-9 w-9 border-border bg-card text-foreground hover:bg-card/80" />
-                <CarouselNext className="static translate-y-0 h-9 w-9 border-border bg-card text-foreground hover:bg-card/80" />
-              </div>
-            </div>
+            <span className="font-mono font-semibold text-foreground">
+              {current + 1} / {count || solutions.length}
+            </span>
           </div>
 
           <CarouselContent className="-ml-4 sm:-ml-6 py-2 items-stretch">
@@ -269,6 +263,10 @@ export function PricingPlans({ solutions: rawSolutions }: PricingPlansProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
+
+          {/* Flechas centradas verticalmente sobre el carrusel; en móvil quedan en el borde exterior para no tapar el texto de la tarjeta */}
+          <CarouselPrevious className="-left-4 md:-left-3 top-1/2 -translate-y-1/2 z-10 lg:hidden h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
+          <CarouselNext className="-right-4 md:-right-3 top-1/2 -translate-y-1/2 z-10 lg:hidden h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
         </Carousel>
 
         {/* Indicadores de paginación */}
