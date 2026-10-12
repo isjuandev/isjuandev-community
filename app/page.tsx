@@ -627,10 +627,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="lg:col-span-5 flex flex-col gap-4 bg-background/80 p-4 sm:p-6 md:p-8 rounded-xl border border-border/80">
-                  <Button size="lg" asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 sm:py-6 text-sm sm:text-base h-auto min-h-[48px] whitespace-normal sm:whitespace-nowrap text-center justify-center">
+                  <Button size="lg" asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 sm:py-6 text-sm sm:text-base h-auto min-h-[48px] whitespace-nowrap text-center justify-center">
                     <a href={SITE_CONFIG.getWhatsAppUrl('¡Hola Juan! Me gustaría recibir la auditoría gratuita de 90 segundos para mi sitio web o negocio.')} target="_blank" rel="noopener noreferrer">
                       <Sparkles className="h-5 w-5 shrink-0" />
-                      <span>Pedir auditoría gratis <span className="whitespace-nowrap">(90&nbsp;s)</span></span>
+                      <span><span className="sm:hidden">Auditoría gratis</span><span className="hidden sm:inline">Pedir auditoría gratis</span> (90&nbsp;s)</span>
                     </a>
                   </Button>
 
