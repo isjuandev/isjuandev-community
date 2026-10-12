@@ -11,10 +11,10 @@ export function Footer() {
 
   return (
     <footer data-line="footer" className="border-t border-border bg-card/40">
-      <div className="container mx-auto px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-border/60">
+      <div className="container mx-auto pt-14 pb-12 md:pt-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-border/60">
           {/* Brand & Value Prop (5 columnas) */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-5 space-y-4">
             <Link href="/" className="inline-block">
               <Wordmark size="sm" />
             </Link>
@@ -41,7 +41,7 @@ export function Footer() {
           </div>
 
           {/* Columna 1: Soluciones (3 columnas) */}
-          <div className="lg:col-span-3 space-y-3.5">
+          <div className="col-span-2 sm:col-span-1 lg:col-span-3 space-y-3.5">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
               Soluciones
             </p>
@@ -144,8 +144,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-foreground transition-colors inline-flex items-center gap-1">
+                <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-foreground transition-colors inline-flex items-center gap-1 group py-2.5">
                   <span>Email Directo</span>
+                  <ArrowUpRight className="h-3 w-3 text-muted-foreground/60 group-hover:text-foreground transition-colors" />
                 </a>
               </li>
             </ul>
@@ -153,10 +154,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+        <div className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-xs text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-6">
             <p>© {currentYear} IsJuanDev. Todos los derechos reservados.</p>
-            <SiteCredit />
+            <SiteCredit className="font-sans" />
           </div>
           <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6">
             <Link href="/" className="hover:text-foreground transition-colors py-2.5">

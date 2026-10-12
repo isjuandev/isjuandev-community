@@ -95,8 +95,11 @@ function PlanPrice({ solution, showMonthlyNote = false }: { solution: Solution; 
       {showMonthlyNote && solution.monthlyNote && (
         <div className="text-xs text-muted-foreground leading-snug">{solution.monthlyNote}</div>
       )}
-      {solution.priceNote && (
-        <div className="text-xs font-mono text-muted-foreground leading-snug">{solution.priceNote}</div>
+      {solution.purchaseDisplay && (
+        <div className="text-xs text-muted-foreground leading-snug">{solution.purchaseDisplay}</div>
+      )}
+      {showMonthlyNote && solution.priceNote && (
+        <div className="text-xs text-muted-foreground leading-snug">{solution.priceNote}</div>
       )}
     </div>
   )
@@ -108,18 +111,18 @@ function PlanDetailsDialog({ solution }: { solution: Solution }) {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="inline-flex items-center gap-1 min-h-11 text-xs font-mono text-primary hover:underline underline-offset-4"
+          className="inline-flex items-center gap-1 min-h-11 text-sm font-medium text-primary hover:underline underline-offset-4"
         >
           Ver detalles del plan
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </DialogTrigger>
-      <DialogContent className="max-h-[88vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border-border bg-card p-5 sm:p-8">
+      <DialogContent className="max-h-[88vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border-border bg-card p-5 pb-0 sm:p-8 sm:pb-0">
         <DialogHeader className="pr-6 text-left">
           <DialogTitle className="font-display text-2xl font-bold text-foreground">
             {solution.title}
           </DialogTitle>
-          <DialogDescription className="font-mono text-xs sm:text-sm text-primary">
+          <DialogDescription className="text-sm text-primary">
             {solution.subtitle}
           </DialogDescription>
         </DialogHeader>
@@ -151,7 +154,9 @@ function PlanDetailsDialog({ solution }: { solution: Solution }) {
           )}
         </div>
 
-        <PlanCta solution={solution} />
+        <div className="sticky bottom-0 -mx-5 sm:-mx-8 border-t border-border/60 bg-card px-5 py-4 sm:px-8">
+          <PlanCta solution={solution} />
+        </div>
       </DialogContent>
     </Dialog>
   )
@@ -169,12 +174,12 @@ function PricingCard({ solution }: { solution: Solution }) {
           : 'border-border/80 bg-card/60 hover:border-border'
       )}
     >
-      <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <span className="whitespace-nowrap text-xs font-mono px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">
           {solution.badge}
         </span>
         {solution.popular && (
-          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
+          <span className="whitespace-nowrap text-xs font-mono px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30 font-semibold uppercase tracking-wider">
             Más Vendido
           </span>
         )}
@@ -182,7 +187,7 @@ function PricingCard({ solution }: { solution: Solution }) {
       <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground mb-1.5 leading-snug">
         {solution.title}
       </h3>
-      <p className="text-xs sm:text-sm font-mono text-primary font-medium mb-4 leading-snug">
+      <p className="text-sm text-primary font-medium mb-4 leading-snug">
         {solution.subtitle}
       </p>
 
@@ -229,67 +234,63 @@ export function PricingPlans({ solutions: rawSolutions }: PricingPlansProps) {
 
   return (
     <div className="w-full mt-8">
-      {/* ── Slider / Carousel unificado (2 en desktop md+, 1 en mobile) ── */}
+      {/* ── Carrusel en móvil y tablet; en lg+ embla se desactiva y queda una grilla de 3 ── */}
       <Reveal delay={120}>
-        <div className="relative max-w-5xl mx-auto px-0 sm:px-2">
-          {/* Contador y guía rápida */}
-          <div className="flex items-center justify-between mb-4 px-1 text-xs font-mono text-muted-foreground">
-            <span className="hidden sm:inline-flex items-center gap-1.5">
-              Usa las flechas o desliza para navegar por los planes
-            </span>
-            <span className="sm:hidden inline-flex items-center gap-1">
-              Desliza para explorar planes &rarr;
-            </span>
-            <span className="font-semibold text-foreground">
-              {current + 1} / {count || solutions.length}
-            </span>
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: 'start',
+            loop: true,
+            breakpoints: { '(min-width: 1024px)': { active: false } },
+          }}
+          className="w-full"
+        >
+          {/* Contador y flechas (solo cuando hay carrusel) */}
+          <div className="flex items-center justify-between gap-4 mb-4 text-xs text-muted-foreground lg:hidden">
+            <span>Desliza para ver los {solutions.length} planes</span>
+            <div className="flex items-center gap-3">
+              <span className="font-mono font-semibold text-foreground">
+                {current + 1} / {count || solutions.length}
+              </span>
+              <div className="hidden sm:flex items-center gap-2">
+                <CarouselPrevious className="static translate-y-0 h-9 w-9 border-border bg-card text-foreground hover:bg-card/80" />
+                <CarouselNext className="static translate-y-0 h-9 w-9 border-border bg-card text-foreground hover:bg-card/80" />
+              </div>
+            </div>
           </div>
 
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="w-full relative"
-          >
-            <CarouselContent className="-ml-4 sm:-ml-6 py-2 items-stretch">
-              {solutions.map((solution) => (
-                <CarouselItem
-                  key={solution.index}
-                  className="pl-4 sm:pl-6 basis-[88%] sm:basis-[80%] md:basis-1/2 flex"
-                >
-                  <PricingCard solution={solution} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            {/* Flechas centradas verticalmente sobre el carrusel; en móvil quedan en el borde exterior para no tapar el texto de la tarjeta */}
-            <CarouselPrevious className="-left-4 md:-left-5 top-1/2 -translate-y-1/2 z-10 h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
-            <CarouselNext className="-right-4 md:-right-5 top-1/2 -translate-y-1/2 z-10 h-9 w-9 md:h-10 md:w-10 border-border bg-card/95 text-foreground shadow-lg shadow-black/40 backdrop-blur hover:bg-card before:absolute before:-inset-1 before:content-['']" />
-          </Carousel>
-
-          {/* Indicadores de paginación / Dots interactivos */}
-          <div className="flex justify-center items-center gap-1 mt-2 md:mt-0">
-            {solutions.map((item, index) => (
-              <button
-                key={item.index}
-                type="button"
-                onClick={() => api?.scrollTo(index)}
-                className="group flex h-11 w-6 items-center justify-center"
-                aria-label={`Ver plan ${index + 1}: ${item.title}`}
+          <CarouselContent className="-ml-4 sm:-ml-6 py-2 items-stretch">
+            {solutions.map((solution) => (
+              <CarouselItem
+                key={solution.index}
+                className="pl-4 sm:pl-6 basis-[88%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 flex"
               >
-                <span
-                  className={cn(
-                    'block h-2 rounded-full transition-all duration-300',
-                    current === index
-                      ? 'w-6 bg-primary'
-                      : 'w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/60'
-                  )}
-                />
-              </button>
+                <PricingCard solution={solution} />
+              </CarouselItem>
             ))}
-          </div>
+          </CarouselContent>
+        </Carousel>
+
+        {/* Indicadores de paginación */}
+        <div className="flex justify-center items-center gap-1 mt-2 lg:hidden">
+          {solutions.map((item, index) => (
+            <button
+              key={item.index}
+              type="button"
+              onClick={() => api?.scrollTo(index)}
+              className="group flex h-11 w-6 items-center justify-center"
+              aria-label={`Ver plan ${index + 1}: ${item.title}`}
+            >
+              <span
+                className={cn(
+                  'block h-2 rounded-full transition-all duration-300',
+                  current === index
+                    ? 'w-6 bg-primary'
+                    : 'w-2 bg-muted-foreground/30 group-hover:bg-muted-foreground/60'
+                )}
+              />
+            </button>
+          ))}
         </div>
       </Reveal>
     </div>
