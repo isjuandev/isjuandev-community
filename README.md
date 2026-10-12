@@ -13,15 +13,19 @@ El sitio funciona como embudo de ventas: presenta la oferta (páginas web y asis
 
 ## 🧩 Qué ofrece el sitio
 
-| Plan | Precio (COP) | Plazo | Pago |
-|---|---|---|---|
-| Web Express | $690.000 | 2–3 días | 100% por adelantado |
-| Tu Nueva Web para Vender | $1.450.000 | 5–7 días | 50% / 50% |
-| Asistente Automático de WhatsApp | $790.000 | 3–5 días | 50% / 50% |
-| Pack Crecimiento Completo (web + asistente + 2 meses de soporte) | $1.990.000 | 7 días | 50% / 50% |
-| Sistemas a Medida & CRM (n8n, Wompi, PSE, Stripe) | desde $2.800.000 | cotización cerrada | — |
+Modelo **instalación + mensualidad**: cada servicio tiene un pago de instalación y una mensualidad.
 
-Complementos opcionales sin permanencia: **Soporte Mensual Completo** ($99.000/mes) y **Mantenimiento Web** ($49.000/mes). El cobro es en COP; el USD es solo referencial (tasa 3.300 COP/USD).
+| Plan | Instalación (COP) | Mensualidad (COP) | Plazo | Pago instalación |
+|---|---|---|---|---|
+| Web Express — compra | $690.000 | Esencial $69.000 opcional | 2–3 días | 100% por adelantado |
+| Web Express — suscripción | $290.000 | Esencial $69.000 obligatorio (incluye hosting) | 2–3 días | 100% por adelantado |
+| Tu Nueva Web para Vender — compra | $1.450.000 | Esencial $69.000 opcional | 5–7 días | 50% / 50% |
+| Tu Nueva Web para Vender — suscripción | $690.000 | Esencial $69.000 obligatorio (hosting + dominio) | 5–7 días | 50% / 50% |
+| Asistente Automático de WhatsApp | $490.000 | Crecimiento $149.000 | 3–5 días | 50% / 50% |
+| Pack Crecimiento Completo (web + asistente) | $1.990.000 | Crecimiento $149.000 desde el mes 3 | 7 días | 50% / 50% |
+| Sistemas a Medida & CRM (n8n, Wompi, PSE, Stripe) | desde $2.800.000 | — | cotización cerrada | — |
+
+Planes mensuales: **Esencial** $69.000, **Crecimiento** $149.000, **Pro** $349.000 (anual = 10 de 12 meses). El asistente, la web por suscripción y Pro tienen **permanencia mínima de 3 meses**; después, mes a mes. La web por suscripción tiene **opción de compra**: pasa a ser del cliente cuando lo pagado alcanza el precio de compra. El cobro es en COP; el USD es solo referencial (tasa 3.300 COP/USD).
 
 > Fuente única de precios: `lib/data/pricing.ts`. La home, el JSON-LD y `public/llms.txt` deben mantenerse alineados con ese archivo.
 

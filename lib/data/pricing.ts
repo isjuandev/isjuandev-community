@@ -18,6 +18,26 @@ export function formatPriceString(cop: number): string {
   return `${formatCop(cop)} / ${formatUsdRef(cop)}`
 }
 
+export const MIN_COMMITMENT_MONTHS = 3
+
+export const COMMITMENT_NOTE = `Permanencia mínima de ${MIN_COMMITMENT_MONTHS} meses; después, mes a mes avisando antes del siguiente ciclo.`
+
+export interface SubscriptionOption {
+  setupCop: number
+  monthlyCop: number
+  display: string
+  note: string
+}
+
+function webSubscription(setupCop: number, monthlyCop: number, purchaseCop: number): SubscriptionOption {
+  return {
+    setupCop,
+    monthlyCop,
+    display: `o en suscripción: ${formatCop(setupCop)} + ${formatCop(monthlyCop)} / mes`,
+    note: `Instalación más baja con plan Esencial obligatorio (incluye hosting). ${COMMITMENT_NOTE} Opción de compra: la web pasa a ser tuya cuando lo pagado (instalación + mensualidades) llega a ${formatCop(purchaseCop)}, o antes pagando la diferencia.`,
+  }
+}
+
 export interface PricingPlan {
   id: string
   index: string
@@ -33,6 +53,7 @@ export interface PricingPlan {
   monthlyCop?: number
   monthlyDisplay?: string
   monthlyNote?: string
+  subscription?: SubscriptionOption
   timeframe: string
   deliverables: string[]
   notIncluded?: string[]
@@ -66,7 +87,8 @@ export const MAIN_PLANS: PricingPlan[] = [
     priceCop: 690000,
     priceUsd: calcUsd(690000), // 209
     priceDisplay: `${formatCop(690000)} / ${formatUsdRef(690000)}`,
-    paymentTerms: 'Pago único · 100% por adelantado',
+    paymentTerms: 'Compra · Pago único · 100% por adelantado',
+    subscription: webSubscription(290000, 69000, 690000),
     timeframe: 'Lista en 2 a 3 días',
     deliverables: [
       'Página única basada en la plantilla de tu nicho, personalizada con tu marca, textos y fotos',
@@ -93,7 +115,8 @@ export const MAIN_PLANS: PricingPlan[] = [
     priceCop: 1450000,
     priceUsd: calcUsd(1450000), // 439
     priceDisplay: `${formatCop(1450000)} / ${formatUsdRef(1450000)}`,
-    paymentTerms: 'Pago único · 50% anticipo / 50% entrega',
+    paymentTerms: 'Compra · Pago único · 50% anticipo / 50% entrega',
+    subscription: webSubscription(690000, 69000, 1450000),
     timeframe: 'Lista en 5 a 7 días',
     deliverables: [
       'Página web completa y adaptada 100% para teléfonos celulares',
@@ -101,7 +124,7 @@ export const MAIN_PLANS: PricingPlan[] = [
       'Textos claros y persuasivos que explican por qué deben elegirte a ti',
       'Formulario fácil para recibir solicitudes de clientes en tu correo',
       'Tu nombre en internet (.com), seguridad SSL y puesta en marcha incluida',
-      'Sin pagos mensuales forzados: la página es 100% de tu propiedad'
+      'En modalidad compra la web es 100% tuya desde la entrega; en suscripción, con opción de compra'
     ],
     ctaText: 'Quiero mi Página Web',
     tags: ['Web Móvil', 'WhatsApp Directo', 'Diseño Moderno', 'Dominio .com']
@@ -120,7 +143,7 @@ export const MAIN_PLANS: PricingPlan[] = [
     paymentTerms: 'Instalación · 50% anticipo / 50% entrega',
     monthlyCop: 149000,
     monthlyDisplay: `+ ${formatCop(149000)} / mes`,
-    monthlyNote: 'Plan Crecimiento incluido desde la entrega: monitoreo, ajustes, consumo de IA y reporte mensual. Sin permanencia.',
+    monthlyNote: `Plan Crecimiento incluido desde la entrega: monitoreo, ajustes, consumo de IA y reporte mensual. ${COMMITMENT_NOTE}`,
     timeframe: 'Listo en 3 a 5 días',
     deliverables: [
       'Atención inmediata en WhatsApp en menos de 60 segundos día y noche',
@@ -141,7 +164,7 @@ export const MAIN_PLANS: PricingPlan[] = [
   {
     id: 'pack-crecimiento',
     index: '04',
-    badge: '🔥 RECOMENDADO · MÁXIMA CONVERSIÓN',
+    badge: '🔥 RECOMENDADO',
     popular: true,
     title: 'Pack Crecimiento Completo',
     subtitle: 'Tu web de ventas + tu asistente de WhatsApp integrados en un solo sprint',
@@ -152,7 +175,7 @@ export const MAIN_PLANS: PricingPlan[] = [
     paymentTerms: 'Ahorras $248.000 COP · 50% anticipo / 50% entrega',
     monthlyCop: 149000,
     monthlyDisplay: `+ ${formatCop(149000)} / mes desde el mes 3`,
-    monthlyNote: 'Los 2 primeros meses del plan Crecimiento van incluidos. Después, sin permanencia.',
+    monthlyNote: 'Los 2 primeros meses del plan Crecimiento van incluidos y el mes 3 completa la permanencia mínima. Después, mes a mes.',
     timeframe: 'Listo en 7 días',
     deliverables: [
       'Página web completa pensada para vender adaptada 100% a celulares',
@@ -167,6 +190,13 @@ export const MAIN_PLANS: PricingPlan[] = [
     tags: ['Web + IA WhatsApp', '2 Meses Incluidos', 'Ahorro $248k', 'Sprint 7 Días']
   }
 ]
+
+// Planes que se muestran en la home; el resto se ofrece en "¿Necesitas algo más grande?"
+export const HOME_PLAN_IDS = ['web-express', 'asistente-whatsapp', 'pack-crecimiento']
+
+export const ENTRY_SETUP_COP = Math.min(
+  ...MAIN_PLANS.map((plan) => plan.subscription?.setupCop ?? plan.priceCop)
+)
 
 export const ANNUAL_NOTE = 'Paga el año completo y recibe 2 meses gratis (10 meses de 12).'
 
@@ -184,9 +214,10 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
     features: [
       'Mantenimiento técnico y cambios menores de textos, imágenes y enlaces',
       'Monitoreo de disponibilidad y certificado SSL',
-      'Soporte por correo y WhatsApp'
+      'Soporte por correo y WhatsApp',
+      'En web por suscripción: hosting y renovación de dominio incluidos'
     ],
-    note: 'Opcional para tu web. Sin permanencia: avisas antes del siguiente ciclo.'
+    note: `Opcional si compraste tu web (sin permanencia). Obligatorio en web por suscripción: ${COMMITMENT_NOTE}`
   },
   {
     id: 'crecimiento',
@@ -205,7 +236,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
       'Reporte mensual: consultas atendidas y citas agendadas',
       'Soporte prioritario por WhatsApp'
     ],
-    note: 'Incluido en el Asistente de WhatsApp. Sin permanencia: avisas antes del siguiente ciclo.'
+    note: `Incluido en el Asistente de WhatsApp. ${COMMITMENT_NOTE}`
   },
   {
     id: 'pro',
@@ -223,7 +254,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
       'Campañas de reactivación de clientes por WhatsApp',
       'Revisión mensual de resultados contigo (30 min)'
     ],
-    note: 'Sin permanencia: avisas antes del siguiente ciclo.'
+    note: COMMITMENT_NOTE
   }
 ]
 

@@ -76,10 +76,16 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Web Express:</strong> Pago del 100% por adelantado al iniciar el sprint (entrega en 2 a 3 días hábiles).
               </li>
               <li>
+                <strong className="text-foreground">Webs en modalidad compra o suscripción:</strong> Web Express y Tu Nueva Web pueden contratarse en compra (pago único; el plan Esencial es opcional y sin permanencia) o en suscripción (instalación reducida de $290.000 COP o $690.000 COP, respectivamente, más el plan Esencial obligatorio, que incluye hosting y renovación de dominio). En suscripción, la web y su hosting permanecen bajo administración de IsJuanDev hasta que el cliente ejerza la opción de compra.
+              </li>
+              <li>
+                <strong className="text-foreground">Opción de compra:</strong> En una web por suscripción, la titularidad pasa al cliente cuando la suma de la instalación y las mensualidades pagadas alcanza el precio de la modalidad compra del plan contratado. El cliente puede adelantarla en cualquier momento pagando la diferencia.
+              </li>
+              <li>
                 <strong className="text-foreground">Tu Nueva Web, instalación del Asistente WhatsApp y Pack Crecimiento:</strong> Esquema 50/50 (50% de anticipo para reserva de sprint y comienzo de arquitectura; 50% restante contra entrega y verificación en producción).
               </li>
               <li>
-                <strong className="text-foreground">Planes mensuales (Esencial, Crecimiento y Pro):</strong> Suscripciones mensuales sin cláusula de permanencia mínima. El plan Crecimiento está incluido con el Asistente de WhatsApp desde su entrega; en el Pack Crecimiento los dos primeros meses van incluidos y se cobra desde el tercer mes. El cliente puede cancelar en cualquier momento notificando antes de su siguiente ciclo. El pago anual equivale a 10 meses de 12.
+                <strong className="text-foreground">Planes mensuales (Esencial, Crecimiento y Pro):</strong> Suscripciones mensuales. El Asistente de WhatsApp, la web por suscripción y el plan Pro tienen una permanencia mínima de 3 meses desde la entrega o el inicio del plan; el plan Esencial contratado como complemento de una web comprada no tiene permanencia. El plan Crecimiento está incluido con el Asistente de WhatsApp desde su entrega; en el Pack Crecimiento los dos primeros meses van incluidos y se cobra desde el tercer mes, con lo que se completa la permanencia mínima. Cumplida la permanencia, el cliente puede cancelar notificando antes de su siguiente ciclo. El pago anual equivale a 10 meses de 12.
               </li>
               <li>
                 <strong className="text-foreground">Medios de pago:</strong> Los pagos se realizan por transferencia bancaria o mediante un enlace de pago enviado por IsJuanDev. Las mensualidades no se debitan de forma automática: cada mes se pagan con una transferencia o con el enlace de pago que IsJuanDev envía al cliente.
@@ -96,7 +102,7 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Plazo de gracia:</strong> Si el pago no se recibe en la fecha de corte, el cliente cuenta con un plazo de gracia de 5 días calendario durante el cual el servicio continúa sin interrupción.
               </li>
               <li>
-                <strong className="text-foreground">Suspensión:</strong> Vencido el plazo de gracia sin que se haya recibido el pago, IsJuanDev podrá suspender los servicios mensuales: monitoreo, ajustes, soporte y el funcionamiento del asistente de WhatsApp. La suspensión no afecta los entregables ya pagados ni la propiedad del código y de la página web del cliente.
+                <strong className="text-foreground">Suspensión:</strong> Vencido el plazo de gracia sin que se haya recibido el pago, IsJuanDev podrá suspender los servicios mensuales: monitoreo, ajustes, soporte y el funcionamiento del asistente de WhatsApp. La suspensión no afecta los entregables ya pagados ni la propiedad del código y de la página web que el cliente haya comprado. Una web por suscripción sin opción de compra ejercida puede despublicarse durante la suspensión.
               </li>
               <li>
                 <strong className="text-foreground">Reactivación:</strong> El cliente puede reactivar el servicio pagando el ciclo vencido. IsJuanDev lo reactivará dentro de 1 día hábil tras confirmar el pago, sin cobro adicional por reconexión.
@@ -108,7 +114,10 @@ export default function TerminosPage() {
                 <strong className="text-foreground">Pago anual:</strong> El pago anual se realiza por adelantado y no es reembolsable por meses no utilizados, salvo cuando la falta de prestación del servicio sea imputable a IsJuanDev.
               </li>
               <li>
-                <strong className="text-foreground">Cancelación voluntaria:</strong> El cliente puede cancelar en cualquier momento notificando antes de su siguiente fecha de corte; la cancelación aplica a partir del siguiente ciclo.
+                <strong className="text-foreground">Cancelación voluntaria:</strong> El cliente puede cancelar notificando antes de su siguiente fecha de corte; la cancelación aplica a partir del siguiente ciclo. Si cancela antes de cumplir la permanencia mínima de 3 meses, deberá pagar los meses restantes hasta completarla.
+              </li>
+              <li>
+                <strong className="text-foreground">Entrega al cancelar:</strong> Al cancelar el plan Crecimiento o Pro, el asistente se desactiva y el cliente recibe una exportación de sus prospectos (Google Sheets o CSV). Al cancelar una web por suscripción sin ejercer la opción de compra, la web se despublica y el cliente conserva su dominio, textos e imágenes.
               </li>
             </ul>
           </section>
@@ -118,7 +127,7 @@ export default function TerminosPage() {
               3. Propiedad Intelectual y Código Entregado
             </h2>
             <p>
-              Una vez cancelado el 100% del valor acordado del proyecto:
+              Una vez cancelado el 100% del valor acordado del proyecto (en una web por suscripción, al ejercer la opción de compra):
             </p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>El cliente adquiere la titularidad total sobre el código fuente, flujos de trabajo e interfaces desarrolladas para su solución.</li>

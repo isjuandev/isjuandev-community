@@ -135,6 +135,31 @@ export function getRootJsonLd(): StructuredDataGraph {
           availability: 'https://schema.org/InStock',
           url: `${SITE_URL}/#servicios`,
         },
+        ...MAIN_PLANS.filter((plan) => plan.subscription).map((plan) => ({
+          '@type': 'Offer',
+          name: `${plan.title} (suscripción)`,
+          description: plan.subscription!.note,
+          price: plan.subscription!.setupCop,
+          priceCurrency: 'COP',
+          priceSpecification: [
+            {
+              '@type': 'UnitPriceSpecification',
+              name: 'Instalación',
+              price: plan.subscription!.setupCop,
+              priceCurrency: 'COP',
+            },
+            {
+              '@type': 'UnitPriceSpecification',
+              name: 'Mensualidad',
+              price: plan.subscription!.monthlyCop,
+              priceCurrency: 'COP',
+              billingDuration: 1,
+              unitCode: 'MON',
+            },
+          ],
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}/#servicios`,
+        })),
         ...SUBSCRIPTION_TIERS.map((tier) => ({
           '@type': 'Offer',
           name: `Plan mensual ${tier.name}`,
