@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Footer } from '@/components/footer'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
+import { ChatWidgetNexobite } from '@/components/chat-widget-nexobite'
 import { getRootJsonLd, SITE_URL } from '@/lib/schema'
 
 import './globals.css'
@@ -137,6 +138,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <WhatsAppFloat />
+        <ChatWidgetNexobite />
         <Analytics />
         <SpeedInsights />
       </body>
