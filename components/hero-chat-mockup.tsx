@@ -45,9 +45,7 @@ export function HeroChatMockup({ className }: { className?: string }) {
               key={i}
               className={cn(
                 'flex',
-                m.from === 'client' ? 'justify-start' : 'justify-end',
-                // En móvil se muestran solo la pregunta y la confirmación para acortar el hero
-                (i === 1 || i === 2) && 'hidden sm:flex'
+                m.from === 'client' ? 'justify-start' : 'justify-end'
               )}
             >
               <div

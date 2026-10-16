@@ -168,7 +168,7 @@ export default function HomePage() {
           </div>
 
           {/* Diferenciales en franja corta */}
-          <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mt-10 sm:mt-16 pt-8 sm:pt-10 border-t border-border/50">
+          <div className="hidden sm:grid sm:grid-cols-3 gap-3 sm:gap-4 mt-10 sm:mt-16 pt-8 sm:pt-10 border-t border-border/50">
             {differentials.map((item) => (
               <div key={item.title} className="rounded-2xl bg-card/40 border border-border/70 px-5 py-3.5 sm:p-5">
                 <div className="text-sm font-display font-semibold text-foreground">{item.title}</div>
@@ -201,7 +201,7 @@ export default function HomePage() {
           </Reveal>
 
           {/* Grid de 3 Tiles con el mismo diseño y alineación que Planes & Precios */}
-          <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12 items-stretch">
+          <div className="hidden sm:grid lg:grid-cols-3 gap-4 lg:gap-6 mt-8 sm:mt-12 items-stretch">
             <Reveal delay={180} className="flex">
               <article className="card-editorial flex flex-col justify-between w-full p-5 sm:p-8 rounded-2xl border border-border/80 bg-card/60 hover:border-border transition-all">
                 <div className="flex items-center sm:items-start gap-4 lg:block">
